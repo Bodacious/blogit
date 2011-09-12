@@ -7,14 +7,14 @@ require "blog/version"
 Gem::Specification.new do |s|
   s.name        = "blog"
   s.version     = Blog::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Blog."
-  s.description = "TODO: Description of Blog."
+  s.authors     = ["Bodacious<Gavin Morrice>"]
+  s.email       = ["gavin@gavinmorrice.com"]
+  s.homepage    = "http://bodacious.github.com/blog/"
+  s.summary     = "A mountable Rails blog for Rails 3.1 + applications"
+  s.description = "Add a blog to your Rails application in minutes with this mountable Rails Engine"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.1.0"
   # s.add_dependency "jquery-rails"
