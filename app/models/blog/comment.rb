@@ -1,0 +1,56 @@
+module Blog
+  class Comment < ActiveRecord::Base
+    
+    # ================
+    # = Associations =
+    # ================
+    
+    belongs_to :post, class_name: "Blog::Post", foreign_key: "post_id", counter_cache: true
+    
+    # TODO: Check if this is optimal
+    URL_REGEX   = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+
+    # TODO: Check if this is optimal    
+    EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+    
+    # ============
+    # = Callbacks =
+    # ============
+    
+    before_validation :format_website
+    
+    # ===============
+    # = Validations =
+    # ===============
+    validates :name, presence: true
+    validates :email, presence: true, format: {with: EMAIL_REGEX, allow_blank: true }
+    validates :body, presence: true, length: { minimum: 4, allow_blank: true}
+    validates :website, format: {with: URL_REGEX, allow_blank: true}
+        
+    # nickname acts as a "honeypot" to catch spam
+    # the form field should be hidden using CSS and so 
+    # if present, must be spam.
+    validates :nickname, absence: true
+    
+    # ==============
+    # = Attributes =
+    # ==============
+    
+    # nickname acts as a "honeypot" to catch spam
+    # the form field should be hidden using CSS and so 
+    # if present, must be spam.
+    # 
+    # @attribute
+    attr_accessor :nickname
+    
+    private
+    
+    # Prepend http to the url before the validation check
+    def format_website
+      if self.website.present? and self.website !~ /^http/i
+        self.website = "http://#{self.website}"
+      end
+    end
+    
+  end
+end

@@ -1,0 +1,5 @@
+<%= login_required do  %>
+  <%= actions do %>
+    <%= link_to("edit", edit_post_path(post)) %> | <%= link_to("delete", post, method: :destroy, confirm: "Are you sure you want to remove this post?") %>
+  <% end %>
+<% end %>

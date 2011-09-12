@@ -1,0 +1,7 @@
+var $form = $("form#new_blog_comment");
+<% if comment.save %>
+  $("#comments").append("<%= escape_javascript(render(comment)) %>");
+  $form.get(0).reset();
+<% else %>
+  $form.html("<%= escape_javascript(render('form')) %>");
+<% end %>

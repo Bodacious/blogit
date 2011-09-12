@@ -1,0 +1,17 @@
+<%= form_tag(session_path) do %>
+  
+  <div class="field">
+    <%= label(:session, :username) %><br>
+    <%= text_field(:session, :username) %>
+  </div>
+  
+  <div class="field">
+    <%= label(:session, :password) %><br>
+    <%= password_field(:session, :password) %>
+  </field>
+  
+  <div class="actions">
+    <%= submit_tag("Log in") %>    
+  </div>
+
+<% end %>

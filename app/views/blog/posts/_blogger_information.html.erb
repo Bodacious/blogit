@@ -1,0 +1,4 @@
+<%= blog_post_tag :footer do %>
+    Written by <%= post.blogger_display_name %> at 
+    <%= time_tag(post.created_at, Blog.configuration.datetime_format) %>
+<% end %>

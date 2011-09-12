@@ -1,0 +1,58 @@
+/* =================================== */
+/* = Some CSS for the dummy app only = */
+/* =================================== */
+
+/* *= require_tree . */
+body{
+  font-size: 15px;
+  line-height: 1.5em;
+  font-family: verdana, sans-serif;
+}
+#content, footer{
+  width: 800px;
+  margin: 0 auto;
+}
+footer#application_footer{
+  text-align:center;
+}
+.blog_post {
+
+}
+.blog_post header h1 a{
+  text-decoration: none;
+  color: blue; 
+}
+.blog_post_footer, footer{
+  font-size: 0.8em;
+  font-style: italic;
+  color: silver;
+}
+.blog_post_comments_count{
+  margin: 1em 0;
+  text-align: right;
+}
+.blog_post_spacer{
+  width: 80%;
+  margin: 1em auto;
+  border-color: thin solid silver;
+  border-top: none;
+}
+#new_blog_post_link{
+  text-align: right;
+}
+#new_blog_post, .edit_blog_post{
+  width: 100%;
+  
+}
+#post_title, #post_body{
+  width: 100%;
+}
+.blog_comment{
+  width: 20em;
+  margin: 1em 0;
+  padding: 0 0 1em;
+  border-bottom: thin solid silver;
+}
+.blog_comment .actions, .blog_post .actions{
+  text-align: right;
+}

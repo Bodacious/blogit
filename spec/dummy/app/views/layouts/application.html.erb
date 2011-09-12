@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy</title>
+  <%= stylesheet_link_tag "blog", "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="content">
+    
+    <% if current_user %>
+      <%= link_to("log out", main_app.session_path, method: :delete) %>
+    <% else %>
+      <%= link_to("log in", main_app.new_session_path) %>
+    <% end %>
+    
+    <h1><%= link_to("My Awesome Blog", root_path) %></h1>
+    
+    <%= yield %>  
+  </div>
+
+  <footer id="application_footer">
+    By <%= link_to("Gavin Morrice", "http://gavinmorrice.com") %>
+  </footer>
+  <%= javascript_include_tag "blog" %>
+</body>
+</html>
