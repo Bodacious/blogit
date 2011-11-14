@@ -34,6 +34,10 @@ Blogit.configure do |config|
   # The default format for parsing the blog content.
   config.default_parser = :markdown
 
+  # If blog content contains code, this should be highlighted using
+  # albino.
+  config.highlight_code_syntax = true
+  
   # When using redcarpet as content parser, pass these options as defaults.
   # @see here for more options: https://github.com/tanoku/redcarpet
   config.redcarpet_options = [:hard_wrap, :filter_html, :autolink, 
