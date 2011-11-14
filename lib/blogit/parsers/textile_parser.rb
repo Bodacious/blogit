@@ -1,4 +1,4 @@
-class ::TextileFormatter
+class Blogit::Parsers::TextileParser
 
   require "redcloth"
 

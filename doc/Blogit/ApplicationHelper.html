@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Blogit::ApplicationHelper
+  
+    &mdash; Documentation by YARD 0.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (A)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
+     &raquo; 
+    <span class="title">ApplicationHelper</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Blogit::ApplicationHelper
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/helpers/blogit/application_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="TIMETAG_FORMAT-constant" class="">TIMETAG_FORMAT =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%Y-%m-%dT%TZ</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#actions-instance_method" title="#actions (instance method)">- (Object) <strong>actions</strong>(content_or_options = {}, options = {}, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A helper method for creating a <tt>&lt;div&gt;</tt> tag with class &#8216;actions&#8217;
+Used for option links and form buttons.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#errors_on-instance_method" title="#errors_on (instance method)">- (Object) <strong>errors_on</strong>(object, attribute) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the first error message for an ActiveRecord model instance.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#field-instance_method" title="#field (instance method)">- (Object) <strong>field</strong>(content_or_options = {}, options = {}, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A helper method for creating a <tt>&lt;div&gt;</tt> tag with class &#8216;field&#8217;
+Used for separating form fields.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#login_required-instance_method" title="#login_required (instance method)">- (Object) <strong>login_required</strong>(content_or_options = {}, options = {}, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A helper method for creating a <tt>&lt;div&gt;</tt> tag with class
+&#8216;login_required&#8217; Will only render content if there is a logged
+in user.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#time_tag-instance_method" title="#time_tag (instance method)">- (Object) <strong>time_tag</strong>(time_object, format = nil, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns an HTML 5 time tag.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="actions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>actions</strong>(content_or_options = {}, options = {}, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A helper method for creating a <tt>&lt;div&gt;</tt> tag with class &#8216;actions&#8217;
+Used for option links and form buttons
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/application_helper.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id actions'>actions</span><span class='lparen'>(</span><span class='id content_or_options'>content_or_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id div_with_default_class'>div_with_default_class</span><span class='lparen'>(</span><span class='symbol'>:actions</span><span class='comma'>,</span> <span class='id content_or_options'>content_or_options</span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="errors_on-instance_method">
+  
+    - (<tt>Object</tt>) <strong>errors_on</strong>(object, attribute) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the first error message for an ActiveRecord model instance
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+A model instance to check
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>attribute</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+A symbol or string for attribute name to check for  errors
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/application_helper.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id errors_on'>errors_on</span><span class='lparen'>(</span><span class='id object'>object</span><span class='comma'>,</span> <span class='id attribute'>attribute</span><span class='rparen'>)</span>
+  <span class='id object'>object</span><span class='period'>.</span><span class='id errors'>errors</span><span class='lbracket'>[</span><span class='id attribute'>attribute</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id first'>first</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="field-instance_method">
+  
+    - (<tt>Object</tt>) <strong>field</strong>(content_or_options = {}, options = {}, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A helper method for creating a <tt>&lt;div&gt;</tt> tag with class &#8216;field&#8217;
+Used for separating form fields
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/application_helper.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id field'>field</span><span class='lparen'>(</span><span class='id content_or_options'>content_or_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id div_with_default_class'>div_with_default_class</span><span class='lparen'>(</span><span class='symbol'>:field</span><span class='comma'>,</span> <span class='id content_or_options'>content_or_options</span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="login_required-instance_method">
+  
+    - (<tt>Object</tt>) <strong>login_required</strong>(content_or_options = {}, options = {}, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A helper method for creating a <tt>&lt;div&gt;</tt> tag with class
+&#8216;login_required&#8217; Will only render content if there is a logged
+in user
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/application_helper.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id login_required'>login_required</span><span class='lparen'>(</span><span class='id content_or_options'>content_or_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id div_with_default_class'>div_with_default_class</span><span class='lparen'>(</span><span class='symbol'>:login_required</span><span class='comma'>,</span> <span class='id content_or_options'>content_or_options</span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id current_blogger'>current_blogger</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="time_tag-instance_method">
+  
+    - (<tt>Object</tt>) <strong>time_tag</strong>(time_object, format = nil, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns an HTML 5 time tag
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>time_object</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Any Time or DateTime object
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>format</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+If passed a string will treat as a strftime format. If passed a symbol will
+treat as pre-set datetime format.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/application_helper.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id time_tag'>time_tag</span><span class='lparen'>(</span><span class='id time_object'>time_object</span><span class='comma'>,</span> <span class='id format'>format</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># if there's a specified format and it's a string, assume it's an strftime string
+</span>  <span class='kw'>if</span> <span class='id format'>format</span> <span class='op'>&amp;&amp;</span> <span class='id format'>format</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+    <span class='id time_string'>time_string</span> <span class='op'>=</span> <span class='id time_object'>time_object</span><span class='period'>.</span><span class='id strftime'>strftime</span><span class='lparen'>(</span><span class='id format'>format</span><span class='rparen'>)</span>
+  <span class='comment'># if there's a specified format and it's a symbol, assume it's a predefined format
+</span>  <span class='kw'>elsif</span> <span class='id format'>format</span> <span class='op'>&amp;&amp;</span> <span class='id format'>format</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span>
+    <span class='id time_string'>time_string</span> <span class='op'>=</span> <span class='id time_object'>time_object</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='lparen'>(</span><span class='id format'>format</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id time_string'>time_string</span> <span class='op'>=</span> <span class='id time_object'>time_object</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>end</span>
+  <span class='id options'>options</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='label'>datetime:</span> <span class='id time_object'>time_object</span><span class='period'>.</span><span class='id strftime'>strftime</span><span class='lparen'>(</span><span class='const'>TIMETAG_FORMAT</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:time</span><span class='comma'>,</span> <span class='id time_string'>time_string</span><span class='comma'>,</span> <span class='id options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Nov 14 22:08:35 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.3 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

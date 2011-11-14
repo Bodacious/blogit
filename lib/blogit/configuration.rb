@@ -16,8 +16,7 @@ module Blogit
     # Defaults to :short
     attr_accessor :datetime_format
     
-    # No. of posts to show per page
-    # 
+    # Number of posts to show per page
     # @see https://github.com/amatsuda/kaminari
     # @see Blogit::Post
     attr_accessor :posts_per_page
@@ -44,7 +43,7 @@ module Blogit
     
     # The default format for parsing the blog content.
     # Defaults to :markdown
-    attr_writer :default_formatter
+    attr_accessor :default_parser
       
     # When using redcarpet as content parser, pass these options as defaults
     # Defaults to REDCARPET_OPTIONS
@@ -63,12 +62,12 @@ module Blogit
       @author_edits_only           = false
       @ajax_comments               = true
       @include_admin_actions       = true
-      @default_formatter              = :markdown
+      @default_parser           = :markdown
       @redcarpet_options           = REDCARPET_OPTIONS
     end
     
-    def default_formatter
-      "#{@default_formatter}_formatter".classify.constantize
+    def default_parser_class
+      "Blogit::Parsers::#{@default_parser.to_s.classify}Parser".constantize
     end
     
   end

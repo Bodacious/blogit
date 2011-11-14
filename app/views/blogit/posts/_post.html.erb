@@ -1,4 +1,4 @@
-<%= content_tag_for(:article, post) do %>
+<%= content_tag(:article, id: "blog_post_#{post.id}", class: "blog_post") do %>
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>

@@ -40,13 +40,13 @@ describe Blogit::Configuration do
     blog_configuration.include_admin_actions.should be_true
   end
 
-  it "should set default_formatter to MarkdownParser" do
-    blog_configuration.default_formatter.should eql(MarkdownParser)
+  it "should set default_parser to :markdown" do
+    blog_configuration.default_parser.should eql(:markdown)
   end
   
-  it "should classify default_formatter when set" do
-    blog_configuration.default_formatter = :textile
-    blog_configuration.default_formatter.should eql(TextileParser)
+  it "should return default_parser as class with default_parser_class" do
+    blog_configuration.default_parser = :textile
+    blog_configuration.default_parser_class.should eql(Blogit::Parsers::TextileParser)
   end
   
   it "should set redcarpet default options" do

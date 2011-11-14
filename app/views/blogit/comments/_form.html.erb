@@ -1,5 +1,7 @@
 
-<%= form_for [post, comment], remote: true do |f| -%>
+<%= form_for [post, comment], remote: true, 
+  html: {
+    class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
   
   <p>Leave a comment</p>
   

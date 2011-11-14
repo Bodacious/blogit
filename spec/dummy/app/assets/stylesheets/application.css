@@ -15,44 +15,4 @@ body{
 footer#application_footer{
   text-align:center;
 }
-.blogit_post {
 
-}
-.blogit_post header h1 a{
-  text-decoration: none;
-  color: blue; 
-}
-.blogit_post_footer, footer{
-  font-size: 0.8em;
-  font-style: italic;
-  color: silver;
-}
-.blogit_post_comments_count{
-  margin: 1em 0;
-  text-align: right;
-}
-.blogit_post_spacer{
-  width: 80%;
-  margin: 1em auto;
-  border-color: thin solid silver;
-  border-top: none;
-}
-#new_blogit_post_link{
-  text-align: right;
-}
-#new_blogit_post, .edit_blogit_post{
-  width: 100%;
-  
-}
-#post_title, #post_body{
-  width: 100%;
-}
-.comment{
-  width: 20em;
-  margin: 1em 0;
-  padding: 0 0 1em;
-  border-bottom: thin solid silver;
-}
-.blog_comment .actions, .blogit_post .actions{
-  text-align: right;
-}

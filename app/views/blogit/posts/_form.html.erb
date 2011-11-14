@@ -1,34 +1,43 @@
-<%= form_for(post) do |f| %>
+<%= form_for(post, html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
+
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <%= field do %>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  <% end %>
-  
-  <%= field do %>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  <% end %>
-  
-  <%= field do %>
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list %>
-  <% end %>
-  
+  <fieldset>
+    <%= field do %>
+      <%= f.text_field :title, placeholder: "Give your post a title" %>
+    <% end %>
+
+    <%= field do %>
+      <%= f.text_area :body, placeholder: "Write something here..." %>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+
+    <%= field id: "new_blog_post_tag_field" do %>
+      <%= f.label :tag_list, "Tags" %>
+      <%= f.text_field :tag_list, placeholder: "tag one, tag two, etc..." %>
+    <% end %>
+    
+    <p class="blog_post_tip">
+      Tip: you can style your post using <%= blogit_conf.default_parser %>
+    </p>
+
+  </fieldset>
+
   <%= actions do %>
     <%= f.submit %> or 
     <%= link_to("cancel", post.new_record? ? root_path : post_path(post)) %>
   <% end %>
-  
+
 <% end %>

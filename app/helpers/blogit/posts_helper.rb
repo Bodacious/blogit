@@ -1,11 +1,16 @@
 module Blogit
   module PostsHelper
     
+    # Format content using the {Blogit::Configuration#default_parser_class default_parser_class}
     def format_content(content = nil, &block)
       content = capture(&block) if block_given?
-      Blogit::configuration.default_formatter.new(content).parsed.html_safe
+      parser = Blogit::configuration.default_parser_class.new(content)
+      parser.parsed.html_safe
     end
     
+    # Creates a div tag with class 'blog_post_' + name
+    # Eg: 
+    #   blog_post_tag(:title, "") # => <div class="blog_post_title"></div>
     def blog_post_tag(name, content_or_options = {}, options ={}, &block)
       if block_given?
         content = capture(&block)

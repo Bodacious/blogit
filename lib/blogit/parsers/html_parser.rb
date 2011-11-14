@@ -1,4 +1,4 @@
-class ::HtmlFormatter
+class Blogit::Parsers::HtmlParser
 
   attr_reader :parsed
 
