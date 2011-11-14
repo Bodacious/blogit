@@ -54,4 +54,8 @@ describe Blogit::Configuration do
       [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
   end
   
+  it "should set highlight_code_syntax to true" do
+    blog_configuration.highlight_code_syntax.should be_true
+  end
+  
 end

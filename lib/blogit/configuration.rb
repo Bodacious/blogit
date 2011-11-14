@@ -21,6 +21,11 @@ module Blogit
     # @see Blogit::Post
     attr_accessor :posts_per_page
     
+    # Should text within "```" or "`" be highlighted as code?
+    # Defaults to true
+    # @note - At the moment this only works when default_parser
+    #   is :markdown
+    attr_accessor :highlight_code_syntax
     
     # The name of the before filter we'll call to authenticate the current user.
     # Defaults to :login_required
@@ -62,7 +67,8 @@ module Blogit
       @author_edits_only           = false
       @ajax_comments               = true
       @include_admin_actions       = true
-      @default_parser           = :markdown
+      @default_parser              = :markdown
+      @highlight_code_syntax       = true
       @redcarpet_options           = REDCARPET_OPTIONS
     end
     
