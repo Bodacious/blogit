@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    blogit (0.0.2)
+    blogit (0.0.4)
       RedCloth
       jquery-rails
       nokogiri
