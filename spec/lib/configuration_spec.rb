@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Blog::Configuration do
+describe Blogit::Configuration do
   
-  let(:blog_configuration) { @blog_configuration = Blog::Configuration.new }
+  let(:blog_configuration) { @blog_configuration = Blogit::Configuration.new }
   
   it "should set :include_comments to true" do
     blog_configuration.include_comments.should be_true
@@ -26,6 +26,32 @@ describe Blog::Configuration do
   
   it "should set datetime format to :short" do
     blog_configuration.datetime_format.should == :short
+  end
+  
+  it "should set author_edits_only to false" do
+    blog_configuration.author_edits_only.should be_false
+  end
+  
+  it "should set ajax comments to true" do
+    blog_configuration.ajax_comments.should be_true
+  end
+  
+  it "should set include admin actions to true" do
+    blog_configuration.include_admin_actions.should be_true
+  end
+
+  it "should set default_formatter to MarkdownParser" do
+    blog_configuration.default_formatter.should eql(MarkdownParser)
+  end
+  
+  it "should classify default_formatter when set" do
+    blog_configuration.default_formatter = :textile
+    blog_configuration.default_formatter.should eql(TextileParser)
+  end
+  
+  it "should set redcarpet default options" do
+    blog_configuration.redcarpet_options.should == 
+      [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
   end
   
 end

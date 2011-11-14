@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(:version => 20110819103335) do
 
   create_table "blog_comments", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
     t.string   "website"
-    t.text     "body"
-    t.integer  "post_id"
+    t.text     "body",       :null => false
+    t.integer  "post_id",    :null => false
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20110819103335) do
   add_index "blog_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
 
   create_table "blog_posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
+    t.string   "title",                         :null => false
+    t.text     "body",                          :null => false
     t.integer  "blogger_id"
     t.string   "blogger_type"
     t.integer  "comments_count", :default => 0, :null => false

@@ -1,0 +1,7 @@
+<%= render post %>
+<% if blogit_conf.include_comments %>
+  <div id="comments">
+    <%= render comments %>
+  </div>
+  <%= render "blogit/comments/form" %>    
+<% end %>

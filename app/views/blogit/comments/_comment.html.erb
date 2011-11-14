@@ -1,0 +1,16 @@
+<%= content_tag_for(:article, comment) do %>
+  <%= content_tag(:div, class: "blog_comment_name", id: "blog_comment_#{comment.id}_name") do %>
+    <%= comment.website? ? link_to(comment.name, comment.website) : comment.name %> wrote:
+  <% end %>
+  
+  <%= content_tag(:div, comment.body, class: "blog_comment_body", id: "blog_comment_#{comment.id}_body") %>
+  
+  <%= blog_comment_tag(:footer) do %>
+    Posted on <%= time_tag(post.created_at, Blogit.configuration.datetime_format) %>
+  <% end %>
+  
+  <%= login_required(class: "actions") do %>
+    <%= link_to("delete", [post, comment], method: :delete) %>
+  <% end %>
+  
+<% end %>

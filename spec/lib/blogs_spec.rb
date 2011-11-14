@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe Blog::Blogs do
+describe Blogit::Blogs do
   
   it "should be included in ActiveRecord::Base" do
-    ActiveRecord::Base.included_modules.should include(Blog::Blogs)
+    ActiveRecord::Base.included_modules.should include(Blogit::Blogs)
   end
   
   describe :blogs do

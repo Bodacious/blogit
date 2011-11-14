@@ -1,0 +1,19 @@
+<%= content_tag_for(:article, post) do %>
+
+  <%# Render the header for this blog post %>
+  <%= render "blogit/posts/post_head", post: post %>
+
+  <%# Render the body of this blog post (as Markdown) %>
+  <%= render "blogit/posts/post_body", post: post %>
+  
+  <%# Render admin links to edit/delete this post %>
+  <%= render "blogit/posts/post_links", post: post %>
+  
+  <%# Render info about the person who wrote this post %>
+  <%= render "blogit/posts/blogger_information", post: post %>
+  
+  <%# Render the no. of comments %>
+  <%= render "blogit/posts/comments_count", 
+    post: post if defined?(show_comments_count) and show_comments_count %>
+  
+<% end %>

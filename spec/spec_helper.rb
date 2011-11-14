@@ -7,7 +7,7 @@ require "factory_girl"
 require "factories"
 require "support/authentication"
 
-include Blog
+include Blogit
 
 RSpec.configure do |config|
   config.mock_with :mocha

@@ -3,7 +3,9 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
-require "blog"
+
+require "blogit"
+
 module Dummy
   class Application < Rails::Application
     # Configure the default encoding used in templates for Ruby 1.9.
