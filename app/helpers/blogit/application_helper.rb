@@ -8,7 +8,8 @@ module Blogit
     # @param attribute A symbol or string for attribute name to check for 
     #   errors
     def errors_on(object, attribute)
-      object.errors[attribute].first.to_s
+      error_message = object.errors[attribute].first
+      content_tag(:span, error_message, class: "blogit_error_message") if error_message
     end
     
     # A helper method for creating a +<div>+ tag with class 'field'
