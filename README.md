@@ -21,6 +21,7 @@ $ rails g blogit:install
 ``` 
 
 And finally
+
 ``` ruby
 # This will add the necessary migrations to your app's db/migrate directory
 rake blogit:install:migrations
