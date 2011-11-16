@@ -33,7 +33,6 @@ module Blogit
     
     # If set to true, only the user who authored the post may, edit or destroy.
     # Defaults to false
-    # @note This has not been properly implemented yet
     attr_accessor :author_edits_only
     
     # If set to true, the comments form will POST and DELETE to the comments 

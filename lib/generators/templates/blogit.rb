@@ -28,7 +28,6 @@ Blogit.configure do |config|
   # If set to true, the create, edit, update and destroy actions
   # will be included. If set to false, you'll have to set these 
   # yourself elsewhere in the app.
-  # @note - This is not currently implemented
   config.include_admin_actions = true
 
   # The default format for parsing the blog content.

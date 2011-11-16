@@ -24,31 +24,36 @@ module Blogit
     def show
     end
 
-    def new
-    end
+    # Don't include admin actions if not
+    if blogit_conf.include_admin_actions
 
-    def edit
-    end
-
-    def create
-      if post.save
-        redirect_to post, notice: 'Blog post was successfully created.'
-      else
-        render action: "new"
+      def new
       end
-    end
 
-    def update
-      if post.update_attributes(params[:post])
-        redirect_to post, notice: 'Blog post was successfully updated.'
-      else
-        render action: "edit"
+      def edit
       end
-    end
 
-    def destroy
-      post.destroy
-      redirect_to posts_url, notice: "Blog post was successfully destroyed."
+      def create
+        if post.save
+          redirect_to post, notice: 'Blog post was successfully created.'
+        else
+          render action: "new"
+        end
+      end
+
+      def update
+        if post.update_attributes(params[:post])
+          redirect_to post, notice: 'Blog post was successfully updated.'
+        else
+          render action: "edit"
+        end
+      end
+
+      def destroy
+        post.destroy
+        redirect_to posts_url, notice: "Blog post was successfully destroyed."
+      end
+      
     end
 
   end
