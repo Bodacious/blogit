@@ -3,7 +3,11 @@
     <%= comment.website? ? link_to(comment.name, comment.website) : comment.name %> wrote:
   <% end %>
   
-  <%= content_tag(:div, comment.body, class: "blog_comment_body", id: "blog_comment_#{comment.id}_body") %>
+
+  <%= content_tag(:div, class: "blog_comment_body", 
+      id: "blog_comment_#{comment.id}_body") do %>
+      <%= format_content comment.body %>      
+  <% end %>
   
   <%= blog_comment_tag(:footer) do %>
     Posted on <%= time_tag(post.created_at, Blogit.configuration.datetime_format) %>

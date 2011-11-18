@@ -3,6 +3,13 @@ module Blogit
     
     TIMETAG_FORMAT = "%Y-%m-%dT%TZ"
     
+    # Format content using the {Blogit::Configuration#default_parser_class default_parser_class}
+    def format_content(content = nil, &block)
+      content = capture(&block) if block_given?
+      parser = Blogit::configuration.default_parser_class.new(content)
+      parser.parsed.html_safe
+    end
+    
     # Returns the first error message for an ActiveRecord model instance
     # @param object A model instance to check
     # @param attribute A symbol or string for attribute name to check for 
