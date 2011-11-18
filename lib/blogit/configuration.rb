@@ -45,6 +45,11 @@ module Blogit
     # yourself elsewhere in the app
     attr_accessor :include_admin_actions
     
+    # If set to true, links for new posts, editing posts and deleting comments
+    # will be available. If set to false, you'll have to set these 
+    # yourself in the templates.
+    attr_accessor :include_admin_links
+    
     # The default format for parsing the blog content.
     # Defaults to :markdown
     attr_accessor :default_parser
@@ -66,6 +71,7 @@ module Blogit
       @author_edits_only           = false
       @ajax_comments               = true
       @include_admin_actions       = true
+      @include_admin_links       = true      
       @default_parser              = :markdown
       @highlight_code_syntax       = true
       @redcarpet_options           = REDCARPET_OPTIONS

@@ -13,8 +13,6 @@
     Posted on <%= time_tag(post.created_at, Blogit.configuration.datetime_format) %>
   <% end %>
   
-  <%= login_required(class: "actions") do %>
-    <%= link_to("delete", [post, comment], method: :delete) %>
-  <% end %>
+  <%= render partial: "blogit/comments/admin_links" %>
   
 <% end %>

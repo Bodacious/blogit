@@ -30,6 +30,12 @@ Blogit.configure do |config|
   # yourself elsewhere in the app.
   config.include_admin_actions = true
 
+  # If set to true, links for new posts, editing posts and deleting comments
+  # will be available. If set to false, you'll have to set these 
+  # yourself in the templates.
+  config.include_admin_links = true
+
+
   # The default format for parsing the blog content.
   config.default_parser = :markdown
 

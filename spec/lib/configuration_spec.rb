@@ -40,6 +40,11 @@ describe Blogit::Configuration do
     blog_configuration.include_admin_actions.should be_true
   end
 
+  it "should set include admin links to true" do
+    blog_configuration.include_admin_links.should be_true
+  end
+
+
   it "should set default_parser to :markdown" do
     blog_configuration.default_parser.should eql(:markdown)
   end
