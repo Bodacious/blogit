@@ -1,7 +1,7 @@
 module Blogit
   class PostsController < ApplicationController
 
-    if blogit_conf.include_admin_actions
+    unless blogit_conf.include_admin_actions
       before_filter :raise_404, except: [:index, :show, :tagged]
     end
 
