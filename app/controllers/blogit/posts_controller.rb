@@ -8,6 +8,7 @@ module Blogit
     blogit_authenticate(except: [:index, :show, :tagged])
     
     blogit_cacher(:index, :show, :tagged)
+    blogit_sweeper(:create, :update, :destroy)
 
     expose(:posts) { 
       if params[:tag]

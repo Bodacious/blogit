@@ -3,6 +3,8 @@ module Blogit
 
     blogit_authenticate except: [:create]
     
+    blogit_sweeper(:create, :update, :destroy)
+    
     expose(:post) { Blogit::Post.find(params[:post_id]) }
     expose(:comments) { post.comments }
     expose(:comment) { 

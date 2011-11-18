@@ -24,7 +24,12 @@ module Blogit
     def self.blogit_cacher(*args)
       if blogit_conf.include_admin_links
         caches_page *args
-        cache_sweeper Blogit::BlogitSweeper
+      end
+    end
+    
+    def self.blogit_sweeper(*args)
+      if blogit_conf.include_admin_links
+        cache_sweeper Blogit::BlogitSweeper, only: args
       end
     end
     
