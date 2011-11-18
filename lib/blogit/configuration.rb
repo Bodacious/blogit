@@ -58,6 +58,9 @@ module Blogit
     # Defaults to REDCARPET_OPTIONS
     attr_accessor :redcarpet_options  
     
+    # Should the controllers cache the blog pages as HTML?
+    attr_accessor :cache_pages
+    
     REDCARPET_OPTIONS = [:hard_wrap, :filter_html, :autolink, 
         :no_intraemphasis, :fenced_code, :gh_blockcode]
     
@@ -71,7 +74,8 @@ module Blogit
       @author_edits_only           = false
       @ajax_comments               = true
       @include_admin_actions       = true
-      @include_admin_links       = true      
+      @include_admin_links         = true      
+      @cache_pages                 = false
       @default_parser              = :markdown
       @highlight_code_syntax       = true
       @redcarpet_options           = REDCARPET_OPTIONS

@@ -19,6 +19,15 @@ module Blogit
       Blogit::configuration
     end
     
+    # Turns on page caching for the given actions if 
+    # Blogit.configuration.include_admin_links is true
+    def self.blogit_cacher(*args)
+      if blogit_conf.include_admin_links
+        caches_page *args
+        cache_sweeper Blogit::BlogitSweeper
+      end
+    end
+    
     # A helper method to access the Blogit::configuration
     # at the controller instance level
     def blogit_conf

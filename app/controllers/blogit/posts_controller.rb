@@ -6,6 +6,8 @@ module Blogit
     end
 
     blogit_authenticate(except: [:index, :show, :tagged])
+    
+    blogit_cacher(:index, :show, :tagged)
 
     expose(:posts) { 
       if params[:tag]

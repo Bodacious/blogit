@@ -43,7 +43,10 @@ describe Blogit::Configuration do
   it "should set include admin links to true" do
     blog_configuration.include_admin_links.should be_true
   end
-
+  
+  it "should set page caching to false by default" do
+    blog_configuration.cache_pages.should be_false
+  end
 
   it "should set default_parser to :markdown" do
     blog_configuration.default_parser.should eql(:markdown)
