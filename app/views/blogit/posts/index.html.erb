@@ -2,9 +2,16 @@
   <%= link_to 'New Blog post', new_post_path %>
 <% end %>
 
-<%= render partial: "blogit/posts/post", 
-  collection: posts, 
-  spacer_template: "blog_post_spacer", 
-  locals: {show_comments_count: true}  %>
+<% if posts.any? %>
+
+  <%= render partial: "blogit/posts/post", 
+    collection: posts, 
+    spacer_template: "blog_post_spacer", 
+    locals: {show_comments_count: true}  %>
+<% else %>
+  
+  <%= render partial: "blogit/posts/empty" %>
+  
+<% end %>
 
 <%= render "pagination" %>

@@ -2,12 +2,18 @@ module Blogit
   class PostsController < ApplicationController
 
     if blogit_conf.include_admin_actions
-      before_filter :raise_404, except: [:index, :show]
+      before_filter :raise_404, except: [:index, :show, :tagged]
     end
 
-    blogit_authenticate(except: [:index, :show])
+    blogit_authenticate(except: [:index, :show, :tagged])
 
-    expose(:posts) { Post.for_index(params[:page]) }
+    expose(:posts) { 
+      if params[:tag]
+        Post.for_index(params[:page]).tagged_with(params[:tag])
+      else
+        Post.for_index(params[:page])
+      end
+    }
     expose(:post) do
       case action_name
       when /new|create/
@@ -28,6 +34,9 @@ module Blogit
     def show
     end
 
+    def tagged
+      render :index
+    end
 
     def new
     end
@@ -62,7 +71,7 @@ module Blogit
       # Don't include admin actions if include_admin_actions is false
       render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
     end
-    
+
   end
 
 end
