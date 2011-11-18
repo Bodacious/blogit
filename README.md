@@ -1,4 +1,4 @@
-# Blog
+# Blogit (beta)
 
 This is a work in progress - you're welcome to start using it now though
 
