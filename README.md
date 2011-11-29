@@ -1,6 +1,27 @@
 # Blogit (beta)
 
-This is a work in progress - you're welcome to start using it now though
+Blogit is a flexible blogging solution for Rails apps. It is:
+
+* Is Rack based;
+* Is a complete MVC solution based on Rails engines;
+* Works right out of the box but is fully customisable.
+
+
+## Issues
+
+If you discover a problem with Blogit, please let us know about it. 
+Remember to search the issues list first in case your issue has already been raised
+by another Githuber
+
+https://github.com/KatanaCode/blogit/issues
+
+## Documentation
+
+Full documentation is available here: http://rubydoc.info/gems/blogit/0.1.0/frames
+
+## Contributing
+
+You're welcome to contribute to Blogit. Please consult the [contribution guidelines](https://github.com/KatanaCode/blogit/wiki/Contributing) for more info.
 
 ## Installation
 
@@ -18,20 +39,21 @@ Next, run:
 # add an initializer to config/initializers with all of the
 # configuration options
 $ rails g blogit:install
-``` 
-
-And finally
-
-``` ruby
 # This will add the necessary migrations to your app's db/migrate directory
 rake blogit:install:migrations
 # This will run any pending migrations
 rake db:migrate
+``` 
+then add the following to your routes.rb file:
+
+``` bash
+# config/routes.rb
+mount Blogit::Engine => "/blog"
 ```
 
 ## Legal Stuff
 
-Copyright 2011 Gavin Morrice
+Copyright 2011 [Katana Code](http://katanacode.com)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -52,7 +74,10 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## More from Katana Code
+
+Visit our [Katana Code Team Page](http://katanacode.github.com/ "Katana Code") for more gems and goodies!
 
 ## Credits
 
-Developed by [Bodacious (Gavin Morrice) @ Katana Code](http://gavinmorrice.com)
+Developed by [Katana Code](http://katanacode.com)
