@@ -1,27 +1,10 @@
 # Blogit (beta)
 
-Blogit is a flexible blogging solution for Rails apps. It is:
+Blogit is a flexible blogging solution for Rails apps. It:
 
 * Is Rack based;
 * Is a complete MVC solution based on Rails engines;
-* Works right out of the box but is fully customisable.
-
-
-## Issues
-
-If you discover a problem with Blogit, please let us know about it. 
-Remember to search the issues list first in case your issue has already been raised
-by another Githuber
-
-https://github.com/KatanaCode/blogit/issues
-
-## Documentation
-
-Full documentation is available here: http://rubydoc.info/gems/blogit/0.1.0/frames
-
-## Contributing
-
-You're welcome to contribute to Blogit. Please consult the [contribution guidelines](https://github.com/KatanaCode/blogit/wiki/Contributing) for more info.
+* Aims to work right out of the box but remain fully customisable.
 
 ## Installation
 
@@ -50,6 +33,36 @@ then add the following to your routes.rb file:
 # config/routes.rb
 mount Blogit::Engine => "/blog"
 ```
+
+... and finally, declare which of your models acts as blogger in your app (usually User).
+
+``` ruby
+class User
+  
+  blogs
+
+end
+```  
+
+## Configuration
+
+Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
+you can set various configuration options. Please [read the wiki]() for a full list of the options available.
+
+## Issues
+
+If you discover a problem with Blogit, please let us know about it. 
+
+**Remember** to search the [issues list](https://github.com/KatanaCode/blogit/issues) first in case your issue has already been raised
+by another Githuber
+
+## Documentation
+
+Full documentation is available here: http://rubydoc.info/gems/blogit/0.1.0/frames
+
+## Contributing
+
+You're welcome to contribute to Blogit. Please consult the [contribution guidelines](https://github.com/KatanaCode/blogit/wiki/Contributing) for more info.
 
 ## Legal Stuff
 
