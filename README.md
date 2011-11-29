@@ -19,8 +19,7 @@ gem "blogit"
 Next, run:
 
 ``` bash
-# add an initializer to config/initializers with all of the
-# configuration options
+# add an initializer to config/initializers with all of the configuration options
 $ rails g blogit:install
 # This will add the necessary migrations to your app's db/migrate directory
 rake blogit:install:migrations
@@ -58,7 +57,7 @@ by another Githuber
 
 ## Documentation
 
-Full documentation is available here: http://rubydoc.info/gems/blogit/0.1.0/frames
+Full documentation is available here: http://rubydoc.info/gems/blogit
 
 ## Contributing
 
