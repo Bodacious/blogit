@@ -8,7 +8,7 @@ module Blogit
 
     self.table_name = "blog_posts"
 
-    # self.paginates_per Blogit.configuration.posts_per_page
+    self.paginates_per Blogit.configuration.posts_per_page
 
     # ===============
     # = Validations =
@@ -34,7 +34,7 @@ module Blogit
 
     # Returns the blog posts paginated for the index page
     # @scope class
-    scope :for_index, lambda { |page = 1| order("updated_at DESC").page(page) }
+    scope :for_index, lambda { |page_no = 1| order("updated_at DESC").page(page_no) }
 
     # ====================
     # = Instance Methods =

@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
   
-  expose(:user) { User.authenticate(params[:session]) }
-  
   def new
   end
   
   def create
-    if user
-      @current_user     = user
-      session[:user_id] = user.id
+    @user = User.authenticate(params[:session])
+    if @user
+      @current_user     = @user
+      session[:user_id] = @user.id
       redirect_to(root_url, notice: "Successfully logged in!")      
     else
       render :new

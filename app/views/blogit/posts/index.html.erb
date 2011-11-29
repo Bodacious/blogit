@@ -2,10 +2,10 @@
   <%= link_to 'New Blog post', new_post_path %>
 <% end %>
 
-<% if posts.any? %>
+<% if @posts.any? %>
 
   <%= render partial: "blogit/posts/post", 
-    collection: posts, 
+    collection: @posts, 
     spacer_template: "blog_post_spacer", 
     locals: {show_comments_count: true}  %>
 <% else %>

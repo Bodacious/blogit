@@ -1,5 +1,5 @@
 
-<%= form_for [post, comment], remote: true, 
+<%= form_for [@post, @comment], remote: true, 
   html: {
     class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
   
@@ -14,26 +14,26 @@
   <%= field do %>
     <%= f.label :name, "Name *" %><br>
     <%= f.text_field :name %>
-    <%= errors_on(comment, :name) %>
+    <%= errors_on(@comment, :name) %>
   <% end %>
   
   <%= field do %>
     <%= f.label :email, "Email" %> (never displayed)<br>
     <%= f.email_field :email %>
-    <%= errors_on(comment, :email) %>    
+    <%= errors_on(@comment, :email) %>    
   <% end %>
 
   <%= field do %>
     <%= f.label :website, "Your Website" %><br>
     <%= f.url_field :website %>
-    <%= errors_on(comment, :website) %>    
+    <%= errors_on(@comment, :website) %>    
   <% end %>
 
   
   <%= field do %>
     <%= f.label :body, "Your comment *" %><br>
     <%= f.text_area :body %><br>
-    <%= errors_on(comment, :body) %>
+    <%= errors_on(@comment, :body) %>
   <% end %>
   
   <%= actions do %>

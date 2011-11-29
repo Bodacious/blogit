@@ -19,13 +19,13 @@ describe PostsController do
     it "should set posts to Blogit::Post.for_index" do
       Blogit::Post.expects(:for_index).returns(posts)
       do_get
-      controller.posts.should == posts
+      assigns(:posts).should == posts
     end
     
     it "should pass the page param to for_index" do
       Blogit::Post.expects(:for_index).with("2").returns(posts)
       do_get("2")
-      controller.posts.should == posts
+      assigns(:posts).should == posts
     end
     
   end
@@ -49,8 +49,8 @@ describe PostsController do
       
       it "should set post to a new blog post" do
         do_get
-        controller.post.should be_a(Blogit::Post)
-        controller.post.should be_a_new_record
+        assigns(:post).should be_a(Blogit::Post)
+        assigns(:post).should be_a_new_record
       end
       
     end
@@ -123,7 +123,7 @@ describe PostsController do
       
       it "should find the blog post by the ID" do
         do_get
-        controller.post.should eql(blog_post)
+        assigns(:post).should eql(blog_post)
       end
       
     end
@@ -211,7 +211,7 @@ describe PostsController do
     
     it "should find blog post by id" do
       do_get
-      controller.post.should eql(blog_post)
+      assigns(:post).should eql(blog_post)
     end
 
   end

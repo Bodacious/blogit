@@ -1,5 +1,7 @@
 # Third-party requirements
 require "acts-as-taggable-on"
+require "kaminari"
+require "redcarpet"
 
 require "blogit/configuration"
 require "blogit/blogs"
@@ -10,6 +12,7 @@ require "validators"
 module Blogit
   
   autoload :ActsAsTaggableOn, "acts-as-taggable-on"
+  autoload :Kaminari, "kaminari"
   
   # Exception raised when gem may not be configured properly
   class ConfigurationError < StandardError;end

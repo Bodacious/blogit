@@ -6,13 +6,14 @@
 
   <%= content_tag(:div, class: "blog_comment_body", 
       id: "blog_comment_#{comment.id}_body") do %>
-      <%= format_content comment.body %>      
+      <%= format_content comment.body || "" %>
   <% end %>
   
   <%= blog_comment_tag(:footer) do %>
-    Posted on <%= time_tag(post.created_at, Blogit.configuration.datetime_format) %>
+    Posted on <%= time_tag(@post.created_at, Blogit.configuration.datetime_format) %>
   <% end %>
   
   <%= render partial: "blogit/comments/admin_links" %>
   
-<% end %>
+<% end if comment.persisted? %>
+

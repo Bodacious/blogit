@@ -1,11 +1,11 @@
-<%= form_for(post, html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
+<%= form_for(@post, html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
 
-  <% if post.errors.any? %>
+  <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-        <% post.errors.full_messages.each do |msg| %>
+        <% @post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -37,7 +37,7 @@
 
   <%= actions do %>
     <%= f.submit %> or 
-    <%= link_to("cancel", post.new_record? ? root_path : post_path(post)) %>
+    <%= link_to("cancel", @post.new_record? ? root_path : post_path(@post)) %>
   <% end %>
 
 <% end %>

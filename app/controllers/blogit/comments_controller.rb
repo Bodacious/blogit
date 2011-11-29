@@ -4,26 +4,18 @@ module Blogit
     blogit_authenticate except: [:create]
     
     blogit_sweeper(:create, :update, :destroy)
-    
-    expose(:post) { Blogit::Post.find(params[:post_id]) }
-    expose(:comments) { post.comments }
-    expose(:comment) { 
-      case params[:action]
-      when /create/ then comments.new(params[:comment])
-      when /destroy/ then comments.find(params[:id])
-      end
-    }
 
 
     def create
+      @comment = post.comments.new(params[:comment])
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
-          comment.save
+          @comment.save
         }
 
         format.html { 
-          if comment.save 
+          if @comment.save 
             redirect_to(post, notice: "Successfully added comment!")
           else
             render "blogit/posts/show"
@@ -35,12 +27,19 @@ module Blogit
     end
 
     def destroy
-      comment.destroy
+      @comment = post.comments.find(params[:id])
+      @comment.destroy
       respond_to do |format|
         format.html { redirect_to(post, notice: "Successfully removed comment.") }        
         format.js
       end
     end
+    
+    private
 
+    def post
+      @post ||= Blogit::Post.find(params[:post_id])
+    end
+    
   end
 end

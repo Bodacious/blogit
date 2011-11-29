@@ -1,7 +1,5 @@
 module Blogit
-  
-  ::ActiveRecord::Base.send :include, ActsAsTaggableOn
-  
+    
   class PostsController < ApplicationController
 
     unless blogit_conf.include_admin_actions
@@ -13,61 +11,49 @@ module Blogit
     blogit_cacher(:index, :show, :tagged)
     blogit_sweeper(:create, :update, :destroy)
 
-    expose(:posts) { 
-      if params[:tag]
-        Post.for_index(params[:page]).tagged_with(params[:tag])
-      else
-        Post.for_index(params[:page])
-      end
-    }
-    expose(:post) do
-      case action_name
-      when /new|create/
-        current_blogger.blog_posts.new(params[:post])
-      when /edit|update|destroy/
-        current_blogger.blog_posts.find(params[:id])
-      when /show/
-        Blogit::Post.find(params[:id])
-      end
-    end
-
-    expose(:comments) { post.comments }
-    expose(:comment) { post.comments.build }
-
     def index
+      @posts = Post.for_index(params[:page])
     end
 
     def show
+      @post    = Post.find(params[:id])
+      @comment = @post.comments.new
     end
 
     def tagged
+      @posts = Post.for_index(params[:page]).tagged_with(params[:tag])
       render :index
     end
 
     def new
+      @post = current_blogger.blog_posts.new(params[:post])
     end
 
     def edit
+      @post = current_blogger.blog_posts.find(params[:id])
     end
 
     def create
-      if post.save
-        redirect_to post, notice: 'Blog post was successfully created.'
+      @post = current_blogger.blog_posts.new(params[:post])
+      if @post.save
+        redirect_to @post, notice: 'Blog post was successfully created.'
       else
         render action: "new"
       end
     end
 
     def update
-      if post.update_attributes(params[:post])
-        redirect_to post, notice: 'Blog post was successfully updated.'
+      @post = current_blogger.blog_posts.find(params[:id])
+      if @post.update_attributes(params[:post])
+        redirect_to @post, notice: 'Blog post was successfully updated.'
       else
         render action: "edit"
       end
     end
 
     def destroy
-      post.destroy
+      @post = current_blogger.blog_posts.find(params[:id])
+      @post.destroy
       redirect_to posts_url, notice: "Blog post was successfully destroyed."
     end
 
