@@ -16,12 +16,23 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 3.1.0"
+  s.add_dependency "rails", ">= 3.1.0"
   s.add_dependency "jquery-rails"
   s.add_dependency "RedCloth"
   s.add_dependency 'redcarpet'
   s.add_dependency 'nokogiri'
   s.add_dependency "albino", ">=1.3.3"
+  s.add_dependency 'acts-as-taggable-on'
+  s.add_dependency "decent_exposure"
+  s.add_dependency "kaminari"
 
+  s.add_development_dependency "jquery-rails"
+  s.add_development_dependency "sqlite3"  
+  s.add_development_dependency "guard"
+  s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "growl"
+  s.add_development_dependency "factory_girl", "2.0.0.rc4"
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "sqlite3"
 end

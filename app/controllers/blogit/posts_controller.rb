@@ -1,4 +1,7 @@
 module Blogit
+  
+  ::ActiveRecord::Base.send :include, ActsAsTaggableOn
+  
   class PostsController < ApplicationController
 
     unless blogit_conf.include_admin_actions
