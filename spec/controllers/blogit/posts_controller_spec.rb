@@ -30,6 +30,23 @@ describe PostsController do
     
   end
   
+  describe "GET /index.xml" do
+    
+
+    let(:posts) { [] }
+    
+    def do_get(page=nil)
+      get :index, :use_route => :blogit, page: page.to_s, format: :xml
+    end
+    
+    it "should load all posts in reverse date order" do
+      Blogit::Post.expects(:order).with('created_at DESC').returns(posts)
+      do_get
+      assigns(:posts).should == posts
+    end
+    
+  end
+  
   describe "GET 'new'" do
     
     context "when logged in" do

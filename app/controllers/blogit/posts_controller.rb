@@ -12,7 +12,14 @@ module Blogit
     blogit_sweeper(:create, :update, :destroy)
 
     def index
-      @posts = Post.for_index(params[:page])
+      respond_to do |format|
+        format.xml {
+          @posts = Post.order('created_at DESC')
+        }
+        format.html {
+          @posts = Post.for_index(params[:page])
+        }
+      end
     end
 
     def show
