@@ -47,7 +47,7 @@ Blogit.configure do |config|
   
   # When using redcarpet as content parser, pass these options as defaults.
   # @see here for more options: https://github.com/tanoku/redcarpet
-  config.redcarpet_options = [:hard_wrap, :filter_html, :autolink, 
-    :no_intraemphasis, :fenced_code, :gh_blockcode]
+  # config.redcarpet_options = [:hard_wrap, :filter_html, :autolink, 
+  #   :no_intraemphasis, :fenced_code, :gh_blockcode]
   
 end

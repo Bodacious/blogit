@@ -59,7 +59,14 @@ describe Blogit::Configuration do
   
   it "should set redcarpet default options" do
     blog_configuration.redcarpet_options.should == 
-      [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+      {
+        hard_wrap: true,
+        filter_html: true,
+        autolink: true,
+        no_intraemphasis: true,
+        fenced_code_blocks: true,
+        gh_blockcode: true
+      }
   end
   
   it "should set highlight_code_syntax to true" do

@@ -61,8 +61,14 @@ module Blogit
     # Should the controllers cache the blog pages as HTML?
     attr_accessor :cache_pages
     
-    REDCARPET_OPTIONS = [:hard_wrap, :filter_html, :autolink, 
-        :no_intraemphasis, :fenced_code, :gh_blockcode]
+    REDCARPET_OPTIONS = {
+      hard_wrap: true, 
+      filter_html: true, 
+      autolink: true,
+      no_intraemphasis: true,
+      fenced_code_blocks: true,
+      gh_blockcode: true,
+    }
     
     def initialize
       @include_comments            = true

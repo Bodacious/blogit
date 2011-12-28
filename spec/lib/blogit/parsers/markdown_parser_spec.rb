@@ -15,16 +15,15 @@ describe Blogit::Parsers::MarkdownParser do
       Blogit::Parsers::MarkdownParser.new("## Header\n\n``` ruby\nputs 'hello world'\n```") 
     }
 
-
     it "should highlight code if highlight_code_syntax is true" do
       Blogit::configuration.highlight_code_syntax = true
       parser.parsed.should =~ 
-        Regexp.new("<h2>Header</h2>\n\n<div class=\"highlight\">\n<pre><span class=\"nb\">puts</span> <span class=\"s1\">'hello world'</span>\n</pre>\n</div>")
+      Regexp.new("<h2>Header</h2>\n<div class=\"highlight\"><pre><span class=\"nb\">puts</span> <span class=\"s1\">&#39;hello world&#39;</span>\n</pre>\n</div>\n")
     end
 
     it "shoud not highlight code if highlight_code_syntax is false" do
       Blogit.configuration.highlight_code_syntax = false
-      parser.parsed.should == "<h2>Header</h2>\n\n<pre lang=\"ruby\"><code>puts 'hello world'\n</code></pre>\n"
+      parser.parsed.should == "<h2>Header</h2>\n\n<pre><code class=\"ruby\">puts &#39;hello world&#39;\n</code></pre>\n"
     end
 
   end

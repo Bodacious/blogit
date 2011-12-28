@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "RedCloth"
-  s.add_dependency 'redcarpet'
+  s.add_dependency 'redcarpet', ">=2.0.1"
   s.add_dependency 'nokogiri'
   s.add_dependency "albino", ">=1.3.3"
   s.add_dependency 'acts-as-taggable-on'
