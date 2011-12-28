@@ -16,12 +16,12 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "RedCloth"
+  s.add_dependency "RedCloth", ">=4.2.9"
   s.add_dependency 'redcarpet', ">=2.0.1"
-  s.add_dependency 'nokogiri'
+  s.add_dependency 'nokogiri', '>=1.5.0'
   s.add_dependency "albino", ">=1.3.3"
-  s.add_dependency 'acts-as-taggable-on'
-  s.add_dependency "kaminari"
+  s.add_dependency 'acts-as-taggable-on', '>=2.2.1'
+  s.add_dependency "kaminari", '>=0.13.0'
 
   s.add_development_dependency "jquery-rails"
   s.add_development_dependency "sqlite3"  
