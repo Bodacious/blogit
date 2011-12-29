@@ -52,7 +52,8 @@ you can set various configuration options. Please [read the documentation](http:
 
 we'll also throw in:
 
-* An XML Sitemap located at `/blog/sitemap.xml`
+* An XML Sitemap located at `/blog/posts.xml`
+* An RSS feed located at `/blog/posts.rss`
 * Page Caching and Sweeping
 
 ## Issues
