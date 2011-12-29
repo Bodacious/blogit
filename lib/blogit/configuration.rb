@@ -59,7 +59,21 @@ module Blogit
     attr_accessor :redcarpet_options  
     
     # Should the controllers cache the blog pages as HTML?
+    # Defaults to false
     attr_accessor :cache_pages
+    
+    # The title of the RSS feed for the blog posts
+    # Defaults to "[Application Name] Blog Posts"    
+    attr_accessor :rss_feed_title
+    
+    # The description of the RSS feed for the blog posts
+    # Defaults to "[Application Name] Blog Posts"
+    attr_accessor :rss_feed_description
+
+    # The default language of the RSS feed
+    # Defaults to 'en'
+    attr_accessor :rss_feed_language
+
     
     REDCARPET_OPTIONS = {
       hard_wrap: true, 
@@ -84,6 +98,9 @@ module Blogit
       @cache_pages                 = false
       @default_parser              = :markdown
       @highlight_code_syntax       = true
+      @rss_feed_title              = "#{Rails.application.engine_name.titleize} Blog Posts"
+      @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
+      @rss_feed_language           = "en"
       @redcarpet_options           = REDCARPET_OPTIONS
     end
     

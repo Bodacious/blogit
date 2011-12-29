@@ -19,6 +19,9 @@ module Blogit
         format.html {
           @posts = Post.for_index(params[:page])
         }
+        format.rss {
+          @posts = Post.order('created_at DESC')
+        }
       end
     end
 
