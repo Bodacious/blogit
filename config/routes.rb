@@ -1,10 +1,8 @@
 Blogit::Engine.routes.draw do
   
-  resources :posts, except: [:index] do
+  resources :posts do
     resources :comments, only: [:create, :destroy]
   end
-
-  match "sitemap.xml" => 'posts#index', format: :xml
 
   match "page/:page" => "posts#index"
 
