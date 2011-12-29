@@ -108,11 +108,11 @@ describe Blogit::Post do
       
       before :all do
         Blogit::Post.destroy_all
-        15.times { |i| create :post, updated_at: i.days.ago }
+        15.times { |i| create :post, created_at: i.days.ago }
       end
       
-      it "should order posts by updated_at DESC" do
-        Blogit::Post.for_index.first.should == Blogit::Post.order("updated_at DESC").first
+      it "should order posts by created_at DESC" do
+        Blogit::Post.for_index.first.should == Blogit::Post.order("created_at DESC").first
       end
       
       it "should paginate posts in blocks of 5" do
@@ -120,7 +120,7 @@ describe Blogit::Post do
       end
       
       it "should accept page no as an argument" do
-        Blogit::Post.for_index(2).should == Blogit::Post.order("updated_at DESC").offset(5).limit(5)
+        Blogit::Post.for_index(2).should == Blogit::Post.order("created_at DESC").offset(5).limit(5)
       end
       
       it "should change the no of posts per page if paginates_per is set" do
