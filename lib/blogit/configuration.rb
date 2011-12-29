@@ -65,7 +65,7 @@ module Blogit
       hard_wrap: true, 
       filter_html: true, 
       autolink: true,
-      no_intraemphasis: true,
+      no_intra_emphasis: true,
       fenced_code_blocks: true,
       gh_blockcode: true,
     }
