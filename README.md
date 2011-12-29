@@ -100,4 +100,4 @@ Developed by [katana:code](http://katanacode.com)
 
 ## About katana:code
 
-katana:code are [Ruby on Rails Developers Based in Edinburgh, Scotland](http://katanacode.github.com/ "katana:code").
+katana:code are [Ruby on Rails Developers Based in Edinburgh, Scotland](http://katanacode.com/ "katana:code").
