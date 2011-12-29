@@ -1,6 +1,10 @@
 module Blogit
   class Comment < ActiveRecord::Base
     
+    # require custom validators
+    require "validators"
+    include Validators
+    
     self.table_name = "blog_comments"
     
     # ================

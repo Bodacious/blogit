@@ -1,3 +1,3 @@
-require "validators/absence_validator"
 module Validators
+  require "validators/absence_validator"
 end
