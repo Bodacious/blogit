@@ -46,7 +46,14 @@ end
 ## Configuration
 
 Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
-you can set various configuration options. Please [read the wiki]() for a full list of the options available.
+you can set various configuration options. Please [read the documentation](http://rubydoc.info/gems/blogit/Blogit/Configuration) for a full list of the options available.
+
+## At no extra cost...
+
+we'll also throw in:
+
+* An XML Sitemap located at `/blog/sitemap.xml`
+* Page Caching and Sweeping
 
 ## Issues
 
@@ -65,7 +72,7 @@ You're welcome to contribute to Blogit. Please consult the [contribution guideli
 
 ## Legal Stuff
 
-Copyright 2011 [Katana Code](http://katanacode.com)
+Copyright 2011 [Katana Code Ltd.](http://katanacode.com)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -86,10 +93,10 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## More from Katana Code
-
-Visit our [Katana Code Team Page](http://katanacode.github.com/ "Katana Code") for more gems and goodies!
-
 ## Credits
 
-Developed by [Katana Code](http://katanacode.com)
+Developed by [katana:code](http://katanacode.com)
+
+## About katana:code
+
+katana:code are [Ruby on Rails Developers Based in Edinburgh, Scotland](http://katanacode.github.com/ "katana:code").

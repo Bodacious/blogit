@@ -172,7 +172,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#blogit_authenticate-class_method" title="Blogit::ApplicationController.blogit_authenticate (method)">blogit_authenticate</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_conf-class_method" title="Blogit::ApplicationController.blogit_conf (method)">blogit_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_conf-instance_method" title="Blogit::ApplicationController#blogit_conf (method)">#blogit_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#current_blogger-instance_method" title="Blogit::ApplicationController#current_blogger (method)">#current_blogger</a></span>, <span class='object_link'><a href="ApplicationController.html#this_blogger%3F-instance_method" title="Blogit::ApplicationController#this_blogger? (method)">#this_blogger?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#blogit_authenticate-class_method" title="Blogit::ApplicationController.blogit_authenticate (method)">blogit_authenticate</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_cacher-class_method" title="Blogit::ApplicationController.blogit_cacher (method)">blogit_cacher</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_conf-class_method" title="Blogit::ApplicationController.blogit_conf (method)">blogit_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_conf-instance_method" title="Blogit::ApplicationController#blogit_conf (method)">#blogit_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_sweeper-class_method" title="Blogit::ApplicationController.blogit_sweeper (method)">blogit_sweeper</a></span>, <span class='object_link'><a href="ApplicationController.html#current_blogger-instance_method" title="Blogit::ApplicationController#current_blogger (method)">#current_blogger</a></span>, <span class='object_link'><a href="ApplicationController.html#this_blogger%3F-instance_method" title="Blogit::ApplicationController#this_blogger? (method)">#this_blogger?</a></span></p>
 
   
 
@@ -193,6 +193,13 @@
       <pre class="lines">
 
 
+9
+10
+11
+12
+13
+14
+15
 16
 17
 18
@@ -204,26 +211,21 @@
 24
 25
 26
-27
-28
-29
-30
-31
-32
-33</pre>
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/comments_controller.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/comments_controller.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id create'>create</span>
+  <span class='ivar'>@comment</span> <span class='op'>=</span> <span class='id post'>post</span><span class='period'>.</span><span class='id comments'>comments</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:comment</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id format'>format</span><span class='op'>|</span>
     <span class='id format'>format</span><span class='period'>.</span><span class='id js'>js</span> <span class='lbrace'>{</span>
       <span class='comment'># the rest is dealt with in the view
-</span>      <span class='id comment'>comment</span><span class='period'>.</span><span class='id save'>save</span>
+</span>      <span class='ivar'>@comment</span><span class='period'>.</span><span class='id save'>save</span>
     <span class='rbrace'>}</span>
 
     <span class='id format'>format</span><span class='period'>.</span><span class='id html'>html</span> <span class='lbrace'>{</span> 
-      <span class='kw'>if</span> <span class='id comment'>comment</span><span class='period'>.</span><span class='id save'>save</span> 
+      <span class='kw'>if</span> <span class='ivar'>@comment</span><span class='period'>.</span><span class='id save'>save</span> 
         <span class='id redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='id post'>post</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Successfully added comment!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
       <span class='kw'>else</span>
         <span class='id render'>render</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit/posts/show</span><span class='tstring_end'>&quot;</span></span>
@@ -251,19 +253,21 @@
       <pre class="lines">
 
 
+29
+30
+31
+32
+33
+34
 35
-36
-37
-38
-39
-40
-41</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/comments_controller.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/comments_controller.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id destroy'>destroy</span>
-  <span class='id comment'>comment</span><span class='period'>.</span><span class='id destroy'>destroy</span>
+  <span class='ivar'>@comment</span> <span class='op'>=</span> <span class='id post'>post</span><span class='period'>.</span><span class='id comments'>comments</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@comment</span><span class='period'>.</span><span class='id destroy'>destroy</span>
   <span class='id respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id format'>format</span><span class='op'>|</span>
     <span class='id format'>format</span><span class='period'>.</span><span class='id html'>html</span> <span class='lbrace'>{</span> <span class='id redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='id post'>post</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Successfully removed comment.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>        
     <span class='id format'>format</span><span class='period'>.</span><span class='id js'>js</span>
@@ -279,7 +283,7 @@
 </div>
     
     <div id="footer">
-  Generated on Mon Nov 14 22:08:35 2011 by 
+  Generated on Thu Dec 29 16:05:54 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.3 (ruby-1.9.2).
 </div>

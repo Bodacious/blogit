@@ -183,12 +183,12 @@ A new instance of MarkdownParser
       <pre class="lines">
 
 
-5
-6
-7</pre>
+7
+8
+9</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/markdown_parser.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/markdown_parser.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
   <span class='ivar'>@content</span> <span class='op'>=</span> <span class='id content'>content</span>
@@ -218,15 +218,19 @@ A new instance of MarkdownParser
       <pre class="lines">
 
 
-9
-10
-11</pre>
+11
+12
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/markdown_parser.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/markdown_parser.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id parsed'>parsed</span>
-  <span class='const'>Redcarpet</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@content</span><span class='comma'>,</span> <span class='op'>*</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id redcarpet_options'>redcarpet_options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_html'>to_html</span>
+  <span class='id renderer'>renderer</span> <span class='op'>=</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id highlight_code_syntax'>highlight_code_syntax</span> <span class='op'>?</span>  <span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTMLWithAlbino</span> <span class='op'>:</span> <span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML</span>
+  <span class='id markdown'>markdown</span> <span class='op'>=</span> <span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Markdown</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id renderer'>renderer</span><span class='comma'>,</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id redcarpet_options'>redcarpet_options</span><span class='rparen'>)</span>
+  <span class='id html_content'>html_content</span> <span class='op'>=</span> <span class='id markdown'>markdown</span><span class='period'>.</span><span class='id render'>render</span><span class='lparen'>(</span><span class='ivar'>@content</span><span class='rparen'>)</span><span class='period'>.</span><span class='id html_safe'>html_safe</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -238,7 +242,7 @@ A new instance of MarkdownParser
 </div>
     
     <div id="footer">
-  Generated on Mon Nov 14 22:08:35 2011 by 
+  Generated on Thu Dec 29 16:05:54 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.3 (ruby-1.9.2).
 </div>

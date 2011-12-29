@@ -114,30 +114,6 @@ Creates a div tag with class &#8216;blog_post_&#8217; + name Eg: .
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#format_content-instance_method" title="#format_content (instance method)">- (Object) <strong>format_content</strong>(content = nil, &amp;block) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Format content using the <span class='object_link'><a href="Configuration.html#default_parser_class-instance_method" title="Blogit::Configuration#default_parser_class (method)">default_parser_class</a></span>.
-</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -174,19 +150,19 @@ Creates a div tag with class &#8216;blog_post_&#8217; + name Eg:
       <pre class="lines">
 
 
+7
+8
+9
+10
+11
+12
+13
 14
 15
-16
-17
-18
-19
-20
-21
-22
-23</pre>
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id blog_post_tag'>blog_post_tag</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id content_or_options'>content_or_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
@@ -203,56 +179,12 @@ Creates a div tag with class &#8216;blog_post_&#8217; + name Eg:
 </table>
 </div>
     
-      <div class="method_details ">
-  <p class="signature " id="format_content-instance_method">
-  
-    - (<tt>Object</tt>) <strong>format_content</strong>(content = nil, &amp;block) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Format content using the <span class='object_link'><a href="Configuration.html#default_parser_class-instance_method" title="Blogit::Configuration#default_parser_class (method)">default_parser_class</a></span>
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-5
-6
-7
-8
-9</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 5</span>
-
-<span class='kw'>def</span> <span class='id format_content'>format_content</span><span class='lparen'>(</span><span class='id content'>content</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
-  <span class='id content'>content</span> <span class='op'>=</span> <span class='id capture'>capture</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
-  <span class='id parser'>parser</span> <span class='op'>=</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id default_parser_class'>default_parser_class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
-  <span class='id parser'>parser</span><span class='period'>.</span><span class='id parsed'>parsed</span><span class='period'>.</span><span class='id html_safe'>html_safe</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Mon Nov 14 22:08:35 2011 by 
+  Generated on Thu Dec 29 16:05:54 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.3 (ruby-1.9.2).
 </div>

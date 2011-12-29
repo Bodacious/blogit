@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Blogit::Engine
+  Class: Blogit::BlogitSweeper
   
     &mdash; Documentation by YARD 0.7.3
   
@@ -33,10 +33,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (E)</a> &raquo; 
+    <a href="../_index.html">Index (B)</a> &raquo; 
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
-    <span class="title">Engine</span>
+    <span class="title">BlogitSweeper</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -56,7 +56,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Blogit::Engine
+    <div id="content"><h1>Class: Blogit::BlogitSweeper
   
   
   
@@ -66,14 +66,14 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName">Rails::Engine</span>
+      <span class="inheritName">ActionController::Caching::Sweeper</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Rails::Engine</li>
+            <li class="next">ActionController::Caching::Sweeper</li>
           
-            <li class="next">Blogit::Engine</li>
+            <li class="next">Blogit::BlogitSweeper</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -89,20 +89,104 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/blogit/engine.rb</dd>
+    <dd class="r2 last">app/sweepers/blogit/blogit_sweeper.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+This is a universal cache sweeper. If a comment is added or a  blog post is
+updated, we should remove all the cached pages. This will reduce the risk
+of dead links from tags clouds etc.
+</p>
+<p>
+To activate page caching, set <tt>config.cache_pages = true</tt> in your
+blogit.rb file
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   
 
 
   
 
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after_save-instance_method" title="#after_save (instance method)">- (Object) <strong>after_save</strong>(record) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
 
   
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="after_save-instance_method">
+  
+    - (<tt>Object</tt>) <strong>after_save</strong>(record) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/sweepers/blogit/blogit_sweeper.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id after_save'>after_save</span><span class='lparen'>(</span><span class='id record'>record</span><span class='rparen'>)</span>
+  <span class='id clear_cached_pages'>clear_cached_pages</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
     

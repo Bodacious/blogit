@@ -54,13 +54,126 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><div id='filecontents'><h1>Blog</h1>
+    <div id="content"><div id='filecontents'><h1>Blogit (beta)</h1>
 
-<p>This is a work in progress - please ignore for now</p>
+<p>Blogit is a flexible blogging solution for Rails apps. It:</p>
+
+<ul>
+<li>Is Rack based;</li>
+<li>Is a complete MVC solution based on Rails engines;</li>
+<li>Aims to work right out of the box but remain fully customisable.</li>
+</ul>
+
+
+<h2>Installation</h2>
+
+<p>Add this to your Gemfile</p>
+
+<p><code>ruby
+gem "blogit"
+</code></p>
+
+<p>...and run <code>bundle install</code> to install the gem.</p>
+
+<p>Next, run:</p>
+
+<p>``` bash</p>
+
+<h1>add an initializer to config/initializers with all of the configuration options</h1>
+
+<p>$ rails g blogit:install</p>
+
+<h1>This will add the necessary migrations to your app's db/migrate directory</h1>
+
+<p>rake blogit:install:migrations</p>
+
+<h1>This will run any pending migrations</h1>
+
+<p>rake db:migrate
+```
+then add the following to your routes.rb file:</p>
+
+<p>``` bash</p>
+
+<h1>config/routes.rb</h1>
+
+<p>mount Blogit::Engine => "/blog"
+```</p>
+
+<p>... and finally, declare which of your models acts as blogger in your app (usually User).</p>
+
+<p>``` ruby
+class User</p>
+
+<p>  blogs</p>
+
+<p>end
+```</p>
+
+<h2>Configuration</h2>
+
+<p>Running <code>rails g blogit:install</code> will add an initializer file named blogit.rb. In here
+you can set various configuration options. Please <a href="http://rubydoc.info/gems/blogit/Blogit/Configuration">read the documentation</a> for a full list of the options available.</p>
+
+<h2>At no extra cost...</h2>
+
+<p>we'll also throw in:</p>
+
+<ul>
+<li>An XML Sitemap located at <code>/blog/sitemap.xml</code></li>
+<li>Page Caching and Sweeping</li>
+</ul>
+
+
+<h2>Issues</h2>
+
+<p>If you discover a problem with Blogit, please let us know about it.</p>
+
+<p><strong>Remember</strong> to search the <a href="https://github.com/KatanaCode/blogit/issues">issues list</a> first in case your issue has already been raised
+by another Githuber</p>
+
+<h2>Documentation</h2>
+
+<p>Full documentation is available here: <a href="http://rubydoc.info/gems/blogit">http://rubydoc.info/gems/blogit</a></p>
+
+<h2>Contributing</h2>
+
+<p>You're welcome to contribute to Blogit. Please consult the <a href="https://github.com/KatanaCode/blogit/wiki/Contributing">contribution guidelines</a> for more info.</p>
+
+<h2>Legal Stuff</h2>
+
+<p>Copyright 2011 <a href="http://katanacode.com">Katana Code Ltd.</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<h2>Credits</h2>
+
+<p>Developed by <a href="http://katanacode.com">katana:code</a></p>
+
+<h2>About katana:code</h2>
+
+<p>katana:code are <a href="http://katanacode.github.com/" title="katana:code">Ruby on Rails Developers Based in Edinburgh, Scotland</a>.</p>
 </div></div>
     
     <div id="footer">
-  Generated on Mon Nov 14 22:08:35 2011 by 
+  Generated on Thu Dec 29 16:05:54 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.3 (ruby-1.9.2).
 </div>

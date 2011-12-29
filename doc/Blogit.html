@@ -73,7 +73,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/blogit.rb<span class="defines">,<br />
-  lib/blogit/blogs.rb,<br /> lib/blogit/engine.rb,<br /> lib/blogit/version.rb,<br /> app/models/blogit/post.rb,<br /> lib/blogit/configuration.rb,<br /> app/models/blogit/comment.rb,<br /> app/helpers/blogit/posts_helper.rb,<br /> app/helpers/blogit/comments_helper.rb,<br /> app/helpers/blogit/application_helper.rb,<br /> app/controllers/blogit/posts_controller.rb,<br /> lib/generators/blogit/install_generator.rb,<br /> app/controllers/blogit/comments_controller.rb,<br /> app/controllers/blogit/application_controller.rb</span>
+  lib/blogit/blogs.rb,<br /> lib/blogit/engine.rb,<br /> lib/blogit/version.rb,<br /> app/models/blogit/post.rb,<br /> lib/blogit/configuration.rb,<br /> app/models/blogit/comment.rb,<br /> app/helpers/blogit/posts_helper.rb,<br /> app/helpers/blogit/comments_helper.rb,<br /> app/sweepers/blogit/blogit_sweeper.rb,<br /> app/helpers/blogit/application_helper.rb,<br /> lib/generators/blogit/install_generator.rb,<br /> app/controllers/blogit/posts_controller.rb,<br /> app/controllers/blogit/comments_controller.rb,<br /> app/controllers/blogit/application_controller.rb</span>
 </dd>
   
 </dl>
@@ -83,11 +83,11 @@
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Blogit/ApplicationHelper.html" title="Blogit::ApplicationHelper (module)">ApplicationHelper</a></span>, <span class='object_link'><a href="Blogit/Blogs.html" title="Blogit::Blogs (module)">Blogs</a></span>, <span class='object_link'><a href="Blogit/CommentsHelper.html" title="Blogit::CommentsHelper (module)">CommentsHelper</a></span>, <span class='object_link'><a href="Blogit/Generators.html" title="Blogit::Generators (module)">Generators</a></span>, <span class='object_link'><a href="Blogit/Parsers.html" title="Blogit::Parsers (module)">Parsers</a></span>, <span class='object_link'><a href="Blogit/PostsHelper.html" title="Blogit::PostsHelper (module)">PostsHelper</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Blogit/ApplicationHelper.html" title="Blogit::ApplicationHelper (module)">ApplicationHelper</a></span>, <span class='object_link'><a href="Blogit/Blogs.html" title="Blogit::Blogs (module)">Blogs</a></span>, <span class='object_link'><a href="Blogit/CommentsHelper.html" title="Blogit::CommentsHelper (module)">CommentsHelper</a></span>, <span class='object_link'><a href="Blogit/Generators.html" title="Blogit::Generators (module)">Generators</a></span>, <span class='object_link'><a href="Blogit/Parsers.html" title="Blogit::Parsers (module)">Parsers</a></span>, <span class='object_link'><a href="Blogit/PostsHelper.html" title="Blogit::PostsHelper (module)">PostsHelper</a></span>, <span class='object_link'><a href="Blogit/Renderers.html" title="Blogit::Renderers (module)">Renderers</a></span>
     
    
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Blogit/ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="Blogit/Comment.html" title="Blogit::Comment (class)">Comment</a></span>, <span class='object_link'><a href="Blogit/CommentsController.html" title="Blogit::CommentsController (class)">CommentsController</a></span>, <span class='object_link'><a href="Blogit/Configuration.html" title="Blogit::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="Blogit/ConfigurationError.html" title="Blogit::ConfigurationError (class)">ConfigurationError</a></span>, <span class='object_link'><a href="Blogit/Engine.html" title="Blogit::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Blogit/Post.html" title="Blogit::Post (class)">Post</a></span>, <span class='object_link'><a href="Blogit/PostsController.html" title="Blogit::PostsController (class)">PostsController</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Blogit/ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="Blogit/BlogitSweeper.html" title="Blogit::BlogitSweeper (class)">BlogitSweeper</a></span>, <span class='object_link'><a href="Blogit/Comment.html" title="Blogit::Comment (class)">Comment</a></span>, <span class='object_link'><a href="Blogit/CommentsController.html" title="Blogit::CommentsController (class)">CommentsController</a></span>, <span class='object_link'><a href="Blogit/Configuration.html" title="Blogit::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="Blogit/ConfigurationError.html" title="Blogit::ConfigurationError (class)">ConfigurationError</a></span>, <span class='object_link'><a href="Blogit/Engine.html" title="Blogit::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Blogit/Post.html" title="Blogit::Post (class)">Post</a></span>, <span class='object_link'><a href="Blogit/PostsController.html" title="Blogit::PostsController (class)">PostsController</a></span>
     
   
 </p>
@@ -99,7 +99,7 @@
         <dt id="VERSION-constant" class="">VERSION =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.3</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.4.0</span><span class='tstring_end'>&quot;</span></span></pre></dd>
       
     </dl>
   
@@ -199,12 +199,12 @@ if not already set
       <pre class="lines">
 
 
-20
-21
-22</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id configuration'>configuration</span>
   <span class='ivar'>@configuration</span> <span class='op'>||=</span> <span class='const'>Configuration</span><span class='period'>.</span><span class='id new'>new</span>
@@ -246,12 +246,12 @@ Set global configuration options for Blogit
       <pre class="lines">
 
 
-14
-15
-16</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id configure'>configure</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id block'>block</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id configuration'>configuration</span><span class='rparen'>)</span>
@@ -266,7 +266,7 @@ Set global configuration options for Blogit
 </div>
     
     <div id="footer">
-  Generated on Mon Nov 14 22:08:35 2011 by 
+  Generated on Thu Dec 29 16:05:54 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.3 (ruby-1.9.2).
 </div>
