@@ -24,7 +24,8 @@ module Blogit
       # remove the index blog pages
       expire_page "/blog"
       expire_page "/"
-      expire_page "/blog/sitemap.xml"
+      expire_page "/blog/posts.xml"
+      expire_page "/blog/posts.rss"
     end
 
   end
