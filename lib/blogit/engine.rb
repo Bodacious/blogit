@@ -2,7 +2,7 @@ module Blogit
   class Engine < Rails::Engine
     isolate_namespace Blogit
     
-    config.to_prepare do
+    initializer "blogit.extend_active_record" do
 
       if defined?(::ActiveRecord::Base)
         ::ActiveRecord::Base.send(:include, Blogit::Blogs)
