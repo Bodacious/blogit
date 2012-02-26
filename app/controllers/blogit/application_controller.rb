@@ -3,7 +3,7 @@ module Blogit
   # Inherits from the application's controller instead of ActionController::Base
   class ApplicationController < ::ApplicationController
       
-    helper :all
+    helper Blogit::ApplicationHelper, Blogit::PostsHelper, Blogit::CommentsHelper
     helper_method :current_blogger, :blogit_conf
     
     # Sets a class method to specify a before-filter calling
