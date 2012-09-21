@@ -9,6 +9,11 @@ module Blogit
     self.table_name = "blog_posts"
 
     self.paginates_per Blogit.configuration.posts_per_page
+    
+    # ==============
+    # = Attributes =
+    # ==============
+    attr_accessible :title, :body, :tag_list
 
     # ===============
     # = Validations =
