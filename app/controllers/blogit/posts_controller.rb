@@ -1,5 +1,5 @@
 module Blogit
-    
+
   class PostsController < ApplicationController
 
     unless blogit_conf.include_admin_actions
@@ -7,7 +7,7 @@ module Blogit
     end
 
     blogit_authenticate(except: [:index, :show, :tagged])
-    
+
     blogit_cacher(:index, :show, :tagged)
     blogit_sweeper(:create, :update, :destroy)
 
