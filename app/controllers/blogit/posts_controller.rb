@@ -46,7 +46,7 @@ module Blogit
     def create
       @post = current_blogger.blog_posts.new(params[:post])
       if @post.save
-        redirect_to @post, notice: 'Blog post was successfully created.'
+        redirect_to @post, notice: t('blogit.posts.blog_post_was_successfully_created')
       else
         render action: "new"
       end
@@ -55,7 +55,7 @@ module Blogit
     def update
       @post = current_blogger.blog_posts.find(params[:id])
       if @post.update_attributes(params[:post])
-        redirect_to @post, notice: 'Blog post was successfully updated.'
+        redirect_to @post, notice: t('blogit.posts.blog_post_was_successfully_updated')
       else
         render action: "edit"
       end
@@ -64,7 +64,7 @@ module Blogit
     def destroy
       @post = current_blogger.blog_posts.find(params[:id])
       @post.destroy
-      redirect_to posts_url, notice: "Blog post was successfully destroyed."
+      redirect_to posts_url, notice: t('blogit.posts.blog_post_was_successfully_destroyed')
     end
 
     private

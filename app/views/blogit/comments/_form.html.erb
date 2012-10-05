@@ -1,42 +1,42 @@
 
-<%= form_for [@post, @comment], remote: true, 
+<%= form_for [@post, @comment], remote: true,
   html: {
     class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
-  
-  <p>Leave a comment</p>
-  
+
+  <p><%=t 'blogit.comments.leave_a_comment'%></p>
+
   <%= field class: "hidden" do %>
     <%= f.label :nickname %>
     <%= f.text_field :nickname %>
     Hide me using CSS
   <% end %>
-  
+
   <%= field do %>
-    <%= f.label :name, "Name *" %><br>
+    <%= f.label :name, t('blogit.comments.name') %><br>
     <%= f.text_field :name %>
     <%= errors_on(@comment, :name) %>
   <% end %>
-  
+
   <%= field do %>
-    <%= f.label :email, "Email" %> (never displayed)<br>
+    <%= f.label :email, "Email" %> <%=t 'blogit.comments.never_displayed'%><br>
     <%= f.email_field :email %>
-    <%= errors_on(@comment, :email) %>    
+    <%= errors_on(@comment, :email) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :website, "Your Website" %><br>
+    <%= f.label :website, t('blogit.comments.your_website') %><br>
     <%= f.url_field :website %>
-    <%= errors_on(@comment, :website) %>    
+    <%= errors_on(@comment, :website) %>
   <% end %>
 
-  
+
   <%= field do %>
-    <%= f.label :body, "Your comment *" %><br>
+    <%= f.label :body, t('blogit.comments.your_comment') %><br>
     <%= f.text_area :body %><br>
     <%= errors_on(@comment, :body) %>
   <% end %>
-  
+
   <%= actions do %>
-    <%= f.submit "Add Comment", :disable_with => 'Adding Comment...' %>
+    <%= f.submit t('blogit.comments.add_comment'), :disable_with => t('blogit.comments.adding_comment') %>
   <% end %>
 <% end -%>

@@ -19,7 +19,7 @@ module Blogit
     # blogit/archive.js to enabled expand collapse.
     def blog_posts_archive_tag(year_css, month_css, post_css)
       posts_tree = Post.all.chunk {|post| post.created_at.year}.map do |year, posts_of_year|
-        [year, posts_of_year.chunk {|post| post.created_at.month}]
+        [year, posts_of_year.chunk {|post| l(post.created_at, format: :plain_month_only) }]
       end
 
       result = []
@@ -28,7 +28,7 @@ module Blogit
       posts_tree.each do |year, posts_by_month|
         result << "<li><a onclick=\"toggleBrothersDisplay(this, 'UL')\">#{year}</a><ul class=\"#{month_css}\">"
         posts_by_month.each do |month, posts|
-          result << "<li><a onclick=\"toggleBrothersDisplay(this, 'UL')\">#{CGI.escape_html(month_name(month))}</a><ul class=\"#{post_css}\">"
+          result << "<li><a onclick=\"toggleBrothersDisplay(this, 'UL')\">#{CGI.escape_html(month)}</a><ul class=\"#{post_css}\">"
           posts.each do |post|
             result << "<li><a href=\"#{blogit.post_path(post)}\">#{CGI.escape_html(post.title)}</a></li>"
           end
@@ -39,12 +39,6 @@ module Blogit
       result << "</ul>"
 
       result.join.html_safe
-    end
-
-    private
-
-    def month_name(month)
-      Time.new(2000,month).strftime("%B")
     end
 
   end

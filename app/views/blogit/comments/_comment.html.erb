@@ -1,19 +1,19 @@
 <%= content_tag(:article, id: "blog_comment_#{comment.id}", class: "blog_comment") do %>
   <%= content_tag(:div, class: "blog_comment_name", id: "blog_comment_#{comment.id}_name") do %>
-    <%= comment.website? ? link_to(comment.name, comment.website) : comment.name %> wrote:
+    <%=t 'blogit.comments.wrote', author: comment.website? ? link_to(comment.name, comment.website) : comment.name %>
   <% end %>
-  
 
-  <%= content_tag(:div, class: "blog_comment_body", 
+
+  <%= content_tag(:div, class: "blog_comment_body",
       id: "blog_comment_#{comment.id}_body") do %>
       <%= format_content comment.body || "" %>
   <% end %>
-  
+
   <%= blog_comment_tag(:footer) do %>
-    Posted on <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
+    <%=t 'blogit.comments.posted_on'%> <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
   <% end %>
-  
+
   <%= render partial: "blogit/comments/admin_links" %>
-  
+
 <% end if comment.persisted? %>
 

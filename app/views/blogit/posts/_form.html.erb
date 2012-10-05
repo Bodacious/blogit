@@ -2,7 +2,7 @@
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%=t 'blogit.posts.prohibited_this_post_from_being_saved', count: @post.errors.count%></h2>
 
       <ul>
         <% @post.errors.full_messages.each do |msg| %>
@@ -14,30 +14,30 @@
 
   <fieldset>
     <%= field do %>
-      <%= f.text_field :title, placeholder: "Give your post a title" %>
+      <%= f.text_field :title, placeholder: t('blogit.posts.give_your_post_a_title') %>
     <% end %>
 
     <%= field do %>
-      <%= f.text_area :body, placeholder: "Write something here..." %>
+      <%= f.text_area :body, placeholder: t('blogit.posts.write_something_here') %>
     <% end %>
   </fieldset>
 
   <fieldset>
 
     <%= field id: "new_blog_post_tag_field" do %>
-      <%= f.label :tag_list, "Tags" %>
-      <%= f.text_field :tag_list, placeholder: "tag one, tag two, etc..." %>
+      <%= f.label :tag_list, t('blogit.posts.tags') %>
+      <%= f.text_field :tag_list, placeholder: t('blogit.posts.tag_placeholder') %>
     <% end %>
-    
+
     <p class="blog_post_tip">
-      Tip: you can style your post using <%= blogit_conf.default_parser %>
+      <%=t 'blogit.posts.tip_you_can_style_your_post_using', parser: blogit_conf.default_parser %>
     </p>
 
   </fieldset>
 
   <%= actions do %>
-    <%= f.submit %> or 
-    <%= link_to("cancel", @post.new_record? ? root_path : post_path(@post)) %>
+    <%= f.submit %> <%=t 'blogit.posts.or'%>
+    <%= link_to(t('blogit.posts.cancel'), @post.new_record? ? root_path : post_path(@post)) %>
   <% end %>
 
 <% end %>
