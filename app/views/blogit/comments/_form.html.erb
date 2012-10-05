@@ -3,7 +3,7 @@
   html: {
     class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
 
-  <p><%=t 'blogit.comments.leave_a_comment'%></p>
+  <p><%=t :leave_a_comment, scope: 'blogit.comments'%></p>
 
   <%= field class: "hidden" do %>
     <%= f.label :nickname %>
@@ -12,31 +12,31 @@
   <% end %>
 
   <%= field do %>
-    <%= f.label :name, t('blogit.comments.name') %><br>
+    <%= f.label :name, t(:name, scope: 'blogit.comments') %><br>
     <%= f.text_field :name %>
     <%= errors_on(@comment, :name) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :email, "Email" %> <%=t 'blogit.comments.never_displayed'%><br>
+    <%= f.label :email, "Email" %> <%=t :never_displayed, scope: 'blogit.comments'%><br>
     <%= f.email_field :email %>
     <%= errors_on(@comment, :email) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :website, t('blogit.comments.your_website') %><br>
+    <%= f.label :website, t(:your_website, scope: 'blogit.comments') %><br>
     <%= f.url_field :website %>
     <%= errors_on(@comment, :website) %>
   <% end %>
 
 
   <%= field do %>
-    <%= f.label :body, t('blogit.comments.your_comment') %><br>
+    <%= f.label :body, t(:your_comment, scope: 'blogit.comments') %><br>
     <%= f.text_area :body %><br>
     <%= errors_on(@comment, :body) %>
   <% end %>
 
   <%= actions do %>
-    <%= f.submit t('blogit.comments.add_comment'), :disable_with => t('blogit.comments.adding_comment') %>
+    <%= f.submit t(:add_comment, scope: 'blogit.comments'), :disable_with => t(:adding_comment, scope: 'blogit.comments') %>
   <% end %>
 <% end -%>

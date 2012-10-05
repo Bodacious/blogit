@@ -1,5 +1,5 @@
 <%= login_required class: "actions", id: "new_blog_post_link" do %>
-  <%= link_to t('blogit.posts.new_blog_post'), new_post_path %>
+  <%= link_to t(:new_blog_post, scope: 'blogit.posts'), new_post_path %>
 <% end %>
 
 <% if @posts.any? %>

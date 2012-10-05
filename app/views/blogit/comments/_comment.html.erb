@@ -1,6 +1,6 @@
 <%= content_tag(:article, id: "blog_comment_#{comment.id}", class: "blog_comment") do %>
   <%= content_tag(:div, class: "blog_comment_name", id: "blog_comment_#{comment.id}_name") do %>
-    <%=t 'blogit.comments.wrote', author: comment.website? ? link_to(comment.name, comment.website) : comment.name %>
+    <%=t :wrote, scope: 'blogit.comments', author: comment.website? ? link_to(comment.name, comment.website) : comment.name %>
   <% end %>
 
 
@@ -10,7 +10,7 @@
   <% end %>
 
   <%= blog_comment_tag(:footer) do %>
-    <%=t 'blogit.comments.posted_on'%> <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
+    <%=t :posted_on, scope: 'blogit.comments'%> <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
   <% end %>
 
   <%= render partial: "blogit/comments/admin_links" %>
