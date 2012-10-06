@@ -13,7 +13,7 @@
     <%=t :posted_on, scope: 'blogit.comments'%> <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
   <% end %>
 
-  <%= render partial: "blogit/comments/admin_links" %>
+  <%= render partial: "blogit/comments/admin_links", locals: {comment: comment} %>
 
 <% end if comment.persisted? %>
 

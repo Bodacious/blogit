@@ -3,7 +3,7 @@ en:
     comments:
       leave_a_comment: "Leave a comment"
       name: "Name *"
-      never_displayed: "(Never displayed)"
+      email_never_displayed: "Email * (Never displayed)"
       your_website: "Your Website"
       your_comment: "Your comment *"
       add_comment: "Add Comment"
@@ -11,6 +11,7 @@ en:
       wrote: "%{author} wrote:"
       posted_on: "Posted on"
       delete: "delete"
+      are_you_sure_you_want_to_remove_this_comment: "Are you sure you want to remove this comment?"
       successfully_added_comment: "Successfully added comment!"
       successfully_removed_comment: "Successfully removed comment."
     posts:
