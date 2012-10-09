@@ -26,8 +26,7 @@ module Blogit
     end
 
     def show
-      @post    = Post.find(params[:id])
-      @comment = @post.comments.new
+      @post = Post.find(params[:id])
     end
 
     def tagged

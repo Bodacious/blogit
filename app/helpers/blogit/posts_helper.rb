@@ -16,8 +16,8 @@ module Blogit
     end
 
     # A comments tag corresponding to the comments configuration
-    def comments_for(post, comment)
-      render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: comment })
+    def comments_for(post)
+      render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: Blogit::Comment.new })
     end
 
     # Creates a ul tag tree with posts by year and monthes. Include

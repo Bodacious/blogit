@@ -231,12 +231,6 @@ describe PostsController do
       assigns(:post).should eql(blog_post)
     end
 
-    it "should add a new blank comment" do
-      do_get
-      assigns(:comment).should be(blog_post.comments.last)
-      assigns(:comment).should be_new_record
-    end
-
   end
 
   describe "DELETE 'destroy'" do

@@ -60,15 +60,15 @@ describe Blogit::Post do
 
   end
 
-  context "with Blogit.configuration.comments == true" do
-    it "should have many comments if " do
+  context "with Blogit.configuration.comments == active_record" do
+    it "should allow comments" do
       Blogit.configure do |config|
         # this should be :active_record by default anyway
         config.include_comments = :active_record
       end
       User.blogs
       @blog_post = Blogit::Post.new
-      lambda { @blog_post.comments }.should_not raise_exception(NoMethodError)
+      lambda { @blog_post.comments }.should_not raise_exception(RuntimeError)
     end
 
   end
@@ -135,19 +135,17 @@ describe Blogit::Post do
   end
 
 
-  # TODO: Find a better way to test this, as the post class has already been
-  #       loaded with include_comments = true, the comments method was defined ...
-  # describe "with Blogit.configuration.comments == false" do
-  #
-  #   it "should not have many comments if Blogit.configuration.comments == false" do
-  #     Blogit.configure do |config|
-  #       config.include_comments = :no
-  #     end
-  #     User.blogs
-  #     @blog_post = Blogit::Post.new
-  #     lambda { @blog_post.comments }.should raise_exception(NoMethodError)
-  #   end
-  #
-  # end
+  describe "with Blogit.configuration.comments != active_record" do
+
+    it "should not allow comments" do
+      Blogit.configure do |config|
+        config.include_comments = :no
+      end
+      User.blogs
+      @blog_post = Blogit::Post.new
+      lambda { @blog_post.comments }.should raise_exception(RuntimeError)
+    end
+
+  end
 
 end

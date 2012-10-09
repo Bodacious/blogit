@@ -29,8 +29,15 @@ module Blogit
 
     belongs_to :blogger, :polymorphic => true
 
-    if Blogit.configuration.include_comments == :active_record
-      has_many :comments, :class_name => "Blogit::Comment"
+    has_many :comments, :class_name => "Blogit::Comment"
+
+    def comments
+      check_comments_config
+      super()
+    end
+    def comments=(value)
+      check_comments_config
+      super(value)
     end
 
     # ==========
@@ -60,6 +67,12 @@ module Blogit
       else
         self.blogger.send Blogit.configuration.blogger_display_name_method
       end
+    end
+
+    private
+
+    def check_comments_config
+      raise RuntimeError.new("Posts only allow active record comments (check blogit configuration)") unless Blogit.configuration.include_comments == :active_record
     end
   end
 end

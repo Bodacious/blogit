@@ -20,8 +20,7 @@ describe Blogit::PostsHelper do
         config.include_comments = :no
       end
 
-      helper.expects(:render).with(partial: "blogit/posts/no_comments", locals: {post: post, comment: comment=post.comments.new})
-      helper.comments_for(post, comment)
+      helper.comments_for(post).should == ""
     end
 
     it "should be full html when comments use active record" do
@@ -29,8 +28,10 @@ describe Blogit::PostsHelper do
         config.include_comments = :active_record
       end
 
-      helper.expects(:render).with(partial: "blogit/posts/active_record_comments", locals: {post: post, comment: comment=post.comments.new})
-      helper.comments_for(post, comment)
+      comment = Blogit::Comment.new
+      Blogit::Comment.expects(:new).returns(comment)
+      helper.expects(:render).with(partial: "blogit/posts/active_record_comments", locals: {post: post, comment: comment})
+      helper.comments_for(post)
     end
   end
 
