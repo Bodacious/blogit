@@ -8,6 +8,10 @@ describe Blogit::Configuration do
     blog_configuration.include_comments.should == :active_record
   end
 
+  it "should set :disqus_shortname to blank" do
+    blog_configuration.disqus_shortname.should == ""
+  end
+
   it "should set :current_blogger_method to :current_user" do
     blog_configuration.current_blogger_method.should eql(:current_user)
   end

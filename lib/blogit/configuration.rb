@@ -4,6 +4,9 @@ module Blogit
     # What kind of comments do you want to add to your blog ? (:active_record, :disqus or :no)
     attr_accessor :include_comments
 
+    # When using disqus comments, what is the shortname of your forum ?
+    attr_accessor :disqus_shortname
+
     # The name of the controller method we'll call to return the current blogger.
     attr_accessor :current_blogger_method
 
@@ -89,6 +92,7 @@ module Blogit
 
     def initialize
       @include_comments            = :active_record
+      @disqus_shortname            = ""
       @current_blogger_method      = :current_user
       @blogger_display_name_method = :username
       @datetime_format             = :short
