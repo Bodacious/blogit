@@ -1,8 +1,8 @@
 # These configuration options can be used to customise the behaviour of Blogit
 Blogit.configure do |config|
 
-  # Do you want to add comments to your blog?
-  # config.include_comments = true
+  # What kind of comments do you want to add to your blog ? (:active_record, :disqus or :no)
+  # config.include_comments = :active_record
 
   # The name of the controller method we'll call to return the current blogger.
   # Change this if you use something other than current_user.

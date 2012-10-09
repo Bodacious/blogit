@@ -3,13 +3,13 @@ module Blogit
 
     require "acts-as-taggable-on"
     require "kaminari"
-    
-    acts_as_taggable    
+
+    acts_as_taggable
 
     self.table_name = "blog_posts"
 
     self.paginates_per Blogit.configuration.posts_per_page
-    
+
     # ==============
     # = Attributes =
     # ==============
@@ -25,11 +25,11 @@ module Blogit
 
     # =================
     # = Assosciations =
-    # =================    
+    # =================
 
     belongs_to :blogger, :polymorphic => true
 
-    if Blogit.configuration.include_comments 
+    if Blogit.configuration.include_comments == :active_record
       has_many :comments, :class_name => "Blogit::Comment"
     end
 
@@ -53,12 +53,12 @@ module Blogit
     # Otherwise, returns an empty string
     def blogger_display_name
       if self.blogger and !self.blogger.respond_to?(Blogit.configuration.blogger_display_name_method)
-        raise ConfigurationError, 
+        raise ConfigurationError,
         "#{self.blogger.class}##{Blogit.configuration.blogger_display_name_method} is not defined"
       elsif self.blogger.nil?
         ""
       else
-        self.blogger.send Blogit.configuration.blogger_display_name_method        
+        self.blogger.send Blogit.configuration.blogger_display_name_method
       end
     end
   end

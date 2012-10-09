@@ -1,7 +1,7 @@
 module Blogit
   class Configuration
 
-    # Should we include comments for blog posts?
+    # What kind of comments do you want to add to your blog ? (:active_record, :disqus or :no)
     attr_accessor :include_comments
 
     # The name of the controller method we'll call to return the current blogger.
@@ -88,7 +88,7 @@ module Blogit
     }
 
     def initialize
-      @include_comments            = true
+      @include_comments            = :active_record
       @current_blogger_method      = :current_user
       @blogger_display_name_method = :username
       @datetime_format             = :short

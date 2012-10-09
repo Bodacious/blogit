@@ -15,6 +15,11 @@ module Blogit
       content_tag(name, content, options)
     end
 
+    # A comments tag corresponding to the comments configuration
+    def comments_for(post, comment)
+      render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: comment })
+    end
+
     # Creates a ul tag tree with posts by year and monthes. Include
     # blogit/archive.js to enabled expand collapse.
     def blog_posts_archive_tag(year_css, month_css, post_css)

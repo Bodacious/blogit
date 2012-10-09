@@ -1,5 +1,5 @@
 
-<%= form_for [@post, @comment], remote: true,
+<%= form_for [post, comment], remote: true,
   html: {
     class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
 
@@ -14,26 +14,25 @@
   <%= field do %>
     <%= f.label :name, t(:name, scope: 'blogit.comments') %><br>
     <%= f.text_field :name %>
-    <%= errors_on(@comment, :name) %>
+    <%= errors_on(comment, :name) %>
   <% end %>
 
   <%= field do %>
     <%= f.label :email, t(:email_never_displayed, scope: 'blogit.comments') %><br>
     <%= f.email_field :email %>
-    <%= errors_on(@comment, :email) %>
+    <%= errors_on(comment, :email) %>
   <% end %>
 
   <%= field do %>
     <%= f.label :website, t(:your_website, scope: 'blogit.comments') %><br>
     <%= f.url_field :website %>
-    <%= errors_on(@comment, :website) %>
+    <%= errors_on(comment, :website) %>
   <% end %>
-
 
   <%= field do %>
     <%= f.label :body, t(:your_comment, scope: 'blogit.comments') %><br>
     <%= f.text_area :body %><br>
-    <%= errors_on(@comment, :body) %>
+    <%= errors_on(comment, :body) %>
   <% end %>
 
   <%= actions do %>

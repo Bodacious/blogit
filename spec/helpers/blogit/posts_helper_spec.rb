@@ -12,6 +12,28 @@ describe Blogit::PostsHelper do
 
   end
 
+  describe :comments_for do
+    let(:post) { FactoryGirl.create :post }
+
+    it "should be empty if comments are not configured" do
+      Blogit.configure do |config|
+        config.include_comments = :no
+      end
+
+      helper.expects(:render).with(partial: "blogit/posts/no_comments", locals: {post: post, comment: comment=post.comments.new})
+      helper.comments_for(post, comment)
+    end
+
+    it "should be full html when comments use active record" do
+      Blogit.configure do |config|
+        config.include_comments = :active_record
+      end
+
+      helper.expects(:render).with(partial: "blogit/posts/active_record_comments", locals: {post: post, comment: comment=post.comments.new})
+      helper.comments_for(post, comment)
+    end
+  end
+
   describe :blog_post_archive do
 
     before :each do
