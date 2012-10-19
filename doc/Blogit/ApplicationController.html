@@ -6,7 +6,7 @@
 <title>
   Class: Blogit::ApplicationController
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (A)</a> &raquo; 
+    <a href="../_index.html">Index (A)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
     <span class="title">ApplicationController</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Blogit::ApplicationController
   
   
@@ -96,10 +103,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>
-Inherits from the application&#8217;s controller instead of
-ActionController::Base
-</p>
+    
+<p>Inherits from the application's controller instead of
+ActionController::Base</p>
 
 
   </div>
@@ -113,10 +119,10 @@ ActionController::Base
 </div>
 
 
-  
 
 
-  
+
+
 
   
     <h2>
@@ -140,13 +146,13 @@ ActionController::Base
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Sets a class method to specify a before-filter calling whatever
+    <span class="summary_desc"><div class='inline'>
+<p>Sets a class method to specify a before-filter calling whatever
 Blogit.configuration.authentication_method is set to Accepts the usual
-before_filter optionss.
-</p>
+before_filter optionss.</p>
 </div></span>
   
 </li>
@@ -166,12 +172,12 @@ before_filter optionss.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Turns on page caching for the given actions if 
-Blogit.configuration.cache_pages is true.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Turns on page caching for the given actions if 
+Blogit.configuration.cache_pages is true.</p>
 </div></span>
   
 </li>
@@ -191,11 +197,11 @@ Blogit.configuration.cache_pages is true.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-A helper method to access the Blogit::configuration at the class level.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A helper method to access the Blogit::configuration at the class level.</p>
 </div></span>
   
 </li>
@@ -215,12 +221,12 @@ A helper method to access the Blogit::configuration at the class level.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Sets a cache sweeper to observe changes if 
-Blogit.configuration.cache_pages is true.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Sets a cache sweeper to observe changes if 
+Blogit.configuration.cache_pages is true.</p>
 </div></span>
   
 </li>
@@ -249,12 +255,12 @@ Blogit.configuration.cache_pages is true.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-A helper method to access the Blogit::configuration at the controller
-instance level.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A helper method to access the Blogit::configuration at the controller
+instance level.</p>
 </div></span>
   
 </li>
@@ -274,12 +280,12 @@ instance level.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the currently logged in blogger by calling whatever
-Blogit.current_blogger_method is set to.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the currently logged in blogger by calling whatever
+Blogit.current_blogger_method is set to.</p>
 </div></span>
   
 </li>
@@ -299,11 +305,11 @@ Blogit.current_blogger_method is set to.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns true if the current_blogger is the owner of the post.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the current_blogger is the owner of the post.</p>
 </div></span>
   
 </li>
@@ -317,22 +323,23 @@ Returns true if the current_blogger is the owner of the post.
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="blogit_authenticate-class_method">
+  <h3 class="signature first" id="blogit_authenticate-class_method">
   
     + (<tt>Object</tt>) <strong>blogit_authenticate</strong>(options = {}) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Sets a class method to specify a before-filter calling whatever
+    
+<p>Sets a class method to specify a before-filter calling whatever
 Blogit.configuration.authentication_method is set to Accepts the usual
-before_filter optionss
-</p>
+before_filter optionss</p>
 
 
   </div>
@@ -353,8 +360,8 @@ before_filter optionss
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_authenticate'>blogit_authenticate</span><span class='lparen'>(</span><span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id before_filter'>before_filter</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id authentication_method'>authentication_method</span><span class='comma'>,</span> <span class='id options'>options</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogit_authenticate'>blogit_authenticate</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_before_filter'>before_filter</span> <span class='id identifier rubyid_blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id identifier rubyid_authentication_method'>authentication_method</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -362,18 +369,19 @@ before_filter optionss
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="blogit_cacher-class_method">
+  <h3 class="signature " id="blogit_cacher-class_method">
   
     + (<tt>Object</tt>) <strong>blogit_cacher</strong>(*args) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Turns on page caching for the given actions if 
-Blogit.configuration.cache_pages is true
-</p>
+    
+<p>Turns on page caching for the given actions if 
+Blogit.configuration.cache_pages is true</p>
 
 
   </div>
@@ -396,9 +404,9 @@ Blogit.configuration.cache_pages is true
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_cacher'>blogit_cacher</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id cache_pages'>cache_pages</span>
-    <span class='id caches_page'>caches_page</span> <span class='op'>*</span><span class='id args'>args</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogit_cacher'>blogit_cacher</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id identifier rubyid_cache_pages'>cache_pages</span>
+    <span class='id identifier rubyid_caches_page'>caches_page</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -407,17 +415,18 @@ Blogit.configuration.cache_pages is true
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="blogit_conf-class_method">
+  <h3 class="signature " id="blogit_conf-class_method">
   
     + (<tt>Object</tt>) <strong>blogit_conf</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-A helper method to access the Blogit::configuration at the class level
-</p>
+    
+<p>A helper method to access the Blogit::configuration at the class level</p>
 
 
   </div>
@@ -438,8 +447,8 @@ A helper method to access the Blogit::configuration at the class level
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_conf'>blogit_conf</span>
-  <span class='const'>Blogit</span><span class='op'>::</span><span class='id configuration'>configuration</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
+  <span class='const'>Blogit</span><span class='op'>::</span><span class='id identifier rubyid_configuration'>configuration</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -447,18 +456,19 @@ A helper method to access the Blogit::configuration at the class level
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="blogit_sweeper-class_method">
+  <h3 class="signature " id="blogit_sweeper-class_method">
   
     + (<tt>Object</tt>) <strong>blogit_sweeper</strong>(*args) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Sets a cache sweeper to observe changes if 
-Blogit.configuration.cache_pages is true
-</p>
+    
+<p>Sets a cache sweeper to observe changes if 
+Blogit.configuration.cache_pages is true</p>
 
 
   </div>
@@ -481,9 +491,9 @@ Blogit.configuration.cache_pages is true
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_sweeper'>blogit_sweeper</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id cache_pages'>cache_pages</span>
-    <span class='id cache_sweeper'>cache_sweeper</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='const'>BlogitSweeper</span><span class='comma'>,</span> <span class='label'>only:</span> <span class='id args'>args</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogit_sweeper'>blogit_sweeper</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id identifier rubyid_cache_pages'>cache_pages</span>
+    <span class='id identifier rubyid_cache_sweeper'>cache_sweeper</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='const'>BlogitSweeper</span><span class='comma'>,</span> <span class='label'>only:</span> <span class='id identifier rubyid_args'>args</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -495,21 +505,22 @@ Blogit.configuration.cache_pages is true
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="blogit_conf-instance_method">
+  <h3 class="signature first" id="blogit_conf-instance_method">
   
     - (<tt>Object</tt>) <strong>blogit_conf</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-A helper method to access the Blogit::configuration at the controller
-instance level
-</p>
+    
+<p>A helper method to access the Blogit::configuration at the controller
+instance level</p>
 
 
   </div>
@@ -530,8 +541,8 @@ instance level
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 40</span>
 
-<span class='kw'>def</span> <span class='id blogit_conf'>blogit_conf</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id blogit_conf'>blogit_conf</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -539,18 +550,19 @@ instance level
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="current_blogger-instance_method">
+  <h3 class="signature " id="current_blogger-instance_method">
   
     - (<tt>Object</tt>) <strong>current_blogger</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the currently logged in blogger by calling whatever
-Blogit.current_blogger_method is set to
-</p>
+    
+<p>Returns the currently logged in blogger by calling whatever
+Blogit.current_blogger_method is set to</p>
 
 
   </div>
@@ -571,8 +583,8 @@ Blogit.current_blogger_method is set to
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 46</span>
 
-<span class='kw'>def</span> <span class='id current_blogger'>current_blogger</span>
-  <span class='id send'>send</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id current_blogger_method'>current_blogger_method</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_current_blogger'>current_blogger</span>
+  <span class='id identifier rubyid_send'>send</span> <span class='id identifier rubyid_blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id identifier rubyid_current_blogger_method'>current_blogger_method</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -580,23 +592,24 @@ Blogit.current_blogger_method is set to
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="this_blogger?-instance_method">
+  <h3 class="signature " id="this_blogger?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>this_blogger?</strong>(post) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns true if the current_blogger is the owner of the post
-</p>
+    
+<p>Returns true if the current_blogger is the owner of the post</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -609,16 +622,15 @@ Returns true if the current_blogger is the owner of the post
       
       
         &mdash;
-        <div class='inline'><p>
-An instance of Blogit::Post
-</p>
+        <div class='inline'>
+<p>An instance of Blogit::Post</p>
 </div>
       
     </li>
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -645,8 +657,8 @@ An instance of Blogit::Post
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='id this_blogger?'>this_blogger?</span><span class='lparen'>(</span><span class='id post'>post</span><span class='rparen'>)</span>
-  <span class='id current_blogger'>current_blogger</span> <span class='op'>==</span> <span class='id post'>post</span><span class='period'>.</span><span class='id blogger'>blogger</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_this_blogger?'>this_blogger?</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_current_blogger'>current_blogger</span> <span class='op'>==</span> <span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -656,11 +668,11 @@ An instance of Blogit::Post
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Dec 29 16:05:54 2011 by 
+  Generated on Fri Oct 19 10:16:28 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

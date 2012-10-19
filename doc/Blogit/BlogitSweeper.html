@@ -6,7 +6,7 @@
 <title>
   Class: Blogit::BlogitSweeper
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (B)</a> &raquo; 
+    <a href="../_index.html">Index (B)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
     <span class="title">BlogitSweeper</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Blogit::BlogitSweeper
   
   
@@ -96,15 +103,13 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>
-This is a universal cache sweeper. If a comment is added or a  blog post is
+    
+<p>This is a universal cache sweeper. If a comment is added or a  blog post is
 updated, we should remove all the cached pages. This will reduce the risk
-of dead links from tags clouds etc.
-</p>
-<p>
-To activate page caching, set <tt>config.cache_pages = true</tt> in your
-blogit.rb file
-</p>
+of dead links from tags clouds etc.</p>
+
+<p>To activate page caching, set <tt>config.cache_pages = true</tt> in your
+blogit.rb file</p>
 
 
   </div>
@@ -114,10 +119,10 @@ blogit.rb file
 
 </div>
 
-  
 
 
-  
+
+
 
   
     <h2>
@@ -141,6 +146,7 @@ blogit.rb file
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -156,16 +162,18 @@ blogit.rb file
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="after_save-instance_method">
+  <h3 class="signature first" id="after_save-instance_method">
   
     - (<tt>Object</tt>) <strong>after_save</strong>(record) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -178,8 +186,8 @@ blogit.rb file
     <td>
       <pre class="code"><span class="info file"># File 'app/sweepers/blogit/blogit_sweeper.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='id after_save'>after_save</span><span class='lparen'>(</span><span class='id record'>record</span><span class='rparen'>)</span>
-  <span class='id clear_cached_pages'>clear_cached_pages</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_after_save'>after_save</span><span class='lparen'>(</span><span class='id identifier rubyid_record'>record</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_clear_cached_pages'>clear_cached_pages</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -189,11 +197,11 @@ blogit.rb file
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Dec 29 16:05:54 2011 by 
+  Generated on Fri Oct 19 10:16:28 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

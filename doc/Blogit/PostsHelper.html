@@ -6,7 +6,7 @@
 <title>
   Module: Blogit::PostsHelper
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (P)</a> &raquo; 
+    <a href="../_index.html">Index (P)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
     <span class="title">PostsHelper</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Module: Blogit::PostsHelper
   
   
@@ -76,6 +83,8 @@
   
 </dl>
 <div class="clear"></div>
+
+
 
 
 
@@ -104,11 +113,83 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Creates a div tag with class &#8216;blog_post_&#8217; + name Eg: .
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a div tag with class 'blog_post_' + name Eg:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#blog_posts_archive_tag-instance_method" title="#blog_posts_archive_tag (instance method)">- (Object) <strong>blog_posts_archive_tag</strong>(year_css, month_css, post_css) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a ul tag tree with posts by year and monthes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comments_for-instance_method" title="#comments_for (instance method)">- (Object) <strong>comments_for</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A comments tag corresponding to the comments configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#share_bar_for-instance_method" title="#share_bar_for (instance method)">- (Object) <strong>share_bar_for</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A share bar as configured.</p>
 </div></span>
   
 </li>
@@ -121,22 +202,23 @@ Creates a div tag with class &#8216;blog_post_&#8217; + name Eg: .
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="blog_post_tag-instance_method">
+  <h3 class="signature first" id="blog_post_tag-instance_method">
   
     - (<tt>Object</tt>) <strong>blog_post_tag</strong>(name, content_or_options = {}, options = {}, &amp;block) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Creates a div tag with class &#8216;blog_post_&#8217; + name Eg: 
-</p>
-<pre class="code">
-  <span class='id blog_post_tag'>blog_post_tag</span><span class='lparen'>(</span><span class='symbol'>:title</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; &lt;div class=&quot;blog_post_title&quot;&gt;&lt;/div&gt;</span></pre>
+    
+<p>Creates a div tag with class 'blog_post_' + name Eg:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_blog_post_tag'>blog_post_tag</span><span class='lparen'>(</span><span class='symbol'>:title</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; &lt;div class=&quot;blog_post_title&quot;&gt;&lt;/div&gt;</span></code></pre>
 
 
   </div>
@@ -164,15 +246,187 @@ Creates a div tag with class &#8216;blog_post_&#8217; + name Eg:
     <td>
       <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 7</span>
 
-<span class='kw'>def</span> <span class='id blog_post_tag'>blog_post_tag</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id content_or_options'>content_or_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
-    <span class='id content'>content</span> <span class='op'>=</span> <span class='id capture'>capture</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
-    <span class='id options'>options</span> <span class='op'>=</span> <span class='id content_or_options'>content_or_options</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_blog_post_tag'>blog_post_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_content_or_options'>content_or_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='id identifier rubyid_capture'>capture</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_content_or_options'>content_or_options</span>
   <span class='kw'>else</span>
-    <span class='id content'>content</span> <span class='op'>=</span> <span class='id content_or_options'>content_or_options</span>
+    <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='id identifier rubyid_content_or_options'>content_or_options</span>
   <span class='kw'>end</span>
-  <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> blog_post_</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id strip'>strip</span>
-  <span class='id content_tag'>content_tag</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id content'>content</span><span class='comma'>,</span> <span class='id options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> blog_post_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
+  <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="blog_posts_archive_tag-instance_method">
+  
+    - (<tt>Object</tt>) <strong>blog_posts_archive_tag</strong>(year_css, month_css, post_css) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a ul tag tree with posts by year and monthes. Include
+blogit/archive.js to enabled expand collapse.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_blog_posts_archive_tag'>blog_posts_archive_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_year_css'>year_css</span><span class='comma'>,</span> <span class='id identifier rubyid_month_css'>month_css</span><span class='comma'>,</span> <span class='id identifier rubyid_post_css'>post_css</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_posts_tree'>posts_tree</span> <span class='op'>=</span> <span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_chunk'>chunk</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_post'>post</span><span class='op'>|</span> <span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_created_at'>created_at</span><span class='period'>.</span><span class='id identifier rubyid_year'>year</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_year'>year</span><span class='comma'>,</span> <span class='id identifier rubyid_posts_of_year'>posts_of_year</span><span class='op'>|</span>
+    <span class='lbracket'>[</span><span class='id identifier rubyid_year'>year</span><span class='comma'>,</span> <span class='id identifier rubyid_posts_of_year'>posts_of_year</span><span class='period'>.</span><span class='id identifier rubyid_chunk'>chunk</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_post'>post</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_created_at'>created_at</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:plain_month_only</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;ul class=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_year_css'>year_css</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_posts_tree'>posts_tree</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_year'>year</span><span class='comma'>,</span> <span class='id identifier rubyid_posts_by_month'>posts_by_month</span><span class='op'>|</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;li&gt;&lt;a onclick=\&quot;toggleBrothersDisplay(this, 'UL')\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_year'>year</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/a&gt;&lt;ul class=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_month_css'>month_css</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_posts_by_month'>posts_by_month</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_month'>month</span><span class='comma'>,</span> <span class='id identifier rubyid_posts'>posts</span><span class='op'>|</span>
+      <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;li&gt;&lt;a onclick=\&quot;toggleBrothersDisplay(this, 'UL')\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='const'>CGI</span><span class='period'>.</span><span class='id identifier rubyid_escape_html'>escape_html</span><span class='lparen'>(</span><span class='id identifier rubyid_month'>month</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/a&gt;&lt;ul class=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_post_css'>post_css</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_posts'>posts</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_post'>post</span><span class='op'>|</span>
+        <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;li&gt;&lt;a href=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_blogit'>blogit</span><span class='period'>.</span><span class='id identifier rubyid_post_path'>post_path</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='const'>CGI</span><span class='period'>.</span><span class='id identifier rubyid_escape_html'>escape_html</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/a&gt;&lt;/li&gt;</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/ul&gt;&lt;/li&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/ul&gt;&lt;/li&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/ul&gt;</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="comments_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>comments_for</strong>(post) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A comments tag corresponding to the comments configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_comments_for'>comments_for</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>partial:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit/posts/</span><span class='embexpr_beg'>#{</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_include_comments'>include_comments</span><span class='rbrace'>}</span><span class='tstring_content'>_comments</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>locals:</span> <span class='lbrace'>{</span> <span class='label'>post:</span> <span class='id identifier rubyid_post'>post</span><span class='comma'>,</span> <span class='label'>comment:</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='const'>Comment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="share_bar_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>share_bar_for</strong>(post) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A share bar as configured</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_share_bar_for'>share_bar_for</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_include_share_bar'>include_share_bar</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>partial:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit/posts/share_bar</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>locals:</span> <span class='lbrace'>{</span> <span class='label'>post:</span> <span class='id identifier rubyid_post'>post</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -182,11 +436,11 @@ Creates a div tag with class &#8216;blog_post_&#8217; + name Eg:
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Dec 29 16:05:54 2011 by 
+  Generated on Fri Oct 19 10:16:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

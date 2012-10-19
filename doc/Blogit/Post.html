@@ -6,7 +6,7 @@
 <title>
   Class: Blogit::Post
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (P)</a> &raquo; 
+    <a href="../_index.html">Index (P)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
     <span class="title">Post</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Blogit::Post
   
   
@@ -96,10 +103,10 @@
 
 
 
-  
 
 
-  
+
+
 
   
     <h2>
@@ -123,11 +130,11 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the blog posts paginated for the index page.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the blog posts paginated for the index page.</p>
 </div></span>
   
 </li>
@@ -156,14 +163,57 @@ Returns the blog posts paginated for the index page.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-If there&#8217;s a current blogger and the display name method is set,
-returns the blogger&#8217;s display name Otherwise, returns an empty
-string.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>If there's a current blogger and the display name method is set, returns
+the blogger's display name Otherwise, returns an empty string.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comments-instance_method" title="#comments (instance method)">- (Object) <strong>comments</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comments%3D-instance_method" title="#comments= (instance method)">- (Object) <strong>comments=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -182,10 +232,15 @@ string.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><h6>= Instance Methods =</h6>
-<h6>.</h6>
+    <span class="summary_desc"><div class='inline'>
+<h20></h20>
+
+<h1>Instance Methods =</h1>
+
+<h20>.</h20>
 </div></span>
   
 </li>
@@ -199,20 +254,21 @@ string.
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="for_index-class_method">
+  <h3 class="signature first" id="for_index-class_method">
   
     + (<tt>Object</tt>) <strong>for_index</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the blog posts paginated for the index page
-</p>
+    
+<p>Returns the blog posts paginated for the index page</p>
 
 
   </div>
@@ -226,12 +282,12 @@ Returns the blog posts paginated for the index page
       <pre class="lines">
 
 
-37</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 49</span>
 
-<span class='id scope'>scope</span> <span class='symbol'>:for_index</span><span class='comma'>,</span> <span class='id lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id page_no'>page_no</span> <span class='op'>=</span> <span class='int'>1</span><span class='op'>|</span> <span class='id order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated_at DESC</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id page'>page</span><span class='lparen'>(</span><span class='id page_no'>page_no</span><span class='rparen'>)</span> <span class='rbrace'>}</span></pre>
+<span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:for_index</span><span class='comma'>,</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_page_no'>page_no</span> <span class='op'>=</span> <span class='int'>1</span><span class='op'>|</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at DESC</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_page'>page</span><span class='lparen'>(</span><span class='id identifier rubyid_page_no'>page_no</span><span class='rparen'>)</span> <span class='rbrace'>}</span></pre>
     </td>
   </tr>
 </table>
@@ -241,21 +297,22 @@ Returns the blog posts paginated for the index page
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="blogger_display_name-instance_method">
+  <h3 class="signature first" id="blogger_display_name-instance_method">
   
     - (<tt>Object</tt>) <strong>blogger_display_name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-If there&#8217;s a current blogger and the display name method is set,
-returns the blogger&#8217;s display name Otherwise, returns an empty string
-</p>
+    
+<p>If there's a current blogger and the display name method is set, returns
+the blogger's display name Otherwise, returns an empty string</p>
 
 
   </div>
@@ -269,28 +326,28 @@ returns the blogger&#8217;s display name Otherwise, returns an empty string
       <pre class="lines">
 
 
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58</pre>
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 61</span>
 
-<span class='kw'>def</span> <span class='id blogger_display_name'>blogger_display_name</span>
-  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogger'>blogger</span> <span class='kw'>and</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id blogger'>blogger</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id blogger_display_name_method'>blogger_display_name_method</span><span class='rparen'>)</span>
-    <span class='id raise'>raise</span> <span class='const'>ConfigurationError</span><span class='comma'>,</span> 
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id blogger'>blogger</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id blogger_display_name_method'>blogger_display_name_method</span><span class='rbrace'>}</span><span class='tstring_content'> is not defined</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>elsif</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogger'>blogger</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_blogger_display_name'>blogger_display_name</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span> <span class='kw'>and</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ConfigurationError</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span><span class='rbrace'>}</span><span class='tstring_content'> is not defined</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>else</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id blogger'>blogger</span><span class='period'>.</span><span class='id send'>send</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id blogger_display_name_method'>blogger_display_name_method</span>        
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -299,16 +356,86 @@ returns the blogger&#8217;s display name Otherwise, returns an empty string
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="to_param-instance_method">
+  <h3 class="signature " id="comments-instance_method">
+  
+    - (<tt>Object</tt>) <strong>comments</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_comments'>comments</span>
+  <span class='id identifier rubyid_check_comments_config'>check_comments_config</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="comments=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>comments=</strong>(value) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_comments='>comments=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_comments_config'>check_comments_config</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_param-instance_method">
   
     - (<tt>Object</tt>) <strong>to_param</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <h6>= Instance Methods =</h6>
-<h6></h6>
+    
+<h20></h20>
+
+<h1>Instance Methods =</h1>
+
+<h20></h20>
 
 
   </div>
@@ -322,15 +449,15 @@ returns the blogger&#8217;s display name Otherwise, returns an empty string
       <pre class="lines">
 
 
-43
-44
-45</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 55</span>
 
-<span class='kw'>def</span> <span class='id to_param'>to_param</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id id'>id</span><span class='rbrace'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id title'>title</span><span class='period'>.</span><span class='id parameterize'>parameterize</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_to_param'>to_param</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_title'>title</span><span class='period'>.</span><span class='id identifier rubyid_parameterize'>parameterize</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -340,11 +467,11 @@ returns the blogger&#8217;s display name Otherwise, returns an empty string
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Dec 29 16:05:54 2011 by 
+  Generated on Fri Oct 19 10:16:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

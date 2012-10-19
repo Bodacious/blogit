@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,34 +28,39 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: README</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><div id='filecontents'><h1>Blogit (beta)</h1>
 
 <p>Blogit is a flexible blogging solution for Rails apps. It:</p>
@@ -64,51 +71,39 @@
 <li>Aims to work right out of the box but remain fully customisable.</li>
 </ul>
 
-
 <h2>Installation</h2>
 
 <p>Add this to your Gemfile</p>
 
-<p><code>ruby
-gem "blogit"
-</code></p>
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
 
 <p>...and run <code>bundle install</code> to install the gem.</p>
 
 <p>Next, run:</p>
 
-<p>``` bash</p>
+<pre class="code bash"><code># add an initializer to config/initializers with all of the configuration options
+$ rails g blogit:install
+# This will add the necessary migrations to your app's db/migrate directory
+rake blogit:install:migrations
+# This will run any pending migrations
+rake db:migrate
+</code></pre>
 
-<h1>add an initializer to config/initializers with all of the configuration options</h1>
+<p>then add the following to your routes.rb file:</p>
 
-<p>$ rails g blogit:install</p>
-
-<h1>This will add the necessary migrations to your app's db/migrate directory</h1>
-
-<p>rake blogit:install:migrations</p>
-
-<h1>This will run any pending migrations</h1>
-
-<p>rake db:migrate
-```
-then add the following to your routes.rb file:</p>
-
-<p>``` bash</p>
-
-<h1>config/routes.rb</h1>
-
-<p>mount Blogit::Engine => "/blog"
-```</p>
+<pre class="code bash"><code># config/routes.rb
+mount Blogit::Engine =&gt; &quot;/blog&quot;
+</code></pre>
 
 <p>... and finally, declare which of your models acts as blogger in your app (usually User).</p>
 
-<p>``` ruby
-class User</p>
+<pre class="code ruby"><code><span class='kw'>class</span> <span class='const'>User</span>
 
-<p>  blogs</p>
+  <span class='id identifier rubyid_blogs'>blogs</span>
 
-<p>end
-```</p>
+<span class='kw'>end</span>
+</code></pre>
 
 <h2>Configuration</h2>
 
@@ -117,17 +112,20 @@ you can set various configuration options. Please <a href="http://rubydoc.info/g
 
 <h2>At no extra cost...</h2>
 
-<p>we'll also throw in:</p>
+<p>we&#39;ll also throw in:</p>
 
 <ul>
-<li>An XML Sitemap located at <code>/blog/sitemap.xml</code></li>
+<li>An XML Sitemap located at <code>/blog/posts.xml</code></li>
+<li>An RSS feed located at <code>/blog/posts.rss</code></li>
 <li>Page Caching and Sweeping</li>
+<li>Internationalization (see the <a href="https://github.com/KatanaCode/blogit/blob/master/config/locales/en.yml">locales file</a> for configurable options)</li>
+<li>Share links (Google+, Twitter &amp; Facebook)</li>
+<li><a href="http://disqus.com">Disquss Comments</a></li>
 </ul>
-
 
 <h2>Issues</h2>
 
-<p>If you discover a problem with Blogit, please let us know about it.</p>
+<p>If you discover a problem with Blogit, please let us know about it. </p>
 
 <p><strong>Remember</strong> to search the <a href="https://github.com/KatanaCode/blogit/issues">issues list</a> first in case your issue has already been raised
 by another Githuber</p>
@@ -138,7 +136,7 @@ by another Githuber</p>
 
 <h2>Contributing</h2>
 
-<p>You're welcome to contribute to Blogit. Please consult the <a href="https://github.com/KatanaCode/blogit/wiki/Contributing">contribution guidelines</a> for more info.</p>
+<p>You&#39;re welcome to contribute to Blogit. Please consult the <a href="https://github.com/KatanaCode/blogit/wiki/Contributing">contribution guidelines</a> for more info.</p>
 
 <h2>Legal Stuff</h2>
 
@@ -146,7 +144,7 @@ by another Githuber</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
+&quot;Software&quot;), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
@@ -155,7 +153,7 @@ the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.</p>
 
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
@@ -165,17 +163,24 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
 <h2>Credits</h2>
 
-<p>Developed by <a href="http://katanacode.com">katana:code</a></p>
+<p>Developed by <a href="http://katanacode.com">Katana Code</a></p>
 
-<h2>About katana:code</h2>
+<p>with generous contributions from:</p>
 
-<p>katana:code are <a href="http://katanacode.github.com/" title="katana:code">Ruby on Rails Developers Based in Edinburgh, Scotland</a>.</p>
+<ul>
+<li><a href="https://github.com/philou">Philou</a></li>
+<li><a href="https://github.com/stewartmckee">Stewart McKee</a></li>
+</ul>
+
+<h2>About Katana Code</h2>
+
+<p>Katana Code are <a href="http://katanacode.com/" title="Katana Code">Ruby on Rails Developers Based in Edinburgh, Scotland</a>.</p>
 </div></div>
-    
+
     <div id="footer">
-  Generated on Thu Dec 29 16:05:54 2011 by 
+  Generated on Fri Oct 19 10:16:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

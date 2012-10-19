@@ -6,7 +6,7 @@
 <title>
   Class: Blogit::Configuration
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (C)</a> &raquo; 
+    <a href="../_index.html">Index (C)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
     <span class="title">Configuration</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Blogit::Configuration
   
   
@@ -101,8 +108,8 @@
           
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>hard_wrap:</span> <span class='kw'>true</span><span class='comma'>,</span> 
-  <span class='label'>filter_html:</span> <span class='kw'>true</span><span class='comma'>,</span> 
+  <span class='label'>hard_wrap:</span> <span class='kw'>true</span><span class='comma'>,</span>
+  <span class='label'>filter_html:</span> <span class='kw'>true</span><span class='comma'>,</span>
   <span class='label'>autolink:</span> <span class='kw'>true</span><span class='comma'>,</span>
   <span class='label'>no_intra_emphasis:</span> <span class='kw'>true</span><span class='comma'>,</span>
   <span class='label'>fenced_code_blocks:</span> <span class='kw'>true</span><span class='comma'>,</span>
@@ -111,6 +118,8 @@
       
     </dl>
   
+
+
 
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -126,6 +135,7 @@
   </span>
   
   
+  
     
     
   
@@ -135,10 +145,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-If set to true, the comments form will POST and DELETE to the comments 
-controller using AJAX calls.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>If set to true, the comments form will POST and DELETE to the comments
+controller using AJAX calls.</p>
 </div></span>
   
 </li>
@@ -154,6 +163,7 @@ controller using AJAX calls.
   </span>
   
   
+  
     
     
   
@@ -163,10 +173,8 @@ controller using AJAX calls.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-The name of the before filter we&#8217;ll call to authenticate the current
-user.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the before filter we'll call to authenticate the current user.</p>
 </div></span>
   
 </li>
@@ -182,6 +190,7 @@ user.
   </span>
   
   
+  
     
     
   
@@ -191,9 +200,8 @@ user.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-If set to true, only the user who authored the post may, edit or destroy.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>If set to true, only the user who authored the post may, edit or destroy.</p>
 </div></span>
   
 </li>
@@ -209,6 +217,7 @@ If set to true, only the user who authored the post may, edit or destroy.
   </span>
   
   
+  
     
     
   
@@ -218,10 +227,9 @@ If set to true, only the user who authored the post may, edit or destroy.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-what method do we call on blogger to return their display name? Defaults to
-:username.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>what method do we call on blogger to return their display name? Defaults to
+:username.</p>
 </div></span>
   
 </li>
@@ -237,6 +245,7 @@ what method do we call on blogger to return their display name? Defaults to
   </span>
   
   
+  
     
     
   
@@ -246,9 +255,8 @@ what method do we call on blogger to return their display name? Defaults to
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Should the controllers cache the blog pages as HTML?.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Should the controllers cache the blog pages as HTML? Defaults to false.</p>
 </div></span>
   
 </li>
@@ -264,6 +272,7 @@ Should the controllers cache the blog pages as HTML?.
   </span>
   
   
+  
     
     
   
@@ -273,10 +282,8 @@ Should the controllers cache the blog pages as HTML?.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-The name of the controller method we&#8217;ll call to return the current
-blogger.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the controller method we'll call to return the current blogger.</p>
 </div></span>
   
 </li>
@@ -292,6 +299,7 @@ blogger.
   </span>
   
   
+  
     
     
   
@@ -301,10 +309,9 @@ blogger.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Which DateTime::FORMATS format do we use to display  blog and comment
-publish time Defaults to :short.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Which DateTime::FORMATS format do we use to display blog and comment
+publish time Defaults to :short.</p>
 </div></span>
   
 </li>
@@ -320,6 +327,7 @@ publish time Defaults to :short.
   </span>
   
   
+  
     
     
   
@@ -329,9 +337,35 @@ publish time Defaults to :short.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-The default format for parsing the blog content.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The default format for parsing the blog content.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disqus_shortname-instance_method" title="#disqus_shortname (instance method)">- (Object) <strong>disqus_shortname</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When using disqus comments, what is the shortname of your forum ?.</p>
 </div></span>
   
 </li>
@@ -347,6 +381,7 @@ The default format for parsing the blog content.
   </span>
   
   
+  
     
     
   
@@ -356,10 +391,8 @@ The default format for parsing the blog content.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Should text within &#8220;```&#8221; or &#8220;`&#8221; be highlighted as
-code? Defaults to true.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Should text within ""`" or "`" be highlighted as code? Defaults to true.</p>
 </div></span>
   
 </li>
@@ -375,6 +408,7 @@ code? Defaults to true.
   </span>
   
   
+  
     
     
   
@@ -384,10 +418,9 @@ code? Defaults to true.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-If set to true, the create, edit, update and destroy actions will be
-included.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>If set to true, the create, edit, update and destroy actions will be
+included.</p>
 </div></span>
   
 </li>
@@ -403,6 +436,7 @@ included.
   </span>
   
   
+  
     
     
   
@@ -412,10 +446,9 @@ included.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-If set to true, links for new posts, editing posts and deleting comments
-will be available.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>If set to true, links for new posts, editing posts and deleting comments
+will be available.</p>
 </div></span>
   
 </li>
@@ -431,6 +464,7 @@ will be available.
   </span>
   
   
+  
     
     
   
@@ -440,9 +474,64 @@ will be available.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Should we include comments for blog posts?.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>What kind of comments do you want to add to your blog ? (:active_record,
+:disqus or :no).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include_share_bar-instance_method" title="#include_share_bar (instance method)">- (Object) <strong>include_share_bar</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Should there be a share bar on every post ?.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inline_main_app_named_routes-instance_method" title="#inline_main_app_named_routes (instance method)">- (Object) <strong>inline_main_app_named_routes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Should the routes of the main app be accessible without the "main_app."
+prefix ?.</p>
 </div></span>
   
 </li>
@@ -458,6 +547,7 @@ Should we include comments for blog posts?.
   </span>
   
   
+  
     
     
   
@@ -467,9 +557,8 @@ Should we include comments for blog posts?.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Number of posts to show per page.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Number of posts to show per page.</p>
 </div></span>
   
 </li>
@@ -485,6 +574,7 @@ Number of posts to show per page.
   </span>
   
   
+  
     
     
   
@@ -494,10 +584,119 @@ Number of posts to show per page.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-When using redcarpet as content parser, pass these options as defaults
-Defaults to REDCARPET_OPTIONS.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>When using redcarpet as content parser, pass these options as defaults
+Defaults to REDCARPET_OPTIONS.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rss_feed_description-instance_method" title="#rss_feed_description (instance method)">- (Object) <strong>rss_feed_description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The description of the RSS feed for the blog posts Defaults to
+"[Application Name] Blog Posts".</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rss_feed_language-instance_method" title="#rss_feed_language (instance method)">- (Object) <strong>rss_feed_language</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The default language of the RSS feed Defaults to 'en'.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rss_feed_title-instance_method" title="#rss_feed_title (instance method)">- (Object) <strong>rss_feed_title</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The title of the RSS feed for the blog posts Defaults to "[Application
+Name] Blog Posts".</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#twitter_username-instance_method" title="#twitter_username (instance method)">- (Object) <strong>twitter_username</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Twitter username used in the share bar.</p>
 </div></span>
   
 </li>
@@ -530,6 +729,7 @@ Defaults to REDCARPET_OPTIONS.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -546,6 +746,7 @@ Defaults to REDCARPET_OPTIONS.
     
   </span>
   
+  
     <span class="note title constructor">constructor</span>
   
   
@@ -555,9 +756,8 @@ Defaults to REDCARPET_OPTIONS.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-A new instance of Configuration.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Configuration.</p>
 </div></span>
   
 </li>
@@ -570,17 +770,18 @@ A new instance of Configuration.
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Blogit::Configuration (class)">Configuration</a></span></tt>) <strong>initialize</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-A new instance of Configuration
-</p>
+    
+<p>A new instance of Configuration</p>
 
 
   </div>
@@ -594,28 +795,37 @@ A new instance of Configuration
       <pre class="lines">
 
 
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88</pre>
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 99</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span>
-  <span class='ivar'>@include_comments</span>            <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='ivar'>@include_comments</span>            <span class='op'>=</span> <span class='symbol'>:active_record</span>
+  <span class='ivar'>@disqus_shortname</span>            <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@include_share_bar</span>           <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@twitter_username</span>            <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='ivar'>@current_blogger_method</span>      <span class='op'>=</span> <span class='symbol'>:current_user</span>
   <span class='ivar'>@blogger_display_name_method</span> <span class='op'>=</span> <span class='symbol'>:username</span>
   <span class='ivar'>@datetime_format</span>             <span class='op'>=</span> <span class='symbol'>:short</span>
@@ -624,10 +834,13 @@ A new instance of Configuration
   <span class='ivar'>@author_edits_only</span>           <span class='op'>=</span> <span class='kw'>false</span>
   <span class='ivar'>@ajax_comments</span>               <span class='op'>=</span> <span class='kw'>true</span>
   <span class='ivar'>@include_admin_actions</span>       <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='ivar'>@include_admin_links</span>         <span class='op'>=</span> <span class='kw'>true</span>      
+  <span class='ivar'>@include_admin_links</span>         <span class='op'>=</span> <span class='kw'>true</span>
   <span class='ivar'>@cache_pages</span>                 <span class='op'>=</span> <span class='kw'>false</span>
   <span class='ivar'>@default_parser</span>              <span class='op'>=</span> <span class='symbol'>:markdown</span>
   <span class='ivar'>@highlight_code_syntax</span>       <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='ivar'>@rss_feed_title</span>              <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_engine_name'>engine_name</span><span class='period'>.</span><span class='id identifier rubyid_titleize'>titleize</span><span class='rbrace'>}</span><span class='tstring_content'> Blog Posts</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@rss_feed_description</span>        <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_engine_name'>engine_name</span><span class='period'>.</span><span class='id identifier rubyid_titleize'>titleize</span><span class='rbrace'>}</span><span class='tstring_content'> Blog Posts</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@rss_feed_language</span>           <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>en</span><span class='tstring_end'>&quot;</span></span>
   <span class='ivar'>@redcarpet_options</span>           <span class='op'>=</span> <span class='const'>REDCARPET_OPTIONS</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -642,20 +855,64 @@ A new instance of Configuration
     
       
       <span id="ajax_comments=-instance_method"></span>
-      <span id="ajax_comments-instance_method"></span>
       <div class="method_details first">
-  <p class="signature first" id="ajax_comments-instance_method">
+  <h3 class="signature first" id="ajax_comments-instance_method">
   
     - (<tt>Object</tt>) <strong>ajax_comments</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-If set to true, the comments form will POST and DELETE to the comments 
-controller using AJAX calls. Defaults to true
-</p>
+    
+<p>If set to true, the comments form will POST and DELETE to the comments
+controller using AJAX calls. Defaults to true</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ajax_comments'>ajax_comments</span>
+  <span class='ivar'>@ajax_comments</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="authentication_method=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="authentication_method-instance_method">
+  
+    - (<tt>Object</tt>) <strong>authentication_method</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the before filter we'll call to authenticate the current user.
+Defaults to :login_required</p>
 
 
   </div>
@@ -676,51 +933,7 @@ controller using AJAX calls. Defaults to true
     <td>
       <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 41</span>
 
-<span class='kw'>def</span> <span class='id ajax_comments'>ajax_comments</span>
-  <span class='ivar'>@ajax_comments</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="authentication_method=-instance_method"></span>
-      <span id="authentication_method-instance_method"></span>
-      <div class="method_details ">
-  <p class="signature " id="authentication_method-instance_method">
-  
-    - (<tt>Object</tt>) <strong>authentication_method</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-The name of the before filter we&#8217;ll call to authenticate the current
-user. Defaults to :login_required
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-32
-33
-34</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 32</span>
-
-<span class='kw'>def</span> <span class='id authentication_method'>authentication_method</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_authentication_method'>authentication_method</span>
   <span class='ivar'>@authentication_method</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -730,20 +943,20 @@ user. Defaults to :login_required
     
       
       <span id="author_edits_only=-instance_method"></span>
-      <span id="author_edits_only-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="author_edits_only-instance_method">
+  <h3 class="signature " id="author_edits_only-instance_method">
   
     - (<tt>Object</tt>) <strong>author_edits_only</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-If set to true, only the user who authored the post may, edit or destroy.
-Defaults to false
-</p>
+    
+<p>If set to true, only the user who authored the post may, edit or destroy.
+Defaults to false</p>
 
 
   </div>
@@ -757,14 +970,14 @@ Defaults to false
       <pre class="lines">
 
 
-36
-37
-38</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 45</span>
 
-<span class='kw'>def</span> <span class='id author_edits_only'>author_edits_only</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_author_edits_only'>author_edits_only</span>
   <span class='ivar'>@author_edits_only</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -774,20 +987,20 @@ Defaults to false
     
       
       <span id="blogger_display_name_method=-instance_method"></span>
-      <span id="blogger_display_name_method-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="blogger_display_name_method-instance_method">
+  <h3 class="signature " id="blogger_display_name_method-instance_method">
   
     - (<tt>Object</tt>) <strong>blogger_display_name_method</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-what method do we call on blogger to return their display name? Defaults to
-:username
-</p>
+    
+<p>what method do we call on blogger to return their display name? Defaults to
+:username</p>
 
 
   </div>
@@ -801,14 +1014,14 @@ what method do we call on blogger to return their display name? Defaults to
       <pre class="lines">
 
 
-12
-13
-14</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 21</span>
 
-<span class='kw'>def</span> <span class='id blogger_display_name_method'>blogger_display_name_method</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span>
   <span class='ivar'>@blogger_display_name_method</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -818,19 +1031,19 @@ what method do we call on blogger to return their display name? Defaults to
     
       
       <span id="cache_pages=-instance_method"></span>
-      <span id="cache_pages-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="cache_pages-instance_method">
+  <h3 class="signature " id="cache_pages-instance_method">
   
     - (<tt>Object</tt>) <strong>cache_pages</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Should the controllers cache the blog pages as HTML?
-</p>
+    
+<p>Should the controllers cache the blog pages as HTML? Defaults to false</p>
 
 
   </div>
@@ -844,14 +1057,14 @@ Should the controllers cache the blog pages as HTML?
       <pre class="lines">
 
 
-62
-63
-64</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 72</span>
 
-<span class='kw'>def</span> <span class='id cache_pages'>cache_pages</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_cache_pages'>cache_pages</span>
   <span class='ivar'>@cache_pages</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -861,64 +1074,19 @@ Should the controllers cache the blog pages as HTML?
     
       
       <span id="current_blogger_method=-instance_method"></span>
-      <span id="current_blogger_method-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="current_blogger_method-instance_method">
+  <h3 class="signature " id="current_blogger_method-instance_method">
   
     - (<tt>Object</tt>) <strong>current_blogger_method</strong> 
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-The name of the controller method we&#8217;ll call to return the current
-blogger.
-</p>
 
-
-  </div>
-</div>
-<div class="tags">
   
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-8
-9
-10</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 8</span>
-
-<span class='kw'>def</span> <span class='id current_blogger_method'>current_blogger_method</span>
-  <span class='ivar'>@current_blogger_method</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
+</h3><div class="docstring">
+  <div class="discussion">
     
-      
-      <span id="datetime_format=-instance_method"></span>
-      <span id="datetime_format-instance_method"></span>
-      <div class="method_details ">
-  <p class="signature " id="datetime_format-instance_method">
-  
-    - (<tt>Object</tt>) <strong>datetime_format</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Which DateTime::FORMATS format do we use to display  blog and comment
-publish time Defaults to :short
-</p>
+<p>The name of the controller method we'll call to return the current blogger.</p>
 
 
   </div>
@@ -939,7 +1107,51 @@ publish time Defaults to :short
     <td>
       <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 17</span>
 
-<span class='kw'>def</span> <span class='id datetime_format'>datetime_format</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_current_blogger_method'>current_blogger_method</span>
+  <span class='ivar'>@current_blogger_method</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="datetime_format=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="datetime_format-instance_method">
+  
+    - (<tt>Object</tt>) <strong>datetime_format</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Which DateTime::FORMATS format do we use to display blog and comment
+publish time Defaults to :short</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_datetime_format'>datetime_format</span>
   <span class='ivar'>@datetime_format</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -949,19 +1161,161 @@ publish time Defaults to :short
     
       
       <span id="default_parser=-instance_method"></span>
-      <span id="default_parser-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="default_parser-instance_method">
+  <h3 class="signature " id="default_parser-instance_method">
   
     - (<tt>Object</tt>) <strong>default_parser</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-The default format for parsing the blog content. Defaults to :markdown
-</p>
+    
+<p>The default format for parsing the blog content. Defaults to :markdown</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_parser'>default_parser</span>
+  <span class='ivar'>@default_parser</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="disqus_shortname=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="disqus_shortname-instance_method">
+  
+    - (<tt>Object</tt>) <strong>disqus_shortname</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>When using disqus comments, what is the shortname of your forum ?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_disqus_shortname'>disqus_shortname</span>
+  <span class='ivar'>@disqus_shortname</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="highlight_code_syntax=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="highlight_code_syntax-instance_method">
+  
+    - (<tt>Object</tt>) <strong>highlight_code_syntax</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><ul><li>
+<p>At the moment this only works when default_parser</p>
+</li></ul>
+
+<p>is :markdown</p>
+</div>
+  </div>
+
+
+<p>Should text within ""`" or "`" be highlighted as code? Defaults to true</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_highlight_code_syntax'>highlight_code_syntax</span>
+  <span class='ivar'>@highlight_code_syntax</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="include_admin_actions=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="include_admin_actions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>include_admin_actions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>If set to true, the create, edit, update and destroy actions will be
+included. If set to false, you'll have to set these yourself elsewhere in
+the app</p>
 
 
   </div>
@@ -982,111 +1336,7 @@ The default format for parsing the blog content. Defaults to :markdown
     <td>
       <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 55</span>
 
-<span class='kw'>def</span> <span class='id default_parser'>default_parser</span>
-  <span class='ivar'>@default_parser</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="highlight_code_syntax=-instance_method"></span>
-      <span id="highlight_code_syntax-instance_method"></span>
-      <div class="method_details ">
-  <p class="signature " id="highlight_code_syntax-instance_method">
-  
-    - (<tt>Object</tt>) <strong>highlight_code_syntax</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong> 
-    <div class='inline'><ul>
-<li><p>
-At the moment this only works when default_parser
-</p>
-</li>
-</ul>
-<p>
-is :markdown
-</p>
-</div>
-  </div>
-
-<p>
-Should text within &#8220;```&#8221; or &#8220;`&#8221; be highlighted as
-code? Defaults to true
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-28
-29
-30</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 28</span>
-
-<span class='kw'>def</span> <span class='id highlight_code_syntax'>highlight_code_syntax</span>
-  <span class='ivar'>@highlight_code_syntax</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="include_admin_actions=-instance_method"></span>
-      <span id="include_admin_actions-instance_method"></span>
-      <div class="method_details ">
-  <p class="signature " id="include_admin_actions-instance_method">
-  
-    - (<tt>Object</tt>) <strong>include_admin_actions</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-If set to true, the create, edit, update and destroy actions will be
-included. If set to false, you&#8217;ll have to set these  yourself
-elsewhere in the app
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-46
-47
-48</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 46</span>
-
-<span class='kw'>def</span> <span class='id include_admin_actions'>include_admin_actions</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_include_admin_actions'>include_admin_actions</span>
   <span class='ivar'>@include_admin_actions</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1096,21 +1346,21 @@ elsewhere in the app
     
       
       <span id="include_admin_links=-instance_method"></span>
-      <span id="include_admin_links-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="include_admin_links-instance_method">
+  <h3 class="signature " id="include_admin_links-instance_method">
   
     - (<tt>Object</tt>) <strong>include_admin_links</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-If set to true, links for new posts, editing posts and deleting comments
-will be available. If set to false, you&#8217;ll have to set these 
-yourself in the templates.
-</p>
+    
+<p>If set to true, links for new posts, editing posts and deleting comments
+will be available. If set to false, you'll have to set these yourself in
+the templates.</p>
 
 
   </div>
@@ -1124,14 +1374,14 @@ yourself in the templates.
       <pre class="lines">
 
 
-51
-52
-53</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 60</span>
 
-<span class='kw'>def</span> <span class='id include_admin_links'>include_admin_links</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_include_admin_links'>include_admin_links</span>
   <span class='ivar'>@include_admin_links</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1141,19 +1391,20 @@ yourself in the templates.
     
       
       <span id="include_comments=-instance_method"></span>
-      <span id="include_comments-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="include_comments-instance_method">
+  <h3 class="signature " id="include_comments-instance_method">
   
     - (<tt>Object</tt>) <strong>include_comments</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Should we include comments for blog posts?
-</p>
+    
+<p>What kind of comments do you want to add to your blog ? (:active_record,
+:disqus or :no)</p>
 
 
   </div>
@@ -1174,7 +1425,7 @@ Should we include comments for blog posts?
     <td>
       <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 5</span>
 
-<span class='kw'>def</span> <span class='id include_comments'>include_comments</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_include_comments'>include_comments</span>
   <span class='ivar'>@include_comments</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1183,20 +1434,20 @@ Should we include comments for blog posts?
 </div>
     
       
-      <span id="posts_per_page=-instance_method"></span>
-      <span id="posts_per_page-instance_method"></span>
+      <span id="include_share_bar=-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="posts_per_page-instance_method">
+  <h3 class="signature " id="include_share_bar-instance_method">
   
-    - (<tt>Object</tt>) <strong>posts_per_page</strong> 
+    - (<tt>Object</tt>) <strong>include_share_bar</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Number of posts to show per page
-</p>
+    
+<p>Should there be a share bar on every post ?</p>
 
 
   </div>
@@ -1204,7 +1455,94 @@ Number of posts to show per page
 <div class="tags">
   
 
-  <h3>See Also:</h3>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include_share_bar'>include_share_bar</span>
+  <span class='ivar'>@include_share_bar</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="inline_main_app_named_routes=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="inline_main_app_named_routes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inline_main_app_named_routes</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Should the routes of the main app be accessible without the "main_app."
+prefix ?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inline_main_app_named_routes'>inline_main_app_named_routes</span>
+  <span class='ivar'>@inline_main_app_named_routes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="posts_per_page=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="posts_per_page-instance_method">
+  
+    - (<tt>Object</tt>) <strong>posts_per_page</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Number of posts to show per page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
   <ul class="see">
     
       <li><a href="https://github.com/amatsuda/kaminari" target="_parent" title="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></li>
@@ -1219,14 +1557,14 @@ Number of posts to show per page
       <pre class="lines">
 
 
-22
-23
-24</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id posts_per_page'>posts_per_page</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_posts_per_page'>posts_per_page</span>
   <span class='ivar'>@posts_per_page</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1236,20 +1574,20 @@ Number of posts to show per page
     
       
       <span id="redcarpet_options=-instance_method"></span>
-      <span id="redcarpet_options-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="redcarpet_options-instance_method">
+  <h3 class="signature " id="redcarpet_options-instance_method">
   
     - (<tt>Object</tt>) <strong>redcarpet_options</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-When using redcarpet as content parser, pass these options as defaults
-Defaults to REDCARPET_OPTIONS
-</p>
+    
+<p>When using redcarpet as content parser, pass these options as defaults
+Defaults to REDCARPET_OPTIONS</p>
 
 
   </div>
@@ -1263,15 +1601,189 @@ Defaults to REDCARPET_OPTIONS
       <pre class="lines">
 
 
-59
-60
-61</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 68</span>
 
-<span class='kw'>def</span> <span class='id redcarpet_options'>redcarpet_options</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_redcarpet_options'>redcarpet_options</span>
   <span class='ivar'>@redcarpet_options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rss_feed_description=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rss_feed_description-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rss_feed_description</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The description of the RSS feed for the blog posts Defaults to
+"[Application Name] Blog Posts"</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rss_feed_description'>rss_feed_description</span>
+  <span class='ivar'>@rss_feed_description</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rss_feed_language=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rss_feed_language-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rss_feed_language</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The default language of the RSS feed Defaults to 'en'</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rss_feed_language'>rss_feed_language</span>
+  <span class='ivar'>@rss_feed_language</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rss_feed_title=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rss_feed_title-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rss_feed_title</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The title of the RSS feed for the blog posts Defaults to "[Application
+Name] Blog Posts"</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rss_feed_title'>rss_feed_title</span>
+  <span class='ivar'>@rss_feed_title</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="twitter_username=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="twitter_username-instance_method">
+  
+    - (<tt>Object</tt>) <strong>twitter_username</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Twitter username used in the share bar</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_twitter_username'>twitter_username</span>
+  <span class='ivar'>@twitter_username</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1283,30 +1795,32 @@ Defaults to REDCARPET_OPTIONS
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="default_parser_class-instance_method">
+  <h3 class="signature first" id="default_parser_class-instance_method">
   
     - (<tt>Object</tt>) <strong>default_parser_class</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-90
-91
-92</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 122</span>
 
-<span class='kw'>def</span> <span class='id default_parser_class'>default_parser_class</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blogit::Parsers::</span><span class='embexpr_beg'>#{</span><span class='ivar'>@default_parser</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id classify'>classify</span><span class='rbrace'>}</span><span class='tstring_content'>Parser</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id constantize'>constantize</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_default_parser_class'>default_parser_class</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blogit::Parsers::</span><span class='embexpr_beg'>#{</span><span class='ivar'>@default_parser</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_classify'>classify</span><span class='rbrace'>}</span><span class='tstring_content'>Parser</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_constantize'>constantize</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1316,11 +1830,11 @@ Defaults to REDCARPET_OPTIONS
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Dec 29 16:05:54 2011 by 
+  Generated on Fri Oct 19 10:16:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>
