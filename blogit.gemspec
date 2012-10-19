@@ -22,8 +22,9 @@ Gem::Specification.new do |s|
   s.add_dependency "albino", ">=1.3.3"
   s.add_dependency 'acts-as-taggable-on', '>=2.2.1'
   s.add_dependency "kaminari", '>=0.13.0'
-
-  s.add_development_dependency "jquery-rails"
+  s.add_dependency "jquery-rails"
+  
+  s.add_development_dependency 'rb-fsevent', '~> 0.9.1'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "guard"
   s.add_development_dependency "guard-rspec"
