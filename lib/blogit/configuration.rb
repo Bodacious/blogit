@@ -5,13 +5,13 @@ module Blogit
     attr_accessor :include_comments
 
     # When using disqus comments, what is the shortname of your forum ?
-    attr_accessor :disqus_shortname
+    attr_reader :disqus_shortname
 
     # Should there be a share bar on every post ?
     attr_accessor :include_share_bar
 
     # Twitter username used in the share bar
-    attr_accessor :twitter_username
+    attr_reader :twitter_username
 
     # The name of the controller method we'll call to return the current blogger.
     attr_accessor :current_blogger_method
@@ -123,5 +123,29 @@ module Blogit
       "Blogit::Parsers::#{@default_parser.to_s.classify}Parser".constantize
     end
 
+    # If the user has defined a disqus shortname but hasn't set include_comments to
+    # disqus, print a warning to the console.
+    def disqus_shortname=(shortname)
+      if @include_comments && @include_comments != :disqus
+        blogit_warn "You've set config.disqus_shortname in your blogit config file but config.include_comments is not set to :disqus"
+      end
+      @disqus_shortname = shortname
+    end
+
+    # If the user has defined a disqus shortname but hasn't set include_comments to
+    # disqus, print a warning to the console.
+    def twitter_username=(username)
+      if @include_comments && @include_comments != :disqus
+        blogit_warn "You've set config.twitter_username in your blogit config file but config.include_share_bar is set to false"
+      end
+      @twitter_username = username
+    end
+    
+    private
+    
+    def blogit_warn(message)
+      warn "[Blogit]: #{message}"
+    end
+    
   end
 end
