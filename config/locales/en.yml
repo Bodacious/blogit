@@ -1,0 +1,48 @@
+en:
+  blogit:
+    comments:
+      leave_a_comment: "Leave a comment"
+      name: "Name *"
+      email_never_displayed: "Email * (Never displayed)"
+      your_website: "Your Website"
+      your_comment: "Your comment *"
+      add_comment: "Add Comment"
+      adding_comment: "Adding Comment..."
+      wrote: "%{author} wrote:"
+      posted_on: "Posted on"
+      delete: "delete"
+      are_you_sure_you_want_to_remove_this_comment: "Are you sure you want to remove this comment?"
+      successfully_added_comment: "Successfully added comment!"
+      successfully_removed_comment: "Successfully removed comment."
+    posts:
+      written_by: "Written by %{author} on"
+      there_are_no_posts_about: "Sorry, there are no posts about \"%{tag}\"."
+      prohibited_this_post_from_being_saved:
+        one: "One error prohibited this post form being saved:"
+        other: "%{count} errors prohibited this post form being saved:"
+      give_your_post_a_title: "Give your post a title"
+      write_something_here: "Write something here..."
+      tags: "Tags"
+      tag_placeholder: "tag one, tag two, etc..."
+      tip_you_can_style_your_post_using: "Tip: you can style your post using %{parser}"
+      or: "or"
+      cancel: "cancel"
+      edit: "edit"
+      delete: "delete"
+      are_you_sure_you_want_to_remove_this_post: "Are you sure you want to remove this post?"
+      comment:
+        one: "1 comment"
+        other: "%{count} comments"
+      edit_blog_post: "Edit Blog Post #%{id}"
+      new_blog_post: "New Blog post"
+      write_a_new_blog_post: "Write a new blog post"
+      blog_post_was_successfully_created: "Blog post was successfully created."
+      blog_post_was_successfully_updated: "Blog post was successfully updated."
+      blog_post_was_successfully_destroyed: "Blog post was successfully destroyed."
+    share_bar:
+      facebook: "en_US"
+
+  time:
+    formats:
+      plain_month_only: "%B"
+

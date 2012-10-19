@@ -11,13 +11,17 @@ describe Blogit::Parsers::MarkdownParser do
 
   describe "code highlighting" do
 
-    let(:parser) { 
-      Blogit::Parsers::MarkdownParser.new("## Header\n\n``` ruby\nputs 'hello world'\n```") 
+    let(:parser) {
+      Blogit::Parsers::MarkdownParser.new("## Header\n\n``` ruby\nputs 'hello world'\n```")
     }
+
+    it "requires pymentize to run" do
+      system("pygmentize > /dev/null").should equal(true), "It seems that pygmentize is not installed on your system"
+    end
 
     it "should highlight code if highlight_code_syntax is true" do
       Blogit::configuration.highlight_code_syntax = true
-      parser.parsed.should =~ 
+      parser.parsed.should =~
       Regexp.new("<h2>Header</h2>\n<div class=\"highlight\"><pre><span class=\"nb\">puts</span> <span class=\"s1\">&#39;hello world&#39;</span>\n</pre>\n</div>\n")
     end
 

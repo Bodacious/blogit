@@ -1,7 +1,3 @@
 <%= render @post %>
-<% if blogit_conf.include_comments %>
-  <div id="comments">
-    <%= render @post.comments %>
-  </div>
-  <%= render "blogit/comments/form" %>    
-<% end %>
+<%= share_bar_for @post %>
+<%= comments_for @post %>

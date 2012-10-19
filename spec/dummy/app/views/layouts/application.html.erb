@@ -8,16 +8,20 @@
 <body>
 
   <div id="content">
-    
+
     <% if current_user %>
       <%= link_to("log out", main_app.session_path, method: :delete) %>
     <% else %>
       <%= link_to("log in", main_app.new_session_path) %>
     <% end %>
-    
+
     <h1><%= link_to("My Awesome Blog", root_path) %></h1>
-    
-    <%= yield %>  
+
+    <%= yield %>
+  </div>
+
+  <div id="sidebar">
+    <%= blog_posts_archive_tag('archive-year', 'archive-month', 'archive-post') %>
   </div>
 
   <footer id="application_footer">
