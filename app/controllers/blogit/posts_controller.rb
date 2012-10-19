@@ -2,7 +2,8 @@ module Blogit
 
   class PostsController < ApplicationController
 
-    unless blogit_conf.include_admin_actions
+    # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
+    unless Blogit.configuration.include_admin_actions
       before_filter :raise_404, except: [:index, :show, :tagged]
     end
 
