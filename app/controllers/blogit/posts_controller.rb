@@ -1,6 +1,8 @@
 module Blogit
 
-  class PostsController < ApplicationController
+  # Using explicit ::Blogit::ApplicationController fixes NoMethodError 'blogit_authenticate' in
+  # the main_app
+  class PostsController < ::Blogit::ApplicationController
 
     # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
     unless Blogit.configuration.include_admin_actions
