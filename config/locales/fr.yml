@@ -1,0 +1,61 @@
+fr:
+  blogit:
+    comments:
+      leave_a_comment: "Laissez un commentaire"
+      name: "Nom *"
+      email_never_displayed: "Email * (Jamais affiché)"
+      your_website: "Votre site web"
+      your_comment: "Votre commentaire *"
+      add_comment: "Ajouter un commentaire"
+      adding_comment: "Ajout de commentaire ..."
+      wrote: "%{author} a écrit:"
+      posted_on: "Publié le "
+      delete: "effacer"
+      are_you_sure_you_want_to_remove_this_comment: "Etes vous certain de vouloir supprimer ce commentaire?"
+      successfully_added_comment: "Commentaire ajouté avec succès."
+      successfully_removed_comment: "Commentaire supprimé avec succès."
+    posts:
+      written_by: "Ecrit par %{author} le"
+      there_are_no_posts_about: "Désolé, il n'y a pas d'article à propos de \"%{tag}\"."
+      prohibited_this_post_from_being_saved:
+        one: "Une erreur a empêché cet article d'être enregistré :"
+        other: "%{count} erreurs ont empêché cet article d'être enregistré :"
+      give_your_post_a_title: "Donnez un nom à votre article"
+      write_something_here: "Ecrivez quelque chose ici ..."
+      tags: "Libellés"
+      tag_placeholder: "Libellé 1, Libellé 2 ..."
+      tip_you_can_style_your_post_using: "Astuce : vous pouvez styler votre article en utilisant %{parser}"
+      or: "ou"
+      cancel: "annuler"
+      edit: "editer"
+      delete: "supprimer"
+      are_you_sure_you_want_to_remove_this_post: "Etes vous certain de vouloir supprimer cet article?"
+      comment:
+        zero: "Aucun commentaire"
+        one: "1 commentaire"
+        other: "%{count} commentaires"
+      edit_blog_post: "Editez l'article #%{id}"
+      new_blog_post: "Nouvel article"
+      write_a_new_blog_post: "Ecrivez un nouvel article"
+      blog_post_was_successfully_created: "Article ajouté avec succès."
+      blog_post_was_successfully_updated: "Article modifié avec succès."
+      blog_post_was_successfully_destroyed: "Article supprimé avec succès."
+    share_bar:
+      facebook: "fr_FR"
+
+  time:
+    formats:
+      plain_month_only: "%B"
+
+  activerecord:
+    models:
+      blogit/post: "article"
+      blogit/comment: "commentaire"
+    attributes:
+      blogit/post:
+        title: "titre"
+        body: "corps"
+      blogit/comment:
+        name: "nom"
+        body: "corps"
+

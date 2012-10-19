@@ -1,13 +1,16 @@
 module Blogit
-    
-  class PostsController < ApplicationController
 
-    unless blogit_conf.include_admin_actions
+  # Using explicit ::Blogit::ApplicationController fixes NoMethodError 'blogit_authenticate' in
+  # the main_app
+  class PostsController < ::Blogit::ApplicationController
+
+    # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
+    unless Blogit.configuration.include_admin_actions
       before_filter :raise_404, except: [:index, :show, :tagged]
     end
 
     blogit_authenticate(except: [:index, :show, :tagged])
-    
+
     blogit_cacher(:index, :show, :tagged)
     blogit_sweeper(:create, :update, :destroy)
 
@@ -26,8 +29,7 @@ module Blogit
     end
 
     def show
-      @post    = Post.find(params[:id])
-      @comment = @post.comments.new
+      @post = Post.find(params[:id])
     end
 
     def tagged
@@ -46,7 +48,7 @@ module Blogit
     def create
       @post = current_blogger.blog_posts.new(params[:post])
       if @post.save
-        redirect_to @post, notice: 'Blog post was successfully created.'
+        redirect_to @post, notice: t(:blog_post_was_successfully_created, scope: 'blogit.posts')
       else
         render action: "new"
       end
@@ -55,7 +57,7 @@ module Blogit
     def update
       @post = current_blogger.blog_posts.find(params[:id])
       if @post.update_attributes(params[:post])
-        redirect_to @post, notice: 'Blog post was successfully updated.'
+        redirect_to @post, notice: t(:blog_post_was_successfully_updated, scope: 'blogit.posts')
       else
         render action: "edit"
       end
@@ -64,7 +66,7 @@ module Blogit
     def destroy
       @post = current_blogger.blog_posts.find(params[:id])
       @post.destroy
-      redirect_to posts_url, notice: "Blog post was successfully destroyed."
+      redirect_to posts_url, notice: t(:blog_post_was_successfully_destroyed, scope: 'blogit.posts')
     end
 
     private
