@@ -55,6 +55,9 @@ we'll also throw in:
 * An XML Sitemap located at `/blog/posts.xml`
 * An RSS feed located at `/blog/posts.rss`
 * Page Caching and Sweeping
+* Internationalization (see the [locales file](https://github.com/KatanaCode/blogit/blob/master/config/locales/en.yml) for configurable options)
+* Share links (Google+, Twitter & Facebook)
+* [Disquss Comments](http://disqus.com)
 
 ## Issues
 
@@ -96,8 +99,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Credits
 
-Developed by [katana:code](http://katanacode.com)
+Developed by [Katana Code](http://katanacode.com)
 
-## About katana:code
+with generous contributions from:
 
-katana:code are [Ruby on Rails Developers Based in Edinburgh, Scotland](http://katanacode.com/ "katana:code").
+* [Philou](https://github.com/philou)
+* [Stewart McKee](https://github.com/stewartmckee)
+
+## About Katana Code
+
+Katana Code are [Ruby on Rails Developers Based in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
