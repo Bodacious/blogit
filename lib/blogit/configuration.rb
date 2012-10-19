@@ -7,6 +7,12 @@ module Blogit
     # When using disqus comments, what is the shortname of your forum ?
     attr_accessor :disqus_shortname
 
+    # Should there be a share bar on every post ?
+    attr_accessor :include_share_bar
+
+    # Twitter username used in the share bar
+    attr_accessor :twitter_username
+
     # The name of the controller method we'll call to return the current blogger.
     attr_accessor :current_blogger_method
 
@@ -93,6 +99,8 @@ module Blogit
     def initialize
       @include_comments            = :active_record
       @disqus_shortname            = ""
+      @include_share_bar           = false
+      @twitter_username            = ""
       @current_blogger_method      = :current_user
       @blogger_display_name_method = :username
       @datetime_format             = :short

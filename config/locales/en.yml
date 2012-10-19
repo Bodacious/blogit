@@ -39,6 +39,8 @@ en:
       blog_post_was_successfully_created: "Blog post was successfully created."
       blog_post_was_successfully_updated: "Blog post was successfully updated."
       blog_post_was_successfully_destroyed: "Blog post was successfully destroyed."
+    share_bar:
+      facebook: "en_US"
 
   time:
     formats:

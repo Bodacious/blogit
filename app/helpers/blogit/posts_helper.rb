@@ -20,6 +20,15 @@ module Blogit
       render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: Blogit::Comment.new })
     end
 
+    # A share bar as configured
+    def share_bar_for(post)
+      if !Blogit.configuration.include_share_bar
+        ""
+      else
+        render(partial: "blogit/posts/share_bar", locals: { post: post})
+      end
+    end
+
     # Creates a ul tag tree with posts by year and monthes. Include
     # blogit/archive.js to enabled expand collapse.
     def blog_posts_archive_tag(year_css, month_css, post_css)

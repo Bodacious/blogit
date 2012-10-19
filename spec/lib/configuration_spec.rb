@@ -12,6 +12,14 @@ describe Blogit::Configuration do
     blog_configuration.disqus_shortname.should == ""
   end
 
+  it "should set :include_share_bar to false" do
+    blog_configuration.include_share_bar.should == false
+  end
+
+  it "should set :twitter_username to blank" do
+    blog_configuration.twitter_username.should == ""
+  end
+
   it "should set :current_blogger_method to :current_user" do
     blog_configuration.current_blogger_method.should eql(:current_user)
   end

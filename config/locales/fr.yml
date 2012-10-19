@@ -40,6 +40,8 @@ fr:
       blog_post_was_successfully_created: "Article ajouté avec succès."
       blog_post_was_successfully_updated: "Article modifié avec succès."
       blog_post_was_successfully_destroyed: "Article supprimé avec succès."
+    share_bar:
+      facebook: "fr_FR"
 
   time:
     formats:

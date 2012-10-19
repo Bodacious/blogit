@@ -4,7 +4,7 @@ article.blog_post {
 }
 .blog_post header h1 a{
   text-decoration: none;
-  color: #55D; 
+  color: #55D;
 }
 .blog_post p{
   line-height: 1.6em;
@@ -72,4 +72,13 @@ article.blog_post {
 }
 .blog_comment .actions, .blog_post .actions{
   text-align: right;
+}
+
+#blog_share_bar {
+  width: 600px;
+  margin: 0.5em auto;
+}
+
+.social_button {
+  display: inline-block;
 }

@@ -35,6 +35,27 @@ describe Blogit::PostsHelper do
     end
   end
 
+  describe :share_bar_for do
+    let(:post) { FactoryGirl.create :post }
+
+    it "should be empty if not configured" do
+      Blogit.configure do |config|
+        config.include_share_bar = false
+      end
+
+      helper.share_bar_for(post).should == ""
+    end
+
+    it "should render a share bar if configured" do
+      Blogit.configure do |config|
+        config.include_share_bar = true
+      end
+
+      helper.expects(:render).with(partial: "blogit/posts/share_bar", locals: {post: post}).returns(share_bar_html='<div id="share-bar">...</div>')
+      helper.share_bar_for(post).should == share_bar_html
+    end
+  end
+
   describe :blog_post_archive do
 
     before :each do
