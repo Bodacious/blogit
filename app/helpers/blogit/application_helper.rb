@@ -49,7 +49,7 @@ module Blogit
         time_string = time_object.strftime(format)
         # if there's a specified format and it's a symbol, assume it's a predefined format
       elsif format && format.is_a?(Symbol)
-        time_string = time_object.to_s(format)
+        time_string = I18n.localize(time_object, format: format)
       else
         time_string = time_object.to_s
       end
