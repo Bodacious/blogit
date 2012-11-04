@@ -11,7 +11,7 @@ describe Blogit::Configuration do
   it "should set :disqus_shortname to blank" do
     blog_configuration.disqus_shortname.should == ""
   end
-  
+
   it "should print a warning to the console if disqus_shortname is set but include_comments is not disqus" do
     blog_configuration.expects(:warn)
     blog_configuration.include_comments = :active_record
@@ -20,7 +20,7 @@ describe Blogit::Configuration do
 
   it "should print a warning to the console if twitter_username is set but include_share_bar is false" do
     blog_configuration.expects(:warn)
-    blog_configuration.include_share_bar = true
+    blog_configuration.include_share_bar = false
     blog_configuration.twitter_username = "bodacious"
   end
 

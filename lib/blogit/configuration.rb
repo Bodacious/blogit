@@ -136,17 +136,17 @@ module Blogit
     # If the user has defined a disqus shortname but hasn't set include_comments to
     # disqus, print a warning to the console.
     def twitter_username=(username)
-      if @twitter_username.present? and not @include_share_bar
+      if not @include_share_bar
         blogit_warn "You've set config.twitter_username in your blogit config file but config.include_share_bar is set to false"
       end
       @twitter_username = username
     end
-    
+
     private
-    
+
     def blogit_warn(message)
       warn "[Blogit]: #{message}"
     end
-    
+
   end
 end

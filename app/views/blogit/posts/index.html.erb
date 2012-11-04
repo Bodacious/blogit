@@ -7,7 +7,7 @@
   <%= render partial: "blogit/posts/post",
     collection: @posts,
     spacer_template: "blog_post_spacer",
-    locals: {show_comments_count: true}  %>
+    locals: {show_comments_count: (Blogit.configuration.include_comments == :active_records) }  %>
 <% else %>
 
   <%= render partial: "blogit/posts/empty" %>
