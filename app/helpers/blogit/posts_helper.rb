@@ -22,11 +22,8 @@ module Blogit
 
     # A share bar as configured
     def share_bar_for(post)
-      if !Blogit.configuration.include_share_bar
-        ""
-      else
-        render(partial: "blogit/posts/share_bar", locals: { post: post})
-      end
+      return "" unless Blogit.configuration.include_share_bar
+      render(partial: "blogit/posts/share_bar", locals: { post: post})
     end
 
     # Creates a ul tag tree with posts by year and monthes. Include
