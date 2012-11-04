@@ -17,7 +17,7 @@ module Blogit
 
     # A comments tag corresponding to the comments configuration
     def comments_for(post)
-      render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: Blogit::Comment.new })
+      render(:partial => "blogit/posts/#{Blogit.configuration.include_comments}_comments", :locals => { :post => post, :comment => Blogit::Comment.new })
     end
 
     # A share bar as configured
@@ -25,7 +25,7 @@ module Blogit
       if !Blogit.configuration.include_share_bar
         ""
       else
-        render(partial: "blogit/posts/share_bar", locals: { post: post})
+        render(:partial => "blogit/posts/share_bar", :locals => { :post => post})
       end
     end
 
@@ -37,7 +37,7 @@ module Blogit
     # @param archive_posts [ActiveRecord::Relation, Array] The posts to be included in the archive (defaults to Post.all)
     def blog_posts_archive_tag(year_css, month_css, post_css, archive_posts = Post.all)
       posts_tree = archive_posts.chunk {|post| post.created_at.year}.map do |year, posts_of_year|
-        [year, posts_of_year.chunk {|post| l(post.created_at, format: :plain_month_only) }]
+        [year, posts_of_year.chunk {|post| l(post.created_at, :format => :plain_month_only) }]
       end
 
       result = []

@@ -1,4 +1,4 @@
 <div id="comments">
   <%= render post.comments %>
 </div>
-<%= render partial: "blogit/comments/form", locals: { post: post, comment: comment } %>
+<%= render :partial => "blogit/comments/form", :ocals => { :post => post, :comment => comment } %>

@@ -1,4 +1,4 @@
 <%= render @post %>
 <%= share_bar_for @post %>
-<%= render "blogit/posts/post_footer", post: @post %>
+<%= render "blogit/posts/post_footer", :post => @post %>
 <%= comments_for @post %>

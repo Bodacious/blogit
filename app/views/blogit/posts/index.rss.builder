@@ -18,7 +18,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "htt://purl.org/dc/elements/1.1/" do
     
       xml.item do
         xml.title post.title
-        xml.description format_content(truncate(post.body, length: 400)).html_safe
+        xml.description format_content(truncate(post.body, :length => 400)).html_safe
         xml.link post_url(post)
         xml.pubDate CGI.rfc1123_date(post.updated_at)
         xml.guid post_url(post)

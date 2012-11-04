@@ -31,7 +31,7 @@ module Blogit
     # Blogit.configuration.cache_pages is true
     def self.blogit_sweeper(*args)
       if blogit_conf.cache_pages
-        cache_sweeper Blogit::BlogitSweeper, only: args
+        cache_sweeper Blogit::BlogitSweeper, :only => args
       end
     end
     

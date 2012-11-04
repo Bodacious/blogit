@@ -19,9 +19,9 @@ module Blogit
     # = Validations =
     # ===============
 
-    validates :title, presence: true, length: { minimum: 10, maximum: 66 }
-    validates :body,  presence: true, length: { minimum: 10 }
-    validates :blogger_id, presence: true
+    validates :title, :presence => true, :length => { :minimum => 10, :maximum => 66 }
+    validates :body,  :presence => true, :length => { :minimum => 10 }
+    validates :blogger_id, :presence => true
 
     # =================
     # = Assosciations =
@@ -46,7 +46,7 @@ module Blogit
 
     # Returns the blog posts paginated for the index page
     # @scope class
-    scope :for_index, lambda { |page_no = 1| order("created_at DESC").page(page_no) }
+    scope :for_index, lambda { |page_no| page_no ||= 1; order("created_at DESC").page(page_no) }
 
     # ====================
     # = Instance Methods =

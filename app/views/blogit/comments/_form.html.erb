@@ -1,9 +1,8 @@
 
-<%= form_for [post, comment], remote: true,
-  html: {
-    class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
+<%= form_for [post, comment], :remote => true,
+  :html => { :class => "new_blog_comment", :id => "new_blog_comment" } do |f| -%>
 
-  <p><%=t :leave_a_comment, scope: 'blogit.comments'%></p>
+  <p><%=t :leave_a_comment, :scope => 'blogit.comments'%></p>
 
   <%= field class: "hidden" do %>
     <%= f.label :nickname %>
@@ -12,30 +11,30 @@
   <% end %>
 
   <%= field do %>
-    <%= f.label :name, t(:name, scope: 'blogit.comments') %><br>
+    <%= f.label :name, t(:name, :scope => 'blogit.comments') %><br>
     <%= f.text_field :name %>
     <%= errors_on(comment, :name) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :email, t(:email_never_displayed, scope: 'blogit.comments') %><br>
+    <%= f.label :email, t(:email_never_displayed, :scope => 'blogit.comments') %><br>
     <%= f.email_field :email %>
     <%= errors_on(comment, :email) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :website, t(:your_website, scope: 'blogit.comments') %><br>
+    <%= f.label :website, t(:your_website, :scope => 'blogit.comments') %><br>
     <%= f.url_field :website %>
     <%= errors_on(comment, :website) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :body, t(:your_comment, scope: 'blogit.comments') %><br>
+    <%= f.label :body, t(:your_comment, :scope => 'blogit.comments') %><br>
     <%= f.text_area :body %><br>
     <%= errors_on(comment, :body) %>
   <% end %>
 
   <%= actions do %>
-    <%= f.submit t(:add_comment, scope: 'blogit.comments'), :disable_with => t(:adding_comment, scope: 'blogit.comments') %>
+    <%= f.submit t(:add_comment, :scope => 'blogit.comments'), :disable_with => t(:adding_comment, :scope => 'blogit.comments') %>
   <% end %>
 <% end -%>

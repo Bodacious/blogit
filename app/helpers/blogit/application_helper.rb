@@ -16,7 +16,7 @@ module Blogit
     #   errors
     def errors_on(object, attribute)
       error_message = object.errors[attribute].first
-      content_tag(:span, error_message, class: "blogit_error_message") if error_message
+      content_tag(:span, error_message, :class => "blogit_error_message") if error_message
     end
 
     # A helper method for creating a +<div>+ tag with class 'field'
@@ -49,11 +49,11 @@ module Blogit
         time_string = time_object.strftime(format)
         # if there's a specified format and it's a symbol, assume it's a predefined format
       elsif format && format.is_a?(Symbol)
-        time_string = I18n.localize(time_object, format: format)
+        time_string = I18n.localize(time_object, :format => format)
       else
         time_string = time_object.to_s
       end
-      options.merge(datetime: time_object.strftime(TIMETAG_FORMAT))
+      options.merge(:datetime => time_object.strftime(TIMETAG_FORMAT))
       content_tag(:time, time_string, options)
     end
 

@@ -88,12 +88,12 @@ module Blogit
     attr_accessor :inline_main_app_named_routes
 
     REDCARPET_OPTIONS = {
-      hard_wrap: true,
-      filter_html: true,
-      autolink: true,
-      no_intra_emphasis: true,
-      fenced_code_blocks: true,
-      gh_blockcode: true,
+      :hard_wrap          => true,
+      :filter_html        => true,
+      :autolink           => true,
+      :no_intra_emphasis  => true,
+      :fenced_code_blocks => true,
+      :gh_blockcode       => true,
     }
 
     def initialize
