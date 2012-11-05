@@ -21,7 +21,9 @@
   </div>
 
   <div id="sidebar">
-    <%= blog_posts_archive_tag('archive-year', 'archive-month', 'archive-post') %>
+    <%= blog_posts_archive_tag('archive-year', 'archive-month', 'archive-post') do |post| %>
+      <% link_to(post.title, blogit.post_path(post)) %>
+    <% end %>
   </div>
 
   <footer id="application_footer">

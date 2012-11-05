@@ -76,41 +76,34 @@ describe Blogit::PostsHelper do
       month_css = "archive-month"
       post_css = "archive-post"
 
-      helper.blog_posts_archive_tag(year_css, month_css, post_css).should == ["<ul class=\"#{year_css}\">",
-                                                                                "<li><a data-blogit-click-to-toggle-children>2011</a>",
-                                                                                  "<ul class=\"#{month_css}\">",
-                                                                                    "<li><a data-blogit-click-to-toggle-children>December</a>",
-                                                                                      "<ul class=\"#{post_css}\">",
-                                                                                        "<li><a href=\"#{blogit.post_path(dec_2011)}\">#{dec_2011.title}</a></li>",
-                                                                                      "</ul>",
-                                                                                    "</li>",
-                                                                                  "</ul>",
-                                                                                "</li>",
-                                                                                "<li><a data-blogit-click-to-toggle-children>2012</a>",
-                                                                                  "<ul class=\"#{month_css}\">",
-                                                                                    "<li><a data-blogit-click-to-toggle-children>July</a>",
-                                                                                      "<ul class=\"#{post_css}\">",
-                                                                                        "<li><a href=\"#{blogit.post_path(july_2012_1)}\">#{july_2012_1.title}</a></li>",
-                                                                                        "<li><a href=\"#{blogit.post_path(july_2012_2)}\">#{july_2012_2.title}</a></li>",
-                                                                                      "</ul>",
-                                                                                    "</li>",
-                                                                                    "<li><a data-blogit-click-to-toggle-children>September</a>",
-                                                                                      "<ul class=\"#{post_css}\">",
-                                                                                        "<li><a href=\"#{blogit.post_path(sept_2012)}\">#{sept_2012.title}</a></li>",
-                                                                                      "</ul>",
-                                                                                    "</li>",
-                                                                                  "</ul>",
-                                                                                "</li>",
-                                                                              "</ul>"].join
-    end
+      archive_html = helper.blog_posts_archive_tag(year_css, month_css, post_css) {|post| post.title }
 
-    it "should escape html in titles" do
-      post = FactoryGirl.create(:post, title: ">Great Post with html characters<", created_at: Time.new(2012,9, 3))
-
-      archive_tag = helper.blog_posts_archive_tag('y','m','p')
-
-      archive_tag.should_not include(post.title)
-      archive_tag.should include(CGI.escape_html(post.title))
+      archive_html.should == ["<ul class=\"#{year_css}\">",
+                                "<li><a data-blogit-click-to-toggle-children>2011</a>",
+                                  "<ul class=\"#{month_css}\">",
+                                    "<li><a data-blogit-click-to-toggle-children>December</a>",
+                                      "<ul class=\"#{post_css}\">",
+                                        "<li>#{dec_2011.title}</li>",
+                                      "</ul>",
+                                    "</li>",
+                                  "</ul>",
+                                "</li>",
+                                "<li><a data-blogit-click-to-toggle-children>2012</a>",
+                                  "<ul class=\"#{month_css}\">",
+                                    "<li><a data-blogit-click-to-toggle-children>July</a>",
+                                      "<ul class=\"#{post_css}\">",
+                                        "<li>#{july_2012_1.title}</li>",
+                                        "<li>#{july_2012_2.title}</li>",
+                                      "</ul>",
+                                    "</li>",
+                                    "<li><a data-blogit-click-to-toggle-children>September</a>",
+                                      "<ul class=\"#{post_css}\">",
+                                        "<li>#{sept_2012.title}</li>",
+                                      "</ul>",
+                                    "</li>",
+                                  "</ul>",
+                                "</li>",
+                              "</ul>"].join
     end
 
     it "should be a safe html string" do
