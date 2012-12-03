@@ -36,7 +36,7 @@ module Blogit
     # @param post_css [String, Symbol] The CSS class of the year LI tag
     # @param archive_posts [ActiveRecord::Relation, Array] The posts to be included in the archive (defaults to Post.all)
     # @yield[post] block responsible for writing the link (or whatever) to the post
-    def blog_posts_archive_tag(year_css, month_css, post_css, archive_posts = Post.all)
+    def blog_posts_archive_tag(year_css, month_css, post_css, archive_posts = Post.order("created_at DESC"))
       posts_tree = archive_posts.chunk {|post| post.created_at.year}.map do |year, posts_of_year|
         [year, posts_of_year.chunk {|post| l(post.created_at, format: :plain_month_only) }]
       end

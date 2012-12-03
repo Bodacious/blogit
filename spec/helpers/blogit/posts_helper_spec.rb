@@ -67,9 +67,9 @@ describe Blogit::PostsHelper do
 
 
     it "should create an ul tag tree with years, monthes and articles" do
-      dec_2011 = FactoryGirl.create(:post, title: "Great post 1", created_at: Time.new(2011, 12, 25))
       july_2012_1 = FactoryGirl.create(:post, title: "Great Post 2", created_at: Time.new(2012,7,14))
       july_2012_2 = FactoryGirl.create(:post, title: "Great Post 3", created_at: Time.new(2012,7,28))
+      dec_2011 = FactoryGirl.create(:post, title: "Great post 1", created_at: Time.new(2011, 12, 25))
       sept_2012 = FactoryGirl.create(:post, title: "Great Post 4", created_at: Time.new(2012,9, 3))
 
       year_css = "archive-years"
@@ -79,26 +79,26 @@ describe Blogit::PostsHelper do
       archive_html = helper.blog_posts_archive_tag(year_css, month_css, post_css) {|post| post.title }
 
       archive_html.should == ["<ul class=\"#{year_css}\">",
+                                "<li><a data-blogit-click-to-toggle-children>2012</a>",
+                                  "<ul class=\"#{month_css}\">",
+                                    "<li><a data-blogit-click-to-toggle-children>September</a>",
+                                      "<ul class=\"#{post_css}\">",
+                                        "<li>#{sept_2012.title}</li>",
+                                      "</ul>",
+                                    "</li>",
+                                    "<li><a data-blogit-click-to-toggle-children>July</a>",
+                                      "<ul class=\"#{post_css}\">",
+                                        "<li>#{july_2012_2.title}</li>",
+                                        "<li>#{july_2012_1.title}</li>",
+                                      "</ul>",
+                                    "</li>",
+                                  "</ul>",
+                                "</li>",
                                 "<li><a data-blogit-click-to-toggle-children>2011</a>",
                                   "<ul class=\"#{month_css}\">",
                                     "<li><a data-blogit-click-to-toggle-children>December</a>",
                                       "<ul class=\"#{post_css}\">",
                                         "<li>#{dec_2011.title}</li>",
-                                      "</ul>",
-                                    "</li>",
-                                  "</ul>",
-                                "</li>",
-                                "<li><a data-blogit-click-to-toggle-children>2012</a>",
-                                  "<ul class=\"#{month_css}\">",
-                                    "<li><a data-blogit-click-to-toggle-children>July</a>",
-                                      "<ul class=\"#{post_css}\">",
-                                        "<li>#{july_2012_1.title}</li>",
-                                        "<li>#{july_2012_2.title}</li>",
-                                      "</ul>",
-                                    "</li>",
-                                    "<li><a data-blogit-click-to-toggle-children>September</a>",
-                                      "<ul class=\"#{post_css}\">",
-                                        "<li>#{sept_2012.title}</li>",
                                       "</ul>",
                                     "</li>",
                                   "</ul>",
