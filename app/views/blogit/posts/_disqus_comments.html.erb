@@ -6,7 +6,7 @@
    /* * * DON'T EDIT BELOW THIS LINE * * */
    (function() {
      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-     dsq.src = '<%= request.protocol %>' + disqus_shortname + '.disqus.com/embed.js?<%= request.protocol %>';
+     dsq.src = '<%= request.protocol %>' + disqus_shortname + '.disqus.com/embed.js?<%= request.protocol_name %>';
      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
    })();
 </script>
