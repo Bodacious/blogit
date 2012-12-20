@@ -61,3 +61,19 @@ fr:
         name: "nom"
         body: "corps"
 
+  views:
+    pagination:
+      first: "&laquo; Premiers"
+      last: "Derniers &raquo;"
+      previous: "&lsaquo; Précédents"
+      next: "Suivants &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Aucun %{entry_name} n'a été trouvé"
+          one: "<b>1</b> %{entry_name}"
+          other: "<b>Tous les %{count}</b> %{entry_name}s"
+      more_pages:
+        display_entries: "${entry_name}s <b>%{first}&nbsp;-&nbsp;%{last}</b> d'un total de <b>%{total}</b>"
