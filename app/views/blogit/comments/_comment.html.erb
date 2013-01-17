@@ -9,7 +9,7 @@
       <%= format_content comment.body || "" %>
   <% end %>
 
-  <%= blog_comment_tag(:footer) do %>
+  <%= blog_tag(:footer, type: "comment") do %>
     <%=t :posted_on, scope: 'blogit.comments'%> <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
   <% end %>
 
