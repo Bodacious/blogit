@@ -37,7 +37,7 @@
 
   <%= actions do %>
     <%= f.submit %> <%=t :or, scope: 'blogit.posts'%>
-    <%= link_to(t(:cancel, scope: 'blogit.posts'), @post.new_record? ? root_path : post_path(@post)) %>
+    <%= link_to(t(:cancel, scope: 'blogit.posts'), @post.new_record? ? blog_root_path : post_path(@post)) %>
   <% end %>
 
 <% end %>
