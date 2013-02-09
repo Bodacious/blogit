@@ -59,4 +59,10 @@ Blogit.configure do |config|
   # config.redcarpet_options = [:hard_wrap, :filter_html, :autolink,
   #   :no_intraemphasis, :fenced_code, :gh_blockcode]
 
+  # If set to true, it will be possible to call named routes of the main app
+  # directly, without the "main_app." prefix.
+  # Useful in the case where you don't want to change the main app's layout,
+  # but it does not expand correctly from inside blogit because some main
+  # app's named routes are missing.
+  config.inline_main_app_named_routes = true
 end

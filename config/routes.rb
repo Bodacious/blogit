@@ -8,5 +8,5 @@ Blogit::Engine.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  # root to: "posts#index"
+  match "/" => "posts#index", as: :blog_root
 end
