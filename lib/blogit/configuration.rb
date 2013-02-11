@@ -79,10 +79,6 @@ module Blogit
     # Defaults to "[Application Name] Blog Posts"
     attr_accessor :rss_feed_description
 
-    # The default language of the RSS feed
-    # Defaults to 'en'
-    attr_accessor :rss_feed_language
-
     # Should the routes of the main app be accessible without
     # the "main_app." prefix ?
     attr_accessor :inline_main_app_named_routes
@@ -116,7 +112,6 @@ module Blogit
       @highlight_code_syntax       = true
       @rss_feed_title              = "#{Rails.application.engine_name.titleize} Blog Posts"
       @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
-      @rss_feed_language           = "en"
       @redcarpet_options           = REDCARPET_OPTIONS
     end
 
@@ -142,6 +137,10 @@ module Blogit
       @twitter_username = username
     end
 
+    def rss_feed_language=(locale)
+      blogit_warn "#{self.class}#rss_feed_language has been deprecated. You can remove this from your blogit.rb configuration file"
+    end
+    
     private
 
     def blogit_warn(message)

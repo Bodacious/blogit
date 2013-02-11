@@ -105,8 +105,4 @@ describe Blogit::Configuration do
     blog_configuration.rss_feed_description.should eql "#{Rails.application.engine_name.titleize} Blog Posts"
   end
 
-  it "should set rss_feed_language to 'Rails engine name Blog Posts'" do
-    blog_configuration.rss_feed_language.should eql "en"
-  end
-
 end

@@ -634,33 +634,6 @@ Defaults to REDCARPET_OPTIONS.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#rss_feed_language-instance_method" title="#rss_feed_language (instance method)">- (Object) <strong>rss_feed_language</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The default language of the RSS feed Defaults to 'en'.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#rss_feed_title-instance_method" title="#rss_feed_title (instance method)">- (Object) <strong>rss_feed_title</strong> </a>
     
 
@@ -806,6 +779,10 @@ Name] Blog Posts".</p>
       <pre class="lines">
 
 
+96
+97
+98
+99
 100
 101
 102
@@ -822,15 +799,10 @@ Name] Blog Posts".</p>
 113
 114
 115
-116
-117
-118
-119
-120
-121</pre>
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@include_comments</span>            <span class='op'>=</span> <span class='symbol'>:active_record</span>
@@ -851,7 +823,6 @@ Name] Blog Posts".</p>
   <span class='ivar'>@highlight_code_syntax</span>       <span class='op'>=</span> <span class='kw'>true</span>
   <span class='ivar'>@rss_feed_title</span>              <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_engine_name'>engine_name</span><span class='period'>.</span><span class='id identifier rubyid_titleize'>titleize</span><span class='rbrace'>}</span><span class='tstring_content'> Blog Posts</span><span class='tstring_end'>&quot;</span></span>
   <span class='ivar'>@rss_feed_description</span>        <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_engine_name'>engine_name</span><span class='period'>.</span><span class='id identifier rubyid_titleize'>titleize</span><span class='rbrace'>}</span><span class='tstring_content'> Blog Posts</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@rss_feed_language</span>           <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>en</span><span class='tstring_end'>&quot;</span></span>
   <span class='ivar'>@redcarpet_options</span>           <span class='op'>=</span> <span class='const'>REDCARPET_OPTIONS</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1516,12 +1487,12 @@ prefix ?</p>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inline_main_app_named_routes'>inline_main_app_named_routes</span>
   <span class='ivar'>@inline_main_app_named_routes</span>
@@ -1672,49 +1643,6 @@ Defaults to REDCARPET_OPTIONS</p>
 </div>
     
       
-      <span id="rss_feed_language=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="rss_feed_language-instance_method">
-  
-    - (<tt>Object</tt>) <strong>rss_feed_language</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>The default language of the RSS feed Defaults to 'en'</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-84
-85
-86</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 84</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_rss_feed_language'>rss_feed_language</span>
-  <span class='ivar'>@rss_feed_language</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="rss_feed_title=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="rss_feed_title-instance_method">
@@ -1823,12 +1751,12 @@ Name] Blog Posts"</p>
       <pre class="lines">
 
 
-123
-124
-125</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_parser_class'>default_parser_class</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blogit::Parsers::</span><span class='embexpr_beg'>#{</span><span class='ivar'>@default_parser</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_classify'>classify</span><span class='rbrace'>}</span><span class='tstring_content'>Parser</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_constantize'>constantize</span>
@@ -1843,7 +1771,7 @@ Name] Blog Posts"</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Nov  4 12:13:33 2012 by
+  Generated on Mon Feb 11 09:00:36 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

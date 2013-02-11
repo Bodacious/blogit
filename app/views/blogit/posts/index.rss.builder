@@ -12,8 +12,8 @@ xml.rss "version" => "2.0", "xmlns:dc" => "htt://purl.org/dc/elements/1.1/" do
 
     xml.lastBuildDate CGI.rfc1123_date @posts.first.try(:updated_at)
 
-    xml.language blogit_conf.rss_feed_language
-
+    xml.language I18n.locale
+    
     @posts.each do |post|
 
       xml.item do
