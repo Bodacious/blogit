@@ -55,7 +55,7 @@ we'll also throw in:
 * An XML Sitemap located at `/blog/posts.xml`
 * An RSS feed located at `/blog/posts.rss`
 * Page Caching and Sweeping
-* Internationalization (see the [locales file](https://github.com/KatanaCode/blogit/blob/master/config/locales/en.yml) for configurable options)
+* Internationalization (see the [locales file](config/locales/en.yml) for configurable options)
 * Share links (Google+, Twitter & Facebook)
 * [Disquss Comments](http://disqus.com)
 
