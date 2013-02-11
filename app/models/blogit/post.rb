@@ -13,7 +13,7 @@ module Blogit
     # ==============
     # = Attributes =
     # ==============
-    attr_accessible :title, :body, :tag_list
+    attr_accessible :title, :body, :tag_list, :blogger_type, :blogger_id
 
     # ===============
     # = Validations =
