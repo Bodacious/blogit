@@ -26,12 +26,6 @@ module Blogit
     
     before_validation :format_website
     
-    # ==============
-    # = Attributes =
-    # ==============
-    
-    attr_accessible :name, :nickname, :email, :body, :website
-    
     # nickname acts as a "honeypot" to catch spam
     # the form field should be hidden using CSS and so 
     # if present, must be spam.

@@ -46,7 +46,7 @@ module Blogit
     end
 
     def new
-      @post = current_blogger.blog_posts.new(params[:post])
+      @post = current_blogger.blog_posts.new(valid_params)
     end
 
     def edit
@@ -75,6 +75,12 @@ module Blogit
       @post = current_blogger.blog_posts.find(params[:id])
       @post.destroy
       redirect_to posts_url, notice: t(:blog_post_was_successfully_destroyed, scope: 'blogit.posts')
+    end
+
+    protected
+
+    def valid_params
+      params.require(:post).permit(:title, :body, :tag_list, :blogger_type, :blogger_id)
     end
 
     private
