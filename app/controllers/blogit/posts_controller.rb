@@ -46,7 +46,7 @@ module Blogit
     end
 
     def new
-      @post = current_blogger.blog_posts.new(valid_params)
+      @post = current_blogger.blog_posts.new(params.key(:post) || {})
     end
 
     def edit
@@ -54,7 +54,7 @@ module Blogit
     end
 
     def create
-      @post = current_blogger.blog_posts.new(params[:post])
+      @post = current_blogger.blog_posts.new(valid_params)
       if @post.save
         redirect_to @post, notice: t(:blog_post_was_successfully_created, scope: 'blogit.posts')
       else
