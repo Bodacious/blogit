@@ -64,7 +64,7 @@ module Blogit
 
     def update
       @post = current_blogger.blog_posts.find(params[:id])
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(valid_params)
         redirect_to @post, notice: t(:blog_post_was_successfully_updated, scope: 'blogit.posts')
       else
         render action: "edit"
