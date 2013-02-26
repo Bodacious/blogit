@@ -1,10 +1,7 @@
 module Blogit
   class Post < ActiveRecord::Base
 
-    require "acts-as-taggable-on"
     require "kaminari"
-
-    acts_as_taggable
 
     self.table_name = "blog_posts"
 

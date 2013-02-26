@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'redcarpet', ">=2.0.1"
   s.add_dependency 'nokogiri', '>=1.5.0'
   s.add_dependency "albino", ">=1.3.3"
-  s.add_dependency 'acts-as-taggable-on', '>=2.2.1'
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
