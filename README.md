@@ -54,6 +54,7 @@ we'll also throw in:
 
 * An XML Sitemap located at `/blog/posts.xml`
 * An RSS feed located at `/blog/posts.rss`
+* Sitemap submission to the major search engines (via [Pingr](http://github.com/katanacode/pingr "Pingr") - off by default)
 * Page Caching and Sweeping
 * Internationalization (see the [locales file](config/locales/en.yml) for configurable options)
 * Share links (Google+, Twitter & Facebook)
