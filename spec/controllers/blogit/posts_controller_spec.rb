@@ -116,7 +116,30 @@ describe PostsController do
           do_post
           response.should redirect_to(controller.posts_url)
         end
+        
+        it "should ping all search engines in ping_search_engines config if array" do
+          Blogit.configuration.ping_search_engines = search_engines = [:google]
+          search_engines.each do |search_engine|
+            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+          end
+          do_post
+        end
 
+        it "should ping all search engines in Pingr::SUPPORTED_SEARCH_ENGINES if config is true" do
+          Blogit.configuration.ping_search_engines = true
+          Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
+            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+          end
+          do_post
+        end
+
+        it "should not ping any search engines if ping_search_engines is false" do
+          Blogit.configuration.ping_search_engines = false
+          Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
+            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).never
+          end
+          do_post
+        end
       end
 
     end
@@ -192,6 +215,31 @@ describe PostsController do
         do_put
         flash[:notice].should be_present
       end
+      
+      it "should ping all search engines in ping_search_engines config if array" do
+        Blogit.configuration.ping_search_engines = search_engines = [:google, :bing]
+        search_engines.each do |search_engine|
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+        end
+        do_put
+      end
+
+      it "should ping all search engines in Pingr::SUPPORTED_SEARCH_ENGINES if config is true" do
+        Blogit.configuration.ping_search_engines = true
+        Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+        end
+        do_put
+      end
+
+      it "should not ping any search engines if ping_search_engines is false" do
+        Blogit.configuration.ping_search_engines = false
+        Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).never
+        end
+        do_put
+      end
+      
     end
 
     context "when not logged in" do
@@ -260,6 +308,30 @@ describe PostsController do
       it "should show a flash notice" do
         do_delete
         flash[:notice].should be_present
+      end
+      
+      it "should ping all search engines in ping_search_engines config if array" do
+        Blogit.configuration.ping_search_engines = search_engines = [:google, :bing]
+        search_engines.each do |search_engine|
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+        end
+        do_delete
+      end
+
+      it "should ping all search engines in Pingr::SUPPORTED_SEARCH_ENGINES if config is true" do
+        Blogit.configuration.ping_search_engines = true
+        Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+        end
+        do_delete
+      end
+
+      it "should not ping any search engines if ping_search_engines is false" do
+        Blogit.configuration.ping_search_engines = false
+        Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).never
+        end
+        do_delete
       end
 
     end

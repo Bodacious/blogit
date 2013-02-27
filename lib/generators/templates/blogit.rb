@@ -60,6 +60,15 @@ Blogit.configure do |config|
   # RSS Feed description content
   # config.rss_feed_description = "Get your daily pony news here!"
 
+  # Should blogit ping search engines with your sitemap
+  # when posts are created, updated or destroyed?
+  # 
+  # Can pass true to ping all supported search engines, or an array of search
+  # engine names. e.g. [:google, :bing]
+  # 
+  # Defaults to false
+  # config.ping_search_engines = false
+  
   # When using redcarpet as content parser, pass these options as defaults.
   # @see here for more options: https://github.com/tanoku/redcarpet
   # config.redcarpet_options = {

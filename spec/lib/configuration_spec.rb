@@ -92,6 +92,10 @@ describe Blogit::Configuration do
         gh_blockcode: true
       }
   end
+  
+  it "should set the Pingr mode to :test unless Rails env is production" do
+    Pingr.mode.should eql(:test)
+  end
 
   it "should set highlight_code_syntax to true" do
     blog_configuration.highlight_code_syntax.should be_true
