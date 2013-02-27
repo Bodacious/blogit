@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'acts-as-taggable-on', '>=2.2.1'
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
+  s.add_dependency "pingr", ">= 0.0.3"
   
   s.add_development_dependency 'rb-fsevent', '~> 0.9.1'
   s.add_development_dependency "sqlite3"

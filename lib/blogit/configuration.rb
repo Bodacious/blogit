@@ -83,6 +83,11 @@ module Blogit
     # the "main_app." prefix ?
     attr_accessor :inline_main_app_named_routes
 
+    # Should blogit ping search engines with your sitemap
+    # when posts are created, updated or destroyed?
+    # Defaults to false
+    attr_accessor :ping_search_engines
+    
     # When using redcarpet as content parser, pass these options as defaults.
     REDCARPET_OPTIONS = {
       hard_wrap: true,
@@ -112,6 +117,7 @@ module Blogit
       @highlight_code_syntax       = true
       @rss_feed_title              = "#{Rails.application.engine_name.titleize} Blog Posts"
       @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
+      @ping_search_engines         = false
       @redcarpet_options           = REDCARPET_OPTIONS
     end
 
