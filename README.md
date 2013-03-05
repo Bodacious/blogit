@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/blogit.png)](http://badge.fury.io/rb/blogit)
+
 # Blogit (beta)
 
 Blogit is a flexible blogging solution for Rails apps. It:
