@@ -23,17 +23,7 @@ module Blogit
     blogit_sweeper(:create, :update, :destroy)
 
     def index
-      respond_to do |format|
-        format.xml {
-          @posts = Post.order('created_at DESC')
-        }
-        format.html {
-          @posts = Post.for_index(params[:page])
-        }
-        format.rss {
-          @posts = Post.order('created_at DESC')
-        }
-      end
+      @posts = Post.order('created_at DESC').page(params[:page])
     end
 
     def show
