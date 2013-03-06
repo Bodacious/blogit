@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
+  s.add_dependency "actionpack-page_caching", ">= 1.0.0"
+  s.add_dependency "rails-observers", ">= 0.1.1"
   
   s.add_development_dependency 'rb-fsevent', '~> 0.9.1'
   s.add_development_dependency "sqlite3"
