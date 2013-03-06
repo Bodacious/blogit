@@ -7,7 +7,7 @@ module Blogit
 
 
     def create
-      @comment = post.comments.new(params[:comment])
+      @comment = post.comments.new(valid_params)
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
@@ -33,6 +33,12 @@ module Blogit
         format.html { redirect_to(post, notice: t(:successfully_removed_comment, scope: 'blogit.comments'))}
         format.js
       end
+    end
+
+    protected
+
+    def valid_params
+      params.require(:comment).permit(:name, :nickname, :email, :body, :website)
     end
 
     private

@@ -14,12 +14,12 @@ module Blogit
     # Raise a 404 error if the admin actions aren't to be included
     # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
     unless Blogit.configuration.include_admin_actions
-      before_filter :raise_404, except: [:index, :show, :tagged]
+      before_filter :raise_404, except: [:index, :show]
     end
 
-    blogit_authenticate(except: [:index, :show, :tagged])
+    blogit_authenticate(except: [:index, :show])
 
-    blogit_cacher(:index, :show, :tagged)
+    blogit_cacher(:index, :show)
     blogit_sweeper(:create, :update, :destroy)
 
     def index
@@ -40,13 +40,8 @@ module Blogit
       @post = Post.find(params[:id])
     end
 
-    def tagged
-      @posts = Post.for_index(params[:page]).tagged_with(params[:tag])
-      render :index
-    end
-
     def new
-      @post = current_blogger.blog_posts.new(params[:post])
+      @post = current_blogger.blog_posts.new(params.key(:post) || {})
     end
 
     def edit
@@ -54,7 +49,7 @@ module Blogit
     end
 
     def create
-      @post = current_blogger.blog_posts.new(params[:post])
+      @post = current_blogger.blog_posts.new(valid_params)
       if @post.save
         redirect_to @post, notice: t(:blog_post_was_successfully_created, scope: 'blogit.posts')
       else
@@ -64,7 +59,7 @@ module Blogit
 
     def update
       @post = current_blogger.blog_posts.find(params[:id])
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(valid_params)
         redirect_to @post, notice: t(:blog_post_was_successfully_updated, scope: 'blogit.posts')
       else
         render action: "edit"
@@ -75,6 +70,12 @@ module Blogit
       @post = current_blogger.blog_posts.find(params[:id])
       @post.destroy
       redirect_to posts_url, notice: t(:blog_post_was_successfully_destroyed, scope: 'blogit.posts')
+    end
+
+    protected
+
+    def valid_params
+      params.require(:post).permit(:title, :body, :blogger_type, :blogger_id)
     end
 
     private

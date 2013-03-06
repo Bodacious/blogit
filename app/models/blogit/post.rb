@@ -1,19 +1,11 @@
 module Blogit
   class Post < ActiveRecord::Base
 
-    require "acts-as-taggable-on"
     require "kaminari"
-
-    acts_as_taggable
 
     self.table_name = "blog_posts"
 
     self.paginates_per Blogit.configuration.posts_per_page
-
-    # ==============
-    # = Attributes =
-    # ==============
-    attr_accessible :title, :body, :tag_list, :blogger_type, :blogger_id
 
     # ===============
     # = Validations =

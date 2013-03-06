@@ -16,14 +16,11 @@ en:
       successfully_removed_comment: "Successfully removed comment."
     posts:
       written_by: "Written by %{author} on"
-      there_are_no_posts_about: "Sorry, there are no posts about \"%{tag}\"."
       prohibited_this_post_from_being_saved:
         one: "One error prohibited this post form being saved:"
         other: "%{count} errors prohibited this post form being saved:"
       give_your_post_a_title: "Give your post a title"
       write_something_here: "Write something here..."
-      tags: "Tags"
-      tag_placeholder: "tag one, tag two, etc..."
       tip_you_can_style_your_post_using: "Tip: you can style your post using %{parser}"
       or: "or"
       cancel: "cancel"
@@ -39,7 +36,6 @@ en:
       blog_post_was_successfully_created: "Blog post was successfully created."
       blog_post_was_successfully_updated: "Blog post was successfully updated."
       blog_post_was_successfully_destroyed: "Blog post was successfully destroyed."
-      tags: "Tags"
       related_posts: "Related posts"
     share_bar:
       facebook: "en_US"
