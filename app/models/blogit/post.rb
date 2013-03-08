@@ -4,6 +4,8 @@ module Blogit
     require "acts-as-taggable-on"
     require "kaminari"
 
+    include ::ActionView::Helpers::TextHelper
+
     acts_as_taggable
 
     self.table_name = "blog_posts"
@@ -14,6 +16,10 @@ module Blogit
     # = Attributes =
     # ==============
     attr_accessible :title, :body, :tag_list, :blogger_type, :blogger_id
+
+    def short_body
+      truncate(body, length: 400, separator: "\n")
+    end
 
     # ===============
     # = Validations =

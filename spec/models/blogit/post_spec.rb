@@ -148,4 +148,25 @@ describe Blogit::Post do
 
   end
 
+  describe "body preview" do
+    it "should not truncate a short body" do
+      post = Blogit::Post.new(body: "short body")
+
+      post.short_body.should == post.body
+    end
+
+    it "should not truncate a long body" do
+      post = Blogit::Post.new(body: "t\n"*300)
+
+      post.short_body.should == "t\n"*198 + "t..."
+    end
+
+    it "should not cut the body in the middle of an image declaration" do
+      body = "some text\n"*35 + '"!http://www.images.com/blogit/P6876.thumb.jpg(Look at this)!\":http://www.images.com/blogit/P6976.jpb'
+      post = Blogit::Post.new(body: body)
+
+      post.short_body.should_not include('"!http://www.images.com')
+    end
+  end
+
 end
