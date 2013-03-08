@@ -110,17 +110,19 @@ describe PostsController do
           @current_blogger.expects(:blog_posts).returns(@blog_posts)
           @blog_posts.expects(:new).with(post_attributes.stringify_keys).returns(blog_post)
           blog_post.expects(:save).returns(true)
+          @pingr = mock()
+          @pingr.stub_everything()
         end
 
         it "should redirect to the blog post page" do
           do_post
           response.should redirect_to(controller.posts_url)
         end
-        
+
         it "should ping all search engines in ping_search_engines config if array" do
           Blogit.configuration.ping_search_engines = search_engines = [:google]
           search_engines.each do |search_engine|
-            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).returns(@pingr)
           end
           do_post
         end
@@ -128,7 +130,7 @@ describe PostsController do
         it "should ping all search engines in Pingr::SUPPORTED_SEARCH_ENGINES if config is true" do
           Blogit.configuration.ping_search_engines = true
           Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
-            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+            Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).returns(@pingr)
           end
           do_post
         end
@@ -195,6 +197,8 @@ describe PostsController do
         mock_login
         @current_blogger.expects(:blog_posts).returns(@blog_posts = [])
         @blog_posts.expects(:find).with("1").returns(blog_post)
+        @pingr = mock()
+        @pingr.stub_everything()
       end
 
       def do_put
@@ -215,11 +219,11 @@ describe PostsController do
         do_put
         flash[:notice].should be_present
       end
-      
+
       it "should ping all search engines in ping_search_engines config if array" do
         Blogit.configuration.ping_search_engines = search_engines = [:google, :bing]
         search_engines.each do |search_engine|
-          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).returns(@pingr)
         end
         do_put
       end
@@ -227,7 +231,7 @@ describe PostsController do
       it "should ping all search engines in Pingr::SUPPORTED_SEARCH_ENGINES if config is true" do
         Blogit.configuration.ping_search_engines = true
         Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
-          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).returns(@pingr)
         end
         do_put
       end
@@ -239,7 +243,7 @@ describe PostsController do
         end
         do_put
       end
-      
+
     end
 
     context "when not logged in" do
@@ -293,6 +297,8 @@ describe PostsController do
         mock_login
         @current_blogger.expects(:blog_posts).returns(@blog_posts = [])
         @blog_posts.expects(:find).with("1").returns(blog_post)
+        @pingr = mock()
+        @pingr.stub_everything()
       end
 
       it "should destroy the blog post" do
@@ -309,11 +315,11 @@ describe PostsController do
         do_delete
         flash[:notice].should be_present
       end
-      
+
       it "should ping all search engines in ping_search_engines config if array" do
         Blogit.configuration.ping_search_engines = search_engines = [:google, :bing]
         search_engines.each do |search_engine|
-          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).returns(@pingr)
         end
         do_delete
       end
@@ -321,7 +327,7 @@ describe PostsController do
       it "should ping all search engines in Pingr::SUPPORTED_SEARCH_ENGINES if config is true" do
         Blogit.configuration.ping_search_engines = true
         Pingr::SUPPORTED_SEARCH_ENGINES.each do |search_engine|
-          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml))
+          Pingr::Request.expects(:new).with(search_engine, controller.posts_url(format: :xml)).returns(@pingr)
         end
         do_delete
       end
