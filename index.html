@@ -31,32 +31,101 @@
         <hr>
 
         <section id="main_content">
-          <h3>Welcome to GitHub Pages.</h3>
+          <h1>Blogit (beta)</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Blogit is a flexible blogging solution for Rails apps. It:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<ul>
+<li>Is Rack based;</li>
+<li>Is a complete MVC solution based on Rails engines;</li>
+<li>Aims to work right out of the box but remain fully customisable.</li>
+</ul><h2>Installation</h2>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Add this to your Gemfile</p>
 
-<h3>Designer Templates</h3>
+<div class="highlight"><pre><span class="n">gem</span> <span class="s2">"blogit"</span>
+</pre></div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>...and run <code>bundle install</code> to install the gem.</p>
 
-<h3>Rather Drive Stick?</h3>
+<p>Next, run:</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<div class="highlight"><pre><span class="c"># add an initializer to config/initializers with all of the configuration options</span>
+<span class="nv">$ </span>rails g blogit:install
+<span class="c"># This will add the necessary migrations to your app's db/migrate directory</span>
+rake blogit:install:migrations
+<span class="c"># This will run any pending migrations</span>
+rake db:migrate
+</pre></div>
 
-<h3>Authors and Contributors</h3>
+<p>then add the following to your routes.rb file:</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="highlight"><pre><span class="c"># config/routes.rb</span>
+mount Blogit::Engine <span class="o">=</span>&gt; <span class="s2">"/blog"</span>
+</pre></div>
 
-<h3>Support or Contact</h3>
+<p>... and finally, declare which of your models acts as blogger in your app (usually User).</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span>
+
+  <span class="n">blogs</span>
+
+<span class="k">end</span>
+</pre></div>
+
+<h2>Configuration</h2>
+
+<p>Running <code>rails g blogit:install</code> will add an initializer file named blogit.rb. In here
+you can set various configuration options. Please <a href="http://rubydoc.info/gems/blogit/Blogit/Configuration">read the documentation</a> for a full list of the options available.</p>
+
+<h2>At no extra cost...</h2>
+
+<p>we'll also throw in:</p>
+
+<ul>
+<li>An XML Sitemap located at <code>/blog/posts.xml</code>
+</li>
+<li>An RSS feed located at <code>/blog/posts.rss</code>
+</li>
+<li>Sitemap submission to the major search engines (via <a href="http://github.com/katanacode/pingr" title="Pingr">Pingr</a> - off by default)</li>
+<li>Page Caching and Sweeping</li>
+<li>Internationalization (see the <a href="config/locales/en.yml">locales file</a> for configurable options)</li>
+<li>Share links (Google+, Twitter &amp; Facebook)</li>
+<li><a href="http://disqus.com">Disquss Comments</a></li>
+</ul><h2>Issues</h2>
+
+<p>If you discover a problem with Blogit, please let us know about it. </p>
+
+<p><strong>Remember</strong> to search the <a href="https://github.com/KatanaCode/blogit/issues">issues list</a> first in case your issue has already been raised
+by another Githuber</p>
+
+<h2>Documentation</h2>
+
+<p>Full documentation is available here: <a href="http://rubydoc.info/gems/blogit">http://rubydoc.info/gems/blogit</a></p>
+
+<h2>Contributing</h2>
+
+<p>You're welcome to contribute to Blogit. Please consult the <a href="https://github.com/KatanaCode/blogit/wiki/Contributing">contribution guidelines</a> for more info.</p>
+
+<h2>Legal Stuff</h2>
+
+<p>Copyright 2011 <a href="http://katanacode.com">Katana Code Ltd.</a></p>
+
+<p>See (LEGAL)[LEGAL] for full details.</p>
+
+<h2>Credits</h2>
+
+<p>Developed by <a href="http://katanacode.com">Katana Code</a></p>
+
+<p>with generous contributions from:</p>
+
+<ul>
+<li><a href="https://github.com/Philou" class="user-mention">@Philou</a></li>
+<li><a href="https://github.com/stewartmckee" class="user-mention">@stewartmckee</a></li>
+<li><a href="https://github.com/kassi" class="user-mention">@kassi</a></li>
+</ul><h2>About Katana Code</h2>
+
+<p>Katana Code are <a href="http://katanacode.com/" title="Katana Code">Ruby on Rails Developers Based in Edinburgh, Scotland</a>.</p>
         </section>
 
         <footer>
