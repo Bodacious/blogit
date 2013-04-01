@@ -38,6 +38,8 @@ then add the following to your routes.rb file:
 mount Blogit::Engine => "/blog"
 ```
 
+Define `ApplicationController#current_user` and `ApplicationController#login_required` methods if your app doesn't already have these.
+
 ... and finally, declare which of your models acts as blogger in your app (usually User).
 
 ``` ruby
