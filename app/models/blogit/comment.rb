@@ -15,22 +15,16 @@ module Blogit
       foreign_key: "post_id", counter_cache: true, touch: true
     
     # TODO: Check if this is optimal
-    URL_REGEX   = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+    URL_REGEX   = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z/ix
 
     # TODO: Check if this is optimal    
-    EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+    EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
     
     # ============
     # = Callbacks =
     # ============
     
     before_validation :format_website
-    
-    # ==============
-    # = Attributes =
-    # ==============
-    
-    attr_accessible :name, :nickname, :email, :body, :website
     
     # nickname acts as a "honeypot" to catch spam
     # the form field should be hidden using CSS and so 

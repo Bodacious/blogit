@@ -1,25 +1,7 @@
 module Blogit
   class Post < ActiveRecord::Base
 
-    require "acts-as-taggable-on"
     require "kaminari"
-
-    include ::ActionView::Helpers::TextHelper
-
-    acts_as_taggable
-
-    self.table_name = "blog_posts"
-
-    self.paginates_per Blogit.configuration.posts_per_page
-
-    # ==============
-    # = Attributes =
-    # ==============
-    attr_accessible :title, :body, :tag_list, :blogger_type, :blogger_id
-
-    def short_body
-      truncate(body, length: 400, separator: "\n")
-    end
 
     # ===============
     # = Validations =
@@ -29,9 +11,9 @@ module Blogit
     validates :body,  presence: true, length: { minimum: 10 }
     validates :blogger_id, presence: true
 
-    # =================
-    # = Assosciations =
-    # =================
+    # ================
+    # = Associations =
+    # ================
 
     belongs_to :blogger, :polymorphic => true
 
