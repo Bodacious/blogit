@@ -65,6 +65,10 @@ we'll also throw in:
 * Share links (Google+, Twitter & Facebook)
 * [Disquss Comments](http://disqus.com)
 
+## Rails 4
+
+@grncdr Has contributed changes for Rails 4 compatibility. Check out the rails 4 branch for more info. NOTE - This code hasn't been tested yet and may contain bugs.
+
 ## Issues
 
 If you discover a problem with Blogit, please let us know about it. 
