@@ -3,6 +3,8 @@ module Blogit
 
     require "kaminari"
 
+    self.table_name = "blog_posts"
+
     # ===============
     # = Validations =
     # ===============
