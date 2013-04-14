@@ -2,7 +2,10 @@
 /* = Some CSS for the dummy app only = */
 /* =================================== */
 
-/* *= require_tree . */
+/* 
+  *= require_tree . 
+*/
+
 body{
   font-size: 15px;
   line-height: 1.5em;
