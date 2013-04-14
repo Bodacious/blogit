@@ -8,7 +8,7 @@ en:
       your_comment: "Your comment *"
       add_comment: "Add Comment"
       adding_comment: "Adding Comment..."
-      wrote: "%{author} wrote:"
+      wrote: "wrote:"
       posted_on: "Posted on"
       delete: "delete"
       are_you_sure_you_want_to_remove_this_comment: "Are you sure you want to remove this comment?"

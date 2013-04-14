@@ -8,7 +8,7 @@ fr:
       your_comment: "Votre commentaire *"
       add_comment: "Ajouter un commentaire"
       adding_comment: "Ajout de commentaire ..."
-      wrote: "%{author} a écrit:"
+      wrote: "a écrit:"
       posted_on: "Publié le "
       delete: "effacer"
       are_you_sure_you_want_to_remove_this_comment: "Etes vous certain de vouloir supprimer ce commentaire?"
