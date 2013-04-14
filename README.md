@@ -66,6 +66,7 @@ we'll also throw in:
 * Internationalization (see the [locales file](config/locales/en.yml) for configurable options)
 * Share links (Google+, Twitter & Facebook)
 * [Disquss Comments](http://disqus.com)
+* Code Syntax Highlighting CSS file (add `*= require pygments` to your app's stylesheet)
 
 ## Rails 4
 
