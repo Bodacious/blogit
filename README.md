@@ -105,4 +105,4 @@ with generous contributions from:
 
 ## About Katana Code
 
-Katana Code are [Ruby on Rails Developers Based in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
+Katana Code are [iPhone app and Ruby on Rails Developers in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
