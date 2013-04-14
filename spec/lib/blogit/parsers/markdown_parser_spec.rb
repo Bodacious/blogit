@@ -19,15 +19,43 @@ describe Blogit::Parsers::MarkdownParser do
       system("pygmentize > /dev/null").should equal(true), "It seems that pygmentize is not installed on your system"
     end
 
-    it "should highlight code if highlight_code_syntax is true" do
-      Blogit::configuration.highlight_code_syntax = true
-      parser.parsed.should =~
-      Regexp.new("<h2>Header</h2>\n<div class=\"highlight\"><pre><span class=\"nb\">puts</span> <span class=\"s1\">&#39;hello world&#39;</span>\n</pre>\n</div>\n")
+    context "when highlight_code_syntax is true" do
+      
+      before do
+        Blogit::configuration.highlight_code_syntax = true
+      end
+      
+      it "should raise an exception if pygments isn't installed" do
+        original_path = ENV['PATH']
+        ENV['PATH']   = ""
+        expect { parser.parsed }.to raise_error
+        ENV["PATH"] = original_path
+      end
+      
+      it "should highlight code syntax" do
+        parser.parsed.should =~
+        Regexp.new("<h2>Header</h2>\n<div class=\"highlight\"><pre><span class=\"nb\">puts</span> <span class=\"s1\">&#39;hello world&#39;</span>\n</pre>\n</div>\n")
+      end
+      
     end
 
-    it "shoud not highlight code if highlight_code_syntax is false" do
-      Blogit.configuration.highlight_code_syntax = false
-      parser.parsed.should == "<h2>Header</h2>\n\n<pre><code class=\"ruby\">puts &#39;hello world&#39;\n</code></pre>\n"
+    context "when highlight_code_syntax is false" do
+      
+      before do
+        Blogit::configuration.highlight_code_syntax = false
+      end
+      
+      it "should not raise an exception, even if pygments isn't installed" do
+        original_path = ENV['PATH']
+        ENV['PATH']   = ""
+        expect { parser.parsed }.to_not raise_error
+        ENV["PATH"] = original_path
+      end
+      
+      it "shoud not highlight code" do
+        parser.parsed.should == "<h2>Header</h2>\n\n<pre><code class=\"ruby\">puts &#39;hello world&#39;\n</code></pre>\n"
+      end
+      
     end
 
   end
