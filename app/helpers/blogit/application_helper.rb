@@ -57,24 +57,6 @@ module Blogit
       end
     end
 
-    # Returns an HTML 5 time tag
-    # @param time_object Any Time or DateTime object
-    # @param format [String, Symbol] If passed a string will treat as a strftime format.
-    #   If passed a symbol will treat as pre-set datetime format.
-    def time_tag(time_object, format = nil, options ={})
-      # if there's a specified format and it's a string, assume it's an strftime string
-      if format && format.is_a?(String)
-        time_string = time_object.strftime(format)
-        # if there's a specified format and it's a symbol, assume it's a predefined format
-      elsif format && format.is_a?(Symbol)
-        time_string = I18n.localize(time_object, format: format)
-      else
-        time_string = time_object.to_s
-      end
-      options.merge(datetime: time_object.strftime(TIMETAG_FORMAT))
-      content_tag(:time, time_string, options)
-    end
-
     # Can search for named routes directly in the main app, omitting
     # the "main_app." prefix
     def method_missing method, *args, &block
@@ -84,6 +66,7 @@ module Blogit
         super
       end
     end
+    
     def respond_to?(method)
       main_app_url_helper?(method) or super
     end

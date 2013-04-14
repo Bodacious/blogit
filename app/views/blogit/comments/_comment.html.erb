@@ -10,7 +10,8 @@
   <% end %>
 
   <%= blog_tag(:footer, type: "comment") do %>
-    <%=t :posted_on, scope: 'blogit.comments'%> <%= time_tag(comment.created_at, Blogit.configuration.datetime_format) %>
+    <%=t :posted_on, scope: 'blogit.comments'%> 
+    <%= time_tag(comment.created_at, format: blogit_conf.datetime_format) %>
   <% end %>
 
   <%= render partial: "blogit/comments/admin_links", locals: {comment: comment} %>
