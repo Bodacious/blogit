@@ -9,6 +9,8 @@ require "blogit/engine"
 require "blogit/parsers"
 
 require "validators"
+require 'rails/observers/action_controller/caching'
+
 module Blogit
   
   autoload :Kaminari, "kaminari"
