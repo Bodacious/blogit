@@ -88,6 +88,10 @@ module Blogit
     # Defaults to false
     attr_accessor :ping_search_engines
     
+    # The layout to be used by the posts controller
+    # Defaults to nil
+    attr_accessor :layout
+    
     # When using redcarpet as content parser, pass these options as defaults.
     REDCARPET_OPTIONS = {
       hard_wrap: true,

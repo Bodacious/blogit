@@ -27,6 +27,17 @@ describe PostsController do
       do_get("2")
       assigns(:posts).should == posts
     end
+    
+    describe "when layout is set" do
+      
+      it "should use the specified layout" do
+        reset_configuration
+        Blogit.configuration.layout = "custom"
+        do_get
+        response.should.should render_template("layouts/custom")
+      end
+      
+    end
 
   end
 

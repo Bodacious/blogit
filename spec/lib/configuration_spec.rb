@@ -109,4 +109,12 @@ describe Blogit::Configuration do
     blog_configuration.rss_feed_description.should eql "#{Rails.application.engine_name.titleize} Blog Posts"
   end
 
+  it "should set layout to nil by default" do
+    blog_configuration.layout.should be_nil
+  end
+  
+  it "should allow layout to be set to a string" do
+    lambda { blog_configuration.layout = "custom" }.should_not raise_error
+  end
+  
 end

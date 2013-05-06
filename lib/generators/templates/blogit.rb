@@ -87,4 +87,6 @@ Blogit.configure do |config|
   # app's named routes are missing.
   # config.inline_main_app_named_routes = true
 
+  # If this is set, Blogit::PostsController will use the layout named here 
+  # config.layout = "custom_layout"
 end

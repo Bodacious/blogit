@@ -3,8 +3,10 @@ module Blogit
   # Using explicit ::Blogit::ApplicationController fixes NoMethodError 'blogit_authenticate' in
   # the main_app
   class PostsController < ::Blogit::ApplicationController
-
-  
+    
+    # If a layout is specified, use that. Otherwise, fall back to the default
+    layout Blogit.configuration.layout if Blogit.configuration.layout
+    
     # If using Blogit's Create, Update and Destroy actions AND ping_search_engines is
     # set, call ping_search_engines after these requests
     if Blogit.configuration.include_admin_actions
