@@ -30,7 +30,7 @@ module Blogit
           @posts = Post.order('created_at DESC')
         }
         format.html {
-          @posts = Post.for_index(params[:page])
+          @posts = Post.for_index(params[Kaminari.config.param_name])
         }
         format.rss {
           @posts = Post.order('created_at DESC')
@@ -43,7 +43,7 @@ module Blogit
     end
 
     def tagged
-      @posts = Post.for_index(params[:page]).tagged_with(params[:tag])
+      @posts = Post.for_index(params[Kaminari.config.param_name]).tagged_with(params[:tag])
       render :index
     end
 
