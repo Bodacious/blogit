@@ -9,6 +9,7 @@ require "blogit/engine"
 require "blogit/parsers"
 
 require "validators"
+
 module Blogit
   
   autoload :Kaminari, "kaminari"

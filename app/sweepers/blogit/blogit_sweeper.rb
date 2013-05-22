@@ -1,3 +1,7 @@
+require 'rails/observers/active_model/observing'
+require 'rails/observers/activerecord/observer'
+require 'rails/observers/action_controller/caching'
+
 module Blogit
   
   # This is a universal cache sweeper. If a comment is added or a 
