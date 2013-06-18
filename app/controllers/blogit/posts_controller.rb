@@ -16,10 +16,10 @@ module Blogit
     # Raise a 404 error if the admin actions aren't to be included
     # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
     unless Blogit.configuration.include_admin_actions
-      before_filter :raise_404, except: [:index, :show, :tagged]
+      before_filter :raise_404, except: [:index, :show, :tagged, :archive]
     end
 
-    blogit_authenticate(except: [:index, :show, :tagged])
+    blogit_authenticate(except: [:index, :show, :tagged, :archive])
 
     blogit_cacher(:index, :show, :tagged)
     blogit_sweeper(:create, :update, :destroy)
@@ -44,6 +44,12 @@ module Blogit
 
     def tagged
       @posts = Post.for_index(params[Kaminari.config.param_name]).tagged_with(params[:tag])
+      render :index
+    end
+
+    def archive
+      @date = Date.new(params[:year].to_i, params[:month].to_i)
+      @posts = Post.for_index(params[Kaminari.config.param_name]).where("created_at >= ?", @date.beginning_of_month).where("created_at <= ?", @date.end_of_month)
       render :index
     end
 

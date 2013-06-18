@@ -46,6 +46,29 @@ module Blogit
       super(value)
     end
 
+    # =================
+    # = Class Methods =
+    # =================
+
+    def self.tags
+      result = Set.new
+      self.all.each do |p|
+	result.merge(p.tags)
+      end
+
+      return result
+    end
+
+    def self.archives
+      result = Set.new
+      self.all.each do |p|
+	@date = Date.new(p.created_at.year, p.created_at.month)
+	result.add(@date)
+      end
+
+      return result
+    end
+
     # ==========
     # = Scopes =
     # ==========
