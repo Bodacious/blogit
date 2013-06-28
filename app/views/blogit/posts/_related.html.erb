@@ -1,0 +1,18 @@
+<div id="blog_related">
+  <div id="blog_tags">
+    <h2><%= t :tags, :scope => "blogit.posts" %></h2>
+    <ul>
+      <% post.tag_list.each do |tag| %>
+        <li><%= link_to tag, tagged_blog_posts_path(tag) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="blog_related_posts">
+    <h2><%= t :related_posts, :scope => "blogit.posts" %></h2>
+    <ul>
+      <% post.find_related_on_tags.each do |other_post| %>
+        <li><%= link_to other_post.title, post_path(other_post) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
