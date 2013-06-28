@@ -19,9 +19,6 @@ module Blogit
 
     blogit_authenticate(except: [:index, :show])
 
-    blogit_cacher(:index, :show)
-    blogit_sweeper(:create, :update, :destroy)
-
     def index
       @posts = Post.order('created_at DESC').page(params[:page])
     end

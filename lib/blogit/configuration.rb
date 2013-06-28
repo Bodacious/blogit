@@ -147,6 +147,10 @@ module Blogit
       blogit_warn "#{self.class}#rss_feed_language has been deprecated. You can remove this from your blogit.rb configuration file"
     end
     
+    def cache_pages=(value)
+      blogit_warn "config.cache_pages is deprecated. Please remove this from your blogit.rb file"      
+    end
+
     private
 
     def blogit_warn(message)

@@ -24,9 +24,6 @@ Blogit.configure do |config|
   # Which DateTime::FORMATS format do we use to display blog and comment publish time
   # config.datetime_format = :short
 
-  # Should the controllers cache the blog pages as HTML?
-  # config.cache_pages = false
-
   # No. of posts to show per page
   # config.posts_per_page = 5
 
