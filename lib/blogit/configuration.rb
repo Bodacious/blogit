@@ -36,6 +36,10 @@ module Blogit
     #   is :markdown
     attr_accessor :highlight_code_syntax
 
+    # Which syntax highlighter to use
+    # Defaults to :albino
+    attr_accessor :syntax_highlighter
+
     # The name of the before filter we'll call to authenticate the current user.
     # Defaults to :login_required
     attr_accessor :authentication_method
@@ -87,11 +91,11 @@ module Blogit
     # when posts are created, updated or destroyed?
     # Defaults to false
     attr_accessor :ping_search_engines
-    
+
     # The layout to be used by the posts controller
     # Defaults to nil
     attr_accessor :layout
-    
+
     # When using redcarpet as content parser, pass these options as defaults.
     REDCARPET_OPTIONS = {
       hard_wrap: true,
@@ -119,6 +123,7 @@ module Blogit
       @cache_pages                 = false
       @default_parser              = :markdown
       @highlight_code_syntax       = true
+      @syntax_highlighter          = :albino
       @rss_feed_title              = "#{Rails.application.engine_name.titleize} Blog Posts"
       @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
       @ping_search_engines         = false
@@ -150,7 +155,7 @@ module Blogit
     def rss_feed_language=(locale)
       blogit_warn "#{self.class}#rss_feed_language has been deprecated. You can remove this from your blogit.rb configuration file"
     end
-    
+
     private
 
     def blogit_warn(message)
