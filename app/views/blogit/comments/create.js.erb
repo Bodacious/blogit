@@ -3,5 +3,5 @@ var $form = $("form#new_blog_comment");
   $("#comments").append("<%= escape_javascript(render(@comment)) %>");
   $form.get(0).reset();
 <% else %>
-  $form.html("<%= escape_javascript(render('form')) %>");
+  $form.html("<%= escape_javascript(render(partial:'form', locals: { post: @comment.post, comment: @comment })) %>");
 <% end %>
