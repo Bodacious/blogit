@@ -1,0 +1,50 @@
+# encoding: utf-8
+de:
+  blogit:
+    comments:
+      leave_a_comment: "Schreibe einen Kommentar"
+      name: "Name *"
+      email_never_displayed: "E-Mail * (nicht öffentlich)"
+      your_website: "Deine Webseite"
+      your_comment: "Dein Kommentar *"
+      add_comment: "Kommentar hinzufügen"
+      adding_comment: "Kommentar wird hinzugefügt..."
+      wrote: "schrieb:"
+      posted_on: "Geschrieben am"
+      delete: "löschen"
+      are_you_sure_you_want_to_remove_this_comment: "Bist Du sicher, dass Du den Kommentar löschen möchtest?"
+      successfully_added_comment: "Kommentar wurde hinzugefügt!"
+      successfully_removed_comment: "Kommentar wurde gelöscht."
+    posts:
+      written_by: "Verfasst von %{author} am"
+      there_are_no_posts_about: "Es gibt leider keine Beiträge zum Thema \"%{tag}\"."
+      prohibited_this_post_from_being_saved:
+        one: "Der Beitrag konnte nicht gespeichert werden, da ein Fehler aufgetreten ist:"
+        other: "Der Beitrag konnte nicht gespeichert werden, da %{count} Fehler aufgetreten sind:"
+      give_your_post_a_title: "Gib dem Beitrag einen Titel"
+      write_something_here: "Schreibe den Text hier..."
+      tags: "Kategorien"
+      tag_placeholder: "Kategorie eins, Kategorie zwei, usw."
+      tip_you_can_style_your_post_using: "Tipp: der Beitrag kann mit '%{parser}' formatiert werden"
+      or: "oder"
+      cancel: "abbrechen"
+      edit: "bearbeiten"
+      delete: "löschen"
+      are_you_sure_you_want_to_remove_this_post: "Bist Du sicher, dass Du den Beitrag löschen möchtest?"
+      comment:
+        one: "ein Kommentar"
+        other: "%{count} Kommentare"
+      edit_blog_post: "Beitrag #%{id} bearbeiten"
+      new_blog_post: "Neuer Beitrag"
+      write_a_new_blog_post: "Verfasse einen neuen Beitrag"
+      blog_post_was_successfully_created: "Beitrag wurde erfolgreich erstellt."
+      blog_post_was_successfully_updated: "Beitrag wurde erfolgreich aktualisiert."
+      blog_post_was_successfully_destroyed: "Beitrag wurde erfolgreich entfernt."
+      tags: "Kategorien"
+      related_posts: "Verwandte Beiträge"
+    share_bar:
+      facebook: "de_DE"
+
+  time:
+    formats:
+      plain_month_only: "%B"
