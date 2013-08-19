@@ -51,8 +51,12 @@ Blogit.configure do |config|
   # config.default_parser = :markdown
 
   # If blog content contains code, this should be highlighted using
-  # albino.
+  # either albino or pygments.rb.
   # config.highlight_code_syntax = true
+
+  # If code syntax should be highlighted use one of
+  # :albino or :pygments to highlight it.
+  # config.syntax_highlighter = :albino
 
   # RSS Feed title content
   # config.rss_feed_title = "A blog about ponies!"
@@ -62,13 +66,13 @@ Blogit.configure do |config|
 
   # Should blogit ping search engines with your sitemap
   # when posts are created, updated or destroyed?
-  # 
+  #
   # Can pass true to ping all supported search engines, or an array of search
   # engine names. e.g. [:google, :bing]
-  # 
+  #
   # Defaults to false
   # config.ping_search_engines = false
-  
+
   # When using redcarpet as content parser, pass these options as defaults.
   # @see here for more options: https://github.com/tanoku/redcarpet
   # config.redcarpet_options = {
@@ -87,6 +91,6 @@ Blogit.configure do |config|
   # app's named routes are missing.
   # config.inline_main_app_named_routes = true
 
-  # If this is set, Blogit::PostsController will use the layout named here 
+  # If this is set, Blogit::PostsController will use the layout named here
   # config.layout = "custom_layout"
 end
