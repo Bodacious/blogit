@@ -8,8 +8,6 @@ module Blogit
 
     acts_as_taggable
 
-    self.table_name = "blog_posts"
-
     self.paginates_per Blogit.configuration.posts_per_page
 
     # ==============

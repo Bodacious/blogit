@@ -5,8 +5,6 @@ module Blogit
     require "validators"
     include Validators
     
-    self.table_name = "blog_comments"
-    
     # ================
     # = Associations =
     # ================
