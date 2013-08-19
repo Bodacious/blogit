@@ -78,6 +78,10 @@ module Blogit
       @post.destroy
       redirect_to posts_url, notice: t(:blog_post_was_successfully_destroyed, scope: 'blogit.posts')
     end
+    
+    def post_paramters
+      params.permit(:title, :body, :tag_list, :blogger_type, :blogger_id)
+    end
 
     private
 

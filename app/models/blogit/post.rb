@@ -13,11 +13,7 @@ module Blogit
     # ==============
     # = Attributes =
     # ==============
-    attr_accessible :title, :body, :tag_list, :blogger_type, :blogger_id
 
-    def short_body
-      truncate(body, length: 400, separator: "\n")
-    end
 
     # ===============
     # = Validations =
@@ -35,15 +31,6 @@ module Blogit
 
     has_many :comments, :class_name => "Blogit::Comment"
 
-    def comments
-      check_comments_config
-      super()
-    end
-    def comments=(value)
-      check_comments_config
-      super(value)
-    end
-
     # ==========
     # = Scopes =
     # ==========
@@ -59,6 +46,21 @@ module Blogit
     def to_param
       "#{id}-#{title.parameterize}"
     end
+    
+    def short_body
+      truncate(body, length: 400, separator: "\n")
+    end
+    
+    def comments
+      check_comments_config
+      super()
+    end
+    
+    def comments=(value)
+      check_comments_config
+      super(value)
+    end
+    
 
     # If there's a current blogger and the display name method is set, returns the blogger's display name
     # Otherwise, returns an empty string
@@ -78,5 +80,6 @@ module Blogit
     def check_comments_config
       raise RuntimeError.new("Posts only allow active record comments (check blogit configuration)") unless Blogit.configuration.include_comments == :active_record
     end
+    
   end
 end

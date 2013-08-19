@@ -7,7 +7,7 @@ module Blogit
 
 
     def create
-      @comment = post.comments.new(params[:comment])
+      @comment = post.comments.new(comment_parameters)
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
@@ -40,6 +40,10 @@ module Blogit
     def post
       @post ||= Blogit::Post.find(params[:post_id])
     end
-
+    
+    def comment_parameters
+      params.require(:comment).permit(:name, :email, :body, :website)
+    end
+    
   end
 end
