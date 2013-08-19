@@ -10,9 +10,15 @@ Dummy::Application.configure do
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
+  
+  if Rails.version.first == "3"
+    # Log error messages when you accidentally call methods on nil
+    config.whiny_nils = true
+  end
 
-  # Log error messages when you accidentally call methods on nil
-  config.whiny_nils = true
+  if Rails.version.first == "4"
+    config.eager_load = false
+  end
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -27,7 +33,7 @@ Dummy::Application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  # config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :test
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
