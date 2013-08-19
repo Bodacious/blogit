@@ -1,0 +1,19 @@
+language: ruby
+
+
+env:
+  - "RAILS_VERSION=3.1.0"
+  - "RAILS_VERSION=3.2.0"
+  - "RAILS_VERSION=4.0.0"
+  - "RAILS_VERSION=master"
+  
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - ruby-head
+  - jruby-19mode
+  
+matrix:
+  allow_failures:
+    - env: "RAILS_VERSION=master"
+    - rvm: ruby-head
