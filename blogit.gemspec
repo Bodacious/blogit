@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "growl"
   s.add_development_dependency "factory_girl", ">=4.1.0"
   s.add_development_dependency "mocha"
-  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "rspec-rails", '~> 2.0'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rb-inotify",  ">= 0.8.8"
 end
