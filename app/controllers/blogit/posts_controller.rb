@@ -21,9 +21,6 @@ module Blogit
 
     blogit_authenticate(except: [:index, :show, :tagged])
 
-    blogit_cacher(:index, :show, :tagged)
-    blogit_sweeper(:create, :update, :destroy)
-
     def index
       respond_to do |format|
         format.xml {
@@ -48,7 +45,7 @@ module Blogit
     end
 
     def new
-      @post = current_blogger.blog_posts.new(params[:post])
+      @post = current_blogger.blog_posts.new(post_paramters)
     end
 
     def edit
@@ -56,7 +53,7 @@ module Blogit
     end
 
     def create
-      @post = current_blogger.blog_posts.new(params[:post])
+      @post = current_blogger.blog_posts.new(post_paramters)
       if @post.save
         redirect_to @post, notice: t(:blog_post_was_successfully_created, scope: 'blogit.posts')
       else
@@ -66,7 +63,7 @@ module Blogit
 
     def update
       @post = current_blogger.blog_posts.find(params[:id])
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(post_paramters)
         redirect_to @post, notice: t(:blog_post_was_successfully_updated, scope: 'blogit.posts')
       else
         render action: "edit"
@@ -77,6 +74,14 @@ module Blogit
       @post = current_blogger.blog_posts.find(params[:id])
       @post.destroy
       redirect_to posts_url, notice: t(:blog_post_was_successfully_destroyed, scope: 'blogit.posts')
+    end
+    
+    def post_paramters
+      if params[:post]
+        params.require(:post).permit(:title, :body, :tag_list)
+      else
+        {}
+      end
     end
 
     private

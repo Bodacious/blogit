@@ -10,12 +10,6 @@ describe Blogit::Blogs do
     it "should be a class macro to AR Base" do
       ActiveRecord::Base.methods.should include(:blogs)
     end
-    
-    
-    it "should build a hm assosciation on the model it's called in" do
-      lambda { User.new.blog_posts }.should_not raise_exception(NoMethodError)
-      User.new.blog_posts.should be_an(Array)
-    end
         
   end
 

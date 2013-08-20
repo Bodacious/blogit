@@ -10,9 +10,15 @@ Dummy::Application.configure do
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
+  
+  if Rails.version =~ /\A3/
+    # Log error messages when you accidentally call methods on nil
+    config.whiny_nils = true
+  end
 
-  # Log error messages when you accidentally call methods on nil
-  config.whiny_nils = true
+  if Rails.version =~ /\A4/
+    config.eager_load = false
+  end
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
