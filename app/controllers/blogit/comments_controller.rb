@@ -3,9 +3,6 @@ module Blogit
 
     blogit_authenticate except: [:create]
 
-    blogit_sweeper(:create, :update, :destroy)
-
-
     def create
       @comment = post.comments.new(comment_parameters)
       respond_to do |format|

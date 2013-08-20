@@ -21,9 +21,6 @@ module Blogit
 
     blogit_authenticate(except: [:index, :show, :tagged])
 
-    blogit_cacher(:index, :show, :tagged)
-    blogit_sweeper(:create, :update, :destroy)
-
     def index
       respond_to do |format|
         format.xml {
