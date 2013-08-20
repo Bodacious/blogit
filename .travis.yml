@@ -1,10 +1,9 @@
 language: ruby
 
-
 env:
-  - "RAILS_VERSION=3.2.0"
-  - "RAILS_VERSION=4.0.0"
-  - "RAILS_VERSION=master"
+  - RAILS_VERSION=3.2.0
+  - RAILS_VERSION=4.0.0
+  - RAILS_VERSION=master
   - DB=sqlite 
   - DB=mysql 
   - DB=postgresql
@@ -16,12 +15,17 @@ rvm:
   
 matrix:
   allow_failures:
-    - env: "RAILS_VERSION=master"
+    - env: RAILS_VERSION=master
     - rvm: ruby-head
-        
-script: 
+          
+script:
+  # Make sure the databases are up to date
   - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  # Run the specs
+  - bundle exec rspec spec
   
 before_script: 
+  # Ensure the MySQL DB Exists
   - mysql -e 'create database blogit_app_test' 
   - psql -c 'create database blogit_app_test' -U postgres
