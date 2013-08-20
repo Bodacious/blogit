@@ -5,6 +5,9 @@ env:
   - "RAILS_VERSION=3.2.0"
   - "RAILS_VERSION=4.0.0"
   - "RAILS_VERSION=master"
+  - DB=sqlite 
+  - DB=mysql 
+  - DB=postgresql
   
 rvm:
   - 1.9.3
@@ -16,3 +19,10 @@ matrix:
   allow_failures:
     - env: "RAILS_VERSION=master"
     - rvm: ruby-head
+        
+script: 
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test 
+  
+before_script: 
+  - mysql -e 'create database blogit_test' 
+  - psql -c 'create database blogit_test' -U postgres

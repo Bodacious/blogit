@@ -36,4 +36,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rb-inotify",  ">= 0.8.8"
   s.add_development_dependency "pry"
+  s.add_development_dependency 'mysql2'
+  s.add_development_dependency 'pg'
 end
