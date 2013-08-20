@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostsController do
+describe Blogit::PostsController do
 
   before do
     reset_configuration

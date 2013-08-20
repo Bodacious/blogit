@@ -6,7 +6,7 @@ Dummy::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  if Rails.version.first == "3"
+  if Rails.version =~ /\A3/
     # Log error messages when you accidentally call methods on nil.
     config.whiny_nils = true
     
@@ -17,7 +17,7 @@ Dummy::Application.configure do
     config.assets.compress = false
   end
   
-  if Rails.version.first == "4"
+  if Rails.version =~ /\A4/
     config.eager_load = false
     
     # Raise an error on page load if there are pending migrations
