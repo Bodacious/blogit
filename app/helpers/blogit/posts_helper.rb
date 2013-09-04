@@ -31,7 +31,7 @@ module Blogit
         posts_by_month.each do |month, posts|
           result << "<li><a data-blogit-click-to-toggle-children>#{CGI.escape_html(month)}</a><ul class=\"#{post_css}\">"
           posts.each do |post|
-            result << "<li>#{yield post}</li>"
+            result << "<li>#{link_to(post.title, post)}</li>"
           end
           result << "</ul></li>"
         end
