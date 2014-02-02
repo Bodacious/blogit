@@ -24,10 +24,6 @@ describe Blogit::Post do
         @blog_post.errors[:title].should_not be_blank
       end
 
-      it "is blank" do
-        # before and after block cover this
-      end
-
       it "is less than 10 characters" do
         @blog_post.title = "a" * 9
       end
@@ -58,6 +54,21 @@ describe Blogit::Post do
 
     end
 
+    context "if state" do
+
+      before(:each) { @blog_post = Blogit::Post.new(state: nil) }
+
+      it "is nil" do
+        @blog_post.should_not be_valid
+        @blog_post.should have(1).error_on(:state)
+      end
+
+    end
+
+  end
+
+  it "sets the first value of Blogit::configuration.hidden_states as default" do
+    Blogit::Post.new.state.should eql(Blogit::configuration.hidden_states[0].to_s)
   end
 
   context "with Blogit.configuration.comments == active_record" do
@@ -133,7 +144,6 @@ describe Blogit::Post do
 
 
   end
-
 
   describe "with Blogit.configuration.comments != active_record" do
 

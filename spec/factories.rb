@@ -6,6 +6,7 @@ FactoryGirl.define do
   factory :post, class: Blogit::Post do
     title "Tis is a blog post title"
     body "This is the body of the blog post - you'll see it's a lot bigger than the title"
+    state "draft"
     association :blogger, :factory => :user
   end
   
