@@ -1,5 +1,5 @@
 require "spec_helper"
-
+  
 describe Blogit::Post do
 
   context "should not be valid" do
@@ -79,7 +79,7 @@ describe Blogit::Post do
       end
       User.blogs
       @blog_post = Blogit::Post.new
-      lambda { @blog_post.comments }.should_not raise_exception(RuntimeError)
+      expect { @blog_post.comments }.not_to raise_error
     end
 
   end
@@ -139,10 +139,14 @@ describe Blogit::Post do
         Blogit::Post.for_index.count.should eql(3)
       end
 
-
     end
 
-
+    describe :active do
+      it 'should include only posts in active states blogit.config.active_states' do
+        published_post = create(:published_post)
+        Blogit::Post.active.should include (published_post)
+      end
+    end
   end
 
   describe "with Blogit.configuration.comments != active_record" do

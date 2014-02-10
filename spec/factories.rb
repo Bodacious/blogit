@@ -8,8 +8,11 @@ FactoryGirl.define do
     body "This is the body of the blog post - you'll see it's a lot bigger than the title"
     state "draft"
     association :blogger, :factory => :user
+    factory :published_post do
+      state "published"
+    end
   end
-  
+
   factory :comment, class: Blogit::Comment do
     name "Gavin"
     email "gavin@gavinmorrice.com"
