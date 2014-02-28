@@ -183,4 +183,10 @@ describe Blogit::Post do
     end
   end
 
+  describe 'AVAILABLE_STATUS'  do
+    it "returns all the statues in Blogit::configuration" do
+      Blogit::Post::AVAILABLE_STATUS.should  == (Blogit.configuration.hidden_states + Blogit.configuration.active_states)
+    end
+    
+  end
 end

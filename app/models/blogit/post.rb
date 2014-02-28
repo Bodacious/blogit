@@ -10,6 +10,9 @@ module Blogit
 
     self.paginates_per Blogit.configuration.posts_per_page
 
+    AVAILABLE_STATUS = (Blogit.configuration.hidden_states + Blogit.configuration.active_states)
+
+
     # ==============
     # = Attributes =
     # ==============

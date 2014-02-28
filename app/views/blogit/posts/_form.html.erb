@@ -29,6 +29,11 @@
       <%= f.text_field :tag_list, placeholder: t(:tag_placeholder, scope: 'blogit.posts') %>
     <% end %>
 
+    <%= field id: "new_blog_post_state_field" do %>
+      <%= f.label :state, t(:state, scope: 'blogit.posts') %>
+      <%= f.collection_select(:state, Blogit::Post::AVAILABLE_STATUS, :to_s, :to_s) %>
+    <% end %>
+
     <p class="blog_post_tip">
       <%=t :tip_you_can_style_your_post_using, scope: 'blogit.posts', parser: blogit_conf.default_parser %>
     </p>
