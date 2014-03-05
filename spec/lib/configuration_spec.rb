@@ -92,7 +92,7 @@ describe Blogit::Configuration do
         gh_blockcode: true
       }
   end
-  
+
   it "should set the Pingr mode to :test unless Rails env is production" do
     Pingr.mode.should eql(:test)
   end
@@ -112,9 +112,17 @@ describe Blogit::Configuration do
   it "should set layout to nil by default" do
     blog_configuration.layout.should be_nil
   end
-  
+
   it "should allow layout to be set to a string" do
     lambda { blog_configuration.layout = "custom" }.should_not raise_error
   end
-  
+
+  it 'should set active_states default options' do
+    blog_configuration.active_states.should eql([:published])
+  end
+
+  it 'should set hidden_states default options' do
+    blog_configuration.hidden_states.should eql([:draft, :archive])
+  end
+
 end

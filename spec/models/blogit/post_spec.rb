@@ -1,5 +1,5 @@
 require "spec_helper"
-
+  
 describe Blogit::Post do
 
   context "should not be valid" do
@@ -22,10 +22,6 @@ describe Blogit::Post do
       after do
         @blog_post.should_not be_valid
         @blog_post.errors[:title].should_not be_blank
-      end
-
-      it "is blank" do
-        # before and after block cover this
       end
 
       it "is less than 10 characters" do
@@ -58,6 +54,21 @@ describe Blogit::Post do
 
     end
 
+    context "if state" do
+
+      before(:each) { @blog_post = Blogit::Post.new(state: nil) }
+
+      it "is nil" do
+        @blog_post.should_not be_valid
+        @blog_post.should have(1).error_on(:state)
+      end
+
+    end
+
+  end
+
+  it "sets the first value of Blogit::configuration.hidden_states as default" do
+    Blogit::Post.new.state.should eql(Blogit::configuration.hidden_states[0].to_s)
   end
 
   context "with Blogit.configuration.comments == active_record" do
@@ -68,7 +79,7 @@ describe Blogit::Post do
       end
       User.blogs
       @blog_post = Blogit::Post.new
-      lambda { @blog_post.comments }.should_not raise_exception(RuntimeError)
+      expect { @blog_post.comments }.not_to raise_error
     end
 
   end
@@ -128,12 +139,15 @@ describe Blogit::Post do
         Blogit::Post.for_index.count.should eql(3)
       end
 
-
     end
 
-
+    describe :active do
+      it 'should include only posts in active states blogit.config.active_states' do
+        published_post = create(:published_post)
+        Blogit::Post.active.should include (published_post)
+      end
+    end
   end
-
 
   describe "with Blogit.configuration.comments != active_record" do
 
@@ -169,4 +183,10 @@ describe Blogit::Post do
     end
   end
 
+  describe 'AVAILABLE_STATUS'  do
+    it "returns all the statues in Blogit::configuration" do
+      Blogit::Post::AVAILABLE_STATUS.should  == (Blogit.configuration.hidden_states + Blogit.configuration.active_states)
+    end
+    
+  end
 end
