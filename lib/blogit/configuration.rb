@@ -87,11 +87,20 @@ module Blogit
     # when posts are created, updated or destroyed?
     # Defaults to false
     attr_accessor :ping_search_engines
-    
+
     # The layout to be used by the posts controller
     # Defaults to nil
     attr_accessor :layout
-    
+
+    # list of states that will be visible to the public
+    attr_accessor :active_states
+
+    # list of states that will hide the posts from the public.
+    attr_accessor :hidden_states
+
+    # list of states for the Post state machine in order or lifecycle, aggregation of hidden_states and active_states
+    #attr_accessor :post_states
+
     # When using redcarpet as content parser, pass these options as defaults.
     REDCARPET_OPTIONS = {
       hard_wrap: true,
@@ -101,6 +110,12 @@ module Blogit
       fenced_code_blocks: true,
       gh_blockcode: true,
     }
+
+    #default values for active_state
+    ACTIVE_STATES = [:published]
+
+    #default values for hidden_state
+    HIDDEN_STATES = [:draft, :archive]
 
     def initialize
       @include_comments            = :active_record
@@ -123,6 +138,8 @@ module Blogit
       @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
       @ping_search_engines         = false
       @redcarpet_options           = REDCARPET_OPTIONS
+      @active_states               = ACTIVE_STATES
+      @hidden_states               = HIDDEN_STATES
     end
 
     def default_parser_class
@@ -150,11 +167,11 @@ module Blogit
     def rss_feed_language=(locale)
       blogit_warn "#{self.class}#rss_feed_language has been deprecated. You can remove this from your blogit.rb configuration file"
     end
-    
+
     def cache_pages=(value)
       blogit_warn "config.cache_pages is now deprecated - Page caching is no longer supported by blogit"
     end
-    
+
     private
 
     def blogit_warn(message)
