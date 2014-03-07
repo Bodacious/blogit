@@ -56,7 +56,7 @@ describe Blogit::PostsHelper do
       Post.delete_all
     end
 
-
+    # TODO: Clean up this horrible spec
     it "should create an ul tag tree with years, monthes and articles" do
       july_2012_1 = FactoryGirl.create(:post, title: "Great Post 2", created_at: Time.new(2012,7,14))
       july_2012_2 = FactoryGirl.create(:post, title: "Great Post 3", created_at: Time.new(2012,7,28))
@@ -74,13 +74,13 @@ describe Blogit::PostsHelper do
                                   "<ul class=\"#{month_css}\">",
                                     "<li><a data-blogit-click-to-toggle-children>September</a>",
                                       "<ul class=\"#{post_css}\">",
-                                        "<li>#{sept_2012.title}</li>",
+                                        "<li>#{link_to(sept_2012.title, blogit.post_path(sept_2012))}</li>",
                                       "</ul>",
                                     "</li>",
                                     "<li><a data-blogit-click-to-toggle-children>July</a>",
                                       "<ul class=\"#{post_css}\">",
-                                        "<li>#{july_2012_2.title}</li>",
-                                        "<li>#{july_2012_1.title}</li>",
+                                        "<li>#{link_to(july_2012_2.title, blogit.post_path(july_2012_2))}</li>",
+                                        "<li>#{link_to(july_2012_1.title, blogit.post_path(july_2012_1))}</li>",
                                       "</ul>",
                                     "</li>",
                                   "</ul>",
@@ -89,7 +89,7 @@ describe Blogit::PostsHelper do
                                   "<ul class=\"#{month_css}\">",
                                     "<li><a data-blogit-click-to-toggle-children>December</a>",
                                       "<ul class=\"#{post_css}\">",
-                                        "<li>#{dec_2011.title}</li>",
+                                        "<li>#{link_to(dec_2011.title, blogit.post_path(dec_2011))}</li>",
                                       "</ul>",
                                     "</li>",
                                   "</ul>",

@@ -68,7 +68,7 @@ describe Blogit::Post do
       end
       User.blogs
       @blog_post = Blogit::Post.new
-      lambda { @blog_post.comments }.should_not raise_exception(RuntimeError)
+      lambda { @blog_post.comments }.should_not raise_exception
     end
 
   end
