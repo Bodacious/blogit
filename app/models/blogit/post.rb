@@ -10,6 +10,9 @@ module Blogit
 
     self.paginates_per Blogit.configuration.posts_per_page
 
+    AVAILABLE_STATUS = (Blogit.configuration.hidden_states + Blogit.configuration.active_states)
+
+
     # ==============
     # = Attributes =
     # ==============
@@ -22,6 +25,7 @@ module Blogit
     validates :title, presence: true, length: { minimum: 10, maximum: 66 }
     validates :body,  presence: true, length: { minimum: 10 }
     validates :blogger_id, presence: true
+    validates :state, presence: true
 
     # =================
     # = Assosciations =
@@ -38,6 +42,7 @@ module Blogit
     # Returns the blog posts paginated for the index page
     # @scope class
     scope :for_index, lambda { |page_no = 1| order("created_at DESC").page(page_no) }
+    scope :active, lambda { where(state:  Blogit.configuration.active_states ) }
 
     # ====================
     # = Instance Methods =

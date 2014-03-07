@@ -89,4 +89,11 @@ Blogit.configure do |config|
 
   # If this is set, Blogit::PostsController will use the layout named here 
   # config.layout = "custom_layout"
+
+  # list of states that will be visible to the public
+  #config.active_states = [:published]
+
+  # list of states that will hide the posts from the public.
+  #config.hidden_states = [:draft, :archive]
+
 end

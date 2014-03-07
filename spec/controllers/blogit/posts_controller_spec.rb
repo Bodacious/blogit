@@ -16,20 +16,48 @@ describe Blogit::PostsController do
       get :index, :use_route => :blogit, page: page.to_s
     end
 
-    it "should set posts to Blogit::Post.for_index" do
-      Blogit::Post.expects(:for_index).returns(posts)
-      do_get
-      assigns(:posts).should == posts
+    context 'when user is  logged in' do
+
+      before(:each) do
+        controller.stubs(:is_blogger_logged_in?).returns(false)
+        Blogit::Post.stubs(:active).returns(posts)
+      end
+
+      it 'should set posts to Blogit::Post.active.for_index' do
+        Blogit::Post.stubs(:for_index).returns(posts)
+        Blogit::Post.active.expects(:for_index).returns(posts)
+        do_get
+        assigns(:posts).should == posts
+      end
+
+      it 'should pass the page param to Blogit::Post.active.for_index' do
+        Blogit::Post.stubs(:for_index).with('2').returns(posts)
+        Blogit::Post.active.expects(:for_index).with('2').returns(posts)
+        do_get('2')
+        assigns(:posts).should == posts
+      end
     end
 
-    it "should pass the page param to for_index" do
-      Blogit::Post.expects(:for_index).with("2").returns(posts)
-      do_get("2")
-      assigns(:posts).should == posts
-    end
-    
+    context 'when user is not logged in' do
+      before(:each) do
+        controller.stubs(:is_blogger_logged_in?).returns(true)
+      end
+
+      it 'sets posts to Blogit::Post.for_index' do
+        Blogit::Post.expects(:for_index).returns(posts)
+        do_get
+        assigns(:posts).should == posts
+      end
+
+      it 'should pass the page param to Blogit::Post.active.for_index' do
+        Blogit::Post.expects(:for_index).with('2').returns(posts)
+        do_get('2')
+        assigns(:posts).should == posts
+      end
+   end
+
     describe "when layout is set" do
-      
+
       # TODO: Think of a way to test this. The PostsController is being cached
       # because cache-classes is set to true but that means the layout is not
       # being changed. 
@@ -41,7 +69,7 @@ describe Blogit::PostsController do
       #   do_get
       #   response.should.should render_template("layouts/custom")
       # end
-      
+
     end
 
   end
@@ -56,7 +84,8 @@ describe Blogit::PostsController do
     end
 
     it "should load all posts in reverse date order" do
-      Blogit::Post.expects(:order).with('created_at DESC').returns(posts)
+      Blogit::Post.stubs(:active).returns(posts)
+      Blogit::Post.active.expects(:order).with('created_at DESC').returns(posts)
       do_get
       assigns(:posts).should == posts
     end
@@ -164,7 +193,6 @@ describe Blogit::PostsController do
 
   end
 
-
   describe "GET 'edit'" do
 
     context "when logged in" do
@@ -209,7 +237,7 @@ describe Blogit::PostsController do
     context "when logged in" do
 
       before do
-        @post_attributes = { "title" => "Something new" }
+        @post_attributes = {"title" => "Something new"}
         mock_login
         @current_blogger.expects(:blog_posts).returns(@blog_posts = [])
         @blog_posts.expects(:find).with("1").returns(blog_post)
@@ -265,7 +293,7 @@ describe Blogit::PostsController do
     context "when not logged in" do
 
       before do
-        @post_attributes = { "title" => "Something new" }
+        @post_attributes = {"title" => "Something new"}
       end
 
       def do_put
