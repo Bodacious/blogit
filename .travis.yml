@@ -1,19 +1,19 @@
 language: ruby
 
 env:
-  # - RAILS_VERSION=master
-  # - RAILS_VERSION=4.1.0
-  # - RAILS_VERSION=4.0.0
+  - RAILS_VERSION=master
+  - RAILS_VERSION=4.1.0
+  - RAILS_VERSION=4.0.0
   - RAILS_VERSION=3.2.0
 
-  # - DB=sqlite
-  # - DB=mysql
-  # - DB=postgresql
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
 
 rvm:
-  # - 1.9.3
+  - 1.9.3
   - 2.0.0
-  # - ruby-head
+  - ruby-head
 
 matrix:
   allow_failures:
