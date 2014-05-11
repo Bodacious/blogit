@@ -20,24 +20,27 @@ matrix:
     - env: RAILS_VERSION=master
     - rvm: ruby-head
 
-script:
-  # Install the acts-as-taggable-on and blogit migrations
-  # If Rails version is 3, use the old generators.
-  # If Rails version is 4, use the new rake tasks.
-  - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rails generate acts_as_taggable_on:migration; else bundle exec rake app:acts_as_taggable_on_engine:install:migrations; fi
-  - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rails generate blogit:install; else bundle exec rake app:blogit:install:migrations; fi
-
-  # Make sure the databases are up to date
-  - cd spec/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace
-
-  # Run the specs
-  - cd ../../ && bundle exec rspec spec
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install libpython2.7 python-pygments
 
 before_script:
   # Ensure the MySQL DB Exists
   - mysql -e 'create database blogit_app_test'
   - psql -c 'create database blogit_app_test' -U postgres
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install libpython2.7 python-pygments
+script:
+  # Create the blogit config file
+  - bundle exec rails generate blogit:install
+
+  # Create the acts-as-taggable-on and blogit migrations
+  # If Rails version is 3, use the old rake tasks.
+  # If Rails version is 4, use the new rake tasks.
+  - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake acts_as_taggable_on:install:migrations; else bundle exec rake app:acts_as_taggable_on_engine:install:migrations; fi
+  - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake blogit:install:migrations; else bundle exec rake app:blogit:install:migrations; fi
+
+  # Make sure the databases are up to date
+  - cd spec/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace
+
+  # Run the specs
+  - cd ../../ && bundle exec rspec spec
