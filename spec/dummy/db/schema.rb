@@ -9,43 +9,43 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended that you check this file into your version control system.
+# It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131072921) do
+ActiveRecord::Schema.define(:version => 20140414162019) do
 
-  create_table "blogit_comments", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "email",      null: false
+  create_table "blogit_comments", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
     t.string   "website"
-    t.text     "body",       null: false
-    t.integer  "post_id",    null: false
+    t.text     "body",       :null => false
+    t.integer  "post_id",    :null => false
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "blogit_comments", ["post_id"], name: "index_blogit_comments_on_post_id"
+  add_index "blogit_comments", ["post_id"], :name => "index_blogit_comments_on_post_id"
 
-  create_table "blogit_posts", force: true do |t|
-    t.string   "title",                            null: false
-    t.text     "body",                             null: false
+  create_table "blogit_posts", :force => true do |t|
+    t.string   "title",                               :null => false
+    t.text     "body",                                :null => false
     t.integer  "blogger_id"
     t.string   "blogger_type"
-    t.integer  "comments_count", default: 0,       null: false
+    t.integer  "comments_count", :default => 0,       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",          default: "draft", null: false
+    t.string   "state",          :default => "draft", :null => false
   end
 
-  add_index "blogit_posts", ["blogger_type", "blogger_id"], name: "index_blogit_posts_on_blogger_type_and_blogger_id"
+  add_index "blogit_posts", ["blogger_type", "blogger_id"], :name => "index_blogit_posts_on_blogger_type_and_blogger_id"
 
-  create_table "people", force: true do |t|
+  create_table "people", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
@@ -55,14 +55,16 @@ ActiveRecord::Schema.define(version: 20140131072921) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
 
-  create_table "tags", force: true do |t|
-    t.string "name"
+  create_table "tags", :force => true do |t|
+    t.string  "name"
+    t.integer "taggings_count", :default => 0
   end
 
-  create_table "users", force: true do |t|
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "password"
     t.datetime "created_at"

@@ -43,7 +43,7 @@ Blogit.configure do |config|
   # If set to true, links for new posts, editing posts and deleting comments
   # will be available. If set to false, you'll have to set these
   # yourself in the templates.
-  # config.include_admin_links = true
+  # config.include_admin_links = false
 
   # The default format for parsing the blog content.
   # config.default_parser = :markdown
@@ -60,13 +60,13 @@ Blogit.configure do |config|
 
   # Should blogit ping search engines with your sitemap
   # when posts are created, updated or destroyed?
-  # 
+  #
   # Can pass true to ping all supported search engines, or an array of search
   # engine names. e.g. [:google, :bing]
-  # 
+  #
   # Defaults to false
   config.ping_search_engines = true
-  
+
   # When using redcarpet as content parser, pass these options as defaults.
   # @see here for more options: https://github.com/tanoku/redcarpet
   # config.redcarpet_options = {

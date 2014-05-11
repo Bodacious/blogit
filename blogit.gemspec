@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
-
+  s.add_dependency "acts-as-taggable-on"
+  
   s.add_development_dependency 'rails', '>= 4.0.0'
 
   # Debugging
@@ -37,7 +38,6 @@ Gem::Specification.new do |s|
   # Testing
   s.add_development_dependency "rspec-rails", '~> 2.0'
   s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X
-  s.add_development_dependency "rb-inotify",  ">= 0.8.8" # Linux
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "growl"
   s.add_development_dependency "factory_girl", ">=4.1.0"

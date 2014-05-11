@@ -1,6 +1,7 @@
 module Blogit
   class Post < ActiveRecord::Base
 
+    require 'acts-as-taggable-on'
     require "kaminari"
 
     include ::ActionView::Helpers::TextHelper

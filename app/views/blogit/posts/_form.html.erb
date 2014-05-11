@@ -20,6 +20,11 @@
     <%= field do %>
       <%= f.text_area :body, placeholder: t(:write_something_here, scope: 'blogit.posts') %>
     <% end %>
+
+    <p class="blog_post_tip">
+      <%=t :tip_you_can_style_your_post_using, scope: 'blogit.posts', parser: blogit_conf.default_parser %>
+    </p>
+
   </fieldset>
 
   <fieldset>
@@ -33,10 +38,6 @@
       <%= f.label :state, t(:state, scope: 'blogit.posts') %>
       <%= f.collection_select(:state, Blogit::Post::AVAILABLE_STATUS, :to_s, :to_s) %>
     <% end %>
-
-    <p class="blog_post_tip">
-      <%=t :tip_you_can_style_your_post_using, scope: 'blogit.posts', parser: blogit_conf.default_parser %>
-    </p>
 
   </fieldset>
 
