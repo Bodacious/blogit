@@ -24,17 +24,18 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
   s.add_dependency "acts-as-taggable-on"
-  
-  s.add_development_dependency 'rails', '>= 4.0.0'
 
+  s.add_development_dependency 'rails', '>= 4.0.0'
+  s.add_development_dependency 'thor'
+  
   # Debugging
   s.add_development_dependency "pry"
-  
+
   # Databases
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "mysql2"
   s.add_development_dependency "pg"
-    
+
   # Testing
   s.add_development_dependency "rspec-rails", '~> 2.0'
   s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X

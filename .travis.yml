@@ -21,10 +21,12 @@ matrix:
 
 script:
   # Install the acts-as-taggable-on migrations
-  - rake acts_as_taggable_on_engine:install:migrations
+  - rake app:acts_as_taggable_on_engine:install:migrations
+  - rake app:blogit:install:migrations
+
   # Make sure the databases are up to date
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  # - bundle exec rake db:test:prepare
+  - cd spec/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace
+
   # Run the specs
   - bundle exec rspec spec
 
