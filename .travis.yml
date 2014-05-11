@@ -28,7 +28,7 @@ script:
   - cd spec/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace
 
   # Run the specs
-  - bundle exec rspec spec
+  - cd ../../ && bundle exec rspec spec
 
 before_script:
   # Ensure the MySQL DB Exists
