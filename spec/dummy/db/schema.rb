@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511162739) do
+ActiveRecord::Schema.define(version: 20140511174029) do
 
   create_table "blogit_comments", force: true do |t|
     t.string   "name",       null: false
@@ -39,12 +39,6 @@ ActiveRecord::Schema.define(version: 20140511162739) do
 
   add_index "blogit_posts", ["blogger_type", "blogger_id"], name: "index_blogit_posts_on_blogger_type_and_blogger_id"
 
-  create_table "people", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -63,12 +57,5 @@ ActiveRecord::Schema.define(version: 20140511162739) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
-
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
