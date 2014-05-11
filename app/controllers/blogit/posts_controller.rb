@@ -16,7 +16,7 @@ module Blogit
     # Raise a 404 error if the admin actions aren't to be included
     # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
     unless Blogit.configuration.include_admin_actions
-      before_filter :raise_404, except: [:index, :show, :tagged]
+      before_filter :raise_404, except: [:index, :show]
     end
 
     blogit_authenticate(except: [:index, :show, :tagged])
@@ -44,7 +44,8 @@ module Blogit
     end
 
     def tagged
-      @posts = Post.for_index(params[Kaminari.config.param_name]).tagged_with(params[:tag])
+      param_name = params[Kaminari.config.param_name]
+      @posts = Post.for_index(param_name).tagged_with(params[:tag])
       render :index
     end
 
@@ -68,7 +69,8 @@ module Blogit
     def update
       @post = current_blogger.blog_posts.find(params[:id])
       if @post.update_attributes(post_paramters)
-        redirect_to @post, notice: t(:blog_post_was_successfully_updated, scope: 'blogit.posts')
+        redirect_to @post, notice: t(:blog_post_was_successfully_updated, 
+          scope: 'blogit.posts')
       else
         render action: "edit"
       end

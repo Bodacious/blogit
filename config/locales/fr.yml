@@ -16,14 +16,11 @@ fr:
       successfully_removed_comment: "Commentaire supprimé avec succès."
     posts:
       written_by: "Ecrit par %{author} le"
-      there_are_no_posts_about: "Désolé, il n'y a pas d'article à propos de \"%{tag}\"."
       prohibited_this_post_from_being_saved:
         one: "Une erreur a empêché cet article d'être enregistré :"
         other: "%{count} erreurs ont empêché cet article d'être enregistré :"
       give_your_post_a_title: "Donnez un nom à votre article"
       write_something_here: "Ecrivez quelque chose ici ..."
-      tags: "Libellés"
-      tag_placeholder: "Libellé 1, Libellé 2 ..."
       tip_you_can_style_your_post_using: "Astuce : vous pouvez styler votre article en utilisant %{parser}"
       or: "ou"
       cancel: "annuler"
@@ -40,7 +37,6 @@ fr:
       blog_post_was_successfully_created: "Article ajouté avec succès."
       blog_post_was_successfully_updated: "Article modifié avec succès."
       blog_post_was_successfully_destroyed: "Article supprimé avec succès."
-      tags: "Catégories"
       related_posts: "Articles similaires"
     share_bar:
       facebook: "fr_FR"

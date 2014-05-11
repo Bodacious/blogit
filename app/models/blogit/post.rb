@@ -1,7 +1,6 @@
 module Blogit
   class Post < ActiveRecord::Base
 
-    require "acts-as-taggable-on"
     require "kaminari"
 
     include ::ActionView::Helpers::TextHelper
@@ -13,11 +12,6 @@ module Blogit
     AVAILABLE_STATUS = (Blogit.configuration.hidden_states + Blogit.configuration.active_states)
 
 
-    # ==============
-    # = Attributes =
-    # ==============
-
-
     # ===============
     # = Validations =
     # ===============
@@ -27,9 +21,9 @@ module Blogit
     validates :blogger_id, presence: true
     validates :state, presence: true
 
-    # =================
-    # = Assosciations =
-    # =================
+    # ================
+    # = Associations =
+    # ================
 
     belongs_to :blogger, :polymorphic => true
 

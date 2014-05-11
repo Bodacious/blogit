@@ -4,7 +4,8 @@ module Blogit
     blogit_authenticate except: [:create]
 
     def create
-      @comment = post.comments.new(comment_parameters)
+      @comment = post.comments.new(comment_params)
+
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
@@ -34,12 +35,12 @@ module Blogit
 
     private
 
+    def comment_params
+      params.require(:comment).permit(:name, :nickname, :email, :body, :website)
+    end
+
     def post
       @post ||= Blogit::Post.find(params[:post_id])
-    end
-    
-    def comment_parameters
-      params.require(:comment).permit(:name, :email, :body, :website)
     end
     
   end

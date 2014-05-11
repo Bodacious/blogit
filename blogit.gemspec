@@ -18,24 +18,29 @@ Gem::Specification.new do |s|
 
   s.add_dependency "RedCloth", ">=4.2.9"
   s.add_dependency 'redcarpet', ">=2.0.1"
-  s.add_dependency 'nokogiri', '>=1.5.0'
+  s.add_dependency 'nokogiri', '>= 1.5.0'
   s.add_dependency "albino", ">=1.3.3"
-  s.add_dependency 'acts-as-taggable-on', '>=2.2.1'
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
+
+  s.add_development_dependency 'rails', '>= 4.0.0'
+
+  # Debugging
+  s.add_development_dependency "pry"
   
-  s.add_development_dependency "rb-fsevent", "~> 0.9.1"
-  s.add_development_dependency "sqlite3", "~> 1.3.9"
-  s.add_development_dependency "guard"
+  # Databases
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "mysql2"
+  s.add_development_dependency "pg"
+    
+  # Testing
+  s.add_development_dependency "rspec-rails", '~> 2.0'
+  s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X
+  s.add_development_dependency "rb-inotify",  ">= 0.8.8" # Linux
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "growl"
   s.add_development_dependency "factory_girl", ">=4.1.0"
   s.add_development_dependency "mocha"
-  s.add_development_dependency "rspec-rails", '~> 2.0'
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rb-inotify",  ">= 0.8.8"
-  s.add_development_dependency "pry"
-  s.add_development_dependency "mysql2"
-  s.add_development_dependency "pg"
+
 end

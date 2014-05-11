@@ -18,9 +18,9 @@ module Blogit
     # TODO: Check if this is optimal    
     EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\Z/i
     
-    # ============
+    # =============
     # = Callbacks =
-    # ============
+    # =============
     
     before_validation :format_website
     
