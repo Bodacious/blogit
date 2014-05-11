@@ -61,7 +61,7 @@ Blogit.configure do |config|
   # when posts are created, updated or destroyed?
   #
   # Can pass true to ping all supported search engines, or an array of search
-  engine names. e.g. [:google, :bing]
+  # engine names. e.g. [:google, :bing]
   #
   # Defaults to false
   config.ping_search_engines = false
