@@ -3,6 +3,7 @@ language: ruby
 env:
   - RAILS_VERSION=3.2.0
   - RAILS_VERSION=4.0.0
+  - RAILS_VERSION=4.1.0
   - RAILS_VERSION=master
   - DB=sqlite
   - DB=mysql
@@ -19,8 +20,8 @@ matrix:
     - rvm: ruby-head
 
 script:
+  # Install the acts-as-taggable-on migrations
   - rake acts_as_taggable_on_engine:install:migrations
-
   # Make sure the databases are up to date
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   # - bundle exec rake db:test:prepare
