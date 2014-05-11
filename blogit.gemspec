@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
   s.add_dependency "acts-as-taggable-on"
-  s.add_dependency "json", "1.7.1"
+
   s.add_development_dependency 'rails', '>= 4.0.0'
   s.add_development_dependency 'thor'
 
