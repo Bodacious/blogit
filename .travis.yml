@@ -4,32 +4,34 @@ env:
   - RAILS_VERSION=3.2.0
   - RAILS_VERSION=4.0.0
   - RAILS_VERSION=master
-  - DB=sqlite 
-  - DB=mysql 
+  - DB=sqlite
+  - DB=mysql
   - DB=postgresql
-  
+
 rvm:
   - 1.9.3
   - 2.0.0
   - ruby-head
-  
+
 matrix:
   allow_failures:
     - env: RAILS_VERSION=master
     - rvm: ruby-head
-          
+
 script:
+  - rake acts_as_taggable_on_engine:install:migrations
+
   # Make sure the databases are up to date
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   # - bundle exec rake db:test:prepare
   # Run the specs
   - bundle exec rspec spec
-  
-before_script: 
+
+before_script:
   # Ensure the MySQL DB Exists
-  - mysql -e 'create database blogit_app_test' 
+  - mysql -e 'create database blogit_app_test'
   - psql -c 'create database blogit_app_test' -U postgres
-  
+
 before_install:
   - sudo apt-get update
   - sudo apt-get install libpython2.7 python-pygments
