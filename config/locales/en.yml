@@ -38,10 +38,10 @@ en:
       blog_post_was_successfully_destroyed: "Blog post was successfully destroyed."
       related_posts: "Related posts"
       tag_placeholder: "Add tags to your post"
-      
+      tags: "Tags"
+      state: "State"
     share_bar:
       facebook: "en_US"
-
   time:
     formats:
       plain_month_only: "%B"
