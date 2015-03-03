@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
   s.add_dependency "pingr", ">= 0.0.3"
-  
+
   s.add_development_dependency 'rails', '>= 4.0.0'
   s.add_development_dependency 'rb-fsevent'
   s.add_development_dependency "sqlite3"
@@ -33,6 +33,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "factory_girl", ">=4.1.0"
   s.add_development_dependency "mocha"
   s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "sqlite3"
   s.add_development_dependency 'tzinfo'
 end
