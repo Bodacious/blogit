@@ -10,7 +10,7 @@
 Blogit is a flexible blogging solution for Rails apps. It:
 
 * Is Rack based;
-* Is a complete MVC solution based on Rails engines;
+* Is a complete MVC solution based on Rails engines
 * Aims to work right out of the box but remain fully customisable.
 
 ## Installation
@@ -93,7 +93,7 @@ You're welcome to contribute to Blogit. Please consult the [contribution guideli
 
 Copyright 2011 [Katana Code Ltd.](http://katanacode.com)
 
-See (LEGAL)[LEGAL] for full details.
+See [LEGAL](LEGAL) for full details.
 
 ## Credits
 
@@ -107,4 +107,4 @@ with generous contributions from:
 
 ## About Katana Code
 
-Katana Code are [iPhone app and Ruby on Rails Developers in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
+Katana Code are [web developers based in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
