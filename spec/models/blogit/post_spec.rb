@@ -1,15 +1,16 @@
-require "spec_helper"
+require "rails_helper"
   
 describe Blogit::Post do
 
   context "should not be valid" do
 
     context "if blogger" do
+      
+      let(:blog_post) { Blogit::Post.new }
 
       it "is nil" do
-        @blog_post = Blogit::Post.new
-        expect(@blog_post).not_to be_valid
-        expect(@blog_post).to have(1).error_on(:blogger_id)
+        expect(blog_post).not_to be_valid
+        expect(blog_post).to have(1).error_on(:blogger_id)
       end
 
     end

@@ -11,12 +11,14 @@ require 'factory_girl'
 require 'factories'
 
 require 'support/authentication'
+require 'support/helpers/css_matchers'
 
 load "#{Rails.root}/db/schema.rb"
 
 include Blogit
 
 RSpec.configure do |config|
+  config.infer_spec_type_from_file_location! 
   config.include FactoryGirl::Syntax::Methods
 end
 

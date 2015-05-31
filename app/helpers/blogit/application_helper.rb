@@ -17,7 +17,7 @@ module Blogit
       else
         content = content_or_options
       end
-      options[:class] = "#{options[:class]} blog_#{tag_type}_#{name}".strip
+      options[:class] = Array(options[:class]) + ["blog_#{tag_type}_#{name}"]
       content_tag(name, content, options)
     end
 

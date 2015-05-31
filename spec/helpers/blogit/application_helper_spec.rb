@@ -2,17 +2,33 @@ require "rails_helper"
 
 describe Blogit::ApplicationHelper do
 
-  describe :blog_tag do
-    it "should create a tag element and give it a 'blog_post... prefixed class" do
-      expect(helper.blog_tag(:div, "hello", id: "blog_div", class: "other_class")).to eq(%{<div class="other_class blog_post_div" id="blog_div">hello</div>})
-      expect(helper.blog_tag(:li, "hello", id: "blog_li")).to eq(%{<li class="blog_post_li" id="blog_li">hello</li>})
+  describe "blog_tag" do
+    
+    subject { helper.blog_tag(:li, "hello", id: "blog_li", class: "other_class") }
+    
+    it "creates a tag element and give it a 'blog_post... prefixed class" do
+      expect(subject).to have_class("blog_post_li")
+    end
+    
+    it "adds other classes too" do
+      expect(subject).to have_class("other_class")
     end
 
-    it "should create a comment tag element when the comment type options is set" do
-      expect(helper.blog_tag(:div, "hello", id: "blog_div", type: "comment", class: "other_class")).to eq(%{<div class="other_class blog_comment_div" id="blog_div">hello</div>})
-      expect(helper.blog_tag(:li, "hello", id: "blog_li", type: "status")).to eq(%{<li class="blog_status_li" id="blog_li">hello</li>})
-    end
+
   end
+  
+  context "when the :type option is set" do
+    
+    subject { 
+      helper.blog_tag(:div, "helo", id: "blog_div", type: "comment", class: "other_class") 
+    }
+    
+    it "replaces 'post' with :type in the class name" do      
+      expect(subject).to have_class("blog_comment")
+    end 
+    
+  end
+  
 
   describe "format_content" do
     it "should convert markdown text to html if conf is :markdown" do
@@ -31,7 +47,7 @@ describe Blogit::ApplicationHelper do
     end
   end
 
-  describe :actions do
+  describe "actions" do
     it "should create a div with class 'actions'" do
       expect(helper.actions do
         "hello"

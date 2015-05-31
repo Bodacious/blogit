@@ -3,7 +3,7 @@ require "rails_helper"
 
 describe Blogit::PostsHelper do
 
-  describe :comments_for do
+  describe "comments_for" do
     let(:post) { FactoryGirl.create :post }
 
     it "should be empty if comments are not configured" do
@@ -26,7 +26,7 @@ describe Blogit::PostsHelper do
     end
   end
 
-  describe :share_bar_for do
+  describe "share_bar_for" do
     let(:post) { FactoryGirl.create :post }
 
     it "should be empty if not configured" do
@@ -47,7 +47,7 @@ describe Blogit::PostsHelper do
     end
   end
 
-  describe :blog_post_archive do
+  describe "blog_post_archive" do
 
     before :each do
       Post.delete_all

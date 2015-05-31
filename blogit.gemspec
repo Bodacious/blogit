@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
 
   # Testing
   s.add_development_dependency "rspec-rails"#, '~> 2.0'
+  s.add_development_dependency "rspec-collection_matchers"
   s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "growl"
