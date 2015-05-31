@@ -5,11 +5,11 @@ describe Blogit::Configuration do
   let(:blog_configuration) { @blog_configuration = Blogit::Configuration.new }
 
   it "should set :include_comments to :active_record" do
-    blog_configuration.include_comments.should == :active_record
+    expect(blog_configuration.include_comments).to eq(:active_record)
   end
 
   it "should set :disqus_shortname to blank" do
-    blog_configuration.disqus_shortname.should == ""
+    expect(blog_configuration.disqus_shortname).to eq("")
   end
 
   it "should print a warning to the console if disqus_shortname is set but include_comments is not disqus" do
@@ -25,64 +25,64 @@ describe Blogit::Configuration do
   end
 
   it "should set :include_share_bar to false" do
-    blog_configuration.include_share_bar.should == false
+    expect(blog_configuration.include_share_bar).to eq(false)
   end
 
   it "should set :twitter_username to blank" do
-    blog_configuration.twitter_username.should == ""
+    expect(blog_configuration.twitter_username).to eq("")
   end
 
   it "should set :current_blogger_method to :current_user" do
-    blog_configuration.current_blogger_method.should eql(:current_user)
+    expect(blog_configuration.current_blogger_method).to eql(:current_user)
   end
 
   it "should set :blogger_display_name_method to :username" do
-    blog_configuration.blogger_display_name_method.should eql(:username)
+    expect(blog_configuration.blogger_display_name_method).to eql(:username)
   end
 
   it "should set :posts_per_page to 5" do
-    blog_configuration.posts_per_page.should eql(5)
+    expect(blog_configuration.posts_per_page).to eql(5)
   end
 
   it "should set :authentication_method to :login_required" do
-    blog_configuration.authentication_method.should == :login_required
+    expect(blog_configuration.authentication_method).to eq(:login_required)
   end
 
   it "should set datetime format to :short" do
-    blog_configuration.datetime_format.should == :short
+    expect(blog_configuration.datetime_format).to eq(:short)
   end
 
   it "should set author_edits_only to false" do
-    blog_configuration.author_edits_only.should be_false
+    expect(blog_configuration.author_edits_only).to be_falsey
   end
 
   it "should set ajax comments to true" do
-    blog_configuration.ajax_comments.should be_true
+    expect(blog_configuration.ajax_comments).to be_truthy
   end
 
   it "should set include admin actions to true" do
-    blog_configuration.include_admin_actions.should be_true
+    expect(blog_configuration.include_admin_actions).to be_truthy
   end
 
   it "should set include admin links to true" do
-    blog_configuration.include_admin_links.should be_true
+    expect(blog_configuration.include_admin_links).to be_truthy
   end
 
   it "should set page caching to false by default" do
-    blog_configuration.cache_pages.should be_false
+    expect(blog_configuration.cache_pages).to be_falsey
   end
 
   it "should set default_parser to :markdown" do
-    blog_configuration.default_parser.should eql(:markdown)
+    expect(blog_configuration.default_parser).to eql(:markdown)
   end
 
   it "should return default_parser as class with default_parser_class" do
     blog_configuration.default_parser = :textile
-    blog_configuration.default_parser_class.should eql(Blogit::Parsers::TextileParser)
+    expect(blog_configuration.default_parser_class).to eql(Blogit::Parsers::TextileParser)
   end
 
   it "should set redcarpet default options" do
-    blog_configuration.redcarpet_options.should ==
+    expect(blog_configuration.redcarpet_options).to eq(
       {
         hard_wrap: true,
         filter_html: true,
@@ -91,38 +91,39 @@ describe Blogit::Configuration do
         fenced_code_blocks: true,
         gh_blockcode: true
       }
+    )
   end
 
   it "should set the Pingr mode to :test unless Rails env is production" do
-    Pingr.mode.should eql(:test)
+    expect(Pingr.mode).to eql(:test)
   end
 
   it "should set highlight_code_syntax to true" do
-    blog_configuration.highlight_code_syntax.should be_true
+    expect(blog_configuration.highlight_code_syntax).to be_truthy
   end
 
   it "should set rss_feed_title to 'Rails engine name Blog Posts'" do
-    blog_configuration.rss_feed_title.should eql "#{Rails.application.engine_name.titleize} Blog Posts"
+    expect(blog_configuration.rss_feed_title).to eql "#{Rails.application.engine_name.titleize} Blog Posts"
   end
 
   it "should set rss_feed_description to 'Rails engine name Blog Posts'" do
-    blog_configuration.rss_feed_description.should eql "#{Rails.application.engine_name.titleize} Blog Posts"
+    expect(blog_configuration.rss_feed_description).to eql "#{Rails.application.engine_name.titleize} Blog Posts"
   end
 
   it "should set layout to nil by default" do
-    blog_configuration.layout.should be_nil
+    expect(blog_configuration.layout).to be_nil
   end
 
   it "should allow layout to be set to a string" do
-    lambda { blog_configuration.layout = "custom" }.should_not raise_error
+    expect { blog_configuration.layout = "custom" }.not_to raise_error
   end
 
   it 'should set active_states default options' do
-    blog_configuration.active_states.should eql([:published])
+    expect(blog_configuration.active_states).to eql([:published])
   end
 
   it 'should set hidden_states default options' do
-    blog_configuration.hidden_states.should eql([:draft, :archive])
+    expect(blog_configuration.hidden_states).to eql([:draft, :archive])
   end
 
 end
