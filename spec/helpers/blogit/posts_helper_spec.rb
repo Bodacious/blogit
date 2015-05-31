@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-require "spec_helper"
+require "rails_helper"
 
 describe Blogit::PostsHelper do
 
@@ -11,7 +11,7 @@ describe Blogit::PostsHelper do
         config.include_comments = :no
       end
 
-      helper.comments_for(post).should == ""
+      expect(helper.comments_for(post)).to eq("")
     end
 
     it "should be full html when comments use active record" do
@@ -34,7 +34,7 @@ describe Blogit::PostsHelper do
         config.include_share_bar = false
       end
 
-      helper.share_bar_for(post).should == ""
+      expect(helper.share_bar_for(post)).to eq("")
     end
 
     it "should render a share bar if configured" do
@@ -43,7 +43,7 @@ describe Blogit::PostsHelper do
       end
 
       helper.expects(:render).with(partial: "blogit/posts/share_bar", locals: {post: post}).returns(share_bar_html='<div id="share-bar">...</div>')
-      helper.share_bar_for(post).should == share_bar_html
+      expect(helper.share_bar_for(post)).to eq(share_bar_html)
     end
   end
 
@@ -69,7 +69,7 @@ describe Blogit::PostsHelper do
 
       archive_html = helper.blog_posts_archive_tag(year_css, month_css, post_css) {|post| post.title }
 
-      archive_html.should == ["<ul class=\"#{year_css}\">",
+      expect(archive_html).to eq(["<ul class=\"#{year_css}\">",
                                 "<li><a data-blogit-click-to-toggle-children>2012</a>",
                                   "<ul class=\"#{month_css}\">",
                                     "<li><a data-blogit-click-to-toggle-children>September</a>",
@@ -94,11 +94,11 @@ describe Blogit::PostsHelper do
                                     "</li>",
                                   "</ul>",
                                 "</li>",
-                              "</ul>"].join
+                              "</ul>"].join)
     end
 
     it "should be a safe html string" do
-      helper.blog_posts_archive_tag('y','m','p').should be_html_safe
+      expect(helper.blog_posts_archive_tag('y','m','p')).to be_html_safe
     end
 
   end

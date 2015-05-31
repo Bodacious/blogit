@@ -6,7 +6,7 @@ describe Blogit::Parsers::MarkdownParser do
   let(:desired_output) { Regexp.new("<h2>Some textile</h2>\n\n<p>A paragraph</p>\n") }
 
   it "should return an html string of content passed when calling parsed" do
-    parser.parsed.should =~ desired_output
+    expect(parser.parsed).to match(desired_output)
   end
 
   describe "code highlighting" do
@@ -16,7 +16,7 @@ describe Blogit::Parsers::MarkdownParser do
     }
 
     it "requires pymentize to run" do
-      system("pygmentize > /dev/null").should equal(true), "It seems that pygmentize is not installed on your system"
+      expect(system("pygmentize > /dev/null")).to equal(true), "It seems that pygmentize is not installed on your system"
     end
 
     context "when highlight_code_syntax is true" do
@@ -33,8 +33,9 @@ describe Blogit::Parsers::MarkdownParser do
       end
       
       it "should highlight code syntax" do
-        parser.parsed.should =~
+        expect(parser.parsed).to match(
         Regexp.new("<h2>Header</h2>\n<div class=\"highlight\"><pre><span class=\"nb\">puts</span> <span class=\"s1\">&#39;hello world&#39;</span>\n</pre>\n</div>\n")
+        )
       end
       
     end
@@ -53,7 +54,7 @@ describe Blogit::Parsers::MarkdownParser do
       end
       
       it "shoud not highlight code" do
-        parser.parsed.should == "<h2>Header</h2>\n\n<pre><code class=\"ruby\">puts &#39;hello world&#39;\n</code></pre>\n"
+        expect(parser.parsed).to eq("<h2>Header</h2>\n\n<pre><code class=\"ruby\">puts &#39;hello world&#39;\n</code></pre>\n")
       end
       
     end
