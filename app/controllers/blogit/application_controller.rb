@@ -1,7 +1,7 @@
 module Blogit
 
   # Inherits from the application's controller instead of ActionController::Base
-  class ApplicationController < ::ApplicationController
+  class ApplicationController < "::#{Blogit.configuration.parent_controller}".constantize
 
     helper Blogit::ApplicationHelper, Blogit::PostsHelper
     helper_method :current_blogger, :blogit_conf
@@ -33,7 +33,7 @@ module Blogit
 
     # Returns true or false if current_blogger is present
     def is_blogger_logged_in?
-      !!current_blogger 
+      !!current_blogger
     end
 
     # Returns true if the current_blogger is the owner of the post
