@@ -98,6 +98,10 @@ module Blogit
     # list of states that will hide the posts from the public.
     attr_accessor :hidden_states
 
+    # Name of controller that Blogit::ApplicationController descends from
+    # Defaults to ApplicationController
+    attr_accessor :parent_controller
+
     # list of states for the Post state machine in order or lifecycle, aggregation of hidden_states and active_states
     #attr_accessor :post_states
 
@@ -140,6 +144,7 @@ module Blogit
       @redcarpet_options           = REDCARPET_OPTIONS
       @active_states               = ACTIVE_STATES
       @hidden_states               = HIDDEN_STATES
+      @parent_controller           = "ApplicationController"
     end
 
     def default_parser_class
@@ -167,7 +172,7 @@ module Blogit
     def rss_feed_language=(locale)
       blogit_warn "#{self.class}#rss_feed_language has been deprecated. You can remove this from your blogit.rb configuration file"
     end
-    
+
     def cache_pages=(value)
       blogit_warn "config.cache_pages is deprecated. Please remove this from your blogit.rb file"
     end
