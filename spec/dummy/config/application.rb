@@ -8,6 +8,8 @@ Bundler.require(:default, Rails.env)
 
 require "blogit"
 
+require 'jquery-rails'
+
 module Dummy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
