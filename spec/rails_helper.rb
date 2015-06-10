@@ -13,7 +13,10 @@ require 'factories'
 require 'support/authentication'
 require 'support/helpers/css_matchers'
 
-load "#{Rails.root}/db/schema.rb"
+silence_stream STDOUT do
+  load "#{Rails.root}/db/schema.rb"
+end
+
 
 include Blogit
 

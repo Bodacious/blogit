@@ -1,6 +1,6 @@
 sqlite: &sqlite
   adapter: sqlite3 
-  database: db/<%= Rails.env %>.sqlite3 
+  database: ":memory:"
   
 mysql: &mysql 
   adapter: mysql2 
