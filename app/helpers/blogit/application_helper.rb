@@ -2,6 +2,7 @@ module Blogit
   module ApplicationHelper
 
     TIMETAG_FORMAT = "%Y-%m-%dT%TZ"
+  
 
     # Creates a div tag with class 'blog_' + (post|comment) + '_' + name
     # Eg:

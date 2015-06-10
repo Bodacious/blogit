@@ -2,12 +2,12 @@ module Blogit
   module PostsHelper
 
     # A comments tag corresponding to the comments configuration
-    def comments_for(post)
-      render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: Blogit::Comment.new })
+    def comments_for_post(post)
+      render(partial: "blogit/comments/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: Blogit::Comment.new })
     end
 
     # A share bar as configured
-    def share_bar_for(post)
+    def share_bar_for_post(post)
       return "" unless Blogit.configuration.include_share_bar
       render(partial: "blogit/posts/share_bar", locals: { post: post})
     end
