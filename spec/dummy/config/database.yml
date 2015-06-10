@@ -1,7 +1,7 @@
 sqlite: &sqlite
   adapter: sqlite3 
-  database: ":memory:"
-  
+  database: <%= Rails.env %>.sqlite3
+
 mysql: &mysql 
   adapter: mysql2 
   username: root 
@@ -27,3 +27,5 @@ development:
   
 test:
   <<: *defaults
+  database: ":memory:"
+  

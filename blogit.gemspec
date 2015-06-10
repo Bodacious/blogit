@@ -37,6 +37,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg"
 
   # Testing
+  s.add_development_dependency "spring", ">=1.3.6"
+  s.add_development_dependency 'spring-commands-rspec'
+
+  
   s.add_development_dependency "rspec-rails"#, '~> 2.0'
   s.add_development_dependency "rspec-collection_matchers"
   s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X

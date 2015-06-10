@@ -1,1 +1,3 @@
-Spring.application_root = "spec/dummy"
+Spring.application_root = "./spec/dummy"
+
+puts Spring.application_root

@@ -18,9 +18,6 @@ end
 
 gem "rails", rails
 
-gem "spring"
-gem 'spring-commands-rspec'
-
 # If we're using Rails 3 - include the
 # strong_parameters gem. Otherwise, it should be inluded as part of Rails 4
 if rails_version[0] == '3'
