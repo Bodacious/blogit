@@ -75,20 +75,16 @@ describe Blogit::Configuration do
     )
   end
 
-  it "should set the Pingr mode to :test unless Rails env is production" do
-    expect(Pingr.mode).to eql(:test)
-  end
-
   it "should set highlight_code_syntax to true" do
     expect(blog_configuration.highlight_code_syntax).to be_truthy
   end
 
   it "should set rss_feed_title to 'Rails engine name Blog Posts'" do
-    expect(blog_configuration.rss_feed_title).to eql "#{Rails.application.engine_name.titleize} Blog Posts"
+    expect(blog_configuration.rss_feed_title).to eql "Dummy Application Blog Posts"
   end
 
   it "should set rss_feed_description to 'Rails engine name Blog Posts'" do
-    expect(blog_configuration.rss_feed_description).to eql "#{Rails.application.engine_name.titleize} Blog Posts"
+    expect(blog_configuration.rss_feed_description).to eql "Latest from Dummy Application"
   end
 
   it "should set layout to nil by default" do
