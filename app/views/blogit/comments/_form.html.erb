@@ -1,7 +1,6 @@
-
-<%= form_for [post, comment], remote: true,
+<%= form_for [post, comment], remote: blogit_conf.ajax_comments,
   html: {
-    class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
+    class: "new_blogit_comment", id: "new_blogit_comment" } do |f| -%>
 
   <p><%=t :leave_a_comment, scope: 'blogit.comments'%></p>
 

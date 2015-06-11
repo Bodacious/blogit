@@ -44,32 +44,13 @@ describe Blogit::Configuration do
     expect(blog_configuration.posts_per_page).to eql(5)
   end
 
-  it "should set :authentication_method to :login_required" do
-    expect(blog_configuration.authentication_method).to eq(:login_required)
-  end
 
   it "should set datetime format to :short" do
     expect(blog_configuration.datetime_format).to eq(:short)
   end
 
-  it "should set author_edits_only to false" do
-    expect(blog_configuration.author_edits_only).to be_falsey
-  end
-
   it "should set ajax comments to true" do
     expect(blog_configuration.ajax_comments).to be_truthy
-  end
-
-  it "should set include admin actions to true" do
-    expect(blog_configuration.include_admin_actions).to be_truthy
-  end
-
-  it "should set include admin links to true" do
-    expect(blog_configuration.include_admin_links).to be_truthy
-  end
-
-  it "should set page caching to false by default" do
-    expect(blog_configuration.cache_pages).to be_falsey
   end
 
   it "should set default_parser to :markdown" do

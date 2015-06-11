@@ -2,6 +2,10 @@ module Blogit
 
   class PostsController < ::Blogit::ApplicationController
 
+    attr_reader :post
+    
+    attr_reader :posts
+    
     # If a layout is specified, use that. Otherwise, fall back to the default
     layout Blogit.configuration.layout if Blogit.configuration.layout
 
@@ -15,35 +19,37 @@ module Blogit
     end
 
     def show
-      @post = Post.find(params[:id])
+      set_post
     end
 
     def tagged
-      @posts = set_posts_for_index_page(params[:tag])
+      set_posts_for_tagged_page
       render :index
     end
 
 
     private
     
+    
+    def set_post
+      @post = Post.find(params[:id])
+    end
+    
 
     def page_number
       @page_number ||= params[Kaminari.config.param_name]
     end
     
-    def raise_404
-      # Don't include admin actions if include_admin_actions is false
-      render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
-    end
-    
     def set_posts_for_feed
-      @posts ||= Post.active.order('created_at DESC')   
+      @posts ||= Post.for_feed
     end
     
     def set_posts_for_index_page(tag = nil)
-      @posts = Post.active.for_index(page_number)
-      @posts = @posts.tagged_with(tag) if tag
-      return @posts
+      @posts ||= Post.active.for_index(page_number)
+    end
+    
+    def set_posts_for_tagged_page
+      @posts = set_posts_for_index_page.tagged_with(params[:tag])
     end
 
   end

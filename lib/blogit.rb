@@ -1,7 +1,6 @@
 # Third-party requirements
 require "kaminari"
 require "redcarpet"
-require "pingr"
 
 require "blogit/configuration"
 require "blogit/blogs"

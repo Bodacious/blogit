@@ -15,7 +15,5 @@
     <%= time_tag(comment.created_at, format: blogit_conf.datetime_format) %>
   <% end %>
 
-  <%= render partial: "blogit/comments/admin_links", locals: {comment: comment} %>
-
 <% end if comment.persisted? %>
 

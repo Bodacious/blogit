@@ -2,32 +2,32 @@
 <html>
 <head>
   <title>Dummy</title>
-  <%= stylesheet_link_tag "blogit", "application" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "blogit" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <div id="content">
+    
+    <h1><%= link_to("My Awesome Blog", main_app.root_path) %></h1>
+    
+    <main id="main_content">
 
-    <% if current_user %>
-      <%= link_to("log out", main_app.session_path, method: :delete) %>
-    <% else %>
-      <%= link_to("log in", main_app.new_session_path) %>
-    <% end %>
-
-    <h1><%= link_to("My Awesome Blog", blogit.blog_root_path) %></h1>
-
-    <%= yield %>
+      <%= yield %>      
+    </main>
+    
+    <aside id="side_content">
+      <%= blog_posts_archive_tag('archive-year', 'archive-month', 'archive-post') do |post| %>
+        <%= link_to(post.title, blogit.post_path(post)) %>
+      <% end %>
+    </aside>
   </div>
 
-  <div id="sidebar">
-    <%= blog_posts_archive_tag('archive-year', 'archive-month', 'archive-post') do |post| %>
-      <% link_to(post.title, blogit.post_path(post)) %>
-    <% end %>
-  </div>
+
 
   <footer id="application_footer">
-    By <%= link_to("Gavin Morrice", "http://gavinmorrice.com") %>
+    By <%= link_to("Katana Code", "http://katanacode.com") %>
   </footer>
   <%= javascript_include_tag "application", "blogit" %>
 </body>

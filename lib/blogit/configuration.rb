@@ -89,6 +89,13 @@ module Blogit
 
     #default values for hidden_state
     HIDDEN_STATES = [:draft, :archive]
+    
+    APP_NAME = Rails.application.engine_name.titleize
+
+    RSS_FEED_TITLE = "#{APP_NAME} Blog Posts"
+    
+    RSS_FEED_DESCRIPTION = "Latest from #{APP_NAME}"
+    
 
     def initialize
       @include_comments            = :active_record
@@ -102,21 +109,21 @@ module Blogit
       @ajax_comments               = true
       @default_parser              = :markdown
       @highlight_code_syntax       = true
-      @rss_feed_title              = "#{Rails.application.engine_name.titleize} Blog Posts"
-      @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
+      @rss_feed_title              = RSS_FEED_TITLE
+      @rss_feed_description        = RSS_FEED_DESCRIPTION
       @redcarpet_options           = REDCARPET_OPTIONS
       @active_states               = ACTIVE_STATES
       @hidden_states               = HIDDEN_STATES
     end
 
     def default_parser_class
-      "Blogit::Parsers::#{@default_parser.to_s.classify}Parser".constantize
+      "Blogit::Parsers::#{default_parser.to_s.classify}Parser".constantize
     end
 
     # If the user has defined a disqus shortname but hasn't set include_comments to
     # disqus, print a warning to the console.
     def disqus_shortname=(shortname)
-      if @include_comments && @include_comments != :disqus
+      if include_comments && include_comments != :disqus
         blogit_warn "You've set config.disqus_shortname in your blogit config file but config.include_comments is not set to :disqus"
       end
       @disqus_shortname = shortname
@@ -125,7 +132,7 @@ module Blogit
     # If the user has defined a disqus shortname but hasn't set include_comments to
     # disqus, print a warning to the console.
     def twitter_username=(username)
-      if not @include_share_bar
+      unless include_share_bar
         blogit_warn "You've set config.twitter_username in your blogit config file but config.include_share_bar is set to false"
       end
       @twitter_username = username

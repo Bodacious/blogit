@@ -1,5 +1,0 @@
-
-  <%= actions do %>
-    <%= link_to(t(:edit, scope: 'blogit.posts'), edit_post_path(post)) %> | <%= link_to(t(:delete, scope: 'blogit.posts'), post,
-      method: :delete, data: { confirm: t(:are_you_sure_you_want_to_remove_this_post, scope: 'blogit.posts')}) %>
-  <% end %>

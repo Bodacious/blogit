@@ -52,7 +52,7 @@ Blogit.configure do |config|
   config.highlight_code_syntax = true
 
   # RSS Feed title content
-  config.rss_feed_title = "#{Rails.application.engine_name.titleize} Blog"
+  config.rss_feed_title = "#{Rails.application.engine_name.titleize} Blog Posts"
 
   # RSS Feed description content
   config.rss_feed_description = "Latest from #{Rails.application.engine_name.titleize}"
@@ -76,13 +76,6 @@ Blogit.configure do |config|
     fenced_code_blocks: true,
     gh_blockcode: true
   }
-
-  # If set to true, it will be possible to call named routes of the main app
-  # directly, without the "main_app." prefix.
-  # Useful in the case where you don't want to change the main app's layout,
-  # but it does not expand correctly from inside blogit because some main
-  # app's named routes are missing.
-  config.inline_main_app_named_routes = true
 
   # If this is set, Blogit::PostsController will use the layout named here
   config.layout = "application"

@@ -1,17 +1,25 @@
 <div id="blog_related">
   <div id="blog_tags">
-    <h2><%= t :tags, :scope => "blogit.posts" %></h2>
-    <ul>
+    <h2 class="blog_tags-header">
+      <%= t :tags, :scope => "blogit.posts" %>
+    </h2>
+    <ul class="blog_tags-list">
       <% post.tag_list.each do |tag| %>
-        <li><%= link_to tag, tagged_blog_posts_path(tag) %></li>
+        <li class="blog_tags-li">
+          <%= link_to tag, tagged_blog_posts_path(tag), class: "blog_tags-tag" %>
+        </li>
       <% end %>
     </ul>
   </div>
   <div id="blog_related_posts">
-    <h2><%= t :related_posts, :scope => "blogit.posts" %></h2>
-    <ul>
+    <h2 class="blog_related_posts-header">
+      <%= t :related_posts, :scope => "blogit.posts" %>
+    </h2>
+    <ul class="blog_related_posts-list">
       <% post.find_related_on_tags.each do |other_post| %>
-        <li><%= link_to other_post.title, post_path(other_post) %></li>
+        <li class="blog_related_posts-li">
+          <%= link_to other_post.title, post_path(other_post) %>
+        </li>
       <% end %>
     </ul>
   </div>

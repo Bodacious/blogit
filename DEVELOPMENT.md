@@ -11,6 +11,10 @@
     $ spring rake db:migrate SCOPE=blogit
 
     
+## To seed the database
+
+    $ spring rake db:seed
+    
 ## To run the tests
 
     $ spring rspec

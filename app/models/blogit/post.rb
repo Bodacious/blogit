@@ -39,6 +39,14 @@ module Blogit
     scope :for_index, lambda { |page_no = 1| order("created_at DESC").page(page_no) }
     scope :active, lambda { where(state:  Blogit.configuration.active_states ) }
 
+
+    # The posts to be displayed for RSS and XML feeds/sitemaps
+    #
+    # Returns an ActiveRecord::Relation
+    def self.for_feed
+      active.order('created_at DESC')
+    end
+    
     # ====================
     # = Instance Methods =
     # ====================
