@@ -31,6 +31,10 @@ before_script:
   - psql -c 'create database blogit_app_test' -U postgres
 
 script:
+  # Setup the test app
+  - bundle exec rake dummy:setup
+  - bundle exec rake app:blogit:install:migrations
+  - bundle exec rake db:migrate SCOPE=blogit
   # Create the blogit config file
   - bundle exec rails generate blogit:install
 
