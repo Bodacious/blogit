@@ -5,13 +5,13 @@ Blogit.configure do |config|
   config.include_comments = :active_record
 
   # When using disqus comments, what is the shortname of your forum ?
-  config.disqus_shortname = ""
+  config.disqus_shortname = "YOURUSERNAME"
 
   # Should there be a share bar on every post ?
-  config.include_share_bar = false
+  config.include_share_bar = true
 
   # Twitter username used in the share bar
-  config.twitter_username = ""
+  config.twitter_username = "@YOURUSERNAME"
 
   # What method do we call on blogger to show who they are?
   config.blogger_display_name_method = :username
