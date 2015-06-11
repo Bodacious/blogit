@@ -40,24 +40,10 @@ module Blogit
     # Defaults to :login_required
     attr_accessor :authentication_method
 
-    # If set to true, only the user who authored the post may, edit or destroy.
-    # Defaults to false
-    attr_accessor :author_edits_only
-
     # If set to true, the comments form will POST and DELETE to the comments
     # controller using AJAX calls.
     # Defaults to true
     attr_accessor :ajax_comments
-
-    # If set to true, the create, edit, update and destroy actions
-    # will be included. If set to false, you'll have to set these
-    # yourself elsewhere in the app
-    attr_accessor :include_admin_actions
-
-    # If set to true, links for new posts, editing posts and deleting comments
-    # will be available. If set to false, you'll have to set these
-    # yourself in the templates.
-    attr_accessor :include_admin_links
 
     # The default format for parsing the blog content.
     # Defaults to :markdown
@@ -67,10 +53,6 @@ module Blogit
     # Defaults to REDCARPET_OPTIONS
     attr_accessor :redcarpet_options
 
-    # Should the controllers cache the blog pages as HTML?
-    # Defaults to false
-    attr_accessor :cache_pages
-
     # The title of the RSS feed for the blog posts
     # Defaults to "[Application Name] Blog Posts"
     attr_accessor :rss_feed_title
@@ -78,15 +60,6 @@ module Blogit
     # The description of the RSS feed for the blog posts
     # Defaults to "[Application Name] Blog Posts"
     attr_accessor :rss_feed_description
-
-    # Should the routes of the main app be accessible without
-    # the "main_app." prefix ?
-    attr_accessor :inline_main_app_named_routes
-
-    # Should blogit ping search engines with your sitemap
-    # when posts are created, updated or destroyed?
-    # Defaults to false
-    attr_accessor :ping_search_engines
 
     # The layout to be used by the posts controller
     # Defaults to nil
@@ -126,17 +99,11 @@ module Blogit
       @blogger_display_name_method = :username
       @datetime_format             = :short
       @posts_per_page              = 5
-      @authentication_method       = :login_required
-      @author_edits_only           = false
       @ajax_comments               = true
-      @include_admin_actions       = true
-      @include_admin_links         = true
-      @cache_pages                 = false
       @default_parser              = :markdown
       @highlight_code_syntax       = true
       @rss_feed_title              = "#{Rails.application.engine_name.titleize} Blog Posts"
       @rss_feed_description        = "#{Rails.application.engine_name.titleize} Blog Posts"
-      @ping_search_engines         = false
       @redcarpet_options           = REDCARPET_OPTIONS
       @active_states               = ACTIVE_STATES
       @hidden_states               = HIDDEN_STATES
@@ -168,15 +135,14 @@ module Blogit
       blogit_warn "#{self.class}#rss_feed_language has been deprecated. You can remove this from your blogit.rb configuration file"
     end
     
-    def cache_pages=(value)
-      blogit_warn "config.cache_pages is deprecated. Please remove this from your blogit.rb file"
-    end
-
+    
     private
+
 
     def blogit_warn(message)
       warn "[Blogit]: #{message}"
     end
 
   end
+  
 end
