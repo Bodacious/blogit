@@ -1,39 +1,48 @@
 <%= form_for [post, comment], remote: blogit_conf.ajax_comments,
-  html: {
-    class: "new_blogit_comment", id: "new_blogit_comment" } do |f| -%>
+  html: { class: "blogit_form" } do |f| -%>
 
-  <h3><%=t :leave_a_comment, scope: 'blogit.comments'%></h3>
+  <h3 class="blogit_form__header">
+    <%= t :leave_a_comment, scope: 'blogit.comments' %>
+  </h3>
 
   <%= field class: "hidden" do %>
-    <%= f.label :nickname, "Nickname (Hide me using CSS)" %>
-    <%= f.text_field :nickname %>
+    <%= f.label :nickname, "Nickname (Hide me using CSS)", 
+      class: "blogit_form__label" %>
+    <%= f.text_field :nickname, class: "blogit_form__field" %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :name, t(:name, scope: 'blogit.comments') %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, t(:name, scope: 'blogit.comments'),
+      class: "blogit_form__label" %>
+    <%= f.text_field :name, class: "blogit_form__field", required: true  %>
     <%= errors_on(comment, :name) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :email, t(:email_never_displayed, scope: 'blogit.comments') %><br>
-    <%= f.email_field :email %>
+    <%= f.label :email, t(:email_never_displayed, scope: 'blogit.comments'), 
+       class: "blogit_form__label" %>
+    <%= f.email_field :email, class: "blogit_form__field", required: true %>
     <%= errors_on(comment, :email) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :website, t(:your_website, scope: 'blogit.comments') %><br>
-    <%= f.url_field :website %>
+    <%= f.label :website, t(:your_website, scope: 'blogit.comments'),
+       class: "blogit_form__label" %>
+    <%= f.url_field :website, class: "blogit_form__field" %>
     <%= errors_on(comment, :website) %>
   <% end %>
 
   <%= field do %>
-    <%= f.label :body, t(:your_comment, scope: 'blogit.comments') %><br>
-    <%= f.text_area :body %><br>
+    <%= f.label :body, t(:your_comment, scope: 'blogit.comments'), 
+       class: "blogit_form__label"  %>
+    <%= f.text_area :body, required: true,
+       class: "blogit_form__field blogit_form__field--textarea" %>
     <%= errors_on(comment, :body) %>
   <% end %>
 
   <%= actions do %>
-    <%= f.submit t(:add_comment, scope: 'blogit.comments'), :disable_with => t(:adding_comment, scope: 'blogit.comments') %>
+    <%= f.submit t(:add_comment, scope: 'blogit.comments'), 
+      disable_with: t(:adding_comment, scope: 'blogit.comments') %>
   <% end %>
+  
 <% end -%>

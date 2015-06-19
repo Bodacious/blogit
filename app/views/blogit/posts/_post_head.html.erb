@@ -1,2 +1,4 @@
-<%= content_tag(:h1, link_to(post.title, post), class: "blog_post-header") %>
+<%= content_tag(:h1, class: "blogit_post__header") do %>
+  <%= link_to(post.title, post, class: "blogit_post__header_link") %>
+<% end %>
 

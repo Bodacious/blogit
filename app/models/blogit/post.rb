@@ -56,6 +56,11 @@ module Blogit
     # = Instance Methods =
     # ====================
 
+    # TODO: Get published at working properly!
+    def published_at
+      created_at
+    end
+    
     def to_param
       "#{id}-#{title.parameterize}"
     end

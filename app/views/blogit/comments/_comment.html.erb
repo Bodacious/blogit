@@ -1,19 +1,17 @@
-<%= content_tag(:article, id: "blog_comment_#{comment.id}", class: "blog_comment") do %>
-  <%= content_tag(:div, class: "blog_comment_name", id: "blog_comment_#{comment.id}_name") do %>
-    <%= comment.website? ? link_to(comment.name, comment.website) : comment.name %>
-    <%= t('blogit.comments.wrote') %>
-  <% end %>
+<%= content_tag(:div, id: "blogit_comment_#{comment.id}", class: "blogit_comment") do %>
 
+  <div class="blogit_comment__name">
+    <%= name_for_comment(comment) %>
+  </div>
 
-  <%= content_tag(:div, class: "blog_comment_body",
-      id: "blog_comment_#{comment.id}_body") do %>
-      <%= format_content comment.body || "" %>
-  <% end %>
+  <div class="blogit_comment__body">
+    <%= format_content(comment.body.to_s) %>
+  </div>
 
-  <%= blog_tag(:footer, type: "comment") do %>
-    <%=t :posted_on, scope: 'blogit.comments'%> 
+  <div class="blogit_comment__created_at">
+    <%= t(:posted_on, scope: 'blogit.comments') %> 
     <%= time_tag(comment.created_at, format: blogit_conf.datetime_format) %>
-  <% end %>
+  </div>
 
 <% end if comment.persisted? %>
 

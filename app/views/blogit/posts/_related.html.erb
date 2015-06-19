@@ -1,12 +1,9 @@
-  <div id="blog_related_posts">
-  <h3 class="blog_related_posts-header">
+<div id="blogit_related_posts">
+  <h3 class="blogit_related_posts__header blogit_header--section">
     <%= t :related_posts, :scope => "blogit.posts" %>
   </h3>
-  <ul class="blog_related_posts-list">
-    <% post.find_related_on_tags.each do |other_post| %>
-      <li class="blog_related_posts-li">
-        <%= link_to other_post.title, post_path(other_post) %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="blogit_related_posts__list">
+    <%= render partial: "blogit/posts/related_post", 
+      collection: related_posts_for_post(post), as: :related_post %>
+  </div>
 </div>
