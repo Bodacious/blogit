@@ -1,4 +1,5 @@
-<%= content_tag(:article, id: "blog_post_#{post.id}", class: "preview_blog_post") do %>
+<%= content_tag(:article, id: "blogit_post_#{post.id}", 
+  class: "blogit_post blog_post--is_preview") do %>
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>

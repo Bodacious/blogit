@@ -1,12 +1,8 @@
-<div id="blog_tags">
-  <h3 class="blog_tags-header">
+<div id="blogit_tags">
+  <h3 class="blogit_tags__header blogit_header--section">
     <%= t :tags, :scope => "blogit.posts" %>
   </h3>
-  <ul class="blog_tags-list">
-    <% post.tag_list.each do |tag| %>
-      <li class="blog_tags-li">
-        <%= link_to tag, tagged_blog_posts_path(tag), class: "blog_tags-tag" %>
-      </li>
-    <% end %>
+  <ul class="blogit_tags__list">
+    <%= render partial: "blogit/tags/tag", collection: post.tag_list %>
   </ul>
 </div>
