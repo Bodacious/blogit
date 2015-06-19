@@ -2,34 +2,6 @@ require "rails_helper"
 
 describe Blogit::ApplicationHelper do
 
-  describe "blog_tag" do
-    
-    subject { helper.blog_tag(:li, "hello", id: "blog_li", class: "other_class") }
-    
-    it "creates a tag element and give it a 'blog_post... prefixed class" do
-      expect(subject).to have_class("blog_post_li")
-    end
-    
-    it "adds other classes too" do
-      expect(subject).to have_class("other_class")
-    end
-
-
-  end
-  
-  context "when the :type option is set" do
-    
-    subject { 
-      helper.blog_tag(:div, "helo", id: "blog_div", type: "comment", class: "other_class") 
-    }
-    
-    it "replaces 'post' with :type in the class name" do      
-      expect(subject).to have_class("blog_comment")
-    end 
-    
-  end
-  
-
   describe "format_content" do
     it "should convert markdown text to html if conf is :markdown" do
       Blogit.configure { |c| c.default_parser = :markdown }
