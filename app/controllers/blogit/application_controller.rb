@@ -3,7 +3,7 @@ module Blogit
   # Inherits from the application's controller instead of ActionController::Base
   class ApplicationController < ::ApplicationController
 
-    helper Blogit::ApplicationHelper, Blogit::PostsHelper
+    helper Blogit::ApplicationHelper, Blogit::LayoutHelper, Blogit::PostsHelper
     
     helper_method :blogit_conf
 
