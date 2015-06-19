@@ -18,8 +18,13 @@ module Blogit
     # ===============
 
     validates :title, presence: true, length: { minimum: 10, maximum: 66 }
+
     validates :body,  presence: true, length: { minimum: 10 }
+    
+    validates :description, presence: Blogit.configuration.show_post_description
+
     validates :blogger_id, presence: true
+
     validates :state, presence: true
 
     # ================

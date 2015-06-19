@@ -107,6 +107,13 @@ module Blogit
     # Defaults to nil
     config_accessor :layout
 
+    # Should show a description of the blog post on the index
+    # and RSS feed.
+    #
+    # Defaults to true
+    config_accessor(:show_post_description) { true }
+    
+    
     def default_parser_class
       "Blogit::Parsers::#{default_parser.to_s.classify}Parser".constantize
     end
