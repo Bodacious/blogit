@@ -1,0 +1,9 @@
+<li class="blogit_archive__item blogit_archive__item--month">
+  <%= link_to(month, '#', class: "blogit_archive__toggle_link",
+    data: { blogit_click_to_toggle_children: true }) %>
+  <ul class="blogit_archive__list blogit_archive__list--archiveables">
+    <% for archiveable in month.archiveables %>
+      <%= render partial: "#{archiveable.model_name.i18n_key.to_s.pluralize}/archiveable", object: archiveable, as: archiveable.model_name.singular_route_key %>
+    <% end %>
+  </ul>
+</li>
