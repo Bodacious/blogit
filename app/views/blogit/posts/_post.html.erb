@@ -2,7 +2,9 @@
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>
-
+  
+  <%= render "blogit/posts/blogger_information", post: post %>
+  
   <%# Render the body of this blog post (as Markdown) %>
   <%= format_content(blogit_conf.show_post_description ? post.description : post.body) %>
 

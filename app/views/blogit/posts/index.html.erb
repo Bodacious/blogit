@@ -1,3 +1,9 @@
+<% if params[:tag] %>
+  <h2>
+    <%= t(:showing_posts_tagged_with, scope: "blogit.posts", tag: params[:tag])  %>
+  </h2>
+<% end %>
+
 <% if @posts.any? %>
 
   <%= render partial: "blogit/posts/post",
