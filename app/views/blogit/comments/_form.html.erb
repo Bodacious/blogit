@@ -2,12 +2,11 @@
   html: {
     class: "new_blogit_comment", id: "new_blogit_comment" } do |f| -%>
 
-  <p><%=t :leave_a_comment, scope: 'blogit.comments'%></p>
+  <h3><%=t :leave_a_comment, scope: 'blogit.comments'%></h3>
 
   <%= field class: "hidden" do %>
-    <%= f.label :nickname %>
+    <%= f.label :nickname, "Nickname (Hide me using CSS)" %>
     <%= f.text_field :nickname %>
-    Hide me using CSS
   <% end %>
 
   <%= field do %>

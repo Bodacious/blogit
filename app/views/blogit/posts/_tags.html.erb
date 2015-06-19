@@ -1,0 +1,12 @@
+<div id="blog_tags">
+  <h3 class="blog_tags-header">
+    <%= t :tags, :scope => "blogit.posts" %>
+  </h3>
+  <ul class="blog_tags-list">
+    <% post.tag_list.each do |tag| %>
+      <li class="blog_tags-li">
+        <%= link_to tag, tagged_blog_posts_path(tag), class: "blog_tags-tag" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

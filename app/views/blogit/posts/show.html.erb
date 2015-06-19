@@ -18,8 +18,10 @@
   <%= render "blogit/posts/comments_count",
     post: post if defined?(show_comments_count) and show_comments_count %>
 
+  <%= render "blogit/posts/tags", post: @post %>
   <%= render "blogit/posts/related", post: @post %>
 
   <%= comments_for_post @post %>
 
 <% end %>
+
