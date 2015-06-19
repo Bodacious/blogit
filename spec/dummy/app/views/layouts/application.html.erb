@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dummy</title>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <%= render "blogit/posts/meta_tags", post: @post if @post %>
+  
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
