@@ -88,7 +88,17 @@ module Blogit
       end
     end
 
+    # If there's a blogger and that blogger responds to :twitter_username, returns that.
+    # Otherwise, returns nil
+    def blogger_twitter_username
+      if blogger and blogger.respond_to?(:twitter_username)
+        blogger.twitter_username
+      end
+    end
+    
+
     private
+
 
     def check_comments_config
       raise RuntimeError.new("Posts only allow active record comments (check blogit configuration)") unless Blogit.configuration.include_comments == :active_record

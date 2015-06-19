@@ -183,7 +183,40 @@ describe Blogit::Post do
       expect(post.short_body).not_to include('"!http://www.images.com')
     end
   end
+  
+  describe "blogger_twitter_username" do
+    
+    let(:post) { build(:post) }
+    
+    context "when the blogger responds to :twitter_username" do
+      
+      before do
+        class << post.blogger
+          def twitter_username
+            "@gavin_morrice"
+          end
+        end
+      end
+      
+      it "returns the blogger's twitter username" do
+        expect(post.blogger_twitter_username).to eql("@gavin_morrice")
+      end
+      
+    end
+    
+    context "when the blogger doesn't respond to :twitter_username" do
+      
+      before do
+        Blogit.configuration.twitter_username = '@katana_code'
+      end
 
+      it "returns nil" do
+        expect(post.blogger_twitter_username).to be_nil
+      end
+      
+    end
+  end
+  
   describe 'AVAILABLE_STATUS'  do
     it "returns all the statues in Blogit::configuration" do
       expect(Blogit::Post::AVAILABLE_STATUS).to  eq(Blogit.configuration.hidden_states + Blogit.configuration.active_states)
