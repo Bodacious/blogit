@@ -16,8 +16,8 @@ FactoryGirl.define do
 
   factory :comment, class: Blogit::Comment do
     name "Gavin"
-    email "gavin@gavinmorrice.com"
-    website "http://gavinmorrice.com"
+    email "bodacious@katanacode.com"
+    website "http://katanacode.com"
     body "I once saw a child the size of a tangerine!"
     post
   end
