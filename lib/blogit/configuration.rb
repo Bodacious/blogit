@@ -27,8 +27,8 @@ module Blogit
     
     # When using disqus comments, what is the shortname of your forum ?
     #
-    # Defaults to ""
-    config_accessor(:disqus_shortname, instance_writer: false) { "" }
+    # Defaults to nil
+    config_accessor(:disqus_shortname, instance_writer: false)
     
     # Should there be a share bar on every post ?
     #
@@ -37,8 +37,8 @@ module Blogit
     
     # Twitter username used in the share bar
     #
-    # Defaults to ""
-    config_accessor(:twitter_username, instance_writer: false) { "" }
+    # Defaults to nil
+    config_accessor(:twitter_username, instance_writer: false)
     
     # The name of the controller method we'll call to return the current blogger.
     #
