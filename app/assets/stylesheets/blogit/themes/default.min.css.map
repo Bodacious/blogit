@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAEA,qBAAqB,CACnB,OAAO,CAAE,CAAC,CACV,eAAe,CAAE,IAAI,CAEvB,6BAA6B,CAC3B,YAAY,CAAE,KAAK,CACnB,OAAO,CAAE,IAAI,CAEf,mCAAmC,CACjC,aAAa,CAAE,KAAK,CACpB,YAAY,CAAE,KAAK,CACnB,OAAO,CAAE,IAAI,CAGf,2BAA2B,CACzB,MAAM,CAAE,OAAO,CChBjB,oBAAoB,CAClB,SAAS,CCFI,GAAG,CCIlB,oBAAoB,CAClB,SAAS,CDLI,GAAG,CEElB,aAAa,CACX,OAAO,CAAE,MAAM",
-"sources": ["default/blocks/_archives.sass","default/blocks/_headers.sass","default/base/_typography.sass","default/blocks/_posts.sass","default/blocks/_tags.sass"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "default.min.css"
 }
