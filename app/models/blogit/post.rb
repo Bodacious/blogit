@@ -18,8 +18,13 @@ module Blogit
     # ===============
 
     validates :title, presence: true, length: { minimum: 10, maximum: 66 }
+
     validates :body,  presence: true, length: { minimum: 10 }
+    
+    validates :description, presence: Blogit.configuration.show_post_description
+
     validates :blogger_id, presence: true
+
     validates :state, presence: true
 
     # ================
@@ -36,13 +41,38 @@ module Blogit
 
     # Returns the blog posts paginated for the index page
     # @scope class
-    scope :for_index, lambda { |page_no = 1| order("created_at DESC").page(page_no) }
+    scope :for_index, lambda { |page_no = 1| 
+      active.order("created_at DESC").page(page_no) }
+      
     scope :active, lambda { where(state:  Blogit.configuration.active_states ) }
 
+
+    # The posts to be displayed for RSS and XML feeds/sitemaps
+    #
+    # Returns an ActiveRecord::Relation
+    def self.for_feed
+      active.order('created_at DESC')
+    end
+    
+    # Finds an active post with given id
+    #
+    # id - The id of the Post to find
+    #
+    # Returns a Blogit::Post
+    # Raises ActiveRecord::NoMethodError if no Blogit::Post could be found
+    def self.active_with_id(id)
+      active.find(id)
+    end
+    
     # ====================
     # = Instance Methods =
     # ====================
 
+    # TODO: Get published at working properly!
+    def published_at
+      created_at
+    end
+    
     def to_param
       "#{id}-#{title.parameterize}"
     end
@@ -75,7 +105,17 @@ module Blogit
       end
     end
 
+    # If there's a blogger and that blogger responds to :twitter_username, returns that.
+    # Otherwise, returns nil
+    def blogger_twitter_username
+      if blogger and blogger.respond_to?(:twitter_username)
+        blogger.twitter_username
+      end
+    end
+    
+
     private
+
 
     def check_comments_config
       raise RuntimeError.new("Posts only allow active record comments (check blogit configuration)") unless Blogit.configuration.include_comments == :active_record

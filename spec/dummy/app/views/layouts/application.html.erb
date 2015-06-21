@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dummy</title>
-  <%= stylesheet_link_tag "blogit", "application" %>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <%= render "blogit/posts/meta_tags", post: @post if @post %>
+  
+  <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <div id="content">
-
-    <% if current_user %>
-      <%= link_to("log out", main_app.session_path, method: :delete) %>
-    <% else %>
-      <%= link_to("log in", main_app.new_session_path) %>
-    <% end %>
-
-    <h1><%= link_to("My Awesome Blog", blogit.blog_root_path) %></h1>
-
-    <%= yield %>
+    
+    <h1><%= link_to("My Awesome Blog", main_app.root_path) %></h1>
+    
+    <main id="main_content">
+      <%= yield %>      
+    </main>
+    
+    <aside id="side_content">
+      <h3>Archive</h3>
+      <%= archive_list_for_posts(Blogit::Post.all) %>
+    </aside>
   </div>
 
-  <div id="sidebar">
-    <%= blog_posts_archive_tag('archive-year', 'archive-month', 'archive-post') do |post| %>
-      <% link_to(post.title, blogit.post_path(post)) %>
-    <% end %>
-  </div>
+
 
   <footer id="application_footer">
-    By <%= link_to("Gavin Morrice", "http://gavinmorrice.com") %>
+    <%= link_to("Blogit", "http://blogit.katanacode.com", target: "_blank") %> was
+    created by your pals at 
+    <%= link_to('Katana Code', "http://facebook.com/katanacode", target: "_blank") %>
+     :o)
   </footer>
   <%= javascript_include_tag "application", "blogit" %>
 </body>

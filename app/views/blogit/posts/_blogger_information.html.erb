@@ -1,4 +1,9 @@
-<%= blog_tag :footer do %>
-    <%=t :written_by, scope: 'blogit.posts', author: post.blogger_display_name %>
-    <%= time_tag(post.created_at, pubdate: true, format: blogit_conf.datetime_format) %>
-<% end %>
+<div class="blogit_post__information">
+  <span class="blogit_post__blogger">
+    <%= t(:written_by, scope: 'blogit.posts', 
+      author: post.blogger_display_name) %>
+  </span>
+
+  <%= time_tag(post.created_at, pubdate: true, 
+    class: "blogit_post__published_at" ,format: blogit_conf.datetime_format) %>
+</div>

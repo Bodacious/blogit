@@ -1,16 +1,13 @@
-<%= content_tag(:article, id: "blog_post_#{post.id}", class: "blog_post") do %>
+<%= content_tag(:article, id: "blogit_post_#{post.id}", 
+  class: "blogit_post blog_post--is_preview") do %>
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>
-
-  <%# Render the body of this blog post (as Markdown) %>
-  <%= render "blogit/posts/post_body", post: post %>
-
-  <%# Render admin links to edit/delete this post %>
-  <%= render "blogit/posts/post_links", post: post %>
-
-  <%# Render info about the person who wrote this post %>
+  
   <%= render "blogit/posts/blogger_information", post: post %>
+  
+  <%# Render the body of this blog post (as Markdown) %>
+  <%= format_content(blogit_conf.show_post_description ? post.description : post.body) %>
 
   <%# Render the no. of comments %>
   <%= render "blogit/posts/comments_count",

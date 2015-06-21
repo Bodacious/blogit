@@ -6,7 +6,7 @@ describe Blogit::Parsers::HtmlParser do
   let(:desired_output) { "<h2>Some textile</h2>\n<p>A paragraph</p>" }
   
   it "should return an html string of content passed when calling parsed" do
-    parser.parsed.should == desired_output
+    expect(parser.parsed).to eq(desired_output)
   end
   
 end

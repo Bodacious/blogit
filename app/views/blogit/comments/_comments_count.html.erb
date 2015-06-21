@@ -1,0 +1,8 @@
+<%= content_tag(:div, class: "blogit_post__comments_count", 
+  id: "blogit_post_#{post.id}__comments_count") do %>
+    
+  <%= link_to(post_path(post, anchor: "comments")) do %>
+    <%= t(:comments_count, scope: 'blogit.posts', count: post.comments_count) %>
+  <% end %>
+  
+<% end %>

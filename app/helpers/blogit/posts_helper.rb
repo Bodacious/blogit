@@ -1,45 +1,47 @@
 module Blogit
   module PostsHelper
-
-    # A comments tag corresponding to the comments configuration
-    def comments_for(post)
-      render(partial: "blogit/posts/#{Blogit.configuration.include_comments}_comments", locals: { post: post, comment: Blogit::Comment.new })
+    
+    require "blogit/archive"
+    
+    # Renders the comments for a {Post} based on the
+    # {Blogit::Configuration::include_comments include_comments} configuration
+    def comments_for_post(post)
+      comment_type = Blogit.configuration.include_comments
+      render(partial: "blogit/comments/#{comment_type}_comments", 
+        locals: { post: post, comment: Blogit::Comment.new })
     end
 
-    # A share bar as configured
-    def share_bar_for(post)
+    # Renders the comments for a JS share bar based on the
+    # {Blogit::Configuration::include_share_bar include_share_bar} configuration
+    def share_bar_for_post(post)
       return "" unless Blogit.configuration.include_share_bar
       render(partial: "blogit/posts/share_bar", locals: { post: post})
     end
+    
+    # Returns the {Post Posts} that share one or more of the same tags for a given post
+    #
+    # post - A {Post} instance
+    #
+    # Returns a collection of {Post Posts}
+    def related_posts_for_post(post)
+      post.active.find_related_on_tags
+    end
 
-    # Creates a ul tag tree with posts by year and monthes. Include
-    # blogit/archive.js to enabled expand collapse.
-    # @param year_css [String, Symbol] The CSS class of the year UL tag
-    # @param month_css [String, Symbol] The CSS class of the month UL tag
-    # @param post_css [String, Symbol] The CSS class of the year LI tag
-    # @param archive_posts [ActiveRecord::Relation, Array] The posts to be included in the archive (defaults to Post.all)
-    # @yield[post] block responsible for writing the link (or whatever) to the post
-    def blog_posts_archive_tag(year_css, month_css, post_css, archive_posts = Post.order("created_at DESC"))
-      posts_tree = archive_posts.chunk {|post| post.created_at.year}.map do |year, posts_of_year|
-        [year, posts_of_year.chunk {|post| l(post.created_at, format: :plain_month_only) }]
-      end
-
-      result = []
-      result << "<ul class=\"#{year_css}\">"
-      posts_tree.each do |year, posts_by_month|
-        result << "<li><a data-blogit-click-to-toggle-children>#{year}</a><ul class=\"#{month_css}\">"
-        posts_by_month.each do |month, posts|
-          result << "<li><a data-blogit-click-to-toggle-children>#{CGI.escape_html(month)}</a><ul class=\"#{post_css}\">"
-          posts.each do |post|
-            result << "<li>#{link_to(post.title, blogit.post_path(post))}</li>"
-          end
-          result << "</ul></li>"
-        end
-        result << "</ul></li>"
-      end
-      result << "</ul>"
-
-      result.join.html_safe
+    # Creates a ul tag tree with posts by year and months. Include blogit/archive.js in
+    # your js to enabled expand collapse.
+    #
+    # Examples
+    #
+    #   <%= archive_list_for_posts(@posts) %>
+    #   # => <div class="blogit_archive">
+    #          <ul class="blogit_archive__list blogit_archive__list--years">
+    #            ...
+    #          </ul>
+    #        </div>
+    # 
+    # Returns an HTML safe String
+    def archive_list_for_posts(archive_posts)
+      render Blogit::Archive::List.new(archive_posts)
     end
 
   end

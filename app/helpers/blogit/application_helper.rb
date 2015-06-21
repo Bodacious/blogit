@@ -1,94 +1,84 @@
 module Blogit
   module ApplicationHelper
-
-    TIMETAG_FORMAT = "%Y-%m-%dT%TZ"
-
-    # Creates a div tag with class 'blog_' + (post|comment) + '_' + name
-    # Eg:
-    #   blog_tag(:title, "") # => <div class="blog_post_title"></div>
-    #   blog_tag(:email, "", {:type => "comment"}) # => <div class="blog_comment_email"></div>
-    #   blog_tag(:tweet, "", {:type => "status"}) # => <div class="blog_status_tweet"></div>
-    def blog_tag(name, content_or_options = {}, options = {}, &block)
-      tag_type = options.delete(:type) || "post"
-
-      if block_given?
-        content = capture(&block)
-        options = content_or_options
-      else
-        content = content_or_options
-      end
-      options[:class] = "#{options[:class]} blog_#{tag_type}_#{name}".strip
-      content_tag(name, content, options)
-    end
-
+    
     # Format content using the {Blogit::Configuration#default_parser_class default_parser_class}
+    #
+    # content - A String containing the content to be formatted (defaults: nil)
+    # block   - A Proc that returns a String of content to be formatted
+    #
+    # Examples
+    # 
+    #   format_content("# This is a Markdown header")
+    #   # => "<h1>This is a Markdown header</h1>"
+    #
+    #   format_content do 
+    #     "some text"
+    #   end
+    #   # => "<p>some text</p>"
+    #
+    # Returns an HTML safe String.
     def format_content(content = nil, &block)
       content = capture(&block) if block_given?
-      parser = Blogit::configuration.default_parser_class.new(content)
+      parser  = Blogit::configuration.default_parser_class.new(content)
       parser.parsed.html_safe
     end
 
-    # Returns the first error message for an ActiveRecord model instance
-    # @param object A model instance to check
-    # @param attribute A symbol or string for attribute name to check for
-    #   errors
+    # The first error message for an ActiveRecord::Base model instance attribute
+    #
+    # object    - An ActiveRecord::Base instance to check
+    # attribute - A Symbol or String with the attribute name to check errors on
+    #
+    # Examples
+    #
+    #  errors_on(@user, :first_name)
+    #  # => "Can't be blank"
+    #
+    # Returns a String with the error message
     def errors_on(object, attribute)
       error_message = object.errors[attribute].first
       content_tag(:span, error_message, class: "blogit_error_message") if error_message
     end
 
-    # A helper method for creating a +<div>+ tag with class 'field'
-    # Used for separating form fields
-    def field(content_or_options={}, options ={}, &block)
-      div_with_default_class(:field, content_or_options, options, &block)
-    end
-
-    # A helper method for creating a +<div>+ tag with class 'actions'
-    # Used for option links and form buttons
-    def actions(content_or_options={}, options ={}, &block)
-      div_with_default_class(:actions, content_or_options, options, &block)
-    end
-
-    # A helper method for creating a +<div>+ tag with class 'login_required'
-    # Will only render content if there is a logged in user
-    def login_required(content_or_options={}, options ={}, &block)
-      if current_blogger and blogit_conf.include_admin_links
-        div_with_default_class(:login_required, content_or_options, options, &block)
-      end
-    end
-
-    # Can search for named routes directly in the main app, omitting
-    # the "main_app." prefix
-    def method_missing method, *args, &block
-      if main_app_url_helper?(method)
-        main_app.send(method, *args)
-      else
-        super
-      end
-    end
-    
-    def respond_to?(method)
-      main_app_url_helper?(method) or super
-    end
-
-    private
-
-    def main_app_url_helper?(method)
-      Blogit::configuration.inline_main_app_named_routes and
-        (method.to_s.end_with?('_path') or method.to_s.end_with?('_url')) and
-        main_app.respond_to?(method)
-    end
-
-    def div_with_default_class(default_class, content_or_options={}, options={}, &block)
+    # A helper method for creating a div tag with class 'field'. Used for separating
+    # form fields.
+    #
+    # content_or_options - The content to include in the div when not using a block. The
+    #                      options Hash when using a block
+    # options            - The options when not using a block
+    # block              - A block that returns HTML content to include in the div
+    #
+    # Returns an HTML safe String
+    def field(content_or_options = {}, options ={}, &block)
       if block_given?
-        content = capture(&block)
         options = content_or_options
+        content = capture(&block)
       else
         content = content_or_options
       end
-      options[:class] = "#{default_class} #{options[:class]}".strip
+      options[:class] = Array(options[:class]) + ["field"]
+      content_tag(:div, content, options)
+    end
+
+    # A helper method for creating a div tag with class 'actions'. Used as a wrapper
+    # for form actions.
+    #
+    # content_or_options - The content to include in the div when not using a block. The
+    #                      options Hash when using a block
+    # options            - The options when not using a block
+    # block              - A block that returns HTML content to include in the div
+    #
+    # Returns an HTML safe String
+    def actions(content_or_options={}, options ={}, &block)
+      if block_given?
+        options = content_or_options
+        content = capture(&block)
+      else
+        content = content_or_options
+      end
+      options[:class] = Array(options[:class]) + ["actions"]
       content_tag(:div, content, options)
     end
 
   end
+  
 end

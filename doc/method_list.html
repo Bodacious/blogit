@@ -15,11 +15,16 @@
       <script type="text/javascript" charset="utf-8" src="js/full_list.js"></script>
     
 
+    <title>Method List</title>
     <base id="base_target" target="_parent" />
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -48,577 +53,553 @@
 
   <li class="r1 ">
     <span class='object_link'><a href="Blogit/ApplicationHelper.html#actions-instance_method" title="Blogit::ApplicationHelper#actions (method)">#actions</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
+    <small>Blogit::ApplicationHelper</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/BlogitSweeper.html#after_save-instance_method" title="Blogit::BlogitSweeper#after_save (method)">#after_save</a></span>
-    
-      <small>Blogit::BlogitSweeper</small>
-    
+    <span class='object_link'><a href="Blogit/Post.html#active_with_id-class_method" title="Blogit::Post.active_with_id (method)">active_with_id</a></span>
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#ajax_comments-instance_method" title="Blogit::Configuration#ajax_comments (method)">#ajax_comments</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/PostsHelper.html#archive_list_for_posts-instance_method" title="Blogit::PostsHelper#archive_list_for_posts (method)">#archive_list_for_posts</a></span>
+    <small>Blogit::PostsHelper</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#authentication_method-instance_method" title="Blogit::Configuration#authentication_method (method)">#authentication_method</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/List.html#archiveables-instance_method" title="Blogit::Archive::List#archiveables (method)">#archiveables</a></span>
+    <small>Blogit::Archive::List</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#author_edits_only-instance_method" title="Blogit::Configuration#author_edits_only (method)">#author_edits_only</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Month.html#archiveables-instance_method" title="Blogit::Archive::Month#archiveables (method)">#archiveables</a></span>
+    <small>Blogit::Archive::Month</small>
   </li>
   
 
   <li class="r2 ">
     <span class='object_link'><a href="Redcarpet/Render/HTMLWithAlbino.html#block_code-instance_method" title="Redcarpet::Render::HTMLWithAlbino#block_code (method)">#block_code</a></span>
-    
-      <small>Redcarpet::Render::HTMLWithAlbino</small>
-    
+    <small>Redcarpet::Render::HTMLWithAlbino</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/CommentsHelper.html#blog_comment_tag-instance_method" title="Blogit::CommentsHelper#blog_comment_tag (method)">#blog_comment_tag</a></span>
-    
-      <small>Blogit::CommentsHelper</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/PostsHelper.html#blog_post_tag-instance_method" title="Blogit::PostsHelper#blog_post_tag (method)">#blog_post_tag</a></span>
-    
-      <small>Blogit::PostsHelper</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/PostsHelper.html#blog_posts_archive_tag-instance_method" title="Blogit::PostsHelper#blog_posts_archive_tag (method)">#blog_posts_archive_tag</a></span>
-    
-      <small>Blogit::PostsHelper</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
     <span class='object_link'><a href="Blogit/Post.html#blogger_display_name-instance_method" title="Blogit::Post#blogger_display_name (method)">#blogger_display_name</a></span>
-    
-      <small>Blogit::Post</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#blogger_display_name_method-instance_method" title="Blogit::Configuration#blogger_display_name_method (method)">#blogger_display_name_method</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/ApplicationController.html#blogit_authenticate-class_method" title="Blogit::ApplicationController.blogit_authenticate (method)">blogit_authenticate</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/ApplicationController.html#blogit_cacher-class_method" title="Blogit::ApplicationController.blogit_cacher (method)">blogit_cacher</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/ApplicationController.html#blogit_conf-class_method" title="Blogit::ApplicationController.blogit_conf (method)">blogit_conf</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
+    <span class='object_link'><a href="Blogit/Post.html#blogger_twitter_username-instance_method" title="Blogit::Post#blogger_twitter_username (method)">#blogger_twitter_username</a></span>
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r1 ">
     <span class='object_link'><a href="Blogit/ApplicationController.html#blogit_conf-instance_method" title="Blogit::ApplicationController#blogit_conf (method)">#blogit_conf</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
+    <small>Blogit::ApplicationController</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/ApplicationController.html#blogit_sweeper-class_method" title="Blogit::ApplicationController.blogit_sweeper (method)">blogit_sweeper</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
+    <span class='object_link'><a href="Blogit/ApplicationController.html#blogit_conf-class_method" title="Blogit::ApplicationController.blogit_conf (method)">blogit_conf</a></span>
+    <small>Blogit::ApplicationController</small>
   </li>
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Configuration.html#blogit_warn-instance_method" title="Blogit::Configuration#blogit_warn (method)">#blogit_warn</a></span>
+    <small>Blogit::Configuration</small>
+  </li>
+  
+
+  <li class="r2 ">
     <span class='object_link'><a href="Blogit/Blogs/ClassMethods.html#blogs-instance_method" title="Blogit::Blogs::ClassMethods#blogs (method)">#blogs</a></span>
-    
-      <small>Blogit::Blogs::ClassMethods</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#cache_pages-instance_method" title="Blogit::Configuration#cache_pages (method)">#cache_pages</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <small>Blogit::Blogs::ClassMethods</small>
   </li>
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Blogs/ClassMethods.html#blogs%3F-instance_method" title="Blogit::Blogs::ClassMethods#blogs? (method)">#blogs?</a></span>
+    <small>Blogit::Blogs::ClassMethods</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RenameBlogitTables.html#change-instance_method" title="RenameBlogitTables#change (method)">#change</a></span>
+    <small>RenameBlogitTables</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Post.html#check_comments_config-instance_method" title="Blogit::Post#check_comments_config (method)">#check_comments_config</a></span>
+    <small>Blogit::Post</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/CommentsController.html#comment-instance_method" title="Blogit::CommentsController#comment (method)">#comment</a></span>
+    <small>Blogit::CommentsController</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/CommentsController.html#comment_params-instance_method" title="Blogit::CommentsController#comment_params (method)">#comment_params</a></span>
+    <small>Blogit::CommentsController</small>
+  </li>
+  
+
+  <li class="r2 ">
     <span class='object_link'><a href="Blogit/Post.html#comments-instance_method" title="Blogit::Post#comments (method)">#comments</a></span>
-    
-      <small>Blogit::Post</small>
-    
+    <small>Blogit::Post</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="Blogit/Post.html#comments%3D-instance_method" title="Blogit::Post#comments= (method)">#comments=</a></span>
-    
-      <small>Blogit::Post</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/PostsHelper.html#comments_for-instance_method" title="Blogit::PostsHelper#comments_for (method)">#comments_for</a></span>
-    
-      <small>Blogit::PostsHelper</small>
-    
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit.html#configuration-class_method" title="Blogit.configuration (method)">configuration</a></span>
-    
-      <small>Blogit</small>
-    
+    <span class='object_link'><a href="Blogit/PostsHelper.html#comments_for_post-instance_method" title="Blogit::PostsHelper#comments_for_post (method)">#comments_for_post</a></span>
+    <small>Blogit::PostsHelper</small>
   </li>
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="Blogit.html#configuration-class_method" title="Blogit.configuration (method)">configuration</a></span>
+    <small>Blogit</small>
+  </li>
+  
+
+  <li class="r2 ">
     <span class='object_link'><a href="Blogit.html#configure-class_method" title="Blogit.configure (method)">configure</a></span>
-    
-      <small>Blogit</small>
-    
+    <small>Blogit</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Parsers/HtmlParser.html#content-instance_method" title="Blogit::Parsers::HtmlParser#content (method)">#content</a></span>
+    <small>Blogit::Parsers::HtmlParser</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#content-instance_method" title="Blogit::Parsers::MarkdownParser#content (method)">#content</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Parsers/TextileParser.html#content-instance_method" title="Blogit::Parsers::TextileParser#content (method)">#content</a></span>
+    <small>Blogit::Parsers::TextileParser</small>
   </li>
   
 
   <li class="r2 ">
     <span class='object_link'><a href="Blogit/Generators/InstallGenerator.html#copy_initializer-instance_method" title="Blogit::Generators::InstallGenerator#copy_initializer (method)">#copy_initializer</a></span>
-    
-      <small>Blogit::Generators::InstallGenerator</small>
-    
+    <small>Blogit::Generators::InstallGenerator</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/PostsController.html#create-instance_method" title="Blogit::PostsController#create (method)">#create</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <span class='object_link'><a href="Blogit/Generators/TableNameMigrationGenerator.html#copy_migration_file-instance_method" title="Blogit::Generators::TableNameMigrationGenerator#copy_migration_file (method)">#copy_migration_file</a></span>
+    <small>Blogit::Generators::TableNameMigrationGenerator</small>
   </li>
   
 
   <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Generators/ViewsGenerator.html#copy_views-instance_method" title="Blogit::Generators::ViewsGenerator#copy_views (method)">#copy_views</a></span>
+    <small>Blogit::Generators::ViewsGenerator</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="Blogit/CommentsController.html#create-instance_method" title="Blogit::CommentsController#create (method)">#create</a></span>
-    
-      <small>Blogit::CommentsController</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/ApplicationController.html#current_blogger-instance_method" title="Blogit::ApplicationController#current_blogger (method)">#current_blogger</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
+    <small>Blogit::CommentsController</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#current_blogger_method-instance_method" title="Blogit::Configuration#current_blogger_method (method)">#current_blogger_method</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Year.html#create_months_from_archiveables-instance_method" title="Blogit::Archive::Year#create_months_from_archiveables (method)">#create_months_from_archiveables</a></span>
+    <small>Blogit::Archive::Year</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#datetime_format-instance_method" title="Blogit::Configuration#datetime_format (method)">#datetime_format</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/CommentsController.html#create_respond_to_html-instance_method" title="Blogit::CommentsController#create_respond_to_html (method)">#create_respond_to_html</a></span>
+    <small>Blogit::CommentsController</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#default_parser-instance_method" title="Blogit::Configuration#default_parser (method)">#default_parser</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/CommentsController.html#create_respond_to_js-instance_method" title="Blogit::CommentsController#create_respond_to_js (method)">#create_respond_to_js</a></span>
+    <small>Blogit::CommentsController</small>
   </li>
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Archive/List.html#create_years_from_archiveables-instance_method" title="Blogit::Archive::List#create_years_from_archiveables (method)">#create_years_from_archiveables</a></span>
+    <small>Blogit::Archive::List</small>
+  </li>
+  
+
+  <li class="r2 ">
     <span class='object_link'><a href="Blogit/Configuration.html#default_parser_class-instance_method" title="Blogit::Configuration#default_parser_class (method)">#default_parser_class</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/CommentsController.html#destroy-instance_method" title="Blogit::CommentsController#destroy (method)">#destroy</a></span>
-    
-      <small>Blogit::CommentsController</small>
-    
+    <small>Blogit::Configuration</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/PostsController.html#destroy-instance_method" title="Blogit::PostsController#destroy (method)">#destroy</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <span class='object_link'><a href="Blogit/LayoutHelper.html#description-instance_method" title="Blogit::LayoutHelper#description (method)">#description</a></span>
+    <small>Blogit::LayoutHelper</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#disqus_shortname-instance_method" title="Blogit::Configuration#disqus_shortname (method)">#disqus_shortname</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/Configuration.html#disqus_shortname%3D-instance_method" title="Blogit::Configuration#disqus_shortname= (method)">#disqus_shortname=</a></span>
+    <small>Blogit::Configuration</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/PostsController.html#edit-instance_method" title="Blogit::PostsController#edit (method)">#edit</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/List.html#ensure_archiveables_are_valid-instance_method" title="Blogit::Archive::List#ensure_archiveables_are_valid (method)">#ensure_archiveables_are_valid</a></span>
+    <small>Blogit::Archive::List</small>
   </li>
   
 
   <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#ensure_pygments_is_installed-instance_method" title="Blogit::Parsers::MarkdownParser#ensure_pygments_is_installed (method)">#ensure_pygments_is_installed</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="Blogit/ApplicationHelper.html#errors_on-instance_method" title="Blogit::ApplicationHelper#errors_on (method)">#errors_on</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/ApplicationHelper.html#field-instance_method" title="Blogit::ApplicationHelper#field (method)">#field</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
+    <small>Blogit::ApplicationHelper</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Post.html#for_index-class_method" title="Blogit::Post.for_index (method)">for_index</a></span>
-    
-      <small>Blogit::Post</small>
-    
+    <span class='object_link'><a href="Blogit/ApplicationHelper.html#field-instance_method" title="Blogit::ApplicationHelper#field (method)">#field</a></span>
+    <small>Blogit::ApplicationHelper</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Post.html#for_feed-class_method" title="Blogit::Post.for_feed (method)">for_feed</a></span>
+    <small>Blogit::Post</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Post.html#for_index-instance_method" title="Blogit::Post#for_index (method)">#for_index</a></span>
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r1 ">
     <span class='object_link'><a href="Blogit/ApplicationHelper.html#format_content-instance_method" title="Blogit::ApplicationHelper#format_content (method)">#format_content</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
+    <small>Blogit::ApplicationHelper</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#highlight_code_syntax-instance_method" title="Blogit::Configuration#highlight_code_syntax (method)">#highlight_code_syntax</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/Comment.html#format_website-instance_method" title="Blogit::Comment#format_website (method)">#format_website</a></span>
+    <small>Blogit::Comment</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#include_admin_actions-instance_method" title="Blogit::Configuration#include_admin_actions (method)">#include_admin_actions</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#include_admin_links-instance_method" title="Blogit::Configuration#include_admin_links (method)">#include_admin_links</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#include_comments-instance_method" title="Blogit::Configuration#include_comments (method)">#include_comments</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#include_share_bar-instance_method" title="Blogit::Configuration#include_share_bar (method)">#include_share_bar</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Blogs.html#included-class_method" title="Blogit::Blogs.included (method)">included</a></span>
-    
-      <small>Blogit::Blogs</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
     <span class='object_link'><a href="Blogit/PostsController.html#index-instance_method" title="Blogit::PostsController#index (method)">#index</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#initialize-instance_method" title="Blogit::Configuration#initialize (method)">#initialize</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <small>Blogit::PostsController</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Parsers/HtmlParser.html#initialize-instance_method" title="Blogit::Parsers::HtmlParser#initialize (method)">#initialize</a></span>
-    
-      <small>Blogit::Parsers::HtmlParser</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Month.html#initialize-instance_method" title="Blogit::Archive::Month#initialize (method)">#initialize</a></span>
+    <small>Blogit::Archive::Month</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#initialize-instance_method" title="Blogit::Parsers::MarkdownParser#initialize (method)">#initialize</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Archive/List.html#initialize-instance_method" title="Blogit::Archive::List#initialize (method)">#initialize</a></span>
+    <small>Blogit::Archive::List</small>
   </li>
   
 
   <li class="r1 ">
     <span class='object_link'><a href="Blogit/Parsers/TextileParser.html#initialize-instance_method" title="Blogit::Parsers::TextileParser#initialize (method)">#initialize</a></span>
-    
-      <small>Blogit::Parsers::TextileParser</small>
-    
+    <small>Blogit::Parsers::TextileParser</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#initialize-instance_method" title="Blogit::Parsers::MarkdownParser#initialize (method)">#initialize</a></span>
-    
-      <small>Blogit::Parsers::MarkdownParser</small>
-    
+    <span class='object_link'><a href="Blogit/Parsers/HtmlParser.html#initialize-instance_method" title="Blogit::Parsers::HtmlParser#initialize (method)">#initialize</a></span>
+    <small>Blogit::Parsers::HtmlParser</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#inline_main_app_named_routes-instance_method" title="Blogit::Configuration#inline_main_app_named_routes (method)">#inline_main_app_named_routes</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Year.html#initialize-instance_method" title="Blogit::Archive::Year#initialize (method)">#initialize</a></span>
+    <small>Blogit::Archive::Year</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/ApplicationHelper.html#login_required-instance_method" title="Blogit::ApplicationHelper#login_required (method)">#login_required</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#markdown-instance_method" title="Blogit::Parsers::MarkdownParser#markdown (method)">#markdown</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/ApplicationHelper.html#method_missing-instance_method" title="Blogit::ApplicationHelper#method_missing (method)">#method_missing</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Month.html#month_name-instance_method" title="Blogit::Archive::Month#month_name (method)">#month_name</a></span>
+    <small>Blogit::Archive::Month</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/PostsController.html#new-instance_method" title="Blogit::PostsController#new (method)">#new</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Year.html#months-instance_method" title="Blogit::Archive::Year#months (method)">#months</a></span>
+    <small>Blogit::Archive::Year</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Archive/Year.html#months_with_archiveables-instance_method" title="Blogit::Archive::Year#months_with_archiveables (method)">#months_with_archiveables</a></span>
+    <small>Blogit::Archive::Year</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/CommentsHelper.html#name_for_comment-instance_method" title="Blogit::CommentsHelper#name_for_comment (method)">#name_for_comment</a></span>
+    <small>Blogit::CommentsHelper</small>
   </li>
   
 
   <li class="r1 ">
     <span class='object_link'><a href="Blogit/Comment.html#nickname-instance_method" title="Blogit::Comment#nickname (method)">#nickname</a></span>
-    
-      <small>Blogit::Comment</small>
-    
+    <small>Blogit::Comment</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#parsed-instance_method" title="Blogit::Parsers::MarkdownParser#parsed (method)">#parsed</a></span>
-    
-      <small>Blogit::Parsers::MarkdownParser</small>
-    
+    <span class='object_link'><a href="Blogit/PostsController.html#page_number-instance_method" title="Blogit::PostsController#page_number (method)">#page_number</a></span>
+    <small>Blogit::PostsController</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Parsers/HtmlParser.html#parsed-instance_method" title="Blogit::Parsers::HtmlParser#parsed (method)">#parsed</a></span>
-    
-      <small>Blogit::Parsers::HtmlParser</small>
-    
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#parsed-instance_method" title="Blogit::Parsers::MarkdownParser#parsed (method)">#parsed</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
   </li>
   
 
   <li class="r2 ">
     <span class='object_link'><a href="Blogit/Parsers/TextileParser.html#parsed-instance_method" title="Blogit::Parsers::TextileParser#parsed (method)">#parsed</a></span>
-    
-      <small>Blogit::Parsers::TextileParser</small>
-    
+    <small>Blogit::Parsers::TextileParser</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#posts_per_page-instance_method" title="Blogit::Configuration#posts_per_page (method)">#posts_per_page</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/CommentsController.html#post-instance_method" title="Blogit::CommentsController#post (method)">#post</a></span>
+    <small>Blogit::CommentsController</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#redcarpet_options-instance_method" title="Blogit::Configuration#redcarpet_options (method)">#redcarpet_options</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <span class='object_link'><a href="Blogit/PostsController.html#post-instance_method" title="Blogit::PostsController#post (method)">#post</a></span>
+    <small>Blogit::PostsController</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/ApplicationHelper.html#respond_to%3F-instance_method" title="Blogit::ApplicationHelper#respond_to? (method)">#respond_to?</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
+    <span class='object_link'><a href="Blogit/PostsController.html#posts-instance_method" title="Blogit::PostsController#posts (method)">#posts</a></span>
+    <small>Blogit::PostsController</small>
   </li>
   
 
   <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Post.html#published_at-instance_method" title="Blogit::Post#published_at (method)">#published_at</a></span>
+    <small>Blogit::Post</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Configuration.html#rails_app_name-instance_method" title="Blogit::Configuration#rails_app_name (method)">#rails_app_name</a></span>
+    <small>Blogit::Configuration</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/PostsHelper.html#related_posts_for_post-instance_method" title="Blogit::PostsHelper#related_posts_for_post (method)">#related_posts_for_post</a></span>
+    <small>Blogit::PostsHelper</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#renderer-instance_method" title="Blogit::Parsers::MarkdownParser#renderer (method)">#renderer</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RenameBlogitTables.html#report_missing_table-instance_method" title="RenameBlogitTables#report_missing_table (method)">#report_missing_table</a></span>
+    <small>RenameBlogitTables</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="Blogit/Configuration.html#rss_feed_description-instance_method" title="Blogit::Configuration#rss_feed_description (method)">#rss_feed_description</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#rss_feed_title-instance_method" title="Blogit::Configuration#rss_feed_title (method)">#rss_feed_title</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <small>Blogit::Configuration</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/PostsHelper.html#share_bar_for-instance_method" title="Blogit::PostsHelper#share_bar_for (method)">#share_bar_for</a></span>
-    
-      <small>Blogit::PostsHelper</small>
-    
+    <span class='object_link'><a href="Blogit/Configuration.html#rss_feed_title-instance_method" title="Blogit::Configuration#rss_feed_title (method)">#rss_feed_title</a></span>
+    <small>Blogit::Configuration</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/CommentsController.html#set_comment_as_new-instance_method" title="Blogit::CommentsController#set_comment_as_new (method)">#set_comment_as_new</a></span>
+    <small>Blogit::CommentsController</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/PostsController.html#set_post-instance_method" title="Blogit::PostsController#set_post (method)">#set_post</a></span>
+    <small>Blogit::PostsController</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/CommentsController.html#set_post_from_post_id-instance_method" title="Blogit::CommentsController#set_post_from_post_id (method)">#set_post_from_post_id</a></span>
+    <small>Blogit::CommentsController</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/PostsController.html#set_posts_for_feed-instance_method" title="Blogit::PostsController#set_posts_for_feed (method)">#set_posts_for_feed</a></span>
+    <small>Blogit::PostsController</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/PostsController.html#set_posts_for_index_page-instance_method" title="Blogit::PostsController#set_posts_for_index_page (method)">#set_posts_for_index_page</a></span>
+    <small>Blogit::PostsController</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/PostsController.html#set_posts_for_tagged_page-instance_method" title="Blogit::PostsController#set_posts_for_tagged_page (method)">#set_posts_for_tagged_page</a></span>
+    <small>Blogit::PostsController</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/PostsHelper.html#share_bar_for_post-instance_method" title="Blogit::PostsHelper#share_bar_for_post (method)">#share_bar_for_post</a></span>
+    <small>Blogit::PostsHelper</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Post.html#short_body-instance_method" title="Blogit::Post#short_body (method)">#short_body</a></span>
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r1 ">
     <span class='object_link'><a href="Blogit/PostsController.html#show-instance_method" title="Blogit::PostsController#show (method)">#show</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <small>Blogit::PostsController</small>
   </li>
   
 
   <li class="r2 ">
     <span class='object_link'><a href="Blogit/PostsController.html#tagged-instance_method" title="Blogit::PostsController#tagged (method)">#tagged</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <small>Blogit::PostsController</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/ApplicationController.html#this_blogger%3F-instance_method" title="Blogit::ApplicationController#this_blogger? (method)">#this_blogger?</a></span>
-    
-      <small>Blogit::ApplicationController</small>
-    
+    <span class='object_link'><a href="Blogit/LayoutHelper.html#title-instance_method" title="Blogit::LayoutHelper#title (method)">#title</a></span>
+    <small>Blogit::LayoutHelper</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="Blogit/ApplicationHelper.html#time_tag-instance_method" title="Blogit::ApplicationHelper#time_tag (method)">#time_tag</a></span>
-    
-      <small>Blogit::ApplicationHelper</small>
-    
-  </li>
-  
-
-  <li class="r1 ">
     <span class='object_link'><a href="Blogit/Post.html#to_param-instance_method" title="Blogit::Post#to_param (method)">#to_param</a></span>
-    
-      <small>Blogit::Post</small>
-    
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="Blogit/Configuration.html#twitter_username-instance_method" title="Blogit::Configuration#twitter_username (method)">#twitter_username</a></span>
-    
-      <small>Blogit::Configuration</small>
-    
+    <small>Blogit::Post</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="Blogit/PostsController.html#update-instance_method" title="Blogit::PostsController#update (method)">#update</a></span>
-    
-      <small>Blogit::PostsController</small>
-    
+    <span class='object_link'><a href="Blogit/Archive/Month.html#to_partial_path-instance_method" title="Blogit::Archive::Month#to_partial_path (method)">#to_partial_path</a></span>
+    <small>Blogit::Archive::Month</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Archive/List.html#to_partial_path-instance_method" title="Blogit::Archive::List#to_partial_path (method)">#to_partial_path</a></span>
+    <small>Blogit::Archive::List</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Archive/Year.html#to_partial_path-instance_method" title="Blogit::Archive::Year#to_partial_path (method)">#to_partial_path</a></span>
+    <small>Blogit::Archive::Year</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Archive/Year.html#to_s-instance_method" title="Blogit::Archive::Year#to_s (method)">#to_s</a></span>
+    <small>Blogit::Archive::Year</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Configuration.html#twitter_username%3D-instance_method" title="Blogit::Configuration#twitter_username= (method)">#twitter_username=</a></span>
+    <small>Blogit::Configuration</small>
   </li>
   
 
   <li class="r2 ">
     <span class='object_link'><a href="Validators/AbsenceValidator.html#validate_each-instance_method" title="Validators::AbsenceValidator#validate_each (method)">#validate_each</a></span>
-    
-      <small>Validators::AbsenceValidator</small>
-    
+    <small>Validators::AbsenceValidator</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Parsers/MarkdownParser.html#which-instance_method" title="Blogit::Parsers::MarkdownParser#which (method)">#which</a></span>
+    <small>Blogit::Parsers::MarkdownParser</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Archive/Year.html#year-instance_method" title="Blogit::Archive::Year#year (method)">#year</a></span>
+    <small>Blogit::Archive::Year</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="Blogit/Archive/List.html#years-instance_method" title="Blogit::Archive::List#years (method)">#years</a></span>
+    <small>Blogit::Archive::List</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="Blogit/Archive/List.html#years_with_archiveables-instance_method" title="Blogit::Archive::List#years_with_archiveables (method)">#years_with_archiveables</a></span>
+    <small>Blogit::Archive::List</small>
   </li>
   
 

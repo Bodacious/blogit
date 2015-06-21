@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 
 require "blogit"
+
 require 'jquery-rails'
 
 module Dummy

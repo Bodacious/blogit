@@ -6,18 +6,18 @@
 <title>
   Class: Blogit::Comment
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Blogit/Comment.html";
 </script>
 
 
@@ -124,7 +124,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$</span><span class='regexp_end'>/ix</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\Z</span><span class='regexp_end'>/ix</span></span></pre></dd>
       
         <dt id="EMAIL_REGEX-constant" class="">EMAIL_REGEX =
           <div class="docstring">
@@ -140,7 +140,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$</span><span class='regexp_end'>/i</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\Z</span><span class='regexp_end'>/i</span></span></pre></dd>
       
     </dl>
   
@@ -172,8 +172,8 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>nickname acts as a "honeypot" to catch spam the form field should be hidden
-using CSS and so  if present, must be spam.</p>
+<p>nickname acts as a “honeypot” to catch spam the form field should be hidden
+using CSS and so if present, must be spam.</p>
 </div></span>
   
 </li>
@@ -183,6 +183,41 @@ using CSS and so  if present, must be spam.</p>
 
 
 
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#format_website-instance_method" title="#format_website (instance method)">- (Object) <strong>format_website</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prepend http to the url before the validation check.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
   
@@ -209,8 +244,10 @@ using CSS and so  if present, must be spam.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>nickname acts as a "honeypot" to catch spam the form field should be hidden
-using CSS and so  if present, must be spam.</p>
+<p>nickname acts as a “honeypot” to catch spam the form field should be hidden
+using CSS and so if present, must be spam.</p>
+
+<p>@attribute</p>
 
 
   </div>
@@ -224,12 +261,12 @@ using CSS and so  if present, must be spam.</p>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/comment.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/comment.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nickname'>nickname</span>
   <span class='ivar'>@nickname</span>
@@ -242,12 +279,63 @@ using CSS and so  if present, must be spam.</p>
   </div>
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="format_website-instance_method">
+  
+    - (<tt>Object</tt>) <strong>format_website</strong>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Prepend http to the url before the validation check</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/comment.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_format_website'>format_website</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_website'>website</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span> <span class='kw'>and</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_website'>website</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^http</span><span class='regexp_end'>/i</span></span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_website'>website</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_website'>website</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
     <div id="footer">
-  Generated on Mon Feb 11 09:00:36 2013 by
+  Generated on Sun Jun 21 20:36:39 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.1.2).
 </div>
 
   </body>

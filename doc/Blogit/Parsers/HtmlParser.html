@@ -6,18 +6,18 @@
 <title>
   Class: Blogit::Parsers::HtmlParser
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Blogit/Parsers/HtmlParser.html";
 </script>
 
 
@@ -109,9 +109,11 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parsed-instance_method" title="#parsed (instance method)">- (Object) <strong>parsed</strong> </a>
+      <a href="#content-instance_method" title="#content (instance method)">- (Object) <strong>content</strong> </a>
     
 
+    
+      (also: #parsed)
     
   </span>
   
@@ -129,7 +131,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute parsed.</p>
+<p>A String containing the content to be parsed.</p>
 </div></span>
   
 </li>
@@ -192,7 +194,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A new instance of HtmlParser</p>
+<p>Returns a new instance of HtmlParser</p>
 
 
   </div>
@@ -206,12 +208,12 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/html_parser.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/html_parser.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
   <span class='ivar'>@parsed</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span>
@@ -229,18 +231,22 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="parsed-instance_method">
+  <h3 class="signature first" id="content-instance_method">
   
-    - (<tt>Object</tt>) <strong>parsed</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Object</tt>) <strong>content</strong>  <span class="extras">(readonly)</span>
   
 
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='parsed-instance_method'>parsed</span></span>
+    </span>
   
 
   
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute parsed</p>
+<p>A String containing the content to be parsed</p>
 
 
   </div>
@@ -254,15 +260,15 @@
       <pre class="lines">
 
 
-3
 4
-5</pre>
+5
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/html_parser.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/parsers/html_parser.rb', line 4</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_parsed'>parsed</span>
-  <span class='ivar'>@parsed</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
+  <span class='ivar'>@content</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -275,9 +281,9 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Feb 11 09:00:36 2013 by
+  Generated on Sun Jun 21 20:36:40 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.1.2).
 </div>
 
   </body>

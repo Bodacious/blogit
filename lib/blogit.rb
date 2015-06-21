@@ -1,7 +1,6 @@
 # Third-party requirements
 require "kaminari"
 require "redcarpet"
-require "pingr"
 
 require "blogit/configuration"
 require "blogit/blogs"
@@ -17,14 +16,14 @@ module Blogit
   # Exception raised when gem may not be configured properly
   class ConfigurationError < StandardError;end
   
-  # Set global configuration options for Blogit
-  # @see README.md
+  # Set global configuration options for Blogit. {file:README.md read more}
   def self.configure(&block)
     block.call(configuration)
   end
   
-  # Returns Blogit's globalconfiguration. Will initialize a new instance
-  # if not already set
+  # Blogit's global configuration.
+  #
+  # Returns a Configuration
   def self.configuration
     @configuration ||= Configuration.new
   end

@@ -15,6 +15,7 @@ en:
       successfully_added_comment: "Successfully added comment!"
       successfully_removed_comment: "Successfully removed comment."
     posts:
+      showing_posts_tagged_with: "Showing posts tagged with \"%{tag}\""
       written_by: "Written by %{author} on"
       prohibited_this_post_from_being_saved:
         one: "One error prohibited this post form being saved:"

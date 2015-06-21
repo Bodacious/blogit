@@ -1,6 +1,6 @@
-<div id="blog_share_bar">
+<div id="blogit_share_bar">
 
-  <div id="google-plus" class="social_button">
+  <div class="blogit_share_bar__social_button blogit_share_bar__social_button--google_plus">
     <!-- GOOGLE +1 -->
     <g:plusone size="medium"></g:plusone>
     <script type="text/javascript">
@@ -15,8 +15,7 @@
     <!-- /GOOGLE +1 -->
   </div>
 
-  <div id="twitter" class="social_button">
-    <!-- TWITTER -->
+  <div class="blogit_share_bar__social_button blogit_share_bar__social_button--twitter">    <!-- TWITTER -->
     <a href="https://twitter.com/share" class="twitter-share-button"
         data-lang="<%= I18n.default_locale %>"
         data-url="http://<%= request.host_with_port %><%= request.path.gsub("//","/") %>"
@@ -28,7 +27,7 @@
     <!-- /TWITTER -->
   </div>
 
-  <div id="facebook" class="social_button">
+  <div class="blogit_share_bar__social_button blogit_share_bar__social_button--facebook"> 
     <!-- FACEBOOK LIKE -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {

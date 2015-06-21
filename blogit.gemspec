@@ -22,12 +22,12 @@ Gem::Specification.new do |s|
   s.add_dependency "albino", ">=1.3.3"
   s.add_dependency "kaminari", '>=0.13.0'
   s.add_dependency "jquery-rails"
-  s.add_dependency "pingr", ">= 0.0.3"
   s.add_dependency "acts-as-taggable-on"
 
-  s.add_development_dependency 'rails', '>= 4.0.0'
+  s.add_development_dependency 'rails', '~> 4.2.0'
   s.add_development_dependency 'thor'
-
+  s.add_development_dependency "yard"
+  s.add_development_dependency "yard-tomdoc"
   # Debugging
   s.add_development_dependency "pry"
 
@@ -37,11 +37,21 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg"
 
   # Testing
+  s.add_development_dependency "spring", ">=1.3.6"
+  s.add_development_dependency 'spring-commands-rspec'
+
+  s.add_development_dependency "sass-rails"
+  s.add_development_dependency "sass-globbing"
+  s.add_development_dependency "autoprefixer-rails"
+  # s.add_development_dependency "coffee-rails"
+  # s.add_development_dependency "therubyracer"
+  
   s.add_development_dependency "rspec-rails"#, '~> 2.0'
+  s.add_development_dependency "rspec-collection_matchers"
   s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "growl"
   s.add_development_dependency "factory_girl", ">=4.1.0"
   s.add_development_dependency "mocha"
-
+  s.add_development_dependency "sass"
 end

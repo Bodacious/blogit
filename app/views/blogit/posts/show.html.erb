@@ -1,4 +1,28 @@
-<%= render @post %>
-<%= share_bar_for @post %>
-<%= render "blogit/posts/post_footer", post: @post %>
-<%= comments_for @post %>
+<% title @post.title %>
+<% description @post.description.to_s %>
+
+<%= content_tag(:article, id: "blogit_post_#{@post.id}", class: "blogit_post") do %>
+
+  
+  <%# Render the header for this blog post %>
+  <%= render "blogit/posts/post_head", post: @post %>
+
+  <%= render "blogit/posts/blogger_information", post: @post %>
+
+  <%# Render the body of this blog post (as Markdown) %>
+  <%= format_content(@post.body) %>
+
+  <%# Render info about the person who wrote this post %>
+  <%= share_bar_for_post @post %>
+
+  <%# Render the no. of comments %>
+  <%= render "blogit/posts/comments_count",
+    post: post if defined?(show_comments_count) and show_comments_count %>
+
+  <%= render "blogit/posts/tags", post: @post %>
+  <%= render "blogit/posts/related", post: @post %>
+
+  <%= comments_for_post @post %>
+
+<% end %>
+
