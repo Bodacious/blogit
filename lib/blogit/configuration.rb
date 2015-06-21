@@ -19,10 +19,7 @@ module Blogit
       gh_blockcode: true,
     }
     
-    # What kind of comments do you want to add to your blog ? 
-    # Valid options include :active_record, :disqus or :no
-    #
-    # Defaults to :active_record
+    # This is a method
     config_accessor(:include_comments) { :active_record }
     
     # When using disqus comments, what is the shortname of your forum ?

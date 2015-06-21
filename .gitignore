@@ -1,6 +1,7 @@
 .bundle/
 .rvmrc
 .DS_Store
+.yardoc
 Gemfile.lock
 log/*.log
 pkg/

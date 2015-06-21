@@ -12,7 +12,10 @@ module Blogit
       def to_s
         year
       end
-  
+      
+      # The name of the partial to load for a {Year} object
+      #
+      # Returns a String
       def to_partial_path
         self.class.name.underscore
       end
