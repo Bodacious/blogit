@@ -120,7 +120,7 @@ describe Blogit::Post do
 
       before :all do
         Blogit::Post.destroy_all
-        15.times { |i| create :post, created_at: i.days.ago }
+        15.times { |i| create(:post, :active, created_at: i.days.ago) }
       end
 
       it "should order posts by created_at DESC" do
@@ -132,7 +132,8 @@ describe Blogit::Post do
       end
 
       it "should accept page no as an argument" do
-        expect(Blogit::Post.for_index(2)).to eq(Blogit::Post.order("created_at DESC").offset(5).limit(5))
+        expect(Blogit::Post.for_index(2)).to eq(Blogit::Post.active.
+          order("created_at DESC").offset(5).limit(5))
       end
 
       it "should change the no of posts per page if paginates_per is set" do
@@ -144,7 +145,7 @@ describe Blogit::Post do
 
     describe :active do
       it 'should include only posts in active states blogit.config.active_states' do
-        published_post = create(:published_post)
+        published_post = create(:post, :active)
         expect(Blogit::Post.active).to include (published_post)
       end
     end

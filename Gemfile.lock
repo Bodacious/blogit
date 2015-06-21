@@ -205,8 +205,18 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+<<<<<<< HEAD
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+=======
+    tomparse (0.4.2)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    yard (0.8.7.6)
+    yard-tomdoc (0.7.1)
+      tomparse (>= 0.4.0)
+      yard
+>>>>>>> docs
 
 PLATFORMS
   ruby
@@ -233,3 +243,8 @@ DEPENDENCIES
   spring-commands-rspec
   sqlite3
   thor
+<<<<<<< HEAD
+=======
+  yard
+  yard-tomdoc
+>>>>>>> docs

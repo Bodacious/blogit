@@ -1,6 +1,9 @@
 class Blogit::Parsers::HtmlParser
-
-  attr_reader :parsed
+  
+  # A String containing the content to be parsed
+  attr_reader :content
+  
+  alias_method :parsed, :content
 
   def initialize(content)
     @parsed = content

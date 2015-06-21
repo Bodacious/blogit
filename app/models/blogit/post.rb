@@ -41,7 +41,9 @@ module Blogit
 
     # Returns the blog posts paginated for the index page
     # @scope class
-    scope :for_index, lambda { |page_no = 1| order("created_at DESC").page(page_no) }
+    scope :for_index, lambda { |page_no = 1| 
+      active.order("created_at DESC").page(page_no) }
+      
     scope :active, lambda { where(state:  Blogit.configuration.active_states ) }
 
 
@@ -50,6 +52,16 @@ module Blogit
     # Returns an ActiveRecord::Relation
     def self.for_feed
       active.order('created_at DESC')
+    end
+    
+    # Finds an active post with given id
+    #
+    # id - The id of the Post to find
+    #
+    # Returns a Blogit::Post
+    # Raises ActiveRecord::NoMethodError if no Blogit::Post could be found
+    def self.active_with_id(id)
+      active.find(id)
     end
     
     # ====================

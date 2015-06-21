@@ -1,9 +1,13 @@
 .bundle/
 .rvmrc
 .DS_Store
+.yardoc/
+Gemfile.lock
 log/*.log
 pkg/
 tmp/**/*
+
+spec/dummy/tmp/**/*
 
 doc/*
 
