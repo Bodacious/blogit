@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Blogit::PostsHelper
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Blogit/PostsHelper.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
+     &raquo; 
+    <span class="title">PostsHelper</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Blogit::PostsHelper
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/helpers/blogit/posts_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#archive_list_for_posts-instance_method" title="#archive_list_for_posts (instance method)">- (Object) <strong>archive_list_for_posts</strong>(archive_posts) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a ul tag tree with posts by year and months.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comments_for_post-instance_method" title="#comments_for_post (instance method)">- (Object) <strong>comments_for_post</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Renders the comments for a <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Post</a></span> based on the
+include_comments configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#related_posts_for_post-instance_method" title="#related_posts_for_post (instance method)">- (Object) <strong>related_posts_for_post</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span> that share one or more of the same tags for a
+given post.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#share_bar_for_post-instance_method" title="#share_bar_for_post (instance method)">- (Object) <strong>share_bar_for_post</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Renders the comments for a JS share bar based on the
+include_share_bar configuration.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="archive_list_for_posts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>archive_list_for_posts</strong>(archive_posts) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a ul tag tree with posts by year and months. Include
+blogit/archive.js in your js to enabled expand collapse.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>archive_list_for_posts(@posts)
+# =&gt; &lt;div class=&quot;blogit_archive&quot;&gt;
+       &lt;ul class=&quot;blogit_archive__list blogit_archive__list--years&quot;&gt;
+         ...
+       &lt;/ul&gt;
+     &lt;/div&gt;</code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>an HTML safe String</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_archive_list_for_posts'>archive_list_for_posts</span><span class='lparen'>(</span><span class='id identifier rubyid_archive_posts'>archive_posts</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='const'>Archive</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_archive_posts'>archive_posts</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="comments_for_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>comments_for_post</strong>(post) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Renders the comments for a <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Blogit::Post</a></span> based on the
+include_comments configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_comments_for_post'>comments_for_post</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_comment_type'>comment_type</span> <span class='op'>=</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_include_comments'>include_comments</span>
+  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>partial:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit/comments/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comment_type'>comment_type</span><span class='embexpr_end'>}</span><span class='tstring_content'>_comments</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> 
+    <span class='label'>locals:</span> <span class='lbrace'>{</span> <span class='label'>post:</span> <span class='id identifier rubyid_post'>post</span><span class='comma'>,</span> <span class='label'>comment:</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='const'>Comment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="related_posts_for_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>related_posts_for_post</strong>(post) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span> that share one or more of the same tags for a
+given post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>post</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Blogit::Post</a></span> instance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>a collection of <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_related_posts_for_post'>related_posts_for_post</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_find_related_on_tags'>find_related_on_tags</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="share_bar_for_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>share_bar_for_post</strong>(post) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Renders the comments for a JS share bar based on the
+include_share_bar configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_share_bar_for_post'>share_bar_for_post</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_include_share_bar'>include_share_bar</span>
+  <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='label'>partial:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit/posts/share_bar</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>locals:</span> <span class='lbrace'>{</span> <span class='label'>post:</span> <span class='id identifier rubyid_post'>post</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jun 21 20:36:39 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.2).
+</div>
+
+  </body>
+</html>
