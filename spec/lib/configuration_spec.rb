@@ -9,7 +9,7 @@ describe Blogit::Configuration do
   end
 
   it "should set :disqus_shortname to blank" do
-    expect(blog_configuration.disqus_shortname).to eq("")
+    expect(blog_configuration.disqus_shortname).to be_nil
   end
 
   it "should print a warning to the console if disqus_shortname is set but include_comments is not disqus" do
@@ -29,7 +29,7 @@ describe Blogit::Configuration do
   end
 
   it "should set :twitter_username to blank" do
-    expect(blog_configuration.twitter_username).to eq("")
+    expect(blog_configuration.twitter_username).to be_nil
   end
 
   it "should set :current_blogger_method to :current_user" do

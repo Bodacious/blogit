@@ -35,7 +35,7 @@ module Blogit
     # Twitter username used in the share bar
     #
     # Defaults to nil
-    config_accessor(:twitter_username, instance_writer: false)
+    config_accessor(:twitter_username)
     
     # The name of the controller method we'll call to return the current blogger.
     #
@@ -126,16 +126,6 @@ module Blogit
       @disqus_shortname = shortname
     end
 
-    # If the user has defined a disqus shortname but hasn't set include_comments to
-    # disqus, print a warning to the console.
-    def twitter_username=(username)
-      unless include_share_bar
-        blogit_warn "You've set config.twitter_username in your blogit config file but \
-          config.include_share_bar is set to false"
-      end
-      @twitter_username = username
-    end
-    
     def rss_feed_title
       @rss_feed_title ||= "#{rails_app_name} Blog Posts"
     end
