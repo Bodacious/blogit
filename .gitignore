@@ -1,7 +1,6 @@
 .bundle/
 .rvmrc
 .DS_Store
-Gemfile.lock
 log/*.log
 pkg/
 tmp/**/*
