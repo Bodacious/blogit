@@ -66,21 +66,19 @@
 <a href="https://gemnasium.com/KatanaCode/blogit"><img src="https://gemnasium.com/KatanaCode/blogit.png" alt="Blogit"></a>
 <a href="https://travis-ci.org/KatanaCode/blogit.png"><img src="https://travis-ci.org/KatanaCode/blogit.png" alt="Travis CI"></a></p>
 
-<h1>Blogit (beta)</h1>
+<h1>Blogit - Add a blog to your Rails application in seconds</h1>
 
-<p>Blogit is a flexible blogging solution for Rails apps. It:</p>
+<p>Blogit lets you add a blog to your Ruby on Rails application in just a few seconds.</p>
 
-<ul>
-<li>Is Rack based;</li>
-<li>Is a complete MVC solution based on Rails engines</li>
-<li>Aims to work right out of the box but remain fully customisable.</li>
-</ul>
+<p>We developed blogit because we found ourselves adding the same features to client apps over and over again. Now blogit handles all of that for us.</p>
 
 <h2>Installation</h2>
 
-<p>Add this to your Gemfile</p>
+<p>Add these to your Gemfile</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit</span><span class='tstring_end'>&quot;</span></span>
+<span class='comment'># Blogit depends on ActsAsTaggableOn
+</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>acts-as-taggable-on</span><span class='tstring_end'>&quot;</span></span>
 </code></pre>
 
 <p>...and run <code>bundle install</code> to install the gem.</p>
@@ -89,10 +87,16 @@
 
 <pre class="code bash"><code class="bash"># add an initializer to config/initializers with all of the configuration options
 $ rails g blogit:install
+
 # This will add the necessary migrations to your app&#39;s db/migrate directory
 rake blogit:install:migrations
+
+# You don&#39;t need to run again this if you&#39;ve already done so
+rake acts_as_taggable_on:install:migrations
+
 # This will run any pending migrations
 rake db:migrate
+
 </code></pre>
 
 <p>then add the following to your routes.rb file:</p>
@@ -101,40 +105,78 @@ rake db:migrate
 mount Blogit::Engine =&gt; &quot;/blog&quot;
 </code></pre>
 
-<p>Define <code>ApplicationController#current_user</code> and <code>ApplicationController#login_required</code> methods if your app doesn&#39;t already have these.</p>
+<p>Finally, declare which of your models acts as blogger in your app (probably User or Admin) by calling the <code>blogs</code> method in your model.</p>
 
-<p>... and finally, declare which of your models acts as blogger in your app (usually User).</p>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>User</span>
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>User</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
 
   <span class='id identifier rubyid_blogs'>blogs</span>
 
 <span class='kw'>end</span>
 </code></pre>
 
+<p>Go to <a href="http://localhost:3000/blog">http://localhost:3000/blog</a> and see your marvelous new blog.</p>
+
+<h2>Instant gratification</h2>
+
+<p>We&#39;ve added some rake tasks to make development easier. </p>
+
+<h3>Seed blog posts</h3>
+
+<p>This rake task will add a bunch of blog posts to your DB:</p>
+
+<pre class="code bash"><code class="bash">rake blogit:seed
+</code></pre>
+
+<p>Make sure you have at least one model defined as a blogger (probably User or Admin)</p>
+
+<h3>CSS Themes</h3>
+
+<p>Too lazy to write your own CSS? Load in one of blogit&#39;s themes.</p>
+
+<pre class="code css"><code class="css">/*
+ *= require blogit/themes/[theme-name]
+*/
+</code></pre>
+
+<p>The list of themes currently available:</p>
+
+<ul>
+<li>default</li>
+</ul>
+
 <h2>Configuration</h2>
 
-<p>Running <code>rails g blogit:install</code> will add an initializer file named blogit.rb. In here
-you can set various configuration options. Please <a href="http://rubydoc.info/gems/blogit/Blogit/Configuration">read the documentation</a> for a full list of the options available.</p>
+<p>Running <code>rails g blogit:install</code> will add an initializer file named <code>config/initializers/blogit.rb</code>. Here you can set various configuration options. </p>
 
-<h2>At no extra cost...</h2>
+<p>Please <span class='object_link'><a href="Blogit/Configuration.html" title="Blogit::Configuration (class)">read the configuration docs</a></span> for a full list of the options available.</p>
 
-<p>we&#39;ll also throw in:</p>
+<h2>How to</h2>
+
+<p>There&#39;s a ton of stuff you can do with Blogit. Please read the <a href="file.HowTo.html" title="How To Guide">How To Guide</a> for more information.</p>
+
+<h2>Batteries included</h2>
+
+<p>Blogit provides you with the following features</p>
 
 <ul>
 <li>An XML Sitemap located at <code>/blog/posts.xml</code></li>
 <li>An RSS feed located at <code>/blog/posts.rss</code></li>
-<li>Sitemap submission to the major search engines (via <a href="http://github.com/katanacode/pingr" title="Pingr">Pingr</a> - off by default)</li>
-<li>Page Caching and Sweeping</li>
-<li>Internationalization (see the <a href="config/locales/en.yml">locales file</a> for configurable options)</li>
+<li>Internationalization (see the locales files for configurable options)</li>
 <li>Share links (Google+, Twitter &amp; Facebook)</li>
 <li><a href="http://disqus.com">Disquss Comments</a></li>
 <li>Code Syntax Highlighting CSS file (add <code>*= require pygments</code> to your app&#39;s stylesheet)</li>
+<li>CSS Themes</li>
 </ul>
 
-<h2>Rails 4</h2>
+<h2>Features we&#39;ve still to add</h2>
 
-<p>@grncdr Has contributed changes for Rails 4 compatibility. Check out the rails 4 branch for more info. NOTE - This code hasn&#39;t been tested yet and may contain bugs.</p>
+<p>Blogit is still undergoing development. We&#39;re always looking for ways to make it better.</p>
+
+<p>Read the <a href="file.TODOs.html" title="TODOs">TODOs</a> page for a list of the features we&#39;d like to support.</p>
+
+<h2>Upgrading from a previous version?</h2>
+
+<p>If you&#39;re upgrading from a beta version of blogit, please read <a href="http://blogit.katanacode.com/doc/file.Upgrading.html">this upgrade guide</a></p>
 
 <h2>Issues</h2>
 
@@ -143,25 +185,19 @@ you can set various configuration options. Please <a href="http://rubydoc.info/g
 <p><strong>Remember</strong> to search the <a href="https://github.com/KatanaCode/blogit/issues">issues list</a> first in case your issue has already been raised
 by another Githuber</p>
 
-<h2>Documentation</h2>
-
-<p>Full documentation is available here: <a href="http://rubydoc.info/gems/blogit">http://rubydoc.info/gems/blogit</a></p>
-
 <h2>Contributing</h2>
 
-<p>You&#39;re welcome to contribute to Blogit. Please consult the <a href="https://github.com/KatanaCode/blogit/wiki/Contributing">contribution guidelines</a> for more info.</p>
+<p>Want to help make Blogit better?. Please read the <a href="http://blogit.katanacode.com/doc/file.Contributing.html">contribution guidelines</a> for more information on how you can contribute.</p>
 
 <h2>Legal Stuff</h2>
 
-<p>Copyright 2011 <a href="http://katanacode.com">Katana Code Ltd.</a></p>
+<p>Blogit is realeased under the MIT License.</p>
 
-<p>See <a href="LEGAL">LEGAL</a> for full details.</p>
+<p>See <a href="https://github.com/KatanaCode/blogit/blob/master/MIT-LICENSE">LEGAL</a> for full details.</p>
 
 <h2>Credits</h2>
 
-<p>Developed by <a href="http://katanacode.com">Katana Code</a></p>
-
-<p>with generous contributions from:</p>
+<p>Blogit was developed by <a href="http://katanacode.com">Katana Code</a> with generous contributions from:</p>
 
 <ul>
 <li><a href="https://github.com/philou">Philou</a></li>
@@ -172,10 +208,12 @@ by another Githuber</p>
 <h2>About Katana Code</h2>
 
 <p>Katana Code are <a href="http://katanacode.com/" title="Katana Code">web developers based in Edinburgh, Scotland</a>.</p>
+
+<p>Copyright © 2011 - 2015 <a href="http://katanacode.com">Katana Code Ltd.</a></p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jun 22 13:51:11 2015 by
+  Generated on Mon Jun 22 17:13:43 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>
