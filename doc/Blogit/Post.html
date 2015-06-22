@@ -92,31 +92,15 @@
     
   
     
-      <dt class="r2">Includes:</dt>
-      <dd class="r2">ActionView::Helpers::TextHelper</dd>
-      
-    
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">app/models/blogit/post.rb</dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/blogit/post.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
-
-  <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="AVAILABLE_STATUS-constant" class="">AVAILABLE_STATUS =
-          
-        </dt>
-        <dd><pre class="code"><span class='lparen'>(</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_hidden_states'>hidden_states</span> <span class='op'>+</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_active_states'>active_states</span><span class='rparen'>)</span></pre></dd>
-      
-    </dl>
-  
 
 
 
@@ -341,7 +325,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>The content of the Post to be shown in the RSS feed.</p>
+</div></span>
   
 </li>
 
@@ -372,7 +357,6 @@
   
 
 
-  
   
 
   <div id="class_method_details" class="method_details_list">
@@ -457,12 +441,12 @@
       <pre class="lines">
 
 
-69
-70
-71</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_active_with_id'>active_with_id</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_active'>active</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
@@ -514,12 +498,12 @@
       <pre class="lines">
 
 
-59
-60
-61</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_for_feed'>for_feed</span>
   <span class='id identifier rubyid_active'>active</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>created_at DESC</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -577,10 +561,10 @@
       <pre class="lines">
 
 
-38</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 30</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:blogger</span><span class='comma'>,</span> <span class='symbol'>:polymorphic</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -668,20 +652,18 @@
 111
 112
 113
-114
-115</pre>
+114</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blogger_display_name'>blogger_display_name</span>
-  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span> <span class='kw'>and</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ConfigurationError</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span><span class='embexpr_end'>}</span><span class='tstring_content'> is not defined</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>elsif</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_method_name'>method_name</span> <span class='op'>=</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_blogger_display_name_method'>blogger_display_name_method</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ConfigurationError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_method_name'>method_name</span><span class='embexpr_end'>}</span><span class='tstring_content'> is not defined</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -715,14 +697,14 @@ Otherwise, returns nil</p>
       <pre class="lines">
 
 
+118
 119
 120
 121
-122
-123</pre>
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blogger_twitter_username'>blogger_twitter_username</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_blogger'>blogger</span> <span class='kw'>and</span> <span class='id identifier rubyid_blogger'>blogger</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:twitter_username</span><span class='rparen'>)</span>
@@ -776,10 +758,10 @@ Otherwise, returns nil</p>
       <pre class="lines">
 
 
-44</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 36</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:comments</span><span class='comma'>,</span> <span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blogit::Comment</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -844,12 +826,12 @@ Otherwise, returns nil</p>
       <pre class="lines">
 
 
-78
-79
-80</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_published_at'>published_at</span>
   <span class='id identifier rubyid_created_at'>created_at</span>
@@ -868,21 +850,69 @@ Otherwise, returns nil</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The content of the Post to be shown in the RSS feed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>description when Blogit.configuration.show_post_description is true</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>body when Blogit.configuration.show_post_description is false</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+82
+83
+84
+85
 86
 87
 88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_short_body'>short_body</span>
-  <span class='id identifier rubyid_truncate'>truncate</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='label'>length:</span> <span class='int'>400</span><span class='comma'>,</span> <span class='label'>separator:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>Blogit</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_show_post_description'>show_post_description</span>
+    <span class='id identifier rubyid_description'>description</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_body'>body</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -904,12 +934,12 @@ Otherwise, returns nil</p>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'app/models/blogit/post.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_param'>to_param</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_title'>title</span><span class='period'>.</span><span class='id identifier rubyid_parameterize'>parameterize</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -924,7 +954,7 @@ Otherwise, returns nil</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Jun 22 17:13:44 2015 by
+  Generated on Mon Jun 22 18:33:18 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>

@@ -2,11 +2,11 @@ lib/blogit.rb f2330839ccec0d0332c6c432019f035c9ec023b8
 lib/validators.rb 6aadd83d9ca5e938ed70a3197e65895df1a09385
 lib/blogit/blogs.rb 25d9c0ef8421d0ea9e60fc001037893cca9bcc4a
 lib/blogit/engine.rb f84724f25c7a0585e64c6acd94c5fade6d0ac8c0
-lib/blogit/version.rb 57a2950feea57297263af1170b22b45d9bfdbf45
+lib/blogit/version.rb 038c9dacb6107a6765047c157a58653b8566850e
 lib/blogit/archive.rb a6aa2e6cf308c10819ab753ad53893161c6ad9b3
 lib/blogit/parsers.rb f278923598a6405003550b89b6969f9920d54234
 lib/blogit/renderers.rb b1b967649726c1664e330ff7ed94dcdd87fd2620
-app/models/blogit/post.rb dad10fd206ba177731dc88c1ef876b10310656ef
+app/models/blogit/post.rb 25f555760eb5af3ce643ac313ef71c0a97efc173
 lib/blogit/archive/year.rb 2bbfce7aceacc6fe267a9b5e798d432cc26b0674
 lib/blogit/archive/list.rb 86bc79570b42b897900ed4b7cbe347689ebf0d5a
 lib/blogit/archive/month.rb 5a51248b17d9eef12f672a1fcafcfdc4a0f27680
@@ -24,7 +24,7 @@ lib/blogit/parsers/markdown_parser.rb 249ce5760b2fc5bffce1bcafd8542eab0ad4bfcb
 app/helpers/blogit/comments_helper.rb 108b3aad06dca9ae99d019fa38ead3d62a0c3918
 lib/blogit/renderers/html_with_albino.rb 7d0cc2316a20c93403bf049747f74413e4212780
 lib/generators/blogit/views_generator.rb 5a20061d4031a17ebf7ab8acc5ad37635ba7ca52
-app/helpers/blogit/application_helper.rb 01fa39fd73248ea54bb583d642efa968429ccca8
+app/helpers/blogit/application_helper.rb d06a75660f1eab330c80cf4499411c4cda99bfd1
 app/controllers/blogit/posts_controller.rb 577b0e26bcddbc14dee5de44d4e6916473056fab
 lib/generators/blogit/install_generator.rb 1938dcb8e9ce28837f728c661f5f83c091bc41d5
 app/controllers/blogit/comments_controller.rb 3babb9b3d2fce734fb056025301a4648734f5098
