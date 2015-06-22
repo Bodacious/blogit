@@ -1,9 +1,8 @@
 [![Gem Version](https://badge.fury.io/rb/blogit.png)](http://badge.fury.io/rb/blogit)
 [![Code Climate](https://codeclimate.com/github/KatanaCode/blogit.png)](http://codeclimate.com/github/KatanaCode/blogit/)
+[![Test Coverage](https://d3s6mut3hikguw.cloudfront.net/github/KatanaCode/blogit/badges/coverage.svg)](http://codeclimate.com/github/KatanaCode/blogit/badges/)
 [![Blogit](https://gemnasium.com/KatanaCode/blogit.png)](https://gemnasium.com/KatanaCode/blogit)
 [![Travis CI](https://travis-ci.org/KatanaCode/blogit.png)](https://travis-ci.org/KatanaCode/blogit.png)
-
-
 
 # Blogit - A Rails blogging solution
 
