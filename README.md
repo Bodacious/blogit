@@ -93,6 +93,7 @@ See [LEGAL][GithubLicence] for full details.
 
 Blogit was developed by [Katana Code](http://katanacode.com) with generous contributions from:
 
+* [Juan Esparza](https://github.com/jjeb)
 * [Philou](https://github.com/philou)
 * [Stewart McKee](https://github.com/stewartmckee)
 * [Karsten Silkenbäumer](https://github.com/kassi)
