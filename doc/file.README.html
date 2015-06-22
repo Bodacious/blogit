@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Blogit - Add a blog to your Ruby on Rails application
   
 </title>
 
@@ -66,17 +66,11 @@
 <a href="https://gemnasium.com/KatanaCode/blogit"><img src="https://gemnasium.com/KatanaCode/blogit.png" alt="Blogit"></a>
 <a href="https://travis-ci.org/KatanaCode/blogit.png"><img src="https://travis-ci.org/KatanaCode/blogit.png" alt="Travis CI"></a></p>
 
-<h1>Blogit (beta)</h1>
+<h1>Blogit - A Rails blogging solution</h1>
 
-<p>Blogit is a flexible blogging solution for Rails apps. It:</p>
+<p>Blogit lets you add a blog to your Ruby on Rails application in just a few seconds.</p>
 
-<ul>
-<li>Is Rack based;</li>
-<li>Is a complete MVC solution based on Rails engines</li>
-<li>Aims to work right out of the box but remain fully customisable.</li>
-</ul>
-
-<h2>Installation</h2>
+<h2>Instant gratification</h2>
 
 <p>Add this to your Gemfile</p>
 
@@ -101,9 +95,7 @@ rake db:migrate
 mount Blogit::Engine =&gt; &quot;/blog&quot;
 </code></pre>
 
-<p>Define <code>ApplicationController#current_user</code> and <code>ApplicationController#login_required</code> methods if your app doesn&#39;t already have these.</p>
-
-<p>... and finally, declare which of your models acts as blogger in your app (usually User).</p>
+<p>Finally, declare which of your models acts as blogger in your app (probably User or Admin).</p>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>User</span>
 
@@ -115,26 +107,20 @@ mount Blogit::Engine =&gt; &quot;/blog&quot;
 <h2>Configuration</h2>
 
 <p>Running <code>rails g blogit:install</code> will add an initializer file named blogit.rb. In here
-you can set various configuration options. Please <a href="http://rubydoc.info/gems/blogit/Blogit/Configuration">read the documentation</a> for a full list of the options available.</p>
+you can set various configuration options. Please <a href="http://blogit.katanacode.com">read the documentation</a> for a full list of the options available.</p>
 
-<h2>At no extra cost...</h2>
+<h2>Batteries included</h2>
 
-<p>we&#39;ll also throw in:</p>
+<p>Blogit provides you with the following features</p>
 
 <ul>
 <li>An XML Sitemap located at <code>/blog/posts.xml</code></li>
 <li>An RSS feed located at <code>/blog/posts.rss</code></li>
-<li>Sitemap submission to the major search engines (via <a href="http://github.com/katanacode/pingr" title="Pingr">Pingr</a> - off by default)</li>
-<li>Page Caching and Sweeping</li>
 <li>Internationalization (see the <a href="config/locales/en.yml">locales file</a> for configurable options)</li>
 <li>Share links (Google+, Twitter &amp; Facebook)</li>
 <li><a href="http://disqus.com">Disquss Comments</a></li>
 <li>Code Syntax Highlighting CSS file (add <code>*= require pygments</code> to your app&#39;s stylesheet)</li>
 </ul>
-
-<h2>Rails 4</h2>
-
-<p>@grncdr Has contributed changes for Rails 4 compatibility. Check out the rails 4 branch for more info. NOTE - This code hasn&#39;t been tested yet and may contain bugs.</p>
 
 <h2>Issues</h2>
 
@@ -145,15 +131,15 @@ by another Githuber</p>
 
 <h2>Documentation</h2>
 
-<p>Full documentation is available here: <a href="http://rubydoc.info/gems/blogit">http://rubydoc.info/gems/blogit</a></p>
+<p>Full documentation is available here: <a href="http://blogit.katanacode.com">http://blogit.katanacode.com</a></p>
 
 <h2>Contributing</h2>
 
-<p>You&#39;re welcome to contribute to Blogit. Please consult the <a href="https://github.com/KatanaCode/blogit/wiki/Contributing">contribution guidelines</a> for more info.</p>
+<p>You&#39;re welcome to contribute to Blogit. Please consult the <a href="http://blogit.katanacode.com/doc/file.Contributing.html">contribution guidelines</a> for more info.</p>
 
 <h2>Legal Stuff</h2>
 
-<p>Copyright 2011 <a href="http://katanacode.com">Katana Code Ltd.</a></p>
+<p>Copyright © 2011 - 2015 <a href="http://katanacode.com">Katana Code Ltd.</a></p>
 
 <p>See <a href="LEGAL">LEGAL</a> for full details.</p>
 
@@ -175,7 +161,7 @@ by another Githuber</p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jun 22 02:07:37 2015 by
+  Generated on Mon Jun 22 15:23:49 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>
