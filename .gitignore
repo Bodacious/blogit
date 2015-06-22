@@ -2,7 +2,10 @@
 .rvmrc
 .DS_Store
 .yardoc/
+
+# Keep this out - it will break Travis
 Gemfile.lock
+
 log/*.log
 pkg/
 tmp/**/*

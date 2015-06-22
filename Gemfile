@@ -5,16 +5,16 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-# rails_version = ENV["RAILS_VERSION"] || "default"
-#
-# rails = case rails_version
-# when "master"
-#   {github: "rails/rails"}
-# when "default"
-#   ">= 4.2.0"
-# else
-#   "~> #{rails_version}"
-# end
+rails_version = ENV["RAILS_VERSION"] || "default"
+
+rails = case rails_version
+when "master"
+  {github: "rails/rails"}
+when "default"
+  ">= 4.2.0"
+else
+  "~> #{rails_version}"
+end
 
 gem "rails", "4.2.0"
 
