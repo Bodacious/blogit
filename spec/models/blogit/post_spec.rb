@@ -164,25 +164,34 @@ describe Blogit::Post do
 
   end
 
-  describe "body preview" do
-    it "should not truncate a short body" do
-      post = Blogit::Post.new(body: "short body")
-
-      expect(post.short_body).to eq(post.body)
+  describe :short_body do
+    
+    let(:post) { build(:post) }
+    
+    context "when Blogit.configuration.show_post_description is true" do
+      
+      before do
+        Blogit.configuration.show_post_description = true
+      end
+      
+      it "returns the Post's description" do
+        expect(post.short_body).to eq(post.description)
+      end
+      
     end
 
-    it "should not truncate a long body" do
-      post = Blogit::Post.new(body: "t\n"*300)
+    context "when Blogit.configuration.show_post_description is false" do
+      
+      before do
+        Blogit.configuration.show_post_description = false
+      end
 
-      expect(post.short_body).to eq("t\n"*198 + "t...")
+      it "returns the Post's description" do
+        expect(post.short_body).to eq(post.body)
+      end
+      
     end
 
-    it "should not cut the body in the middle of an image declaration" do
-      body = "some text\n"*35 + '"!http://www.images.com/blogit/P6876.thumb.jpg(Look at this)!\":http://www.images.com/blogit/P6976.jpb'
-      post = Blogit::Post.new(body: body)
-
-      expect(post.short_body).not_to include('"!http://www.images.com')
-    end
   end
   
   describe "blogger_twitter_username" do
@@ -218,10 +227,4 @@ describe Blogit::Post do
     end
   end
   
-  describe 'AVAILABLE_STATUS'  do
-    it "returns all the statues in Blogit::configuration" do
-      expect(Blogit::Post::AVAILABLE_STATUS).to  eq(Blogit.configuration.hidden_states + Blogit.configuration.active_states)
-    end
-    
-  end
 end
