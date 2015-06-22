@@ -1,4 +1,5 @@
 require 'yaml'
+load "lib/tasks/blogit/css.rake"
 
 namespace :blogit do
   
