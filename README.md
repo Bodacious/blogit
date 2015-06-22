@@ -30,7 +30,7 @@ $ rails g blogit:install
 rake blogit:install:migrations
 
 # You don't need to run again this if you've already done so
-rake acts\_as\_taggable\_on:install:migrations
+rake acts_as_taggable_on:install:migrations
 
 # This will run any pending migrations
 rake db:migrate
