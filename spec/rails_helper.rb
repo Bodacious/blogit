@@ -15,7 +15,7 @@ require 'support/helpers/css_matchers'
 
 silence_stream STDOUT do
   load "#{Rails.root}/db/schema.rb"
-end
+end if ENV["DB"] == "sqlite"
 
 
 include Blogit
