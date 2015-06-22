@@ -1,17 +1,9 @@
 module Blogit
   class Post < ActiveRecord::Base
 
-    require 'acts-as-taggable-on'
-    require "kaminari"
-
-    include ::ActionView::Helpers::TextHelper
-
     acts_as_taggable
 
-    self.paginates_per Blogit.configuration.posts_per_page
-
-    AVAILABLE_STATUS = (Blogit.configuration.hidden_states + Blogit.configuration.active_states)
-
+    self.paginates_per(Blogit.configuration.posts_per_page)
 
     # ===============
     # = Validations =
@@ -83,8 +75,16 @@ module Blogit
       "#{id}-#{title.parameterize}"
     end
     
+    # The content of the Post to be shown in the RSS feed.
+    #
+    # Returns description when Blogit.configuration.show_post_description is true
+    # Returns body when Blogit.configuration.show_post_description is false
     def short_body
-      truncate(body, length: 400, separator: "\n")
+      if Blogit.configuration.show_post_description
+        description
+      else
+        body
+      end
     end
     
     def comments
@@ -126,7 +126,10 @@ module Blogit
 
 
     def check_comments_config
-      raise RuntimeError.new("Posts only allow active record comments (check blogit configuration)") unless Blogit.configuration.include_comments == :active_record
+      unless Blogit.configuration.include_comments == :active_record
+        raise RuntimeError, 
+          "Posts only allow active record comments (check blogit configuration)"
+      end
     end
     
   end
