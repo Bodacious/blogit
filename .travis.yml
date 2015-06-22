@@ -49,5 +49,6 @@ script:
   
   - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake blogit:install:migrations; else bundle exec rake app:blogit:install:migrations; fi
 
-  # Run the specs
-  - bundle exec rspec spec
+  # Run the specs with CodeClimate API key
+  - CODECLIMATE_REPO_TOKEN=b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2 bundle exec rake
+  
