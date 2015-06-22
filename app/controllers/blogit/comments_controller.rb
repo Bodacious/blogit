@@ -30,7 +30,7 @@ module Blogit
 
     # Set this controller's post attribute to the current Post
     def set_post_from_post_id
-      @post = Blogit::Post.find(params[:post_id])
+      @post = Blogit::Post.active_with_id(params[:post_id])
     end
 
     # Set this controller's comment attribute as a new comment with params
