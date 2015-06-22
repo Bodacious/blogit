@@ -24,7 +24,7 @@ namespace :blogit do
   
   
   def seed_blog_content
-    YAML.load(File.read(File.join("lib/tasks/seed_blog_posts.yml")))
+    YAML.load(File.read(File.join(File.dirname(__FILE__), "seed_blog_posts.yml")))
   end
   
   

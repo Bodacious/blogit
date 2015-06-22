@@ -31,16 +31,22 @@ module Blogit
     # = Associations =
     # ================
 
+    ##
+    # The blogger (User, Admin, etc.) who wrote this Post
+    #
+    # Returns a Blogger (polymorphic type)
     belongs_to :blogger, :polymorphic => true
 
+    ##
+    # The {Comment Comments} written on this Post
+    #
+    # Returns an ActiveRecord::Relation instance
     has_many :comments, :class_name => "Blogit::Comment"
 
     # ==========
     # = Scopes =
     # ==========
 
-    # Returns the blog posts paginated for the index page
-    # @scope class
     scope :for_index, lambda { |page_no = 1| 
       active.order("created_at DESC").page(page_no) }
       
@@ -92,8 +98,11 @@ module Blogit
     end
     
 
-    # If there's a current blogger and the display name method is set, returns the blogger's display name
-    # Otherwise, returns an empty string
+    # The blogger who wrote this {Post Post's} display name
+    #
+    # Returns the blogger's display name as a String if it's set.
+    # Returns an empty String if blogger is not present.
+    # Raises a ConfigurationError if the method called is not defined on {#blogger}
     def blogger_display_name
       if self.blogger and !self.blogger.respond_to?(Blogit.configuration.blogger_display_name_method)
         raise ConfigurationError,
@@ -101,7 +110,7 @@ module Blogit
       elsif self.blogger.nil?
         ""
       else
-        self.blogger.send Blogit.configuration.blogger_display_name_method
+        blogger.send(Blogit.configuration.blogger_display_name_method)
       end
     end
 

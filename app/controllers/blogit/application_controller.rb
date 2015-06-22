@@ -13,7 +13,7 @@ module Blogit
     # A helper method to access the Blogit::configuration
     # at the class level.
     #
-    # Returns a Blogit::Configuration
+    # @returns Blogit::Configuration
     def self.blogit_conf
       Blogit::configuration
     end

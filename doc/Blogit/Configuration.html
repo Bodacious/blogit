@@ -111,8 +111,7 @@
         <dt id="ACTIVE_STATES-constant" class="">ACTIVE_STATES =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Default values for active_state</p>
+    <p>Default values for active_state</p>
 
 
   </div>
@@ -127,8 +126,7 @@
         <dt id="HIDDEN_STATES-constant" class="">HIDDEN_STATES =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Default values for hidden_state</p>
+    <p>Default values for hidden_state</p>
 
 
   </div>
@@ -143,8 +141,7 @@
         <dt id="REDCARPET_OPTIONS-constant" class="">REDCARPET_OPTIONS =
           <div class="docstring">
   <div class="discussion">
-    
-<p>When using redcarpet as content parser, pass these options as defaults.</p>
+    <p>When using redcarpet as content parser, pass these options as defaults.</p>
 
 
   </div>
@@ -241,9 +238,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>If the user has defined a disqus shortname but hasn&#39;t set
-include_comments to disqus, print a warning to the console.</p>
+    <span class="summary_desc"><div class='inline'><p>If the user has defined a disqus shortname but hasn&#39;t set include_comments to disqus, print a warning to the console.</p>
 </div></span>
   
 </li>
@@ -315,31 +310,6 @@ include_comments to disqus, print a warning to the console.</p>
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#twitter_username%3D-instance_method" title="#twitter_username= (instance method)">- (Object) <strong>twitter_username=</strong>(username) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>If the user has defined a disqus shortname but hasn&#39;t set
-include_comments to disqus, print a warning to the console.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -365,12 +335,12 @@ include_comments to disqus, print a warning to the console.</p>
       <pre class="lines">
 
 
-157
-158
-159</pre>
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blogit_warn'>blogit_warn</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[Blogit]: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_message'>message</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -421,9 +391,8 @@ include_comments to disqus, print a warning to the console.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>If the user has defined a disqus shortname but hasn&#39;t set
-include_comments to disqus, print a warning to the console.</p>
+    <p>If the user has defined a disqus shortname but hasn&#39;t set include_comments to
+disqus, print a warning to the console.</p>
 
 
   </div>
@@ -477,12 +446,12 @@ include_comments to disqus, print a warning to the console.</p>
       <pre class="lines">
 
 
-152
-153
-154</pre>
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rails_app_name'>rails_app_name</span>
   <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_engine_name'>engine_name</span><span class='period'>.</span><span class='id identifier rubyid_titleize'>titleize</span>
@@ -507,12 +476,12 @@ include_comments to disqus, print a warning to the console.</p>
       <pre class="lines">
 
 
-143
-144
-145</pre>
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 133</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rss_feed_description'>rss_feed_description</span>
   <span class='ivar'>@rss_feed_description</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Latest from </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rails_app_name'>rails_app_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -537,65 +506,15 @@ include_comments to disqus, print a warning to the console.</p>
       <pre class="lines">
 
 
-139
-140
-141</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rss_feed_title'>rss_feed_title</span>
   <span class='ivar'>@rss_feed_title</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rails_app_name'>rails_app_name</span><span class='embexpr_end'>}</span><span class='tstring_content'> Blog Posts</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="twitter_username=-instance_method">
-  
-    - (<tt>Object</tt>) <strong>twitter_username=</strong>(username) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>If the user has defined a disqus shortname but hasn&#39;t set
-include_comments to disqus, print a warning to the console.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-131
-132
-133
-134
-135
-136
-137</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 131</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_twitter_username='>twitter_username=</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
-  <span class='kw'>unless</span> <span class='id identifier rubyid_include_share_bar'>include_share_bar</span>
-    <span class='id identifier rubyid_blogit_warn'>blogit_warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You&#39;ve set config.twitter_username in your blogit config file but \
-      config.include_share_bar is set to false</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='ivar'>@twitter_username</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -607,7 +526,7 @@ include_comments to disqus, print a warning to the console.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jun 21 20:36:39 2015 by
+  Generated on Mon Jun 22 02:28:03 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>

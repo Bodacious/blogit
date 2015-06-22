@@ -24,7 +24,7 @@ module Blogit
     #
     # Returns a collection of {Post Posts}
     def related_posts_for_post(post)
-      post.active.find_related_on_tags
+      post.find_related_on_tags.active
     end
 
     # Creates a ul tag tree with posts by year and months. Include blogit/archive.js in
