@@ -55,4 +55,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "factory_girl", ">=4.1.0"
   s.add_development_dependency "mocha"
   s.add_development_dependency "sass"
+  s.add_development_dependency "timecop"
 end

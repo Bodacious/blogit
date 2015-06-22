@@ -23,6 +23,8 @@ module Blogit
     # "RSS" -  calls {#set_posts_for_feed}.
     # "HTML" - calls {#set_posts_for_index_page}.
     #
+    # Yields #posts if called with a block (useful for calling super from subclasses)
+    #
     # Returns nil
     def index
       respond_to do |format|
@@ -30,17 +32,24 @@ module Blogit
         format.rss  { set_posts_for_feed }
         format.html { set_posts_for_index_page }
       end
+      yield(posts) if block_given?      
     end
 
     # Handles GET requests to /blogit/posts/:id.html
+    #
+    # Yields #post if called with a block (useful for calling super from subclasses)
     def show
       set_post
+      yield post if block_given?
     end
 
     # Handles GET requests to /blogit/posts/tagged/:tag.html. Renders the index template
     # with Posts tagged with tag in *tag* parameter
+    #
+    # Yields #posts if called with a block (useful for calling super from subclasses)
     def tagged
       set_posts_for_tagged_page
+      yield(posts) if block_given?      
       render :index
     end
 

@@ -6,7 +6,7 @@ describe Blogit::CommentsController do
     @routes = Blogit::Engine.routes
   end
   
-  let(:blog_post) { Blogit::Post.first || create(:post) }
+  let(:blog_post) { Blogit::Post.active.first || create(:post, :active) }
 
   let(:comment_attributes) { attributes_for(:comment) }
   
