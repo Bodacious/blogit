@@ -10,7 +10,7 @@ describe Blogit::Post do
 
       it "is nil" do
         expect(blog_post).not_to be_valid
-        expect(blog_post).to have(1).error_on(:blogger_id)
+        expect(blog_post.errors[:blogger_id].size).to eq(1)
       end
 
     end
@@ -61,7 +61,7 @@ describe Blogit::Post do
 
       it "is nil" do
         expect(@blog_post).not_to be_valid
-        expect(@blog_post).to have(1).error_on(:state)
+        expect(@blog_post.errors[:state].size).to eq(1)
       end
 
     end

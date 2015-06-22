@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Blogit::Configuration do
 
@@ -18,14 +18,8 @@ describe Blogit::Configuration do
     blog_configuration.disqus_shortname = "bodacious"
   end
 
-  it "should print a warning to the console if twitter_username is set but include_share_bar is false" do
-    blog_configuration.expects(:warn)
-    blog_configuration.include_share_bar = false
-    blog_configuration.twitter_username = "bodacious"
-  end
-
   it "should set :include_share_bar to false" do
-    expect(blog_configuration.include_share_bar).to eq(false)
+    expect(blog_configuration.include_share_bar).to eq(true)
   end
 
   it "should set :twitter_username to blank" do

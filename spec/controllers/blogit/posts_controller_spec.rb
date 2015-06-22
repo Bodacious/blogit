@@ -72,7 +72,7 @@ describe Blogit::PostsController do
   describe "GET 'show'" do
 
     before do
-      Blogit::Post.expects(:find).with("1").returns(blog_post)
+      Blogit::Post.expects(:active_with_id).with("1").returns(blog_post)
     end
 
     def do_get

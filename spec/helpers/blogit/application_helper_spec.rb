@@ -13,9 +13,10 @@ describe Blogit::ApplicationHelper do
       expect(helper.format_content("h1. Hello\n\nWorld")).to eq("<h1>Hello</h1>\n<p>World</p>")
     end
 
-    it "should convert html text to html if conf is :html" do
+    it "should leave html text as html if conf is :html" do
       Blogit.configure { |c| c.default_parser = :html }
-      expect(helper.format_content("<h1>Hello</h1>\n\n<p>World</p>")).to eq("<h1>Hello</h1>\n\n<p>World</p>")
+      string = "<h1>Hello</h1>\n\n<p>World</p>"
+      expect(helper.format_content(string)).to eq(string)
     end
   end
 

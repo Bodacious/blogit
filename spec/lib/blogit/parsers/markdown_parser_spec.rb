@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Blogit::Parsers::MarkdownParser do
 
@@ -28,7 +28,7 @@ describe Blogit::Parsers::MarkdownParser do
       it "should raise an exception if pygments isn't installed" do
         original_path = ENV['PATH']
         ENV['PATH']   = ""
-        expect { parser.parsed }.to raise_error
+        expect { parser.parsed }.to raise_error(RuntimeError)
         ENV["PATH"] = original_path
       end
       

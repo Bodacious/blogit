@@ -20,7 +20,7 @@ module Blogit
     def format_content(content = nil, &block)
       content = capture(&block) if block_given?
       parser  = Blogit::configuration.default_parser_class.new(content)
-      parser.parsed.html_safe
+      parser.parsed.to_s.html_safe
     end
 
     # The first error message for an ActiveRecord::Base model instance attribute

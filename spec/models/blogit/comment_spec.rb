@@ -10,53 +10,53 @@ describe Comment do
     it "has a value for nickname" do
       comment.nickname = "Gavin"
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:nickname)
+      expect(comment.errors[:nickname].size).to eq(1)
     end
 
     it "doesn't have a value for name" do
       comment.name = ""
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:name)
+      expect(comment.errors[:name].size).to eq(1)
     end
 
     it "doesn't have a value for email" do
       comment.email = ""
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:email)
+      expect(comment.errors[:email].size).to eql(1)
     end
 
     it "doesn't have a valid email" do
       comment.email = "notvalid.com"
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:email)
+      expect(comment.errors[:email].size).to eql(1)
 
       # has a space
       comment.email = "something else"
       expect(comment).not_to be_valid
-      expect(comment.error_on(:email).size).to eq(1)
+      expect(comment.errors[:email].size).to eql(1)
 
       # Has two @s
       comment.email = "gavin@gavin@notvalid.com"
       expect(comment).not_to be_valid
-      expect(comment.error_on(:email).size).to eq(1)
+      expect(comment.errors[:email].size).to eq(1)
     end
 
     it "doesn't have a value for body" do
       comment.body = ""
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:body)
+      expect(comment.errors[:body].size).to eq(1)
     end
 
     it "doesn't have at least 4 characters in the body" do
       comment.body = "abc"
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:body)
+      expect(comment.errors[:body].size).to eq(1)
     end
     
     it "doesn't have a valid website url" do
       comment.website = "not valid"
       expect(comment).not_to be_valid
-      expect(comment).to have(1).error_on(:website)
+      expect(comment.errors[:website].size).to eq(1)
     end
 
   end
