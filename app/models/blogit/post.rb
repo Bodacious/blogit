@@ -104,13 +104,12 @@ module Blogit
     # Returns an empty String if blogger is not present.
     # Raises a ConfigurationError if the method called is not defined on {#blogger}
     def blogger_display_name
-      if self.blogger and !self.blogger.respond_to?(Blogit.configuration.blogger_display_name_method)
-        raise ConfigurationError,
-        "#{self.blogger.class}##{Blogit.configuration.blogger_display_name_method} is not defined"
-      elsif self.blogger.nil?
-        ""
-      else
+      return "" if blogger.blank?
+      if blogger.respond_to?(Blogit.configuration.blogger_display_name_method)
         blogger.send(Blogit.configuration.blogger_display_name_method)
+      else
+        method_name = Blogit.configuration.blogger_display_name_method
+        raise ConfigurationError, "#{blogger.class}##{method_name} is not defined"
       end
     end
 
