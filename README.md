@@ -5,15 +5,11 @@
 
 
 
-# Blogit (beta)
+# Blogit - A Rails blogging solution
 
-Blogit is a flexible blogging solution for Rails apps. It:
+Blogit lets you add a blog to your Ruby on Rails application in just a few seconds.
 
-* Is Rack based;
-* Is a complete MVC solution based on Rails engines
-* Aims to work right out of the box but remain fully customisable.
-
-## Installation
+## Instant gratification
 
 Add this to your Gemfile
 
@@ -33,6 +29,7 @@ rake blogit:install:migrations
 # This will run any pending migrations
 rake db:migrate
 ``` 
+
 then add the following to your routes.rb file:
 
 ``` bash
@@ -40,9 +37,7 @@ then add the following to your routes.rb file:
 mount Blogit::Engine => "/blog"
 ```
 
-Define `ApplicationController#current_user` and `ApplicationController#login_required` methods if your app doesn't already have these.
-
-... and finally, declare which of your models acts as blogger in your app (usually User).
+Finally, declare which of your models acts as blogger in your app (probably User or Admin).
 
 ``` ruby
 class User
@@ -55,24 +50,18 @@ end
 ## Configuration
 
 Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
-you can set various configuration options. Please [read the documentation](http://rubydoc.info/gems/blogit/Blogit/Configuration) for a full list of the options available.
+you can set various configuration options. Please [read the documentation](http://blogit.katanacode.com) for a full list of the options available.
 
-## At no extra cost...
+## Batteries included
 
-we'll also throw in:
+Blogit provides you with the following features
 
 * An XML Sitemap located at `/blog/posts.xml`
 * An RSS feed located at `/blog/posts.rss`
-* Sitemap submission to the major search engines (via [Pingr](http://github.com/katanacode/pingr "Pingr") - off by default)
-* Page Caching and Sweeping
 * Internationalization (see the [locales file](config/locales/en.yml) for configurable options)
 * Share links (Google+, Twitter & Facebook)
 * [Disquss Comments](http://disqus.com)
 * Code Syntax Highlighting CSS file (add `*= require pygments` to your app's stylesheet)
-
-## Rails 4
-
-@grncdr Has contributed changes for Rails 4 compatibility. Check out the rails 4 branch for more info. NOTE - This code hasn't been tested yet and may contain bugs.
 
 ## Issues
 
@@ -83,15 +72,15 @@ by another Githuber
 
 ## Documentation
 
-Full documentation is available here: http://rubydoc.info/gems/blogit
+Full documentation is available here: http://blogit.katanacode.com
 
 ## Contributing
 
-You're welcome to contribute to Blogit. Please consult the [contribution guidelines](https://github.com/KatanaCode/blogit/wiki/Contributing) for more info.
+You're welcome to contribute to Blogit. Please consult the [contribution guidelines](http://blogit.katanacode.com/doc/file.Contributing.html) for more info.
 
 ## Legal Stuff
 
-Copyright 2011 [Katana Code Ltd.](http://katanacode.com)
+Copyright © 2011 - 2015 [Katana Code Ltd.](http://katanacode.com)
 
 See [LEGAL](LEGAL) for full details.
 

@@ -6,7 +6,7 @@
 <title>
   Class: Blogit::ApplicationController
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Blogit - Add a blog to your Ruby on Rails application
   
 </title>
 
@@ -147,7 +147,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A helper method to access the Blogit::configuration at the class level.</p>
+    <span class="summary_desc"><div class='inline'><p>A helper method to access the configuration at the class level.</p>
 </div></span>
   
 </li>
@@ -179,7 +179,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A helper method to access the Blogit::configuration at the controller instance level.</p>
+    <span class="summary_desc"><div class='inline'><p>A helper method to access the configuration at the controller instance   level.</p>
 </div></span>
   
 </li>
@@ -206,57 +206,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A helper method to access the Blogit::configuration
-at the class level.</p>
-
-<p>@returns Blogit::Configuration</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-17
-18
-19</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 17</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
-  <span class='const'>Blogit</span><span class='op'>::</span><span class='id identifier rubyid_configuration'>configuration</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="blogit_conf-instance_method">
-  
-    - (<tt>Object</tt>) <strong>blogit_conf</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>A helper method to access the Blogit::configuration
-at the controller instance level</p>
+    <p>A helper method to access the configuration at the class level.</p>
 
 
   </div>
@@ -287,12 +237,76 @@ at the controller instance level</p>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
+  <span class='const'>Blogit</span><span class='op'>::</span><span class='id identifier rubyid_configuration'>configuration</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="blogit_conf-instance_method">
+  
+    - (<tt>Object</tt>) <strong>blogit_conf</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A helper method to access the configuration at the controller instance
+  level.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>a Blogit::Configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_blogit_conf'>blogit_conf</span>
@@ -307,7 +321,7 @@ at the controller instance level</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Jun 22 02:28:03 2015 by
+  Generated on Mon Jun 22 13:51:12 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>

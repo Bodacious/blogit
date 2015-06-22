@@ -71,6 +71,8 @@ module Blogit
       @posts ||= Post.for_index(page_number)
     end
     
+    # Sets {#posts} for the HTML index page when a tag parameter is present
+    # 
     def set_posts_for_tagged_page
       @posts = set_posts_for_index_page.tagged_with(params[:tag])
     end
