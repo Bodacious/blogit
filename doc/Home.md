@@ -140,17 +140,15 @@ See [LEGAL][GithubLicence] for full details.
 
 Blogit was developed by [Katana Code](http://katanacode.com) with generous contributions from:
 
-* [Philou][Philou]
-* [Stewart McKee][StewartMcKee]
-* [Karsten Silkenbäumer][KarstenSilkenbaumer]
+* [Juan Esparza](https://github.com/jjeb)
+* [Philou](https://github.com/philou)
+* [Stewart McKee](https://github.com/stewartmckee)
+* [Karsten Silkenbäumer](https://github.com/kassi)
 
 ## About Katana Code
 
 Katana Code are [web developers based in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
 
 Copyright © 2011 - 2015 [Katana Code Ltd.](http://katanacode.com)
-  
-  [KarstenSilkenbaumer]:https://github.com/kassi
-  [StewartMcKee]: https://github.com/stewartmckee
-  [Philou]: https://github.com/philou
+
   [GithubLicence]: https://github.com/KatanaCode/blogit/blob/master/MIT-LICENSE
