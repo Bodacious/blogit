@@ -70,13 +70,9 @@ Blogit provides you with the following features
 * Code Syntax Highlighting CSS file (add `*= require pygments` to your app's stylesheet)
 * CSS themes
 
-## Configuration
+## Documentation
 
-Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
-you can set various configuration options. 
-
-Please [read the documentation](http://blogit.katanacode.com/doc/Blogit/Configuration.html) for a full list of the options available.
-
+Full documentation and how-to guides available here: http://blogit.katanacode.com
 
 ## Issues
 
@@ -85,9 +81,6 @@ If you discover a problem with Blogit, please let us know about it.
 **Remember** to search the [issues list](https://github.com/KatanaCode/blogit/issues) first in case your issue has already been raised
 by another Githuber
 
-## Documentation
-
-Full documentation is available here: http://blogit.katanacode.com
 
 ## Contributing
 
