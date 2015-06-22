@@ -6,7 +6,7 @@ class Blogit::Parsers::HtmlParser
   alias_method :parsed, :content
 
   def initialize(content)
-    @parsed = content
+    @content = content
   end
 
 end  
