@@ -29,7 +29,7 @@ $ rails g blogit:install
 # This will add the necessary migrations to your app's db/migrate directory
 rake blogit:install:migrations
 
-# You don't need to run again this if you've already done so
+# You don't need to run this again if you've already done so
 rake acts_as_taggable_on:install:migrations
 
 # This will run any pending migrations
