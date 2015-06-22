@@ -49,14 +49,7 @@ module Blogit
     #
     # Returns an HTML safe String
     def field(content_or_options = {}, options ={}, &block)
-      if block_given?
-        options = content_or_options
-        content = capture(&block)
-      else
-        content = content_or_options
-      end
-      options[:class] = Array(options[:class]) + ["field"]
-      content_tag(:div, content, options)
+      div_tag_with_default_class("field", content_or_options, options, &block)
     end
 
     # A helper method for creating a div tag with class 'actions'. Used as a wrapper
@@ -69,13 +62,31 @@ module Blogit
     #
     # Returns an HTML safe String
     def actions(content_or_options={}, options ={}, &block)
+      div_tag_with_default_class("actions", content_or_options, options, &block)
+    end
+    
+    
+    private
+    
+    
+    # Creates an HTML div with a default class value added
+    #
+    # default_class      - The CSS class name to add to the div
+    # content_or_options - The content to include in the div when not using a block. The
+    #                      options Hash when using a block
+    # options            - The options when not using a block
+    # block              - A block that returns HTML content to include in the div
+    #
+    #
+    # Returns an HTML safe String
+    def div_tag_with_default_class(default_class, content_or_options, options, &block)
       if block_given?
         options = content_or_options
         content = capture(&block)
       else
         content = content_or_options
       end
-      options[:class] = Array(options[:class]) + ["actions"]
+      options[:class] = Array(options[:class]) + [default_class]
       content_tag(:div, content, options)
     end
 
