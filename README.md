@@ -9,12 +9,14 @@
 
 Blogit lets you add a blog to your Ruby on Rails application in just a few seconds.
 
-## Instant gratification
+## Installation
 
-Add this to your Gemfile
+Add these to your Gemfile
 
 ``` ruby
 gem "blogit"
+# Blogit depends on ActsAsTaggableOn
+gem "acts-as-taggable-on"
 ```
 
 ...and run `bundle install` to install the gem.
@@ -24,10 +26,16 @@ Next, run:
 ``` bash
 # add an initializer to config/initializers with all of the configuration options
 $ rails g blogit:install
+
 # This will add the necessary migrations to your app's db/migrate directory
 rake blogit:install:migrations
+
+# You don't need to run again this if you've already done so
+rake acts\_as\_taggable\_on:install:migrations
+
 # This will run any pending migrations
 rake db:migrate
+
 ``` 
 
 then add the following to your routes.rb file:
@@ -40,17 +48,15 @@ mount Blogit::Engine => "/blog"
 Finally, declare which of your models acts as blogger in your app (probably User or Admin).
 
 ``` ruby
-class User
+class User < ActiveRecord::Base
   
   blogs
 
 end
 ```  
 
-## Configuration
+Go to http://localhost:3000/blog and see your marvelous new blog.
 
-Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
-you can set various configuration options. Please [read the documentation](http://blogit.katanacode.com) for a full list of the options available.
 
 ## Batteries included
 
@@ -62,6 +68,15 @@ Blogit provides you with the following features
 * Share links (Google+, Twitter & Facebook)
 * [Disquss Comments](http://disqus.com)
 * Code Syntax Highlighting CSS file (add `*= require pygments` to your app's stylesheet)
+* CSS themes
+
+## Configuration
+
+Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
+you can set various configuration options. 
+
+Please [read the documentation](http://blogit.katanacode.com/doc/Blogit/Configuration.html) for a full list of the options available.
+
 
 ## Issues
 
@@ -76,19 +91,15 @@ Full documentation is available here: http://blogit.katanacode.com
 
 ## Contributing
 
-You're welcome to contribute to Blogit. Please consult the [contribution guidelines](http://blogit.katanacode.com/doc/file.Contributing.html) for more info.
+Want to help make Blogit better?. Please read the [contribution guidelines](http://blogit.katanacode.com/doc/file.Contributing.html) for more information on how you can contribute.
 
 ## Legal Stuff
 
-Copyright © 2011 - 2015 [Katana Code Ltd.](http://katanacode.com)
-
-See [LEGAL](LEGAL) for full details.
+See [LEGAL][GithubLicence] for full details.
 
 ## Credits
 
-Developed by [Katana Code](http://katanacode.com)
-
-with generous contributions from:
+Blogit was developed by [Katana Code](http://katanacode.com) with generous contributions from:
 
 * [Philou](https://github.com/philou)
 * [Stewart McKee](https://github.com/stewartmckee)
@@ -97,3 +108,7 @@ with generous contributions from:
 ## About Katana Code
 
 Katana Code are [web developers based in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
+
+Copyright © 2011 - 2015 [Katana Code Ltd.](http://katanacode.com)
+
+  [GithubLicence]: https://github.com/KatanaCode/blogit/blob/master/MIT-LICENSE

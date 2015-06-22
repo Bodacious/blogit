@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: Upgrading
+  
+    &mdash; Blogit - Add a blog to your Ruby on Rails application
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.Upgrading.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Upgrading</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>Upgrading blogit from a previous beta version</h1>
+
+<p>Blogit evolved a lot before version 1.0.0 and if you&#39;re upgrading from a previous version there are a lot of breaking changes.</p>
+
+<h2>Upgrade checklist</h2>
+
+<p>To make sure your application is up-to-date, check the following:</p>
+
+<h3>Does your DB have the correct tables?</h3>
+
+<p>Make sure your database has the following tables and columns</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_create_table'>create_table</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit_comments</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>force:</span> <span class='symbol'>:cascade</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>email</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>      <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>website</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span>     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>body</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>state</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated_at</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_add_index'>add_index</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit_comments</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index_blogit_comments_on_post_id</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id identifier rubyid_create_table'>create_table</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit_posts</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>force:</span> <span class='symbol'>:cascade</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>title</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                            <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span>     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>body</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                             <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>state</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>          <span class='label'>default:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>draft</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>comments_count</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>default:</span> <span class='int'>0</span><span class='comma'>,</span>       <span class='label'>null:</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogger_id</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogger_type</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated_at</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span>     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>description</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_add_index'>add_index</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit_posts</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogger_type</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogger_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index_blogit_posts_on_blogger_type_and_blogger_id</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id identifier rubyid_create_table'>create_table</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggings</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>force:</span> <span class='symbol'>:cascade</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tag_id</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggable_id</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggable_type</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tagger_id</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tagger_type</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>context</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='label'>limit:</span> <span class='int'>128</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_add_index'>add_index</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggings</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tag_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggable_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggable_type</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>context</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tagger_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tagger_type</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggings_idx</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>unique:</span> <span class='kw'>true</span>
+<span class='id identifier rubyid_add_index'>add_index</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggings</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggable_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggable_type</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>context</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index_taggings_on_taggable_id_and_taggable_type_and_context</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id identifier rubyid_create_table'>create_table</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tags</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>force:</span> <span class='symbol'>:cascade</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>taggings_count</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>default:</span> <span class='int'>0</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h3>Do you have a Blogger class?</h3>
+
+<p>Make sure you have at least one <code>ActiveRecord::Base</code> subclass model that calls the <code>blogs</code> macro.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>Admin</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+
+  <span class='id identifier rubyid_blogs'>blogs</span>
+
+<span class='kw'>end</span>
+</code></pre>
+
+<h3>Do you need to install <a href="//github.com/katanacode/blogit-admin">blogit-admin</a>?</h3>
+
+<p>We&#39;ve stripped the blogit admin features into its own gem. If you were previously relying on Blogit to provide the actions for creating and editing blog posts, consider installing <a href="//github.com/katanacode/blogit-admin">blogit-admin</a> instead.</p>
+
+<h3>Do you need to update your CSS classes?</h3>
+
+<p>We updated blogit to use <a href="//getbem.com/introduction/">BEM</a> classes for our HTML and CSS. While this is quite a disruptive change, we believe that this will help us keep blogit clean and easier to maintain over time.</p>
+
+<p>Have a look at the <a href="https://github.com/KatanaCode/blogit/tree/master/app/views/blogit">HTML templates</a> and <a href="https://github.com/KatanaCode/blogit/tree/master/app/assets/stylesheets/blogit/themes">CSS files</a> to see how the classes are different now.</p>
+
+<h3>Does your initializer have the correct attributes?</h3>
+
+<p>We&#39;ve changed a couple of the settings in the <span class='object_link'><a href="Blogit/Configuration.html" title="Blogit::Configuration (class)">Blogit::Configuration</a></span> class. Make sure your <code>config/initializers/blogit.rb</code> file still makes sense with the new version.</p>
+
+<p>You can read more about the configuration options <span class='object_link'><a href="Blogit/Configuration.html" title="Blogit::Configuration (class)">here</a></span>.</p>
+
+<h3>Still stuck? Ask...</h3>
+
+<p>If you&#39;re still stuck, please <a href="http://github.com/KatanaCode/blogit">open a new issue on GitHub</a> and we&#39;ll help you out as soon as we can.</p>
+
+<hr>
+
+<p>Back to <a href="file.Home.html" title="Home">Home</a></p>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Jun 22 17:13:43 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.2).
+</div>
+
+  </body>
+</html>
