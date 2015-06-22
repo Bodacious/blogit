@@ -4,7 +4,11 @@ module Blogit
     # Public: The main class to be accessed when creating a HTML post archive.
     class List
     
-      attr_accessor :years, :archiveables
+      # Gets/Sets the list of years for this archive object.
+      attr_accessor :years
+
+      # Gets/Sets the list of _{Archiveable archiveable}_ objects for this Archive List.
+      attr_accessor :archiveables
   
       # Create a new {List List} object
       #

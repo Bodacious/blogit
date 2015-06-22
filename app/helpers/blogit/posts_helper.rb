@@ -4,7 +4,7 @@ module Blogit
     require "blogit/archive"
     
     # Renders the comments for a {Post} based on the
-    # {Blogit::Configuration::include_comments include_comments} configuration
+    # {Blogit::Configuration::include_comments} configuration
     def comments_for_post(post)
       comment_type = Blogit.configuration.include_comments
       render(partial: "blogit/comments/#{comment_type}_comments", 
@@ -12,7 +12,7 @@ module Blogit
     end
 
     # Renders the comments for a JS share bar based on the
-    # {Blogit::Configuration::include_share_bar include_share_bar} configuration
+    # {Blogit::Configuration::include_share_bar} configuration
     def share_bar_for_post(post)
       return "" unless Blogit.configuration.include_share_bar
       render(partial: "blogit/posts/share_bar", locals: { post: post})
