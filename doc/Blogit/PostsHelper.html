@@ -6,7 +6,7 @@
 <title>
   Module: Blogit::PostsHelper
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Blogit - Add a blog to your Ruby on Rails application
   
 </title>
 
@@ -116,8 +116,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a ul tag tree with posts by year and months.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a ul tag tree with posts by year and months.</p>
 </div></span>
   
 </li>
@@ -140,9 +139,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Renders the comments for a <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Post</a></span> based on the
-include_comments configuration.</p>
+    <span class="summary_desc"><div class='inline'><p>Renders the comments for a <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Post</a></span> based on the Configuration::include_comments configuration.</p>
 </div></span>
   
 </li>
@@ -165,9 +162,7 @@ include_comments configuration.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span> that share one or more of the same tags for a
-given post.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span> that share one or more of the same tags for a given post.</p>
 </div></span>
   
 </li>
@@ -190,9 +185,7 @@ given post.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Renders the comments for a JS share bar based on the
-include_share_bar configuration.</p>
+    <span class="summary_desc"><div class='inline'><p>Renders the comments for a JS share bar based on the Configuration::include_share_bar configuration.</p>
 </div></span>
   
 </li>
@@ -218,9 +211,8 @@ include_share_bar configuration.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Creates a ul tag tree with posts by year and months. Include
-blogit/archive.js in your js to enabled expand collapse.</p>
+    <p>Creates a ul tag tree with posts by year and months. Include blogit/archive.js in
+your js to enabled expand collapse.</p>
 
 
   </div>
@@ -231,7 +223,7 @@ blogit/archive.js in your js to enabled expand collapse.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>archive_list_for_posts(@posts)
+      <pre class="example code"><code>&lt;%= archive_list_for_posts(@posts) %&gt;
 # =&gt; &lt;div class=&quot;blogit_archive&quot;&gt;
        &lt;ul class=&quot;blogit_archive__list blogit_archive__list--years&quot;&gt;
          ...
@@ -251,8 +243,7 @@ blogit/archive.js in your js to enabled expand collapse.</p>
       
       
         
-        <div class='inline'>
-<p>an HTML safe String</p>
+        <div class='inline'><p>an HTML safe String</p>
 </div>
       
     </li>
@@ -291,9 +282,8 @@ blogit/archive.js in your js to enabled expand collapse.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Renders the comments for a <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Blogit::Post</a></span> based on the
-include_comments configuration</p>
+    <p>Renders the comments for a <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Blogit::Post</a></span> based on the
+Configuration::include_comments configuration</p>
 
 
   </div>
@@ -337,9 +327,7 @@ include_comments configuration</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span> that share one or more of the same tags for a
-given post</p>
+    <p>Returns the <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span> that share one or more of the same tags for a given post</p>
 
 
   </div>
@@ -358,8 +346,7 @@ given post</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>A <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Blogit::Post</a></span> instance</p>
+        <div class='inline'><p>A <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Blogit::Post</a></span> instance</p>
 </div>
       
     </li>
@@ -377,8 +364,7 @@ given post</p>
       
       
         
-        <div class='inline'>
-<p>a collection of <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span></p>
+        <div class='inline'><p>a collection of <span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Posts</a></span></p>
 </div>
       
     </li>
@@ -399,7 +385,7 @@ given post</p>
       <pre class="code"><span class="info file"># File 'app/helpers/blogit/posts_helper.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_related_posts_for_post'>related_posts_for_post</span><span class='lparen'>(</span><span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_find_related_on_tags'>find_related_on_tags</span>
+  <span class='id identifier rubyid_post'>post</span><span class='period'>.</span><span class='id identifier rubyid_find_related_on_tags'>find_related_on_tags</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -417,9 +403,8 @@ given post</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Renders the comments for a JS share bar based on the
-include_share_bar configuration</p>
+    <p>Renders the comments for a JS share bar based on the
+Configuration::include_share_bar configuration</p>
 
 
   </div>
@@ -455,7 +440,7 @@ include_share_bar configuration</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jun 21 20:36:39 2015 by
+  Generated on Mon Jun 22 13:51:12 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>

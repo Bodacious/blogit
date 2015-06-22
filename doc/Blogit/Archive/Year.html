@@ -6,7 +6,7 @@
 <title>
   Class: Blogit::Archive::Year
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Blogit - Add a blog to your Ruby on Rails application
   
 </title>
 
@@ -126,8 +126,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute months.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute months.</p>
 </div></span>
   
 </li>
@@ -153,8 +152,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute year.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute year.</p>
 </div></span>
   
 </li>
@@ -172,28 +170,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="private ">
-  <span class="summary_signature">
-    
-      <a href="#create_months_from_archiveables-instance_method" title="#create_months_from_archiveables (instance method)">- (Object) <strong>create_months_from_archiveables</strong>(archiveables) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  <span class="note title private">private</span>
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -214,31 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Year.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Year.</p>
 </div></span>
-  
-</li>
-
-      
-        <li class="private ">
-  <span class="summary_signature">
-    
-      <a href="#months_with_archiveables-instance_method" title="#months_with_archiveables (instance method)">- (Object) <strong>months_with_archiveables</strong>(archiveables) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  <span class="note title private">private</span>
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -260,8 +213,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The name of the partial to load for a <span class='object_link'><a href="" title="Blogit::Archive::Year (class)">Year</a></span> object.</p>
+    <span class="summary_desc"><div class='inline'><p>The name of the partial to load for a <span class='object_link'><a href="" title="Blogit::Archive::Year (class)">Year</a></span> object.</p>
 </div></span>
   
 </li>
@@ -306,8 +258,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Year</p>
+    <p>Returns a new instance of Year</p>
 
 
   </div>
@@ -356,8 +307,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the value of attribute months</p>
+    <p>Returns the value of attribute months</p>
 
 
   </div>
@@ -399,8 +349,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the value of attribute year</p>
+    <p>Returns the value of attribute year</p>
 
 
   </div>
@@ -437,73 +386,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="create_months_from_archiveables-instance_method">
-  
-    - (<tt>Object</tt>) <strong>create_months_from_archiveables</strong>(archiveables)  <span class="extras">(private)</span>
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-27
-28
-29
-30</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/archive/year.rb', line 27</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_create_months_from_archiveables'>create_months_from_archiveables</span><span class='lparen'>(</span><span class='id identifier rubyid_archiveables'>archiveables</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_months_with_archiveables'>months_with_archiveables</span><span class='lparen'>(</span><span class='id identifier rubyid_archiveables'>archiveables</span><span class='rparen'>)</span><span class='period'>.</span>
-    <span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_month'>month</span><span class='comma'>,</span> <span class='id identifier rubyid_archs'>archs</span><span class='op'>|</span> <span class='const'>Month</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_month'>month</span><span class='comma'>,</span> <span class='id identifier rubyid_archs'>archs</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="months_with_archiveables-instance_method">
-  
-    - (<tt>Object</tt>) <strong>months_with_archiveables</strong>(archiveables)  <span class="extras">(private)</span>
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-32
-33
-34
-35
-36</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/blogit/archive/year.rb', line 32</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_months_with_archiveables'>months_with_archiveables</span><span class='lparen'>(</span><span class='id identifier rubyid_archiveables'>archiveables</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_archiveables'>archiveables</span><span class='period'>.</span><span class='id identifier rubyid_chunk'>chunk</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span> 
-    <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_localize'>localize</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_published_at'>published_at</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:plain_month_only</span><span class='rparen'>)</span> 
-  <span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="to_partial_path-instance_method">
+  <h3 class="signature first" id="to_partial_path-instance_method">
   
     - (<tt>Object</tt>) <strong>to_partial_path</strong> 
   
@@ -513,8 +396,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The name of the partial to load for a <span class='object_link'><a href="" title="Blogit::Archive::Year (class)">Blogit::Archive::Year</a></span> object</p>
+    <p>The name of the partial to load for a <span class='object_link'><a href="" title="Blogit::Archive::Year (class)">Blogit::Archive::Year</a></span> object</p>
 
 
   </div>
@@ -532,8 +414,7 @@
       
       
         
-        <div class='inline'>
-<p>a String</p>
+        <div class='inline'><p>a String</p>
 </div>
       
     </li>
@@ -596,7 +477,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Jun 21 20:36:39 2015 by
+  Generated on Mon Jun 22 13:51:12 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.2).
 </div>
