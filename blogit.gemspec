@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails"
   s.add_dependency "acts-as-taggable-on"
 
-  s.add_development_dependency 'rails', '~> 4.2.0'
+
   s.add_development_dependency 'thor'
   s.add_development_dependency "yard"
   s.add_development_dependency "yard-tomdoc"
