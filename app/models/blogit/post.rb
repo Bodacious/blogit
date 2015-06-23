@@ -1,5 +1,8 @@
 module Blogit
   class Post < ActiveRecord::Base
+    
+    require "kaminari"
+    require "acts-as-taggable-on"
 
     acts_as_taggable
 
