@@ -1,31 +1,29 @@
 sqlite: &sqlite
-  adapter: sqlite3 
-  database: db/<%= Rails.env %>.sqlite3
+  adapter: sqlite3
+  database: ":memory:"
 
-mysql: &mysql 
-  adapter: mysql2 
-  username: root 
-  password: 
+mysql: &mysql
+  adapter: mysql2
+  username: root
+  password:
   database: blogit_app_<%= Rails.env %>
-  
+
 postgresql: &postgresql
   adapter: postgresql
   username: postgres
-  password: 
+  password:
   database: blogit_app_<%= Rails.env %>
-  min_messages: ERROR 
-  
+  min_messages: ERROR
+
 defaults: &defaults
-  pool: 5 
-  timeout: 5000 
-  host: localhost 
+  pool: 5
+  timeout: 5000
+  host: localhost
   # Use sqlite by default
   <<: *<%= ENV['DB'] || "sqlite" %>
-  
-development: 
-  <<: *defaults 
-  
+
+development:
+  <<: *defaults
+
 test:
   <<: *defaults
-  database: ":memory:"
-  
