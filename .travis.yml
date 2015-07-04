@@ -10,6 +10,9 @@ gemfile:
   - gemfiles/rails_4.0.gemfile
   - gemfiles/rails_3.2.gemfile
 
+# Just doing what I'm told https://github.com/grosser/wwtd
+bundler_args: "--no-deployment"
+
 addons:
   code_climate:
     repo_token: b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2

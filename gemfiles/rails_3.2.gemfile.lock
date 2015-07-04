@@ -206,6 +206,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.44)
+    wwtd (0.9.1)
     yard (0.8.7.6)
     yard-tomdoc (0.7.1)
       tomparse (>= 0.4.0)
@@ -241,6 +242,7 @@ DEPENDENCIES
   strong_parameters
   thor
   timecop
+  wwtd
   yard
   yard-tomdoc
 

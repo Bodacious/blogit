@@ -192,6 +192,7 @@ GEM
     tomparse (0.4.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    wwtd (0.9.1)
     yard (0.8.7.6)
     yard-tomdoc (0.7.1)
       tomparse (>= 0.4.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   sqlite3
   thor
   timecop
+  wwtd
   yard
   yard-tomdoc
 
