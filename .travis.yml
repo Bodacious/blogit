@@ -9,7 +9,7 @@ env:
   # - RAILS_VERSION=3.1.0
   # - RAILS_VERSION=3.0.0
 
-  - DB=sqlite
+  # - DB=sqlite
   # - DB=mysql
   # - DB=postgresql
 
@@ -19,6 +19,10 @@ rvm:
   # - 2.1.0
   - 2.2.0
   # - ruby-head
+
+addons:
+  code_climate:
+    repo_token: b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2
 
 matrix:
   allow_failures:
@@ -50,5 +54,5 @@ script:
   - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake blogit:install:migrations; else bundle exec rake app:blogit:install:migrations; fi
 
   # Run the specs with CodeClimate API key
-  - CODECLIMATE_REPO_TOKEN=b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2 bundle exec rake
+  - bundle exec rake
 
