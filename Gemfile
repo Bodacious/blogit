@@ -5,7 +5,25 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem "rails", "~> 4.2.0"
+rails_version = ENV["RAILS_VERSION"] || "default"
+
+case rails_version
+when "master"
+  { github: "rails/rails" }
+when "default"
+  "~> 4.2.0"
+else
+  "~> #{rails_version}"
+end
+
+gem "rails", rails_version
+
+
+# If we're using Rails 3 - include the
+# strong_parameters gem. Otherwise, it should be inluded as part of Rails 4
+if rails_version[0] == '3'
+  gem 'strong_parameters'
+end
 
 # Removing this seems to break the Travis-CI flow.
 # The rake task "app:acts_as_taggable_on_engine:install:migrations" doesn't work
