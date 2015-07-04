@@ -2,6 +2,11 @@ language: ruby
 
 rvm:
   - 2.2.0
+
+addons:
+  code_climate:
+    repo_token: b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2
+
 env:
   - DB=sqlite
   - DB=mysql
@@ -14,8 +19,6 @@ gemfile:
 
 matrix:
   allow_failures:
-    - env: RAILS_VERSION=master
-    - rvm: ruby-head
 
 before_install:
   - sudo apt-get update
@@ -26,4 +29,4 @@ before_script:
   - mysql -e 'create database blogit_app_test'
   - psql -c 'create database blogit_app_test' -U postgres
 
-script: "CODECLIMATE_REPO_TOKEN=b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2 bundle exec rake spec"
+script: "bundle exec rake spec"
