@@ -5,15 +5,10 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-# Use the Ruby version in .ruby-version
-ruby File.read(".ruby-version")[/\d\.\d\.\d/]
-
 gem "rails", "~> 4.2.0"
 
 gem "acts-as-taggable-on", "~> 3.5.0"
 
 gem "sass-rails", "~> 5.0.0"
 
-group :test do
-  gem 'rake'
-end
+gem 'rake'
