@@ -13,9 +13,9 @@ Dummy::Application.configure do
   else
     config.serve_static_assets = true
   end
-  
+
   config.static_cache_control = "public, max-age=3600"
-  
+
   if Rails.version =~ /\A3/
     # Log error messages when you accidentally call methods on nil
     config.whiny_nils = true
@@ -38,7 +38,14 @@ Dummy::Application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
+
+  # FIXME: This was an annoying error that kept getting thrown up when running `appraisal
+  #   rake spec`. This is a quick fix to avoid the NoMethodError.
+  begin
+    config.action_mailer.delivery_method = :test
+  rescue NoMethodError
+    nil
+  end
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr

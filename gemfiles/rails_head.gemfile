@@ -3,8 +3,8 @@
 source "http://rubygems.org"
 
 gem "rake"
-gem "rails", "~> 3.2.0"
-gem "strong_parameters"
-gem "sass-rails", "~> 3.2.0"
+gem "rails", :github => "rails/rails"
+gem "sass-rails", "~> 5.0.0"
+gem "arel", "7.0.0.alpha"
 
 gemspec :path => "../"
