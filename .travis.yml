@@ -1,24 +1,24 @@
 language: ruby
 
 env:
-  - RAILS_VERSION=master
+  # - RAILS_VERSION=master
   - RAILS_VERSION=4.2.0
-  - RAILS_VERSION=4.1.0
-  - RAILS_VERSION=4.0.0
-  - RAILS_VERSION=3.2.0
-  - RAILS_VERSION=3.1.0  
-  - RAILS_VERSION=3.0.0
+  # - RAILS_VERSION=4.1.0
+  # - RAILS_VERSION=4.0.0
+  # - RAILS_VERSION=3.2.0
+  # - RAILS_VERSION=3.1.0
+  # - RAILS_VERSION=3.0.0
 
   - DB=sqlite
-  - DB=mysql
-  - DB=postgresql
+  # - DB=mysql
+  # - DB=postgresql
 
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.0
+  # - 1.9.3
+  # - 2.0.0
+  # - 2.1.0
   - 2.2.0
-  - ruby-head
+  # - ruby-head
 
 matrix:
   allow_failures:
@@ -46,9 +46,9 @@ script:
   # If Rails version is 3, use the old rake tasks.
   # If Rails version is 4, use the new rake tasks.
   - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake acts_as_taggable_on:install:migrations; else bundle exec rake app:acts_as_taggable_on_engine:install:migrations; fi
-  
+
   - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake blogit:install:migrations; else bundle exec rake app:blogit:install:migrations; fi
 
   # Run the specs with CodeClimate API key
   - CODECLIMATE_REPO_TOKEN=b96d4021e601491d9aae499b7658f1701f7af63de2ed3152d868f4df14b43fc2 bundle exec rake
-  
+
