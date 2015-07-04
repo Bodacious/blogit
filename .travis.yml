@@ -1,24 +1,14 @@
 language: ruby
 
 env:
-  - RAILS_VERSION=master
-  - RAILS_VERSION=4.2.0
-  - RAILS_VERSION=4.1.0
-  - RAILS_VERSION=4.0.0
-  - RAILS_VERSION=3.2.0
-  - RAILS_VERSION=3.1.0
-  - RAILS_VERSION=3.0.0
-
   - DB=sqlite
   - DB=mysql
   - DB=postgresql
 
-rvm:
-  - 1.9.0
-  - 2.0.0
-  - 2.1.0
-  - 2.2.0
-  - ruby-head
+gemfile:
+  - gemfiles/rails_4.1.gemfile
+  - gemfiles/rails_4.0.gemfile
+  - gemfiles/rails_3.2.gemfile
 
 addons:
   code_climate:
