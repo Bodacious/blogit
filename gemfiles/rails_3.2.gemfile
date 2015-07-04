@@ -2,15 +2,10 @@
 
 source "http://rubygems.org"
 
-ruby "2.2.0"
-
 gem "rails", "~> 3.2.0"
 gem "acts-as-taggable-on", "~> 3.5.0"
 gem "sass-rails", "~> 3.2.0"
+gem "rake"
 gem "strong_parameters"
-
-group :test do
-  gem "rake"
-end
 
 gemspec :path => "../"
