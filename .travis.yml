@@ -1,8 +1,12 @@
 language: ruby
 
+gemfile:
+  - Gemfile
+  - gemfiles/4.1.gemfile
+
 env:
   # - RAILS_VERSION=master
-  - RAILS_VERSION=4.2.0
+  # - RAILS_VERSION=4.2.0
   # - RAILS_VERSION=4.1.0
   # - RAILS_VERSION=4.0.0
   # - RAILS_VERSION=3.2.0
@@ -38,18 +42,4 @@ before_script:
   - mysql -e 'create database blogit_app_test'
   - psql -c 'create database blogit_app_test' -U postgres
 
-script:
-  # Setup the test app
-  - bundle exec rake dummy:setup
-  # Create the blogit migrations.
-  #   If Rails version is 3, use the old rake tasks.
-  #   If Rails version is 4, use the new rake tasks.
-  - if (echo $RAILS_VERSION | grep '3.\d.\d'); then bundle exec rake blogit:install:migrations; else bundle exec rake app:blogit:install:migrations; fi
-
-  - bundle exec rake db:migrate SCOPE=blogit
-  # Create the blogit config file
-  - bundle exec rails generate blogit:install
-
-  # Run the specs with CodeClimate API key
-  - bundle exec rake
 

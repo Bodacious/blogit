@@ -14,15 +14,10 @@ require 'factories'
 require 'support/authentication'
 require 'support/helpers/css_matchers'
 
-silence_stream STDOUT do
-  load "#{Rails.root}/db/schema.rb"
-end if ENV["DB"] == "sqlite"
-
-
 include Blogit
 
 RSpec.configure do |config|
-  config.infer_spec_type_from_file_location! 
+  config.infer_spec_type_from_file_location!
   config.include FactoryGirl::Syntax::Methods
 end
 

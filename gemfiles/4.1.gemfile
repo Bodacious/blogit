@@ -5,7 +5,7 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem "rails", "~> 4.2.0"
+gem "rails", "~> 4.1.0"
 
 # Removing this seems to break the Travis-CI flow.
 # The rake task "app:acts_as_taggable_on_engine:install:migrations" doesn't work
