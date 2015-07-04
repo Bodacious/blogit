@@ -13,6 +13,10 @@ require 'rspec/core/rake_task'
 require 'sass'; puts Sass::VERSION
 load "appraisal/task.rb"
 
+
+require 'wwtd/tasks'
+task :default => "wwtd:local" # run all gemfiles with local ruby
+
 APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
 
 load 'rails/tasks/engine.rake'
@@ -28,9 +32,3 @@ Dir[File.join(File.dirname(__FILE__), 'spec/dummy/lib/tasks/**/*.rake')].each {|
 desc "Run all specs in spec directory (excluding plugin specs)"
 
 RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
-
-if !ENV["APPRAISAL_INITIALIZED"] && !ENV["TRAVIS"]
-  task :default => :appraisal
-end
-
-task :default => :spec

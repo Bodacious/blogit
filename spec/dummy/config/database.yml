@@ -12,7 +12,7 @@ postgresql: &postgresql
   adapter: postgresql
   username: postgres
   password:
-  database: blogit_app_<%= Rails.env %>
+  database: blogit_app_<%= ENV["RAILS_ENV"] || Rails.env %>
   min_messages: ERROR
 
 defaults: &defaults
