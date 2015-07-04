@@ -8,10 +8,11 @@ Gem::Specification.new do |s|
   s.name        = "blogit"
   s.version     = Blogit::VERSION
   s.authors     = ["Bodacious"]
-  s.email       = ["gavin@gavinmorrice.com"]
-  s.homepage    = "http://bodacious.github.com/blogit/"
-  s.summary     = "A mountable Rails blog for Rails 3.1 + applications"
-  s.description = "Add a blog to your Rails application in minutes with this mountable Rails Engine"
+  s.email       = ["bodacious@katanacode.com"]
+  s.homepage    = "http://blogit.katanacode.com/"
+  s.summary     = "A mountable Rails blog for Rails applications"
+  s.description = "Add a blog to your Rails application in minutes with this mountable"\
+                    " Rails Engine"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
@@ -46,7 +47,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "autoprefixer-rails"
   # s.add_development_dependency "coffee-rails"
   # s.add_development_dependency "therubyracer"
-  
+
   s.add_development_dependency "rspec-rails"#, '~> 2.0'
   s.add_development_dependency "rspec-collection_matchers"
   s.add_development_dependency "rb-fsevent",  ">= 0.9.1" # OS X
