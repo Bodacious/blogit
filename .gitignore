@@ -3,6 +3,7 @@
 .DS_Store
 .yardoc/
 
+coverage/
 # Keep this out - it will break Travis
 Gemfile.lock
 gemfiles/*.lock
