@@ -39,14 +39,6 @@ Dummy::Application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
 
-  # FIXME: This was an annoying error that kept getting thrown up when running `appraisal
-  #   rake spec`. This is a quick fix to avoid the NoMethodError.
-  begin
-    config.action_mailer.delivery_method = :test
-  rescue NoMethodError
-    nil
-  end
-
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 end
