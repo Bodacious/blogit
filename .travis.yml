@@ -22,12 +22,15 @@ matrix:
   allow_failures:
 
 before_install:
+  - gem update bundler
   - sudo apt-get update
   - sudo apt-get install libpython2.7 python-pygments
 
 before_script:
-  # Ensure the MySQL DB Exists
-  - mysql -e 'create database blogit_app_test'
-  - psql -c 'create database blogit_app_test' -U postgres
+  # - mysql -e 'create database blogit_app_test'
+  # - psql -c 'create database blogit_app_test' -U postgres
 
-script: "bundle exec rake spec"
+script:
+  - bundle exec rake db:create RAILS_ENV=test
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - bundle exec rake spec

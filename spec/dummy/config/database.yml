@@ -1,12 +1,12 @@
 sqlite: &sqlite
   adapter: sqlite3
-  database: db/<%= Rails.env %>.sqlite3
+  database: db/<%= ENV["RAILS_ENV"] %>.m.sqlite3
 
 mysql: &mysql
   adapter: mysql2
   username: root
   password:
-  database: blogit_app_<%= Rails.env %>
+  database: blogit_app_<%= ENV["RAILS_ENV"] %>
 
 postgresql: &postgresql
   adapter: postgresql
