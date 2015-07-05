@@ -6,3 +6,4 @@ source "http://rubygems.org"
 gemspec
 
 gem 'rake'
+gem "acts-as-taggable-on"
