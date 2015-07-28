@@ -105,3 +105,6 @@ Katana Code are [web developers based in Edinburgh, Scotland](http://katanacode.
 Copyright © 2011 - 2015 [Katana Code Ltd.](http://katanacode.com)
 
   [GithubLicence]: https://github.com/KatanaCode/blogit/blob/master/MIT-LICENSE
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Bodacious/blogit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
