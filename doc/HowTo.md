@@ -10,7 +10,7 @@ This makes it super-easy to subclass the controllers and add some of your own be
 ### Example: Updating :last\_viewed\_at when a Post is viewed
 
     class PostsController < Blogit::PostsController
-    
+      helper Blogit::Engine.routes.url_helpers
       def show
         super do |post|
           post.touch(:last_viewed_at)
