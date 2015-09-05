@@ -1,5 +1,6 @@
 <% title @post.title %>
 <% description @post.description.to_s %>
+<div class="offset-for-navbar">
 
 <%= content_tag(:article, id: "blogit_post_#{@post.id}", class: "blogit_post") do %>
 
@@ -26,3 +27,4 @@
 
 <% end %>
 
+</div>

@@ -3,6 +3,7 @@
     <%= t(:showing_posts_tagged_with, scope: "blogit.posts", tag: params[:tag])  %>
   </h2>
 <% end %>
+<div class="offset-for-navbar">
 
 <div class="blogit_posts_list">
   <% if @posts.any? %>
@@ -20,3 +21,4 @@
 </div>
 
 <%= render "pagination" %>
+</div>
