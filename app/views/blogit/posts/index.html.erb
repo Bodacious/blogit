@@ -1,24 +1,26 @@
-<% if params[:tag] %>
-  <h2 class="blogit_header--page">
-    <%= t(:showing_posts_tagged_with, scope: "blogit.posts", tag: params[:tag])  %>
-  </h2>
-<% end %>
 <div class="offset-for-navbar">
 
-<div class="blogit_posts_list">
-  <% if @posts.any? %>
-    <%= render partial: "blogit/posts/post",
-      collection: @posts,
-      spacer_template: "blog_post_spacer",
-      locals: { 
-        show_comments_count: (Blogit.configuration.include_comments == :active_records) 
-      }  %>
-  <% else %>
-
-    <%= render partial: "blogit/posts/empty" %>
-
+  <% if params[:tag] %>
+    <h2 class="blogit_header--page">
+      <%= t(:showing_posts_tagged_with, scope: "blogit.posts", tag: params[:tag])  %>
+    </h2>
   <% end %>
-</div>
 
-<%= render "pagination" %>
+  <div class="blogit_posts_list">
+    <% if @posts.any? %>
+      <%= render partial: "blogit/posts/post",
+        collection: @posts,
+        spacer_template: "blog_post_spacer",
+        locals: {
+          show_comments_count: (Blogit.configuration.include_comments == :active_records)
+        }  %>
+    <% else %>
+
+      <%= render partial: "blogit/posts/empty" %>
+
+    <% end %>
+  </div>
+
+  <%= render "pagination" %>
+
 </div>
