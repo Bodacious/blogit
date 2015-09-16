@@ -4,10 +4,10 @@ namespace :blogit do
   task :doc => [:"doc:compile"]
 
   namespace :doc do
-    
-    
-    DOC_FILES = ["Contributing", "TODOS", "Upgrading"].map { |filename| 
-      "./doc/#{filename}.md" 
+
+
+    DOC_FILES = ["Contributing", "TODOS", "Upgrading", "HowTo"].map { |filename|
+      "./doc/#{filename}.md"
     }.join(",")
 
     desc "Builds the blogit documentation using YARD-Tomdoc"
@@ -17,5 +17,5 @@ namespace :blogit do
       "--title 'Blogit - Add a blog to your Ruby on Rails application'")
     end
   end
-  
+
 end
