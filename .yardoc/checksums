@@ -2,11 +2,11 @@ lib/blogit.rb f2330839ccec0d0332c6c432019f035c9ec023b8
 lib/validators.rb 6aadd83d9ca5e938ed70a3197e65895df1a09385
 lib/blogit/blogs.rb 25d9c0ef8421d0ea9e60fc001037893cca9bcc4a
 lib/blogit/engine.rb f84724f25c7a0585e64c6acd94c5fade6d0ac8c0
-lib/blogit/version.rb 3c21261ba0b58baaef268fd3ff3fc34aaead5d2f
+lib/blogit/version.rb 2248b3db7b775f6ff2639ad18b72d1db847b4264
 lib/blogit/archive.rb a6aa2e6cf308c10819ab753ad53893161c6ad9b3
 lib/blogit/parsers.rb f278923598a6405003550b89b6969f9920d54234
 lib/blogit/renderers.rb b1b967649726c1664e330ff7ed94dcdd87fd2620
-app/models/blogit/post.rb 25f555760eb5af3ce643ac313ef71c0a97efc173
+app/models/blogit/post.rb a18d3e0a7ad60838b53ef3fbb343b5c957e11eeb
 lib/blogit/archive/year.rb 2bbfce7aceacc6fe267a9b5e798d432cc26b0674
 lib/blogit/archive/list.rb 86bc79570b42b897900ed4b7cbe347689ebf0d5a
 lib/blogit/archive/month.rb 5a51248b17d9eef12f672a1fcafcfdc4a0f27680
