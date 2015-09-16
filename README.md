@@ -3,6 +3,7 @@
 [![Test Coverage](https://d3s6mut3hikguw.cloudfront.net/github/KatanaCode/blogit/badges/coverage.svg)](http://codeclimate.com/github/KatanaCode/blogit/badges/)
 [![Blogit](https://gemnasium.com/KatanaCode/blogit.png)](https://gemnasium.com/KatanaCode/blogit)
 [![Travis CI](https://travis-ci.org/KatanaCode/blogit.png)](https://travis-ci.org/KatanaCode/blogit.png)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Bodacious/blogit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 # Blogit - A Rails blogging solution
 
