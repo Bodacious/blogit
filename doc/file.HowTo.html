@@ -82,18 +82,40 @@
 <span class='kw'>end</span>
 </code></pre>
 
-<h2>Add syntax highlighting to code blocks</h2>
+<h2>Add a CSS theme to your application</h2>
 
-<p>Blogit comes with a CSS file for instant code syntax highlighting. Simply include this file in your own CSS manifest file:</p>
+<p>We&#39;re starting to support out-of-the box themes for blogit to make it even easier for you to get started.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>*
- *= require pygments
-*</span><span class='regexp_end'>/</span></span>
+<h3>Installing a theme</h3>
+
+<p>Themes are bundled into the app as CSS/SASS files. To include one, simply add the following to your CSS manifest file:</p>
+
+<pre class="code ruby"><code class="ruby">/* application.css */
+@import &quot;blogit/themes/[theme name]&quot;
 </code></pre>
+
+<p>You can browse the currently available list of themes here:</p>
+
+<p><a href="https://github.com/KatanaCode/blogit/tree/master/app/assets/stylesheets/blogit/themes">https://github.com/KatanaCode/blogit/tree/master/app/assets/stylesheets/blogit/themes</a></p>
+
+<h3>Adding your own theme</h3>
+
+<p>We&#39;d really appreciate if developers want to add their own theme to blogit. To do so, 
+create a new directory withing the <a href="https://github.com/KatanaCode/blogit/tree/master/app/assets/stylesheets/blogit/themes">themes directory</a> 
+and structure it like so:</p>
+
+<pre class="code ruby"><code class="ruby">./your_theme.sass
+./your_theme
+  /base   # variables for colours, fonts, etc. and general HTML styles go in here
+  /blocks # Define BEM-style CSS blocks in here
+</code></pre>
+
+<p>Once your happy with the theme, submit a pull-request to request a merge with master. For 
+more information, please read the <a href="file.Contributing.html" title="Contribution">Contribution</a> guidelines.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Wed Sep 16 16:03:42 2015 by
+  Generated on Sat Oct 24 19:04:45 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
