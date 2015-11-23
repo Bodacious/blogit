@@ -32,7 +32,7 @@ de:
       delete: "löschen"
       are_you_sure_you_want_to_remove_this_post: "Bist Du sicher, dass Du den Beitrag löschen möchtest?"
       comments: "Kommentare"
-      comment:
+      comments_count:
         one: "ein Kommentar"
         other: "%{count} Kommentare"
       edit_blog_post: "Beitrag #%{id} bearbeiten"

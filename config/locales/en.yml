@@ -29,7 +29,7 @@ en:
       delete: "delete"
       are_you_sure_you_want_to_remove_this_post: "Are you sure you want to remove this post?"
       comments: "Comments"
-      comment:
+      comments_count:
         one: "1 comment"
         other: "%{count} comments"
       edit_blog_post: "Edit Blog Post #%{id}"

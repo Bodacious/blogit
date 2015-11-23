@@ -1,16 +1,15 @@
-<%= content_tag(:article, id: "blogit_post_#{post.id}", 
+<%= content_tag(:article, id: "blogit_post_#{post.id}",
   class: "blogit_post blog_post--is_preview") do %>
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>
-  
+
   <%= render "blogit/posts/blogger_information", post: post %>
-  
+
   <%# Render the body of this blog post (as Markdown) %>
   <%= format_content(post.short_body) %>
 
   <%# Render the no. of comments %>
-  <%= render "blogit/posts/comments_count",
-    post: post if defined?(show_comments_count) and show_comments_count %>
+  <%= render "blogit/comments/comments_count", post: post if show_comments_count? %>
 
 <% end %>
