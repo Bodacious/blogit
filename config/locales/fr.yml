@@ -27,6 +27,7 @@ fr:
       edit: "editer"
       delete: "supprimer"
       are_you_sure_you_want_to_remove_this_post: "Etes vous certain de vouloir supprimer cet article?"
+      comments: "Commentaires"
       comment:
         zero: "Aucun commentaire"
         one: "1 commentaire"

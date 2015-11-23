@@ -28,6 +28,7 @@ en:
       edit: "edit"
       delete: "delete"
       are_you_sure_you_want_to_remove_this_post: "Are you sure you want to remove this post?"
+      comments: "Comments"
       comment:
         one: "1 comment"
         other: "%{count} comments"
