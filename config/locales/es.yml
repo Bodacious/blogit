@@ -1,0 +1,48 @@
+es:
+  blogit:
+    comments:
+      leave_a_comment: "Deja un comentario"
+      name: "Nombre *"
+      email_never_displayed: "Correo eletrónico * (Nunca se muestra)"
+      your_website: "Tu sitio web"
+      your_comment: "Tu comentario *"
+      add_comment: "Agregar comentario"
+      adding_comment: "Agregando comentario..."
+      wrote: "Escrito:"
+      posted_on: "Publicado en"
+      delete: "Eliminar"
+      are_you_sure_you_want_to_remove_this_comment: "¿Estás seguro que quieres eliminar este comentario?"
+      successfully_added_comment: "Comentario agregado exitosamente."
+      successfully_removed_comment: "Comentario eliminado exitosamente."
+    posts:
+      showing_posts_tagged_with: "Mostrando post con la etiqueta \"%{tag}\""
+      written_by: "Escrito por %{author} en"
+      prohibited_this_post_from_being_saved:
+        one: "Un error impidio que la publicación se guardara:"
+        other: "%{count} errores impidieron que la publicación se guardara:"
+      give_your_post_a_title: "Dale un título a tu publicación"
+      write_something_here: "Escribe algo aquí..."
+      tip_you_can_style_your_post_using: "Consejo: puedes darle estilo a tu publicación usando %{parser}"
+      or: "o"
+      cancel: "Cancelar"
+      edit: "Editar"
+      delete: "Eliminar"
+      are_you_sure_you_want_to_remove_this_post: "¿Estás seguro que quieres eliminar esta publicación?"
+      comment:
+        one: "1 comentario"
+        other: "%{count} comentarios"
+      edit_blog_post: "Editar publicación #%{id}"
+      new_blog_post: "Nueva publicación"
+      write_a_new_blog_post: "Escribe una nueva publicación"
+      blog_post_was_successfully_created: "Publicación agregada exitosamente."
+      blog_post_was_successfully_updated: "Publicación actualizada exitosamente."
+      blog_post_was_successfully_destroyed: "Publicación eliminada exitosamente."
+      related_posts: "Publicaciones relacionadas"
+      tag_placeholder: "Agrega etiquetas a tu publicación"
+      tags: "Etiquetas"
+      state: "Estado"
+    share_bar:
+      facebook: "es_MX"
+  time:
+    formats:
+      plain_month_only: "%B"
