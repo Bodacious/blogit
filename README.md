@@ -31,12 +31,12 @@ $ rails g blogit:install
 rake blogit:install:migrations
 
 # You don't need to run this again if you've already done so
-rake acts_as_taggable_on:install:migrations
+rake acts_as_taggable_on_engine:install:migrations
 
 # This will run any pending migrations
 rake db:migrate
 
-``` 
+```
 
 then add the following to your routes.rb file:
 
@@ -49,11 +49,11 @@ Finally, declare which of your models acts as blogger in your app (probably User
 
 ``` ruby
 class User < ActiveRecord::Base
-  
+
   blogs
 
 end
-```  
+```
 
 Go to http://localhost:3000/blog and see your marvelous new blog.
 
@@ -76,7 +76,7 @@ Full documentation and how-to guides available here: http://blogit.katanacode.co
 
 ## Issues
 
-If you discover a problem with Blogit, please let us know about it. 
+If you discover a problem with Blogit, please let us know about it.
 
 **Remember** to search the [issues list](https://github.com/KatanaCode/blogit/issues) first in case your issue has already been raised
 by another Githuber
