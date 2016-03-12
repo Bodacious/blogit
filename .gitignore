@@ -22,4 +22,5 @@ spec/dummy/config/initializers/blogit.rb
 spec/dummy/db/migrate/*blogit*
 spec/dummy/db/migrate/*acts_as_taggable_on_engine*
 spec/dummy/db/schema.rb
-spec/dummy/*.sqlite3
+spec/dummy/*.sqlite3spec/dummy/log/development.log
+spec/dummy/log/test.log
