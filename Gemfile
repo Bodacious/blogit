@@ -9,7 +9,7 @@ rails_version = ENV["RAILS_VERSION"] || "default"
 
 rails = case rails_version
 when "master"
-  {github: "rails/rails"}
+  { github: "rails/rails" }
 when "default"
   ">= 4.2.0"
 else
@@ -27,4 +27,4 @@ end
 # Removing this seems to break the Travis-CI flow.
 # The rake task "app:acts_as_taggable_on_engine:install:migrations" doesn't work
 # without it here
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', "~> 3.5.0"
