@@ -70,6 +70,12 @@ Blogit provides you with the following features
 * Code Syntax Highlighting CSS file (add `*= require pygments` to your app's stylesheet)
 * CSS themes
 
+## Modular
+
+We're designing blogit to be as modular as possible, so you can pick and choose the elements you'd like to use.
+
+* For **Admin CMS** please install [blogit-admin](https://github.com/katanacode/blogit-admin)
+
 ## Documentation
 
 Full documentation and how-to guides available here: http://blogit.katanacode.com
