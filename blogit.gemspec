@@ -40,7 +40,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg"
 
   # Testing
-  s.add_development_dependency "codeclimate-test-reporter"
   s.add_development_dependency "spring", ">=1.3.6"
   s.add_development_dependency 'spring-commands-rspec'
   s.add_development_dependency "wwtd"
