@@ -2,8 +2,10 @@
 
 source "http://rubygems.org"
 
-gem "rake"
 gem "rails", "~> 4.0.0"
+gem "rake"
+gem "rb-inotify"
+gem "acts-as-taggable-on", "~> 3.5.0"
 gem "sass-rails", "~> 5.0.0"
 
 gemspec :path => "../"
