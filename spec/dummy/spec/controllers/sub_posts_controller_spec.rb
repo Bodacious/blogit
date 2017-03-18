@@ -15,7 +15,7 @@ describe SubPostsController do
   describe "GET 'index'" do
     
     before do
-      Post.expects(:for_index).with(nil).returns(posts)
+      Post.expects(:for_index).with('').returns(posts)
     end
     
     let(:posts) { [] }
@@ -40,7 +40,7 @@ describe SubPostsController do
   describe "GET 'tagged'" do
     
     before do
-      Post.expects(:for_index).with(nil).returns(posts)
+      Post.expects(:for_index).with('').returns(posts)
       posts.expects(:tagged_with).returns(posts)
     end
     
