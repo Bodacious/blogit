@@ -1,4 +1,4 @@
-class CreateBlogitPosts < ActiveRecord::Migration
+class CreateBlogitPosts < ActiveRecord::Migration[4.2]
   def change
     create_table :blogit_posts do |t|
       t.with_options(null: false) do |r|
