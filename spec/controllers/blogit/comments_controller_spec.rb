@@ -14,8 +14,8 @@ describe Blogit::CommentsController do
 
 
     def do_post(format = :html)
-      post :create, post_id: blog_post.id,
-        comment: comment_attributes, format: format
+      post :create, params: { post_id: blog_post.id,
+        comment: comment_attributes, format: format }
     end
     
     subject { do_post(:js) }

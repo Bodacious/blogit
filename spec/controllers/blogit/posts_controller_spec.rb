@@ -14,7 +14,7 @@ describe Blogit::PostsController do
     let(:posts) { [] }
 
     def do_get(page=nil)
-      get :index, page: page 
+      get :index, params: { page: page }
     end
 
     it 'sets posts to Blogit::Post.for_index' do
@@ -57,7 +57,7 @@ describe Blogit::PostsController do
     let(:posts) { [] }
 
     def do_get(page=nil)
-      get :index, page: page.to_s, format: :xml
+      get :index, params: { page: page.to_s, format: :xml }
     end
 
     it "loads all posts in reverse date order" do
@@ -76,7 +76,7 @@ describe Blogit::PostsController do
     end
 
     def do_get
-      get :show, :id => 1
+      get :show, params: { id: 1 }
     end
 
     it "finds blog post by id" do
