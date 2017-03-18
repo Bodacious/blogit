@@ -4,6 +4,12 @@
 #   gem "sass-rails", "~> 5.0.0"
 # end
 
+appraise "rails-5.1.0.beta1" do
+  gem "rails", "~> 5.1.0.beta1"
+  gem "sass-rails", github: "rails/sass-rails"
+  gem "rails-controller-testing"
+end
+
 appraise "rails-4.2" do
   gem "rails", "~> 4.2.0"
   gem "sass-rails", "~> 5.0.0"
