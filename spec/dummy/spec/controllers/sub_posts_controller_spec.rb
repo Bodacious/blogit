@@ -21,7 +21,7 @@ describe SubPostsController do
     let(:posts) { [] }
 
     def do_get(page=nil)
-      get :index, params: { page: page }
+      get :index, params: { page: page.to_s }
     end
     
     context "when super is called with a block" do
@@ -47,7 +47,7 @@ describe SubPostsController do
     let(:posts) { [] }
 
     def do_get(page=nil)
-      get :tagged, params: { page: page, tag: "one" }
+      get :tagged, params: { page: page.to_s, tag: "one" }
     end
     
     context "when super is called with a block" do
