@@ -31,7 +31,8 @@ module Blogit
     # How do you want to handle comments for your blog?
     #   Valid options are :active_record, :disquss, or :no for none.
     #   (default: :active_record)
-    config_accessor(:include_comments) { :active_record }
+    config_accessor(:include_comments)
+    config.include_comments = :active_record
 
     ##
     # When using :disqus comments, what is the shortname of your forum?
@@ -40,7 +41,8 @@ module Blogit
 
     ##
     # Load a javascript-based share bar on each blog post?. (default: true)
-    config_accessor(:include_share_bar) { true }
+    config_accessor(:include_share_bar)
+    config.include_share_bar = true
 
     ##
     # Twitter username used in the share bar. (default: nil)
@@ -49,64 +51,75 @@ module Blogit
     ##
     # The name of the controller method we'll call to return the current blogger.
     #   (default: :current_user)
-    config_accessor(:current_blogger_method) { :current_user }
+    config_accessor(:current_blogger_method)
+    config.current_blogger_method = :current_user
 
     ##
     # What method do we call on blogger to return their display name? (default: :username)
-    config_accessor(:blogger_display_name_method) { :username }
+    config_accessor(:blogger_display_name_method)
+    config.blogger_display_name_method = :username
 
     ##
     # Which DateTime::FORMATS format do we use to display blog and comment publish time
     #   (default: :short)
-    config_accessor(:datetime_format) { :short }
+    config_accessor(:datetime_format)
+    config.datetime_format = :short
 
     ##
     # Number of {Blogit::Post posts} to show per page. This is a configuration for {https://github.com/amatsuda/kaminari Kaminari} (default: 5)
     #
     # Returns an Integer
-    config_accessor(:posts_per_page) { 5 }
+    config_accessor(:posts_per_page)
+    config.posts_per_page = 5
 
     ##
     # If set to true, the comments form will POST and DELETE to the comments
     # controller using AJAX calls.
     #
     # Returns true or false
-    config_accessor(:ajax_comments)  { true }
+    config_accessor(:ajax_comments)
+    config.ajax_comments = true
 
     ##
     # The default format for parsing the blog content.
     #
     # Defaults to :markdown
-    config_accessor(:default_parser) { :markdown }
+    config_accessor(:default_parser)
+    config.default_parser = :markdown
 
     ##
     # Should text within "```" or "`" be highlighted as code?
     # Defaults to true
     # @note - At the moment this only works when default_parser is :markdown
-    config_accessor(:highlight_code_syntax) { true }
+    config_accessor(:highlight_code_syntax)
+    config.highlight_code_syntax = true
 
     ##
     # The renderer used for code highlighting
     # Defaults to :albino
-    config_accessor(:syntax_highlighter) { :albino }
+    config_accessor(:syntax_highlighter)
+    config.syntax_highlighter = :albino
 
     ##
     # When using redcarpet as content parser, pass these options as defaults
     #
     # Defaults to {REDCARPET_OPTIONS}
-    config_accessor(:redcarpet_options) { REDCARPET_OPTIONS }
+    config_accessor(:redcarpet_options)
+    config.redcarpet_options = REDCARPET_OPTIONS
 
     ##
     # List of states that will be visible to the public
     #
     # Defaults to ACTIVE_STATES
-    config_accessor(:active_states) { ACTIVE_STATES }
+    config_accessor(:active_states)
+    config.active_states = ACTIVE_STATES
 
     ##
     # List of states that will hide the posts from the public.
     #
     # Defaults to HIDDEN_STATES
-    config_accessor(:hidden_states) { HIDDEN_STATES }
+    config_accessor(:hidden_states)
+    config.hidden_states = HIDDEN_STATES
 
     ##
     # The title of the RSS feed for the blog posts
@@ -130,7 +143,8 @@ module Blogit
     # and RSS feed.
     #
     # Defaults to true
-    config_accessor(:show_post_description) { true }
+    config_accessor(:show_post_description)
+    config.show_post_description = true
 
 
     def default_parser_class

@@ -24,8 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "albino", ">=1.3.3"
   s.add_dependency "kaminari"
   s.add_dependency "jquery-rails"
-  s.add_dependency "acts-as-taggable-on", "~> 3.5.0"
-
+  s.add_dependency "acts-as-taggable-on"
 
   s.add_development_dependency "appraisal"
   s.add_development_dependency 'thor'
@@ -40,17 +39,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg"
 
   # Testing
-  s.add_development_dependency "codeclimate-test-reporter"
   s.add_development_dependency "spring", ">=1.3.6"
   s.add_development_dependency 'spring-commands-rspec'
   s.add_development_dependency "wwtd"
 
   s.add_development_dependency "autoprefixer-rails"
-  s.add_development_dependency "rspec-rails", '~> 3.3.0'
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rspec-collection_matchers"
-  s.add_development_dependency "rb-fsevent",  "~> 0.9.1" # OS X
   s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "growl"
   s.add_development_dependency "factory_girl"
   s.add_development_dependency "mocha"
   s.add_development_dependency "sass"

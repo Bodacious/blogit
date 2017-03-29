@@ -16,7 +16,7 @@ describe Blogit::Parsers::MarkdownParser do
     }
 
     it "requires pymentize to run" do
-      expect(system("which pygmentize")).not_to eql(false),
+      expect(system("which pygmentize > /dev/null")).not_to eql(false),
         "It seems that pygmentize is not installed on your system"
     end
 

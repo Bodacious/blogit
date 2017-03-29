@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
-  - 2.2.0
+  - 2.4.0
 
 addons:
   code_climate:
@@ -13,6 +13,7 @@ env:
   - DB=postgresql
 
 gemfile:
+  - gemfiles/rails_5.1.gemfile
   - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_4.1.gemfile
   - gemfiles/rails_4.0.gemfile
@@ -33,4 +34,7 @@ before_script:
 script:
   - bundle exec rake db:create RAILS_ENV=test
   - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rake spec
+  - bundle exec rspec
+
+after_success:
+  - bundle exec codeclimate-test-reporter

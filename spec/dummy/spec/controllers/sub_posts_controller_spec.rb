@@ -15,13 +15,13 @@ describe SubPostsController do
   describe "GET 'index'" do
     
     before do
-      Post.expects(:for_index).with(nil).returns(posts)
+      Post.expects(:for_index).with('').returns(posts)
     end
     
     let(:posts) { [] }
 
     def do_get(page=nil)
-      get :index, page: page 
+      get :index, params: { page: page.to_s }
     end
     
     context "when super is called with a block" do
@@ -40,14 +40,14 @@ describe SubPostsController do
   describe "GET 'tagged'" do
     
     before do
-      Post.expects(:for_index).with(nil).returns(posts)
+      Post.expects(:for_index).with('').returns(posts)
       posts.expects(:tagged_with).returns(posts)
     end
     
     let(:posts) { [] }
 
     def do_get(page=nil)
-      get :tagged, page: page, tag: "one"
+      get :tagged, params: { page: page.to_s, tag: "one" }
     end
     
     context "when super is called with a block" do
@@ -72,7 +72,7 @@ describe SubPostsController do
     let(:post) { [] }
 
     def do_get(id="1")
-      get :show, id: "1"
+      get :show, params: { id: "1" }
     end
     
     context "when super is called with a block" do

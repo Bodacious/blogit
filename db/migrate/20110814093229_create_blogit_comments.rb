@@ -1,4 +1,4 @@
-class CreateBlogitComments < ActiveRecord::Migration
+class CreateBlogitComments < ActiveRecord::Migration[4.2]
   def change
     create_table :blogit_comments do |t|
       t.string :name, null: false

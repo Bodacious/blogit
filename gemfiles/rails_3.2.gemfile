@@ -2,9 +2,14 @@
 
 source "http://rubygems.org"
 
-gem "rake"
 gem "rails", "~> 3.2.0"
+gem "rake"
+gem "rb-inotify"
+gem "acts-as-taggable-on"
+gem "simplecov"
+gem "codeclimate-test-reporter", "~> 1.0.0"
 gem "strong_parameters"
 gem "sass-rails", "~> 3.2.0"
+gem "test-unit", "~> 3.0"
 
 gemspec :path => "../"

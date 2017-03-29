@@ -25,8 +25,17 @@ if rails_version[0] == '3'
 end
 
 gem 'rake'
+case RUBY_PLATFORM
+when /darwin/
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'growl'
+when /linux/
+  gem 'rb-inotify'
+end
 
 # Removing this seems to break the Travis-CI flow.
 # The rake task "app:acts_as_taggable_on_engine:install:migrations" doesn't work
 # without it here
-gem 'acts-as-taggable-on', "~> 3.5.0"
+gem 'acts-as-taggable-on'
+gem 'simplecov'
+gem 'codeclimate-test-reporter', '~> 1.0.0'
