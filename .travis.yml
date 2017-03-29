@@ -13,7 +13,7 @@ env:
   - DB=postgresql
 
 gemfile:
-  - gemfiles/rails_5.1.0.beta1.gemfile
+  - gemfiles/rails_5.1.gemfile
   - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_4.1.gemfile
   - gemfiles/rails_4.0.gemfile

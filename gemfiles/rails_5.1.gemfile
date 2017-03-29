@@ -2,12 +2,12 @@
 
 source "http://rubygems.org"
 
-gem "rails", "~> 5.1.0.beta1"
 gem "rake"
 gem "rb-inotify"
 gem "acts-as-taggable-on"
 gem "simplecov"
 gem "codeclimate-test-reporter", "~> 1.0.0"
+gem "rails", "~> 5.1.0.rc1"
 gem "sass-rails", :github => "rails/sass-rails"
 gem "rails-controller-testing"
 
