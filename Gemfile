@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 # Declare your gem's dependencies in blogit.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

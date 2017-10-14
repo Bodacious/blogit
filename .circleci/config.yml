@@ -3,6 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2
+
 machine:
   ruby:
     version: 2.4.2
@@ -19,6 +20,11 @@ jobs:
 
       # We need this for Pygyments
       - image: sebastian256/latex
+
+    environment:
+      RAILS_ENV: test
+
+    parallelism: 3
 
     working_directory: ~/blogit
 
