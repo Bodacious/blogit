@@ -3,6 +3,9 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2
+machine:
+  ruby:
+    version: 2.4.2
 jobs:
   build:
     docker:
