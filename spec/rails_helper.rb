@@ -14,6 +14,8 @@ require 'factories'
 require 'support/authentication'
 require 'support/helpers/css_matchers'
 
+require 'rails-controller-testing'
+
 include Blogit
 
 RSpec.configure do |config|

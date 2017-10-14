@@ -6,6 +6,7 @@ require 'bundler/setup'
 require "blogit/version"
 require 'rspec/core'
 require 'rspec/core/rake_task'
+require 'tasks/edo/reports.rb'
 
 APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
 

@@ -21,7 +21,7 @@ Dummy::Application.configure do
     config.whiny_nils = true
   end
 
-  if Rails.version =~ /\A4/
+  if Rails.version >= "4.0"
     config.eager_load = false
   end
 
