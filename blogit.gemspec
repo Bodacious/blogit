@@ -52,6 +52,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "autoprefixer-rails"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rspec-collection_matchers"
+  # Required for CircleCI
+  s.add_development_dependency "rspec_junit_formatter"
   s.add_development_dependency "rails-controller-testing"
 
   s.add_development_dependency "rb-fsevent"
