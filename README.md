@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/KatanaCode/blogit.png)](http://codeclimate.com/github/KatanaCode/blogit/)
 [![Test Coverage](https://d3s6mut3hikguw.cloudfront.net/github/KatanaCode/blogit/badges/coverage.svg)](http://codeclimate.com/github/KatanaCode/blogit/badges/)
 [![Blogit](https://gemnasium.com/KatanaCode/blogit.png)](https://gemnasium.com/KatanaCode/blogit)
-[![Travis CI](https://travis-ci.org/KatanaCode/blogit.png)](https://travis-ci.org/KatanaCode/blogit.png)
+[![CircleCI](https://circleci.com/gh/KatanaCode/blogit/tree/master.svg?style=svg)](https://circleci.com/gh/KatanaCode/blogit/tree/master)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Bodacious/blogit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 # Blogit - A Rails blogging solution
