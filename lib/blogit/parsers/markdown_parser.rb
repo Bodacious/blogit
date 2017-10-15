@@ -14,7 +14,6 @@ class Blogit::Parsers::MarkdownParser
   #
   # Returns an HTML safe String
   def parsed
-    ensure_pygments_is_installed if Blogit::configuration.highlight_code_syntax
     markdown.render(content).html_safe
   end
 
@@ -35,25 +34,6 @@ class Blogit::Parsers::MarkdownParser
   def markdown
     @markdown ||= Redcarpet::Markdown.new(renderer,
       Blogit.configuration.redcarpet_options)
-  end
-
-
-  # Ensures pygments is installed
-  #
-  # Raises StandardError if pygments is not available on this machine
-  def ensure_pygments_is_installed
-    warning = <<-WARNING
-[blogit] The pygmentize command could not be found in your load path!
-         Please either do one of the following:
-
-         $ sudo easy_install Pygments # to install it
-
-         or
-
-         set config.highlight_code_syntax to false in your blogit.rb config file.
-
-WARNING
-    raise warning unless which(:pygmentize)
   end
 
   # Check if an executable exists in the load path

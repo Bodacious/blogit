@@ -15,28 +15,21 @@ describe Blogit::Parsers::MarkdownParser do
       Blogit::Parsers::MarkdownParser.new("## Header\n\n``` ruby\nputs 'hello world'\n```")
     }
 
-    it "requires pymentize to run" do
-      expect(system("which pygmentize")).not_to eql(false),
-        "It seems that pygmentize is not installed on your system"
-    end
-
     context "when highlight_code_syntax is true" do
 
       before do
         Blogit::configuration.highlight_code_syntax = true
       end
 
-      it "should raise an exception if pygments isn't installed" do
-        original_path = ENV['PATH']
-        ENV['PATH']   = ""
-        expect { parser.parsed }.to raise_error(RuntimeError)
-        ENV["PATH"] = original_path
-      end
+      # it "should raise an exception if pygments isn't installed" do
+      #   original_path = ENV['PATH']
+      #   ENV['PATH']   = ""
+      #   expect { parser.parsed }.to raise_error(RuntimeError)
+      #   ENV["PATH"] = original_path
+      # end
 
       it "should highlight code syntax" do
-        expect(parser.parsed).to match(
-        Regexp.new("<h2>Header</h2>\n<div class=\"highlight\"><pre><span class=\"nb\">puts</span> <span class=\"s1\">&#39;hello world&#39;</span>\n</pre>\n</div>\n")
-        )
+        expect(Nokogiri::HTML(parser.parsed).at_css(".highlight pre span.nb")).to be_present
       end
 
     end

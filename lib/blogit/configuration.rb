@@ -83,7 +83,7 @@ module Blogit
     # Should text within "```" or "`" be highlighted as code?
     # Defaults to true
     # @note - At the moment this only works when default_parser is :markdown
-    config_accessor(:highlight_code_syntax) { ENV['HIGHLIGHT_SYNTAX'] == true }
+    config_accessor(:highlight_code_syntax) { true }
 
     ##
     # The renderer used for code highlighting

@@ -20,8 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "RedCloth"
   s.add_dependency "redcarpet"
   s.add_dependency "nokogiri"
-  # TODO (breaking change): should be removed and added manually to project using it
-  s.add_dependency "albino"
+  s.add_dependency "pygments.rb"
   s.add_dependency "kaminari"
   s.add_dependency "jquery-rails"
   s.add_dependency "acts-as-taggable-on"
