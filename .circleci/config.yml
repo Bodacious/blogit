@@ -24,7 +24,7 @@ jobs:
     environment:
       RAILS_ENV: test
 
-    parallelism: 3
+    parallelism: 1
 
     working_directory: ~/blogit
 
