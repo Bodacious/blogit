@@ -7,6 +7,11 @@ version: 2
 machine:
   ruby:
     version: 2.4.2
+
+dependencies:
+  override:
+    - pip install -U Pygments
+
 jobs:
   build:
     docker:
@@ -19,7 +24,7 @@ jobs:
       - image: circleci/postgres:9.6
 
       # We need this for Pygyments
-      - image: sebastian256/latex
+      # - image: sebastian256/latex
 
     environment:
       RAILS_ENV: test
