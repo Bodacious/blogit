@@ -3,6 +3,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 
 require "rubygems"
 require 'bundler/setup'
+require 'bundler/gem_tasks'
 require "blogit/version"
 require 'rspec/core'
 require 'rspec/core/rake_task'

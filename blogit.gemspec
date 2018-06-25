@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "wwtd"
 
   s.add_development_dependency "autoprefixer-rails"
-  s.add_development_dependency "rspec-rails", '~> 3.3.0'
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rspec-collection_matchers"
   s.add_development_dependency "rb-fsevent",  "~> 0.9.1" # OS X
   s.add_development_dependency "guard-rspec"

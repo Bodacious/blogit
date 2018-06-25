@@ -24,7 +24,7 @@ if rails_version[0] == '3'
   gem 'strong_parameters'
 end
 
-gem 'rake'
+gem 'rake', '< 11.0'
 
 # Removing this seems to break the Travis-CI flow.
 # The rake task "app:acts_as_taggable_on_engine:install:migrations" doesn't work
