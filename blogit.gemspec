@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_runtime_dependency "rails", "< 6", ">= 4.0.13"
+  s.add_runtime_dependency "rails", "< 7", ">= 4.0.13"
   s.add_runtime_dependency "RedCloth", ">=4.2.9"
   s.add_runtime_dependency 'redcarpet', ">=2.0.1"
   s.add_runtime_dependency 'nokogiri', '>= 1.5.0'
