@@ -1,187 +1,174 @@
 require "rails_helper"
-  
+
 describe Blogit::Post do
-
-  context "should not be valid" do
-
-    context "if blogger" do
-      
-      let(:blog_post) { Blogit::Post.new }
+  context "when validating" do
+    context "with blogger" do
+      let(:blog_post) { described_class.new }
 
       it "is nil" do
         expect(blog_post).not_to be_valid
         expect(blog_post.errors[:blogger_id].size).to eq(1)
       end
-
     end
 
-    context "if title" do
-      before do
-        @blog_post = Blogit::Post.new
-      end
-
-      after do
-        expect(@blog_post).not_to be_valid
-        expect(@blog_post.errors[:title]).not_to be_blank
-      end
+    context "with title" do
+      let(:blog_post) { described_class.new }
 
       it "is less than 10 characters" do
-        @blog_post.title = "a" * 9
+        blog_post.title = "a" * 9
+
+        expect(blog_post).not_to be_valid
+        expect(blog_post.errors[:title]).not_to be_blank
       end
 
       it "is longer than 66 characters" do
-        @blog_post.title = "a" * 67
-      end
+        blog_post.title = "a" * 67
 
+        expect(blog_post).not_to be_valid
+        expect(blog_post.errors[:title]).not_to be_blank
+      end
     end
 
-    context "if body" do
-      before do
-        @blog_post = Blogit::Post.new
-      end
-
-      after do
-        expect(@blog_post).not_to be_valid
-        expect(@blog_post.errors[:body]).not_to be_blank
-      end
+    context "with body" do
+      let(:blog_post) { described_class.new }
 
       it "is blank" do
-        # defined above
+        expect(blog_post).not_to be_valid
+        expect(blog_post.errors[:body]).not_to be_blank
       end
 
       it "is shorter than 10 characters" do
-        @blog_post.body = "a" * 9
-      end
+        blog_post.body = "a" * 9
 
+        expect(blog_post).not_to be_valid
+        expect(blog_post.errors[:body]).not_to be_blank
+      end
     end
 
-    context "if state" do
-
-      before(:each) { @blog_post = Blogit::Post.new(state: nil) }
+    context "with state" do
+      let(:blog_post) { described_class.new(state: nil) }
 
       it "is nil" do
-        expect(@blog_post).not_to be_valid
-        expect(@blog_post.errors[:state].size).to eq(1)
+        expect(blog_post).not_to be_valid
+        expect(blog_post.errors[:state].size).to eq(1)
       end
-
     end
-
   end
 
   it "sets the first value of Blogit::configuration.hidden_states as default" do
-    expect(Blogit::Post.new.state).to eql(Blogit::configuration.hidden_states[0].to_s)
+    expect(described_class.new.state).to eql(Blogit::configuration.hidden_states[0].to_s)
   end
 
   context "with Blogit.configuration.comments == active_record" do
-    it "should allow comments" do
+    before do
+      User.blogs
+    end
+
+    let(:blog_post) { described_class.new }
+
+    it "allows comments" do
       Blogit.configure do |config|
         # this should be :active_record by default anyway
         config.include_comments = :active_record
       end
-      User.blogs
-      @blog_post = Blogit::Post.new
-      expect { @blog_post.comments }.not_to raise_exception
-    end
 
+      expect { blog_post.comments }.not_to raise_exception
+    end
   end
 
-  describe "blogger_display_name" do
+  describe "#blogger_display_name" do
+    before do
+      Blogit.configuration.blogger_display_name_method = :username
 
-    before :all do
       User.blogs
     end
+
+    let(:post) { described_class.new(blogger: user) }
 
     let(:user) { User.create! username: "Jeronimo", password: "password" }
 
-    it "should return the display name of the blogger if set" do
-      @post = user.blog_posts.build
-      expect(@post.blogger_display_name).to eq("Jeronimo")
+    it "returns the display name of the blogger if set" do
+      expect(post.blogger_display_name).to eq("Jeronimo")
+
       Blogit.configuration.blogger_display_name_method = :password
-      expect(@post.blogger_display_name).to eq("password")
+
+      expect(post.blogger_display_name).to eq("password")
     end
 
-    it "should return an empty string if blogger doesn't exist" do
-      Blogit.configuration.blogger_display_name_method = :username
-      @post = Blogit::Post.new
-      expect(@post.blogger_display_name).to eq("")
+    it "returns an empty string if blogger doesn't exist" do
+      post = described_class.new
+
+      expect(post.blogger_display_name).to eq("")
     end
 
-    it "should raise an exception if blogger display_name method doesn't exist" do
-      Blogit.configuration.blogger_display_name_method = :display_name
-      @post = user.blog_posts.build
-      expect { @post.blogger_display_name }.to raise_exception(Blogit::ConfigurationError)
-    end
+    it "raises an exception if blogger display_name method doesn't exist" do
+      Blogit.configuration.blogger_display_name_method = :notamethod
 
+      post = user.blog_posts.build
+      expect { post.blogger_display_name }.to raise_exception(Blogit::ConfigurationError)
+    end
   end
 
   describe "scopes" do
-
-    describe :for_index do
-
-      before :all do
-        Blogit::Post.destroy_all
+    describe ".for_index" do
+      before do
+        described_class.destroy_all
         15.times { |i| create(:post, :active, created_at: i.days.ago) }
       end
 
-      it "should order posts by created_at DESC" do
-        expect(Blogit::Post.for_index.first).to eq(Blogit::Post.order("created_at DESC").first)
+      it "orders posts by created_at DESC" do
+        expect(described_class.for_index.first).to eq(described_class.order("created_at DESC").first)
       end
 
-      it "should paginate posts in blocks of 5" do
-        expect(Blogit::Post.for_index.count).to eq(5)
+      it "paginates posts in blocks of 5" do
+        expect(described_class.for_index.count).to eq(5)
       end
 
-      it "should accept page no as an argument" do
-        expect(Blogit::Post.for_index(2)).to eq(Blogit::Post.active.
+      it "accepts page no as an argument" do
+        expect(described_class.for_index(2)).to eq(described_class.active.
           order("created_at DESC").offset(5).limit(5))
       end
 
-      it "should change the no of posts per page if paginates_per is set" do
-        Blogit::Post.paginates_per 3
-        expect(Blogit::Post.for_index.count).to eql(3)
+      it "changes the no of posts per page if paginates_per is set" do
+        described_class.paginates_per 3
+        expect(described_class.for_index.count).to be(3)
       end
-
     end
 
-    describe :active do
-      it 'should include only posts in active states blogit.config.active_states' do
+    describe ".active" do
+      it "includes only posts in active states blogit.config.active_states" do
         published_post = create(:post, :active)
-        expect(Blogit::Post.active).to include (published_post)
+        expect(described_class.active).to include (published_post)
       end
     end
   end
 
   describe "with Blogit.configuration.comments != active_record" do
+    before { User.blogs }
 
-    it "should not allow comments" do
+    it "does not allow comments" do
       Blogit.configure do |config|
         config.include_comments = :no
       end
-      User.blogs
-      @blog_post = Blogit::Post.new
-      expect { @blog_post.comments }.to raise_exception(RuntimeError)
+      blog_post = described_class.new
+      expect { blog_post.comments }.to raise_exception(RuntimeError)
     end
-
   end
 
-  describe :short_body do
-    
+  describe "#short_body" do
     let(:post) { build(:post) }
-    
+
     context "when Blogit.configuration.show_post_description is true" do
-      
       before do
         Blogit.configuration.show_post_description = true
       end
-      
+
       it "returns the Post's description" do
         expect(post.short_body).to eq(post.description)
       end
-      
     end
 
     context "when Blogit.configuration.show_post_description is false" do
-      
       before do
         Blogit.configuration.show_post_description = false
       end
@@ -189,42 +176,34 @@ describe Blogit::Post do
       it "returns the Post's description" do
         expect(post.short_body).to eq(post.body)
       end
-      
     end
-
   end
-  
+
   describe "blogger_twitter_username" do
-    
     let(:post) { build(:post) }
-    
+
     context "when the blogger responds to :twitter_username" do
-      
       before do
         class << post.blogger
           def twitter_username
-            "@gavin_morrice"
+            "@twitter-username"
           end
         end
       end
-      
+
       it "returns the blogger's twitter username" do
-        expect(post.blogger_twitter_username).to eql("@gavin_morrice")
+        expect(post.blogger_twitter_username).to eql("@twitter-username")
       end
-      
     end
-    
+
     context "when the blogger doesn't respond to :twitter_username" do
-      
       before do
-        Blogit.configuration.twitter_username = '@katana_code'
+        Blogit.configuration.twitter_username = "@twitter-username"
       end
 
       it "returns nil" do
         expect(post.blogger_twitter_username).to be_nil
       end
-      
     end
   end
-  
 end

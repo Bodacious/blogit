@@ -1,21 +1,19 @@
 module Blogit
-
   # This class handles the global configuration options for Blogit.
   #  When you run `rails g blogit:install` this will add an initializer file to
   #  config/initializers/blogit.rb with all of the default configurations applied.
   #
   #  You can read about each of the individual configuration options below.
   class Configuration
-
     include ActiveSupport::Configurable
 
     # An Array containing the default states for {Blogit::Post Posts} that are considered
     #   "active". ("Active" {Post posts} are those that can be viewed by the public).
-    ACTIVE_STATES = [:published]
+    ACTIVE_STATES = [:published].freeze
 
     # An Array containing the default states for {Blogit::Post Posts} that are considered
     #   "hidden". ("Hidden" {Post posts} are those that may not be viewed by the public).
-    HIDDEN_STATES = [:draft, :archive]
+    HIDDEN_STATES = %i(draft archive).freeze
 
     # When using redcarpet as content parser, pass these options as defaults.
     REDCARPET_OPTIONS = {
@@ -24,8 +22,8 @@ module Blogit
       autolink: true,
       no_intra_emphasis: true,
       fenced_code_blocks: true,
-      gh_blockcode: true,
-    }
+      gh_blockcode: true
+    }.freeze
 
     ##
     # How do you want to handle comments for your blog?
@@ -132,7 +130,6 @@ module Blogit
     # Defaults to true
     config_accessor(:show_post_description) { true }
 
-
     def default_parser_class
       "Blogit::Parsers::#{default_parser.to_s.classify}Parser".constantize
     end
@@ -145,6 +142,7 @@ module Blogit
     #
     def disqus_shortname=(shortname)
       return if shortname.blank?
+
       unless include_comments == :disqus
         blogit_warn "You've set config.disqus_shortname in your blogit config file but " \
          "config.include_comments is not set to :disqus"
@@ -168,30 +166,25 @@ module Blogit
       @rss_feed_description ||= "Latest from #{rails_app_name}"
     end
 
-
-
     private
 
+      # The name of this application derived from the app's engine name.
+      #   If your Rails app module is KatanaCode, the application name will be "Katana Code"
+      #
+      # Returns a String
+      def rails_app_name
+        Rails.application.engine_name.titleize
+      end
 
-    # The name of this application derived from the app's engine name.
-    #   If your Rails app module is KatanaCode, the application name will be "Katana Code"
-    #
-    # Returns a String
-    def rails_app_name
-      Rails.application.engine_name.titleize
-    end
-
-    # Print a warning message to $STDOUT with the prefix "[Blogit]: "
-    #
-    # Examples
-    #
-    #  blogit_warn("Blogit is not a toy!")
-    #  # => "[Blogit]: Blogit is not a toy!"
-    #
-    def blogit_warn(message)
-      warn "[Blogit]: #{message}"
-    end
-
+      # Print a warning message to $STDOUT with the prefix "[Blogit]: "
+      #
+      # Examples
+      #
+      #  blogit_warn("Blogit is not a toy!")
+      #  # => "[Blogit]: Blogit is not a toy!"
+      #
+      def blogit_warn(message)
+        warn "[Blogit]: #{message}"
+      end
   end
-
 end

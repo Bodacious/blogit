@@ -1,8 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/blogit.png)](http://badge.fury.io/rb/blogit)
-[![Code Climate](https://codeclimate.com/github/KatanaCode/blogit.png)](http://codeclimate.com/github/KatanaCode/blogit/)
-[![Test Coverage](https://d3s6mut3hikguw.cloudfront.net/github/KatanaCode/blogit/badges/coverage.svg)](http://codeclimate.com/github/KatanaCode/blogit/badges/)
-[![Blogit](https://gemnasium.com/KatanaCode/blogit.png)](https://gemnasium.com/KatanaCode/blogit)
-[![Travis CI](https://travis-ci.org/KatanaCode/blogit.png)](https://travis-ci.org/KatanaCode/blogit.png)
+[![Code Climate](https://codeclimate.com/github/bodacious/blogit.png)](http://codeclimate.com/github/bodacious/blogit/)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Bodacious/blogit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 # Blogit - A Rails blogging solution
@@ -84,7 +81,7 @@ Full documentation and how-to guides available here: https://bodacious.github.io
 
 ## Issues
 
-If you discover a problem with Blogit, please report it via the Issues tab on Github. 
+If you discover a problem with Blogit, please report it via the Issues tab on Github.
 
 **Remember** to search the [issues list](https://github.com/bodacious/blogit/issues) first in case your issue has already been raised
 by another Githuber

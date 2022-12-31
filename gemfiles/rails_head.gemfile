@@ -2,9 +2,9 @@
 
 source "http://rubygems.org"
 
-gem "rake"
-gem "rails", :github => "rails/rails"
-gem "sass-rails", "~> 5.0.0"
 gem "arel", "7.0.0.alpha"
+gem "rails", github: "rails/rails"
+gem "rake"
+gem "sass-rails", "~> 5.0.0"
 
-gemspec :path => "../"
+gemspec path: "../"

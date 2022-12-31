@@ -1,23 +1,21 @@
-require 'spec_helper'
+require "spec_helper"
 
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV['RAILS_ENV'] = 'test'
+ENV["RAILS_ENV"] = "test"
 ENV["DB"] ||= "sqlite"
 
-require File.expand_path('../dummy/config/environment', __FILE__)
+require File.expand_path("dummy/config/environment", __dir__)
+require "rspec/rails"
 
-require 'rspec/rails'
+require "rails-controller-testing"
+Rails::Controller::Testing.install
 
-require 'factory_girl'
-require 'factories'
+require "factory_bot"
+require "factories"
 
-require 'support/authentication'
-require 'support/helpers/css_matchers'
-
-include Blogit
+require "support/authentication"
+require "support/helpers/css_matchers"
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end
-

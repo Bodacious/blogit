@@ -1,6 +1,5 @@
 # These configuration options can be used to customise the behaviour of Blogit
 Blogit.configure do |config|
-
   # What kind of comments do you want to add to your blog ? (:active_record, :disqus or :no)
   config.include_comments = :active_record
 
@@ -60,6 +59,5 @@ Blogit.configure do |config|
   config.active_states = [:published]
 
   # List of states that will hide the posts from the public.
-  config.hidden_states = [:draft, :archive]
-
+  config.hidden_states = %i(draft archive)
 end

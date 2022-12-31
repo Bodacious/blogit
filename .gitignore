@@ -24,3 +24,6 @@ spec/dummy/db/migrate/*acts_as_taggable_on_engine*
 spec/dummy/db/schema.rb
 spec/dummy/*.sqlite3
 
+spec/examples
+coverage
+.rubocop-https*

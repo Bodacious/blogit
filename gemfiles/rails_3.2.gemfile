@@ -2,9 +2,9 @@
 
 source "http://rubygems.org"
 
-gem "rake"
 gem "rails", "~> 3.2.0"
-gem "strong_parameters"
+gem "rake"
 gem "sass-rails", "~> 3.2.0"
+gem "strong_parameters"
 
-gemspec :path => "../"
+gemspec path: "../"

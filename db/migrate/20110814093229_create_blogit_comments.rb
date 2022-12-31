@@ -1,4 +1,4 @@
-class CreateBlogitComments < ActiveRecord::Migration
+class CreateBlogitComments < ActiveRecord::Migration[7.0]
   def change
     create_table :blogit_comments do |t|
       t.string :name, null: false
@@ -10,6 +10,5 @@ class CreateBlogitComments < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :blogit_comments, :post_id
   end
 end

@@ -1,6 +1,6 @@
 sqlite: &sqlite
   adapter: sqlite3
-  database: db/<%= ENV["RAILS_ENV"] %>.m.sqlite3
+  database: db/<%= Rails.env %>.sqlite3
 
 mysql: &mysql
   adapter: mysql2
@@ -20,7 +20,7 @@ defaults: &defaults
   timeout: 5000
   host: localhost
   # Use sqlite by default
-  <<: *<%= ENV['DB'] || "sqlite" %>
+  <<: *sqlite
 
 development:
   <<: *defaults

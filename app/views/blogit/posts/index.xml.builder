@@ -1,6 +1,5 @@
 xml.instruct!
-xml.urlset :xmlns => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
-
+xml.urlset xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" do
   # Show the blog index in sitemap
   xml.url do
     xml.loc posts_url
@@ -8,11 +7,10 @@ xml.urlset :xmlns => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   end
 
   # Include a record for each active post
-  for post in @posts
+  @posts.each do |post|
     xml.url do
       xml.loc post_url(post)
       xml.lastmod post.updated_at.xmlschema
     end
   end
-
 end

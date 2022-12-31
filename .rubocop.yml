@@ -1,0 +1,14 @@
+AllCops:
+  NewCops: enable
+
+inherit_from:
+  - https://raw.githubusercontent.com/cookpad/global-style-guides/main/.rubocop.ruby.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+
+RSpec/MultipleExpectations:
+  Enabled: false

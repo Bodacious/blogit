@@ -1,7 +1,6 @@
 xml.instruct!
 xml.rss "version" => "2.0", "xmlns:dc" => "htt://purl.org/dc/elements/1.1/" do
   xml.channel do
-
     xml.title blogit_conf.rss_feed_title
 
     xml.description blogit_conf.rss_feed_description
@@ -15,7 +14,6 @@ xml.rss "version" => "2.0", "xmlns:dc" => "htt://purl.org/dc/elements/1.1/" do
     xml.language I18n.locale
 
     @posts.each do |post|
-
       xml.item do
         xml.title post.title
         xml.description format_content(post.short_body).html_safe
@@ -24,7 +22,6 @@ xml.rss "version" => "2.0", "xmlns:dc" => "htt://purl.org/dc/elements/1.1/" do
         xml.guid post_url(post)
         xml.author post.blogger_display_name
       end
-
     end
   end
 end
