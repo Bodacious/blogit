@@ -107,6 +107,6 @@ Blogit was developed by [Katana Code](http://katanacode.com) with generous contr
 * [Stewart McKee](https://github.com/stewartmckee)
 * [Karsten Silkenbäumer](https://github.com/kassi)
 
-Blogit is currently owned and maintained by @bodacious
+Blogit is currently owned and maintained by [@bodacious](https://github.com/bodacious)
 
 [GithubLicence]: https://github.com/bodacious/blogit/blob/master/MIT-LICENSE
