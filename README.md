@@ -9,6 +9,8 @@
 
 Blogit lets you add a blog to your Ruby on Rails application in just a few seconds.
 
+_NOTE: Blogit is currently dormant. I'm interested in spending some time to release version 2.0 for modern Rails environments, but development is going slowly due to very limiting time constraints._. If you're interested in helping to update for version 2.0, please get in touch.
+
 ## Installation
 
 Add these to your Gemfile
@@ -74,23 +76,23 @@ Blogit provides you with the following features
 
 We're designing blogit to be as modular as possible, so you can pick and choose the elements you'd like to use.
 
-* For **Admin CMS** please install [blogit-admin](https://github.com/katanacode/blogit-admin)
+* For **Admin CMS** please install [blogit-admin](https://github.com/bodacious/blogit-admin)
 
 ## Documentation
 
-Full documentation and how-to guides available here: http://blogit.katanacode.com
+Full documentation and how-to guides available here: https://bodacious.github.io/blogit
 
 ## Issues
 
-If you discover a problem with Blogit, please let us know about it.
+If you discover a problem with Blogit, please report it via the Issues tab on Github. 
 
-**Remember** to search the [issues list](https://github.com/KatanaCode/blogit/issues) first in case your issue has already been raised
+**Remember** to search the [issues list](https://github.com/bodacious/blogit/issues) first in case your issue has already been raised
 by another Githuber
 
 
 ## Contributing
 
-Want to help make Blogit better?. Please read the [contribution guidelines](http://blogit.katanacode.com/doc/file.Contributing.html) for more information on how you can contribute.
+Want to help make Blogit better?. Please read the [contribution guidelines](http://bodacious.github.io/blogit/doc/file.Contributing.html) for more information on how you can contribute.
 
 ## Legal Stuff
 
@@ -105,10 +107,6 @@ Blogit was developed by [Katana Code](http://katanacode.com) with generous contr
 * [Stewart McKee](https://github.com/stewartmckee)
 * [Karsten Silkenbäumer](https://github.com/kassi)
 
-## About Katana Code
+Blogit is currently owned and maintained by @bodacious
 
-Katana Code are [web developers based in Edinburgh, Scotland](http://katanacode.com/ "Katana Code").
-
-Copyright © 2011 - 2015 [Katana Code Ltd.](http://katanacode.com)
-
-  [GithubLicence]: https://github.com/KatanaCode/blogit/blob/master/MIT-LICENSE
+[GithubLicence]: https://github.com/bodacious/blogit/blob/master/MIT-LICENSE
