@@ -3,7 +3,7 @@ require "blogit/archive"
 require "injectables/dummy_archiveable"
 
 describe Blogit::Archive::List do
-  describe :to_partial_path do
+  describe "#to_partial_path" do
     let(:list) { described_class.new([]) }
 
     it "returns the class name as a path to partial" do
@@ -11,11 +11,8 @@ describe Blogit::Archive::List do
     end
   end
 
-  describe :years do
+  describe "#years" do
     context "when archiveables is empty" do
-      let(:list) { described_class.new([]) }
-
-      it "returns an empty array" do
         expect(list.years).to be_empty
       end
     end

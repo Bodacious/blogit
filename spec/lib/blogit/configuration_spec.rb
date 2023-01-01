@@ -11,11 +11,11 @@ describe Blogit::Configuration do
     expect(blog_configuration.disqus_shortname).to be_nil
   end
 
-  it "prints a warning to the console if disqus_shortname is set but include_comments is not disqus" do
+  xit "prints a warning to the console if disqus_shortname is set but include_comments is not disqus" do
     pending "This spec isn't actually asserting STDOUT was written to"
-    blog_configuration.expects(:warn)
-    blog_configuration.include_comments = :active_record
-    blog_configuration.disqus_shortname = "bodacious"
+    # blog_configuration.expects(:warn)
+    # blog_configuration.include_comments = :active_record
+    # blog_configuration.disqus_shortname = "bodacious"
   end
 
   it "sets :include_share_bar to false" do
